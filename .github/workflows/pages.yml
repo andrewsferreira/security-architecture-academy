@@ -1,0 +1,94 @@
+# Publicação da página institucional no GitHub Pages — SOMENTE MANUAL.
+#
+# Não há gatilho em push. O deploy só ocorre quando o mantenedor executa este
+# workflow em Actions → "Deploy to GitHub Pages" → "Run workflow".
+#
+# Gates (qualquer falha impede o deploy):
+#   1. Execução manual na main, com a confirmação "publicar".
+#   2. A main aponta exatamente para o commit da tag informada.
+#   3. RELEASE-MANIFEST.yml: árvore idêntica à exportada (SHA-256 de cada
+#      arquivo), modo final, autorização do mantenedor e commit de origem.
+#   4. Atribuição de autoria: arquivos, mensagens de commit e site compilado.
+#   5. Contraste, build e links internos.
+name: Deploy to GitHub Pages
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: 'Digite "publicar" para confirmar a publicação autorizada pelo mantenedor'
+        required: true
+        type: string
+      release_tag:
+        description: "Tag publicada (ex.: v0.0.1) — precisa apontar para o commit atual da main"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Validar e construir
+    if: github.ref == 'refs/heads/main' && inputs.confirm == 'publicar'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Commit da publicação autorizada
+        env:
+          RELEASE_TAG: ${{ inputs.release_tag }}
+        run: |
+          if ! printf '%s' "$RELEASE_TAG" | grep -Eq '^v[0-9]+\.[0-9]+\.[0-9]+$'; then
+            echo "::error::release_tag inválida: use vMAJOR.MINOR.PATCH"; exit 1
+          fi
+          tag_commit="$(git rev-parse --verify "refs/tags/${RELEASE_TAG}^{commit}")" || { echo "::error::tag ${RELEASE_TAG} não encontrada"; exit 1; }
+          if [ "$tag_commit" != "$GITHUB_SHA" ]; then
+            echo "::error::a main ($GITHUB_SHA) não é o commit da tag ${RELEASE_TAG} ($tag_commit)"; exit 1
+          fi
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: requirements*.txt
+      - run: pip install -r requirements.txt
+      - name: Manifesto da publicação (integridade e autorização)
+        env:
+          RELEASE_TAG: ${{ inputs.release_tag }}
+        run: python scripts/verify_release_manifest.py --require-approval --tag "$RELEASE_TAG"
+      - name: Atribuição de autoria (arquivos e commits)
+        run: python scripts/check_attribution.py --commits HEAD
+      - name: Contraste WCAG
+        run: python scripts/check_contrast.py
+      - name: Build
+        run: python -m zensical build --clean
+      - name: Links internos
+        run: python scripts/check_links.py
+      - name: Atribuição de autoria no site compilado
+        run: python scripts/check_attribution.py --path site
+      - uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: site
+
+  deploy:
+    name: Publicar
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

@@ -1,0 +1,31 @@
+# Build e caches
+site/
+.cache/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Ambientes
+.venv/
+venv/
+node_modules/
+
+# Sistema / editores
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Segurança: nunca versionar segredos
+.env
+.env.*
+*.pem
+*.key
+
+# Pesquisa privada: cópias de livros, normas e PDFs de terceiros nunca são versionadas
+private-research/*
+!private-research/README.md
+*.pdf
+*.epub
+build/

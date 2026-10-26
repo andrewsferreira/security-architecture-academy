@@ -1,0 +1,10 @@
+# Ocorrências legítimas que casam com as expressões de crédito de
+# scripts/check_attribution.py — por exemplo, uma aula que trata de código
+# gerado por IA como tema técnico. Cada entrada exige caminho, um trecho da
+# linha e a justificativa. Créditos de autoria a ferramentas nunca entram aqui.
+#
+# allow:
+#   - path: docs/complements/ai-security/01-exemplo.md
+#     contains: "código gerado por IA"
+#     reason: tema da aula (riscos de código gerado por modelos), não crédito de autoria
+allow: []

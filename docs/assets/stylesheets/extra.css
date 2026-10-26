@@ -1,0 +1,268 @@
+/* ==========================================================================
+   Security Architecture Academy — camada de customização do tema Zensical
+   Documentação: docs/internal/design-system.md
+
+   Princípios:
+   1. Somente tokens e componentes do projeto; o tema base não é reescrito.
+   2. Toda cor vem de um token (--saa-*), mapeado para as variáveis do tema.
+   3. Classes próprias usam o prefixo .saa- para não colidir com o tema.
+   ========================================================================== */
+
+/* ---------- 1. Fontes (auto-hospedadas, SIL OFL 1.1) ---------- */
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 400; font-display: swap; src: url("../fonts/inter-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-style: italic; font-weight: 400; font-display: swap; src: url("../fonts/inter-latin-400-italic.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 500; font-display: swap; src: url("../fonts/inter-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 600; font-display: swap; src: url("../fonts/inter-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 700; font-display: swap; src: url("../fonts/inter-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url("../fonts/jetbrains-mono-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 500; font-display: swap; src: url("../fonts/jetbrains-mono-latin-500-normal.woff2") format("woff2"); }
+
+/* ---------- 2. Tokens de marca (independentes de tema) ---------- */
+:root {
+  --saa-navy-950: #081426;
+  --saa-navy-900: #0c1d36;
+  --saa-navy-800: #132b4f;
+  --saa-navy-700: #1b3a68;
+  --saa-blue-700: #174ba3;
+  --saa-blue-600: #1e5ec8;
+  --saa-blue-500: #2f74e8;
+  --saa-blue-400: #5b93f0;
+  --saa-blue-300: #8db4f5;
+  --saa-cyan-700: #0a7083;
+  --saa-cyan-600: #0b7f93;
+  --saa-cyan-500: #0e9fb8;
+  --saa-cyan-400: #2cc4da;
+  --saa-slate-900: #0f172a;
+  --saa-slate-700: #334155;
+  --saa-slate-600: #475569;
+  --saa-slate-500: #64748b;
+  --saa-slate-400: #94a3b8;
+  --saa-slate-300: #cbd5e1;
+  --saa-slate-200: #e2e8f0;
+  --saa-slate-100: #f1f5f9;
+  --saa-off-white: #f7f9fc;
+
+  /* Escala de espaçamento (base 4px) */
+  --saa-space-1: 0.25rem;
+  --saa-space-2: 0.5rem;
+  --saa-space-3: 0.75rem;
+  --saa-space-4: 1rem;
+  --saa-space-6: 1.5rem;
+  --saa-space-8: 2rem;
+  --saa-space-12: 3rem;
+  --saa-space-16: 4rem;
+
+  --saa-radius-sm: 6px;
+  --saa-radius-md: 10px;
+  --saa-radius-lg: 16px;
+
+  --md-text-font: "Inter";
+  --md-code-font: "JetBrains Mono";
+}
+
+/* ---------- 3. Tokens semânticos — Light Mode ---------- */
+[data-md-color-scheme="default"] {
+  --saa-bg: #ffffff;
+  --saa-surface: var(--saa-off-white);
+  --saa-surface-raised: #ffffff;
+  --saa-text: var(--saa-slate-900);
+  --saa-text-muted: var(--saa-slate-600);
+  --saa-primary: var(--saa-blue-600);
+  --saa-secondary: var(--saa-navy-800);
+  --saa-accent: var(--saa-cyan-700);
+  --saa-border: var(--saa-slate-200);
+  --saa-success: #15803d;
+  --saa-warning: #b45309;
+  --saa-error: #b91c1c;
+  --saa-info: var(--saa-blue-600);
+
+  --md-primary-fg-color: var(--saa-navy-900);
+  --md-primary-fg-color--light: var(--saa-navy-700);
+  --md-primary-fg-color--dark: var(--saa-navy-950);
+  --md-primary-bg-color: #ffffff;
+  --md-primary-bg-color--light: rgba(255, 255, 255, 0.72);
+  /* cyan-700: AA (≥ 4.5:1) também sobre o fundo translúcido do item ativo da navegação */
+  --md-accent-fg-color: var(--saa-cyan-700);
+  --md-accent-fg-color--transparent: rgba(10, 112, 131, 0.1);
+  --md-typeset-a-color: var(--saa-blue-600);
+  --md-default-fg-color: var(--saa-slate-900);
+  --md-footer-bg-color: var(--saa-navy-900);
+  --md-footer-bg-color--dark: var(--saa-navy-950);
+}
+
+/* ---------- 4. Tokens semânticos — Dark Mode ---------- */
+[data-md-color-scheme="slate"] {
+  --md-hue: 216;
+  --saa-bg: #0a1424;
+  --saa-surface: #0f1d33;
+  --saa-surface-raised: #132440;
+  --saa-text: #e6ebf3;
+  --saa-text-muted: #a3b1c6;
+  --saa-primary: var(--saa-blue-300);
+  --saa-secondary: var(--saa-slate-300);
+  --saa-accent: var(--saa-cyan-400);
+  --saa-border: #22385a;
+  --saa-success: #4ade80;
+  --saa-warning: #fbbf24;
+  --saa-error: #f87171;
+  --saa-info: var(--saa-blue-300);
+
+  --md-primary-fg-color: var(--saa-navy-900);
+  --md-primary-fg-color--light: var(--saa-navy-700);
+  --md-primary-fg-color--dark: var(--saa-navy-950);
+  --md-primary-bg-color: #ffffff;
+  --md-primary-bg-color--light: rgba(255, 255, 255, 0.72);
+  --md-accent-fg-color: var(--saa-cyan-400);
+  --md-accent-fg-color--transparent: rgba(44, 196, 218, 0.12);
+  --md-typeset-a-color: var(--saa-blue-300);
+  --md-default-bg-color: var(--saa-bg);
+  --md-default-fg-color--light: rgba(230, 235, 243, 0.72);
+  --md-code-bg-color: #0f1d33;
+  --md-footer-bg-color: var(--saa-navy-950);
+  --md-footer-bg-color--dark: #050d19;
+}
+
+/* ---------- 5. Tipografia ---------- */
+.md-typeset {
+  font-size: 0.82rem;
+  line-height: 1.7;
+  font-feature-settings: "cv11", "ss01";
+}
+.md-typeset h1 { font-weight: 700; letter-spacing: -0.02em; color: var(--saa-text); }
+.md-typeset h2 { font-weight: 650; letter-spacing: -0.01em; margin-top: 2.2em; }
+.md-typeset h3 { font-weight: 600; }
+.md-typeset h4 { font-weight: 600; letter-spacing: 0; text-transform: none; }
+.md-typeset code, .md-typeset kbd, .md-typeset pre { font-variant-ligatures: none; }
+.md-typeset figcaption { color: var(--saa-text-muted); font-size: 0.72rem; max-width: 40rem; }
+.md-header__topic:first-child { font-weight: 600; letter-spacing: -0.005em; }
+
+/* ---------- 6. Acessibilidade ---------- */
+:focus-visible { outline: 2px solid var(--saa-accent); outline-offset: 2px; border-radius: 2px; }
+.md-typeset a:focus-visible { outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+
+/* ---------- 7. Tabelas ---------- */
+.md-typeset table:not([class]) { border: 1px solid var(--saa-border); border-radius: var(--saa-radius-sm); font-size: 0.74rem; }
+.md-typeset table:not([class]) th { background: var(--saa-surface); color: var(--saa-text); font-weight: 600; }
+
+/* ---------- 8. Cards (grid cards do tema, com acabamento do projeto) ---------- */
+.md-typeset .grid.cards > ul > li,
+.md-typeset .grid > .card {
+  border: 1px solid var(--saa-border);
+  border-radius: var(--saa-radius-md);
+  background: var(--saa-surface-raised);
+  padding: var(--saa-space-4) var(--saa-space-4) var(--saa-space-3);
+}
+.md-typeset .grid.cards > ul > li:hover,
+.md-typeset .grid > .card:hover { border-color: var(--saa-primary); box-shadow: none; }
+.md-typeset .grid.cards .twemoji.lg,
+.md-typeset .grid.cards .saa-card-icon { color: var(--saa-primary); }
+.md-typeset .grid.cards > ul > li > p:first-child strong { font-size: 0.86rem; }
+
+/* ---------- 9. Status editorial e nível (texto + ícone, nunca só cor) ---------- */
+.saa-status, .saa-level {
+  display: inline-flex; align-items: center; gap: 0.35em;
+  padding: 0.1em 0.65em; border-radius: 999px;
+  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.02em; line-height: 1.6;
+  border: 1px solid currentColor; white-space: nowrap; vertical-align: middle;
+}
+.saa-status::before { content: ""; width: 0.5em; height: 0.5em; border-radius: 50%; background: currentColor; }
+.saa-status--planned { color: var(--saa-text-muted); }
+.saa-status--planned::before { background: transparent; border: 1.5px solid currentColor; }
+.saa-status--draft { color: var(--saa-warning); }
+.saa-status--in-review { color: var(--saa-info); }
+.saa-status--published { color: var(--saa-success); }
+.saa-status--deprecated { color: var(--saa-error); text-decoration: line-through; }
+.saa-level { color: var(--saa-secondary); border-color: var(--saa-border); background: var(--saa-surface); }
+
+/* Metadados de aula, laboratório e avaliação (trilha + nível + duração) */
+.md-typeset .saa-lesson-meta {
+  display: flex; flex-wrap: wrap; align-items: center; gap: var(--saa-space-2);
+  margin: calc(-1 * var(--saa-space-4)) 0 var(--saa-space-4);
+}
+.saa-tier {
+  display: inline-flex; align-items: center; gap: 0.35em;
+  padding: 0.1em 0.65em; border-radius: 999px;
+  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.02em; line-height: 1.6;
+  border: 1px solid currentColor; white-space: nowrap;
+}
+.saa-tier::before { content: ""; width: 0.5em; height: 0.5em; border-radius: 2px; background: currentColor; }
+.saa-tier--fundamental { color: var(--saa-accent); }
+.saa-tier--professional { color: var(--saa-primary); }
+.saa-tier--architect { color: var(--saa-secondary); }
+.saa-meta { font-size: 0.72rem; color: var(--saa-text-muted); }
+
+/* Ícone de status do tema na navegação: só "em revisão" é sinalizado */
+.md-status--published, .md-status--deprecated { display: none; }
+.md-status--in-review::after { background-color: var(--saa-info); }
+
+/* ---------- 10. Homepage ---------- */
+@media screen and (min-width: 76.25em) {
+  .md-main:has(.saa-hero) .md-content__inner { max-width: 70rem; margin-inline: auto; }
+}
+
+.saa-hero {
+  display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: var(--saa-space-8); align-items: center;
+  padding: var(--saa-space-8) 0 var(--saa-space-6);
+  border-bottom: 1px solid var(--saa-border);
+  margin-bottom: var(--saa-space-6);
+}
+.md-typeset .saa-eyebrow {
+  margin: 0 0 var(--saa-space-2); color: var(--saa-accent);
+  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+}
+.md-typeset .saa-hero h1 {
+  display: block; margin: 0 0 var(--saa-space-4);
+  font-size: clamp(1.9rem, 4.2vw, 2.7rem); line-height: 1.08; letter-spacing: -0.03em; font-weight: 700;
+}
+.md-typeset .saa-lead { font-size: 0.98rem; line-height: 1.65; color: var(--saa-text-muted); max-width: 34rem; }
+.md-typeset .saa-actions { display: flex; flex-wrap: wrap; gap: var(--saa-space-3); margin-top: var(--saa-space-6); }
+.md-typeset .saa-actions .md-button { margin: 0; border-radius: var(--saa-radius-sm); font-weight: 600; padding: 0.55em 1.25em; }
+.md-typeset .saa-hero__art img { width: 100%; height: auto; }
+.md-typeset .saa-section-intro { color: var(--saa-text-muted); max-width: 42rem; margin-top: -0.4em; }
+
+/* Trilha de níveis */
+.saa-journey { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--saa-space-4); counter-reset: level; }
+.md-typeset .saa-journey__step {
+  position: relative; padding: var(--saa-space-4) var(--saa-space-4) var(--saa-space-3);
+  border: 1px solid var(--saa-border); border-top: 3px solid var(--saa-primary);
+  border-radius: var(--saa-radius-md); background: var(--saa-surface-raised);
+}
+.md-typeset .saa-journey__step:nth-child(2) { border-top-color: var(--saa-blue-500); }
+.md-typeset .saa-journey__step:nth-child(3) { border-top-color: var(--saa-accent); }
+.md-typeset .saa-journey__step h3 { margin: 0 0 var(--saa-space-2); font-size: 0.95rem; }
+.md-typeset .saa-journey__step h3::before {
+  counter-increment: level; content: "Nível " counter(level);
+  display: block; font-size: 0.62rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--saa-text-muted); margin-bottom: 0.2em;
+}
+.md-typeset .saa-journey__step p { margin: 0 0 var(--saa-space-2); font-size: 0.76rem; color: var(--saa-text-muted); }
+
+/* Roadmap compacto */
+.md-typeset .saa-roadmap { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--saa-border); }
+.md-typeset .saa-roadmap li { margin: 0 0 var(--saa-space-4) 0; padding-left: var(--saa-space-6); position: relative; }
+.md-typeset .saa-roadmap li::before {
+  content: ""; position: absolute; left: -7px; top: 0.45em; width: 12px; height: 12px; border-radius: 50%;
+  background: var(--saa-bg); border: 2px solid var(--saa-border);
+}
+.md-typeset .saa-roadmap li.is-done::before { background: var(--saa-success); border-color: var(--saa-success); }
+.md-typeset .saa-roadmap li.is-current::before { background: var(--saa-bg); border-color: var(--saa-primary); box-shadow: 0 0 0 3px var(--saa-surface); }
+
+/* ---------- 11. Diagramas ---------- */
+.md-typeset .mermaid { text-align: center; margin: var(--saa-space-6) 0; }
+.md-typeset figure.saa-diagram { width: 100%; margin: var(--saa-space-6) auto; }
+/* Sem largura explícita, o tema ajusta a figura à largura da legenda e reduz os diagramas largos.
+   O SVG do Mermaid mantém max-width igual ao tamanho natural, então diagramas estreitos não são ampliados. */
+.md-typeset figure.saa-diagram > .mermaid { width: 100%; }
+
+/* ---------- 12. Responsividade ---------- */
+@media screen and (max-width: 59.9844em) {
+  .saa-hero { grid-template-columns: 1fr; padding-top: var(--saa-space-4); }
+  .saa-hero__art { order: -1; max-width: 26rem; }
+}
+@media screen and (max-width: 44.9844em) {
+  .saa-journey { grid-template-columns: 1fr; }
+}

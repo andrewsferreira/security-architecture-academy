@@ -1,0 +1,20 @@
+// Markdown lint — https://github.com/DavidAnson/markdownlint
+// Regras ajustadas à sintaxe do Zensical (admonitions, tabs, cards e md_in_html).
+{
+  "config": {
+    "default": true,
+    "MD013": false,                       // comprimento de linha: parágrafos não são quebrados
+    "MD033": false,                       // HTML é usado em layouts (hero, cards, figure, picture)
+    "MD041": false,                       // README inicia com o banner em HTML
+    "MD046": false,                       // admonitions e tabs usam conteúdo indentado
+    "MD030": false,                       // grid cards usam "-   " (3 espaços) por convenção do tema
+    "MD007": { "indent": 4 },             // listas aninhadas com 4 espaços (Python-Markdown)
+    "MD024": { "siblings_only": true },
+    "MD025": { "front_matter_title": "" },
+    "MD036": false,                       // títulos de cards em negrito
+    "MD051": false,                       // âncoras validadas no site gerado (check_links.py)
+    "MD060": false
+  },
+  "globs": ["**/*.md"],
+  "ignores": ["site/**", ".venv/**", "node_modules/**", ".cache/**", "includes/**"]
+}

@@ -1,0 +1,72 @@
+# Gerado por scripts/export_landing.py — não editar. Verificado por scripts/verify_release_manifest.py.
+schema_version: 1
+release: R0
+version: 0.0.1
+tag: v0.0.1
+title: Página institucional
+mode: final
+status: approved
+scope:
+  pages:
+  - docs/index.md
+  modules: []
+  lessons: []
+  note: 'Página institucional: objetivo do projeto e fundamentos que serão tratados. Nenhuma aula publicada.'
+approval:
+  approved_by:
+  - Andrews Ferreira
+  approved_on: '2026-10-26'
+  approved_source_commit: 652e8b43d0371aba4fcc4ce9d99f9d5b75670c46
+  note: Criação e publicação automática da página básica do projeto no GitHub Pages, citando o objetivo e os fundamentos que serão tratados, solicitadas pelo mantenedor em 2026-10-26.
+source:
+  repository: andrewsferreira/security-architecture-academy-dev
+  commit: 652e8b43d0371aba4fcc4ce9d99f9d5b75670c46
+  dirty: false
+public_commit: null
+files:
+  .editorconfig: f77bc966bd7bb06b5d27d21715047d53ae7c04002d5df234dc1535bd2dce6d89
+  .gitattributes: 274a808c4e2d4af14eed463abaceea18bc69bcdac0e545505a57113e50a14a73
+  .github/workflows/ci.yml: 731713aeac4b0a1b20c4c6127462be8048b966d8886bf8c92f094ca8c86b55bc
+  .github/workflows/pages.yml: c99212e136b4cda70a29e93e7b7c7758c2602aa0d6e1ffd841b5d5ec89db6698
+  .gitignore: 46b75b71c6b7b438c51e8c988163efb21fa001b38d71038e25487946432c8e83
+  .markdownlint-cli2.jsonc: fa0f864dc2897833ca5adedc56753984fba82496e6fe74a364ee45864c1585a4
+  LICENSE: d557539df68e771cc1eedcc91d13f70fca930e508d11eedcafa4b15db49e3744
+  LICENSE-CODE: 083db2c29bbde280a12b804a7b46501754a8df1805710133c3bf7af4751079af
+  README.md: 28f22dd65d722bfd0c19f8bfdc961af1fd899d0934fcab0046d5772f2dc2b18d
+  docs/assets/branding/apple-touch-icon.png: 8b996784fc493914660968831178fd70ce76ca4f59aa4e114493c57ff644dbac
+  docs/assets/branding/banner-dark.svg: 9caf1795287f8306efe8abfe9811852dafaffd3ed94558d3e29383382aa953a8
+  docs/assets/branding/banner-light.svg: 4d0ef388a8fff1d400f0e3d9ebada4336349dfe405faa12b61bf24e831b8cb53
+  docs/assets/branding/banner.svg: 9caf1795287f8306efe8abfe9811852dafaffd3ed94558d3e29383382aa953a8
+  docs/assets/branding/favicon.png: 41983ca881e992c2005f14ea1e7ab56573f9cefb58c9b353c89661ea0c14c206
+  docs/assets/branding/icon.svg: ba1d046ce45ce2d5f89d44dbf3ca8aa73fe251fbb53410ebb602ce36fd8d9b5e
+  docs/assets/branding/logo-dark.svg: 34f5e71f0cacf21717f1c047e3e98a69e31efbb219f28b4a8e8029cdc667a73b
+  docs/assets/branding/logo-light.svg: 67b8fd1c607fa06018af3c61a94af8d5784b3ccb3d751ff5facefb36089ddb52
+  docs/assets/branding/logo.svg: 67b8fd1c607fa06018af3c61a94af8d5784b3ccb3d751ff5facefb36089ddb52
+  docs/assets/branding/social-preview.png: 9378eb0c6df446c017dfb5f3fe22522024d5990f2de035acc8f52a013b1f7414
+  docs/assets/branding/social-preview.svg: f4b9ec48bd41973bcc780ba525ea6520538863c333b53b75a0c5e5b708cbe941
+  docs/assets/branding/symbol-dark.svg: c256e84115d58b3df4917228699f621c2ba58f115296bc50287565d2b0e38ad1
+  docs/assets/branding/symbol-light.svg: 8b339f93500ba9d75a6de867a450f2b1d1447613717bed73c96fdd334893d867
+  docs/assets/fonts/LICENSE-Inter-OFL.txt: 3b0a5fca3d17942cde889069889dedbbbd075e9b599968c82a95f4d944e9b345
+  docs/assets/fonts/LICENSE-JetBrainsMono-OFL.txt: 403581b69dac5cff4079205e01c6b467e56af449ecbd7247693ddb1baafa005b
+  docs/assets/fonts/inter-latin-400-italic.woff2: 7ea9d2f1274cebee837f0c6eebb426c18fbb2333a6b6da4d02ec5cf47db7fb8e
+  docs/assets/fonts/inter-latin-400-normal.woff2: 8909904ab6c872eb994093482a88a28eca2cd95912d7b6fecd72103b0dc07edc
+  docs/assets/fonts/inter-latin-500-normal.woff2: f3779f1efccc4bdcdf9c0a02ab95bf6bd092ed09c48c08cedc725889edd1d19f
+  docs/assets/fonts/inter-latin-600-normal.woff2: f9a06e79cd3a2a20951c0f0e28f66dd0e6d3fda73911d640a2125c8fcb78f21a
+  docs/assets/fonts/inter-latin-700-normal.woff2: 6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491
+  docs/assets/fonts/jetbrains-mono-latin-400-normal.woff2: 14425ba9c695763c1547f48a206b7aa60350a33ae23de09f0407877f3fcd89eb
+  docs/assets/fonts/jetbrains-mono-latin-500-normal.woff2: cb182feeed4d798ff6961d3c79f7026279448fca0676438aaecb21f3fc39553a
+  docs/assets/images/hero-architecture-dark.svg: a766c4c6f690937131ebe343c5b0e09e5394e5ae7040ad03a01c0f54262aeee0
+  docs/assets/images/hero-architecture-light.svg: 691f85ed4609e60255d3f5475711f3de3dc588f3765342d80a01e8024e525d33
+  docs/assets/javascripts/a11y.js: 94c84ea388baf3fe5d434d05ac985d16e79ee17820af8842e760e0f5d1239892
+  docs/assets/stylesheets/extra.css: 1fdefa426de33c95c8495a8c9239626c5928f7cd8afadf96ca421263123bd244
+  docs/index.md: ea5a9fa3555083832cccbbd20e4fdad387a05d667e8d0f8c529261b03b14bbc7
+  includes/abbreviations.md: 7535554a6b2422e88f2b7e78d60b919b4f60bb4ea7b17cb4018eb45ef918fa7d
+  overrides/main.html: 3e894c1af96bdffe3fa95428f6bd15c47452a4ee40cab29296894c68818c5097
+  requirements.txt: 60d7d3b583620dc2b679916bb8e2b5e3b11077cfe381d18d062485c05c4a7917
+  scripts/_common.py: 6100fa45b2f32c893726a77f6738df39221afb2522b66a10a82db31748ff02b3
+  scripts/attribution_allowlist.yml: c7984df95612b347df1e250be14b02512e8de4f64499f0c04c2397068906e575
+  scripts/check_attribution.py: 4697a2a9ae2820a2f67ecfee4fc5e13ebd7a586e6a48b67dcfca3bc560430f46
+  scripts/check_contrast.py: fbf06e9879caeaeea4fbb033dc018d588e49485c6d7fda3aa1a338f4c9243568
+  scripts/check_links.py: 411e2dbab5556abfdcb95f9fa832beda45a0bf5e303a01b129fdc3d1159168f4
+  scripts/verify_release_manifest.py: 32ae16e2dee1dcaaa1ae8397e6d9c065768b44c6beff264ec28704419c05a402
+  zensical.toml: 367cd0f8da47920da586a46fd72ea8dd65ff5ffe362baa4fd642a315036ea8a0

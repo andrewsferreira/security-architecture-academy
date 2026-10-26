@@ -1,0 +1,10 @@
+* text=auto eol=lf
+
+*.png  binary
+*.woff2 binary
+
+# Arquivos gerados: diffs menos ruidosos em revisões
+assets/branding/*.svg        linguist-generated=true -diff
+docs/assets/branding/*       linguist-generated=true -diff
+docs/assets/images/hero-*.svg linguist-generated=true -diff
+docs/assets/fonts/*.woff2    linguist-vendored=true

@@ -1,0 +1,54 @@
+# Validação da página institucional em pushes e Pull Requests.
+# Segurança: permissões somente leitura, sem secrets, sem pull_request_target.
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    name: Markdown lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: DavidAnson/markdownlint-cli2-action@21c1be1b93ad9ed58fa840aacc3f279cde2a72ff # v24.2.0
+
+  validate:
+    name: Manifesto, atribuição, build e links
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: requirements*.txt
+      - run: pip install -r requirements.txt
+      - name: Manifesto da publicação (integridade)
+        run: python scripts/verify_release_manifest.py
+      - name: Atribuição de autoria
+        run: python scripts/check_attribution.py
+      - name: Contraste WCAG
+        run: python scripts/check_contrast.py
+      - name: Build do portal
+        run: python -m zensical build --clean
+      - name: Links internos
+        run: python scripts/check_links.py
+      - name: Atribuição de autoria no site compilado
+        run: python scripts/check_attribution.py --path site

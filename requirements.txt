@@ -1,0 +1,4 @@
+# Dependências do portal e das validações (versões fixadas para builds reproduzíveis).
+# Atualizações são propostas pelo Dependabot e validadas pelo CI antes do merge.
+zensical==0.0.71
+PyYAML==6.0.3

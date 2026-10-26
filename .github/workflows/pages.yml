@@ -5,7 +5,8 @@
 #
 # Gates (qualquer falha impede o deploy):
 #   1. Execução manual na main, com a confirmação "publicar".
-#   2. A main aponta exatamente para o commit da tag informada.
+#   2. A main é exatamente o commit informado na execução (release_commit) e,
+#      se a tag existir no repositório, a tag aponta para esse mesmo commit.
 #   3. RELEASE-MANIFEST.yml: árvore idêntica à exportada (SHA-256 de cada
 #      arquivo), modo final, autorização do mantenedor e commit de origem.
 #   4. Atribuição de autoria: arquivos, mensagens de commit e site compilado.
@@ -20,7 +21,11 @@ on:
         required: true
         type: string
       release_tag:
-        description: "Tag publicada (ex.: v0.0.1) — precisa apontar para o commit atual da main"
+        description: "Versão publicada (ex.: v0.1.0) — precisa coincidir com o RELEASE-MANIFEST.yml"
+        required: true
+        type: string
+      release_commit:
+        description: "SHA completo (40 caracteres) do commit a publicar — precisa ser o commit atual da main"
         required: true
         type: string
 
@@ -42,16 +47,26 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
-      - name: Commit da publicação autorizada
+      - name: Commit autorizado
         env:
           RELEASE_TAG: ${{ inputs.release_tag }}
+          RELEASE_COMMIT: ${{ inputs.release_commit }}
         run: |
           if ! printf '%s' "$RELEASE_TAG" | grep -Eq '^v[0-9]+\.[0-9]+\.[0-9]+$'; then
             echo "::error::release_tag inválida: use vMAJOR.MINOR.PATCH"; exit 1
           fi
-          tag_commit="$(git rev-parse --verify "refs/tags/${RELEASE_TAG}^{commit}")" || { echo "::error::tag ${RELEASE_TAG} não encontrada"; exit 1; }
-          if [ "$tag_commit" != "$GITHUB_SHA" ]; then
-            echo "::error::a main ($GITHUB_SHA) não é o commit da tag ${RELEASE_TAG} ($tag_commit)"; exit 1
+          if ! printf '%s' "$RELEASE_COMMIT" | grep -Eq '^[0-9a-f]{40}$'; then
+            echo "::error::release_commit deve ser o SHA completo do commit"; exit 1
+          fi
+          if [ "$RELEASE_COMMIT" != "$GITHUB_SHA" ]; then
+            echo "::error::a main ($GITHUB_SHA) não é o commit informado ($RELEASE_COMMIT)"; exit 1
+          fi
+          if tag_commit="$(git rev-parse --verify --quiet "refs/tags/${RELEASE_TAG}^{commit}")"; then
+            if [ "$tag_commit" != "$GITHUB_SHA" ]; then
+              echo "::error::a tag ${RELEASE_TAG} aponta para $tag_commit, não para $GITHUB_SHA"; exit 1
+            fi
+          else
+            echo "::notice::tag ${RELEASE_TAG} ainda não existe; publicação vinculada ao commit $GITHUB_SHA"
           fi
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:

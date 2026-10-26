@@ -16,18 +16,18 @@ approval:
   approved_by:
   - Andrews Ferreira
   approved_on: '2026-10-26'
-  approved_source_commit: 652e8b43d0371aba4fcc4ce9d99f9d5b75670c46
+  approved_source_commit: 35dd66ad37d9932eeecbb9c82b4c5e6f2cf544f5
   note: Criação e publicação automática da página básica do projeto no GitHub Pages, citando o objetivo e os fundamentos que serão tratados, solicitadas pelo mantenedor em 2026-10-26.
 source:
   repository: andrewsferreira/security-architecture-academy-dev
-  commit: 652e8b43d0371aba4fcc4ce9d99f9d5b75670c46
+  commit: 35dd66ad37d9932eeecbb9c82b4c5e6f2cf544f5
   dirty: false
 public_commit: null
 files:
   .editorconfig: f77bc966bd7bb06b5d27d21715047d53ae7c04002d5df234dc1535bd2dce6d89
   .gitattributes: 274a808c4e2d4af14eed463abaceea18bc69bcdac0e545505a57113e50a14a73
   .github/workflows/ci.yml: 731713aeac4b0a1b20c4c6127462be8048b966d8886bf8c92f094ca8c86b55bc
-  .github/workflows/pages.yml: c99212e136b4cda70a29e93e7b7c7758c2602aa0d6e1ffd841b5d5ec89db6698
+  .github/workflows/pages.yml: 66857e1ebe2ee51ecae39e02c6a7b3b1582baed0b44a423c11cfbe1ff4d8e9c7
   .gitignore: 46b75b71c6b7b438c51e8c988163efb21fa001b38d71038e25487946432c8e83
   .markdownlint-cli2.jsonc: fa0f864dc2897833ca5adedc56753984fba82496e6fe74a364ee45864c1585a4
   LICENSE: d557539df68e771cc1eedcc91d13f70fca930e508d11eedcafa4b15db49e3744

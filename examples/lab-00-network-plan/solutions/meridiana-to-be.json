@@ -1,0 +1,30 @@
+{
+  "name": "Meridiana Distribuidora — To-Be de referência (fictício)",
+  "allocations": {
+    "datacenter": "10.10.0.0/16",
+    "aws-portal": "10.20.0.0/16",
+    "cd-contagem": "10.31.0.0/20"
+  },
+  "zones": [
+    {"name": "internet", "trust": "untrusted", "environment": "internet"},
+    {"name": "dc-usuarios", "trust": "internal", "environment": "datacenter", "cidr": "10.10.0.0/24", "hosts": 150, "roles": ["users"]},
+    {"name": "dc-servidores", "trust": "restricted", "environment": "datacenter", "cidr": "10.10.10.0/25", "hosts": 50, "roles": ["servers"]},
+    {"name": "dc-gestao", "trust": "management", "environment": "datacenter", "cidr": "10.10.20.0/27", "hosts": 10, "roles": ["management"]},
+    {"name": "dc-acesso-remoto", "trust": "dmz", "environment": "datacenter", "cidr": "10.10.30.0/28", "hosts": 4, "roles": ["servers"]},
+    {"name": "vpc-portal-publica", "trust": "dmz", "environment": "aws-portal", "cidr": "10.20.0.0/26", "hosts": 4, "roles": ["servers"]},
+    {"name": "vpc-portal-app", "trust": "internal", "environment": "aws-portal", "cidr": "10.20.1.0/26", "hosts": 8, "roles": ["servers"]},
+    {"name": "cd-contagem-usuarios", "trust": "internal", "environment": "cd-contagem", "cidr": "10.31.0.0/25", "hosts": 50, "roles": ["users"]},
+    {"name": "cd-contagem-coletores", "trust": "internal", "environment": "cd-contagem", "cidr": "10.31.1.0/26", "hosts": 30, "roles": ["devices"]}
+  ],
+  "flows": [
+    {"from": "internet", "to": "dc-acesso-remoto", "ports": [443], "purpose": "VPN com MFA para fornecedores e colaboradores"},
+    {"from": "dc-acesso-remoto", "to": "dc-gestao", "ports": [443], "purpose": "sessões encaminhadas ao bastion com gravação"},
+    {"from": "dc-gestao", "to": "dc-servidores", "ports": [22, 3389], "purpose": "administração a partir do bastion"},
+    {"from": "internet", "to": "vpc-portal-publica", "ports": [443], "purpose": "clientes B2B via balanceador com WAF"},
+    {"from": "vpc-portal-publica", "to": "vpc-portal-app", "ports": [8443], "purpose": "balanceador para a aplicação"},
+    {"from": "vpc-portal-app", "to": "dc-servidores", "ports": [8443], "purpose": "API de integração com o ERP, mTLS"},
+    {"from": "dc-usuarios", "to": "dc-servidores", "ports": [443], "purpose": "ERP e WMS via HTTPS"},
+    {"from": "cd-contagem-usuarios", "to": "dc-servidores", "ports": [443], "purpose": "ERP e WMS via HTTPS"},
+    {"from": "cd-contagem-coletores", "to": "dc-servidores", "ports": [9100], "purpose": "coletores para o serviço do WMS"}
+  ]
+}

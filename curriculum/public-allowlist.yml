@@ -1,0 +1,60 @@
+# =============================================================================
+# Allowlist do repositório público
+#
+# Só os caminhos listados aqui podem chegar ao repositório público. Dentro deles,
+# scripts/export_release.py ainda remove tudo o que estiver fora do escopo
+# cumulativo da release (módulos, atividades, diagramas e conceitos de releases
+# futuras). Qualquer arquivo novo fora desta lista fica, por padrão, apenas no
+# repositório de desenvolvimento.
+#
+# files: caminhos exatos · directories: prefixos (o conteúdo versionado inteiro)
+# =============================================================================
+
+schema_version: 1
+
+files:
+  - README.md
+  - GETTING-STARTED.md
+  - CURRICULUM.md
+  - CHANGELOG.md
+  - ROADMAP.md
+  - CONTRIBUTING.md
+  - CODE_OF_CONDUCT.md
+  - SECURITY.md
+  - PROJECT-STANDARDS.md
+  - LICENSING.md
+  - LICENSE
+  - LICENSE-CODE
+  - Makefile
+  - zensical.toml
+  - requirements.txt
+  - requirements-dev.txt
+  - requirements-brand.txt
+  - .editorconfig
+  - .gitattributes
+  - .gitignore
+  - .markdownlint-cli2.jsonc
+  - private-research/README.md
+
+directories:
+  - .github/
+  - assets/
+  - authoring/
+  - curriculum/
+  - docs/
+  - examples/
+  - includes/
+  - overrides/
+  - research/
+  - scripts/
+  - tests/
+
+# Exceções dentro dos diretórios acima: ficam só no desenvolvimento.
+exclude:
+  - scripts/export_landing.py            # gera a página institucional anterior à Release 1
+  - docs/internal/fundamentals-final-editorial-review.md   # relatório interno de revisão editorial
+
+# Ficam só no desenvolvimento (documentado para revisão; a allowlist já os exclui):
+# PROGRESS.md, RELEASE-PLAN.md, RELEASE-*-REVIEW-PACKAGE.md, FINAL-CONSOLIDATION-REPORT.md,
+# ACADEMIC-COMPLETENESS-REPORT.md, PUBLICATION-READINESS-CHECKLIST.md,
+# FUNDAMENTALS-PUBLICATION-READINESS.md e arquivos locais de ferramentas.

@@ -1,0 +1,15 @@
+sequenceDiagram
+  accTitle: Envio de um arquivo cifrado e assinado com criptografia híbrida
+  accDescr: A remetente gera uma chave simétrica aleatória e cifra o arquivo com ela usando um algoritmo autenticado. Em seguida cifra essa chave com a chave pública do destinatário e assina o hash do arquivo com sua própria chave privada. O destinatário decifra a chave simétrica com sua chave privada, decifra o arquivo e verifica a assinatura com a chave pública da remetente, confirmando origem e integridade.
+
+  participant A as Ana (remetente)
+  participant B as Bruno (destinatário)
+  Note over A: Gera chave simétrica aleatória K
+  A->>A: Cifra o arquivo com K (AES-GCM)
+  A->>A: Cifra K com a chave pública de Bruno
+  A->>A: Assina o hash do arquivo com a chave privada de Ana
+  A->>B: Arquivo cifrado + K cifrada + assinatura
+  B->>B: Decifra K com a chave privada de Bruno
+  B->>B: Decifra o arquivo com K e verifica a tag de autenticação
+  B->>B: Verifica a assinatura com a chave pública de Ana
+  Note over B: Confidencialidade (só Bruno lê) · Integridade · Origem (foi Ana)

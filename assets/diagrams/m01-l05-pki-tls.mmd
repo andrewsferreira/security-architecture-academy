@@ -1,0 +1,27 @@
+flowchart TB
+  accTitle: Cadeia de certificados e validação durante o handshake TLS
+  accDescr: A autoridade certificadora raiz, mantida offline, assina o certificado da autoridade intermediária, que assina o certificado do servidor. O navegador confia na raiz porque ela está no seu repositório de confiança. Durante o handshake TLS, o servidor apresenta seu certificado e o da intermediária; o navegador valida a cadeia até a raiz e confere o nome, a validade e a revogação; só com a cadeia válida o handshake é concluído e as chaves de sessão passam a proteger o tráfego da aplicação.
+
+  subgraph PKI["Infraestrutura de chaves públicas"]
+    ROOT["CA raiz<br/><small>offline · chave em HSM</small>"]
+    INT["CA intermediária<br/><small>emite certificados de servidor</small>"]
+    LEAF["Certificado do servidor<br/><small>portal.example.com · validade curta</small>"]
+  end
+  subgraph CLIENT["Cliente"]
+    STORE["Repositório de confiança<br/><small>contém a CA raiz</small>"]
+    VAL["Validação<br/><small>cadeia · nome · validade · revogação</small>"]
+  end
+  SRV["Servidor TLS"]
+
+  ROOT -- "assina" --> INT -- "assina" --> LEAF
+  LEAF --> SRV
+  SRV -- "apresenta certificado + intermediária" --> VAL
+  STORE -. "âncora de confiança" .-> VAL
+  VAL -- "cadeia válida → handshake concluído" --> SRV
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef identity stroke:#2f74e8,stroke-width:2px
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  class PKI,CLIENT zone
+  class ROOT,INT,LEAF identity
+  class VAL control

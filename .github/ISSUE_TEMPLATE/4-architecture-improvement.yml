@@ -1,0 +1,34 @@
+name: Propose architecture improvements
+description: Melhoria em diagrama, padrão, reference architecture ou na abordagem de um conteúdo.
+title: "[Arquitetura] "
+labels: ["type: proposal", "status: needs-triage"]
+body:
+  - type: input
+    id: target
+    attributes:
+      label: Conteúdo ou diagrama afetado
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Limitação atual
+      description: O que está incompleto, impreciso ou poderia ser melhor?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposta
+      description: Descreva a alteração. Diagramas em Mermaid são bem-vindos.
+    validations:
+      required: true
+  - type: textarea
+    id: tradeoffs
+    attributes:
+      label: Trade-offs
+      description: Que custos, riscos ou complexidade a proposta adiciona?
+  - type: textarea
+    id: references
+    attributes:
+      label: Referências

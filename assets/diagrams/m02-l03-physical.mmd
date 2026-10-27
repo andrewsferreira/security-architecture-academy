@@ -1,0 +1,34 @@
+flowchart TB
+  accTitle: Visão física híbrida do acesso administrativo da Aurora Pagamentos
+  accDescr: A mesma arquitetura lógica é realizada de duas formas. No datacenter, o bastion é uma máquina virtual em uma VLAN de gestão, alcançando os servidores de pagamento por regras específicas do firewall interno. Na AWS, o acesso aos workloads de pagamento usa o AWS Systems Manager Session Manager, sem portas de entrada abertas; as chamadas de API ficam no CloudTrail, o conteúdo das sessões no CloudWatch Logs, e ambos seguem para o SIEM. O provedor de identidade e o broker de acesso privilegiado são comuns aos dois ambientes.
+
+  subgraph SHARED["Serviços comuns"]
+    IDP["Microsoft Entra ID<br/><small>federado ao AD · MFA FIDO2</small>"]
+    PAM["Broker PAM<br/><small>cluster em alta disponibilidade</small>"]
+    SIEM["SIEM corporativo"]
+  end
+  subgraph DC["Datacenter Aurora"]
+    BAS["VM bastion<br/><small>VLAN de gestão · 2 instâncias</small>"]
+    FW{{"Firewall interno<br/><small>só bastion → zona PCI na porta 22</small>"}}
+    SRV["Servidores Linux de pagamento"]
+  end
+  subgraph AWS["AWS — conta de produção PCI"]
+    SSM["Systems Manager<br/>Session Manager"]
+    EC2["Instâncias EC2 de pagamento<br/><small>sem portas de entrada</small>"]
+    CT["CloudTrail<br/><small>chamadas de API</small>"]
+    CWL["CloudWatch Logs<br/><small>conteúdo das sessões</small>"]
+  end
+
+  PAM --> BAS --> FW --> SRV
+  PAM --> SSM --> EC2
+  IDP -. "autenticação" .-> PAM
+  BAS -. "logs" .-> SIEM
+  SSM -. "auditoria" .-> CT -.-> SIEM
+  SSM -. "logs de sessão" .-> CWL -.-> SIEM
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef identity stroke:#2f74e8,stroke-width:2px
+  class SHARED,DC,AWS zone
+  class PAM,BAS,FW,SSM,SIEM control
+  class IDP identity

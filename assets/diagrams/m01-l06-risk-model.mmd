@@ -1,0 +1,30 @@
+flowchart TB
+  accTitle: Relação entre ameaça, vulnerabilidade, ativo, exposição, impacto, risco e controle
+  accDescr: Uma fonte de ameaça explora uma vulnerabilidade de um ativo que está exposto. A probabilidade de isso acontecer, combinada com o impacto no negócio, determina o risco. Controles preventivos reduzem a probabilidade, atuando sobre a exposição e a vulnerabilidade; controles detectivos e corretivos reduzem o impacto. O risco que permanece após os controles é o risco residual, que precisa de um dono.
+
+  T(["Fonte de ameaça<br/><small>ex.: grupo de ransomware</small>"])
+  V["Vulnerabilidade<br/><small>ex.: VPN sem MFA</small>"]
+  AS[("Ativo<br/><small>ex.: ERP e backups</small>")]
+  E["Exposição<br/><small>alcançável da internet?</small>"]
+  P["Probabilidade"]
+  IM["Impacto no negócio<br/><small>parada, multa, reputação</small>"]
+  R{{"Risco"}}
+  RR["Risco residual<br/><small>com dono e prazo</small>"]
+  CP["Controles preventivos"]
+  CD["Controles detectivos e corretivos"]
+
+  T -- "explora" --> V
+  V -- "em" --> AS
+  E --> P
+  V --> P
+  AS --> IM
+  P --> R
+  IM --> R
+  CP -. "reduzem" .-> P
+  CD -. "reduzem" .-> IM
+  R -- "após controles" --> RR
+
+  classDef untrusted stroke:#dc2626,stroke-width:2px,stroke-dasharray:5 3
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  class T untrusted
+  class CP,CD control

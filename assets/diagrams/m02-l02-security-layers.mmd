@@ -1,0 +1,32 @@
+flowchart LR
+  accTitle: Camadas da arquitetura e serviços de segurança transversais
+  accDescr: A governança de segurança — princípios, padrões, apetite a risco e exceções — fica no topo e orienta todas as camadas. As quatro camadas da arquitetura corporativa aparecem empilhadas — negócio (processos e capacidades), dados (informações e sua classificação), aplicações (sistemas e integrações) e tecnologia (infraestrutura, rede e plataformas). Ao lado, uma coluna de serviços de segurança atravessa todas as camadas — identidade e acesso, proteção de dados e chaves, proteção de rede e borda, registro e monitoramento, gestão de vulnerabilidades. Cada camada consome os serviços em vez de implementá-los isoladamente, e a governança recebe a evidência de que os serviços estão sendo usados.
+
+  GOV{{"Governança de segurança<br/><small>princípios · padrões · apetite a risco · exceções</small>"}}
+  subgraph EA["Camadas da arquitetura"]
+    direction TB
+    BIZ["Negócio<br/><small>processos · capacidades</small>"]
+    DAT["Dados<br/><small>informações · classificação</small>"]
+    APP["Aplicações<br/><small>sistemas · integrações</small>"]
+    TEC["Tecnologia<br/><small>infraestrutura · rede · plataformas</small>"]
+    BIZ --- DAT --- APP --- TEC
+  end
+  subgraph SVC["Serviços de segurança transversais"]
+    direction TB
+    S1["Identidade e acesso"]
+    S2["Proteção de dados e chaves"]
+    S3["Proteção de rede e borda"]
+    S4["Registro e monitoramento"]
+    S5["Gestão de vulnerabilidades"]
+    S1 ~~~ S2 ~~~ S3 ~~~ S4 ~~~ S5
+  end
+  GOV --> EA
+  GOV --> SVC
+  EA -. "consomem" .-> SVC
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef identity stroke:#2f74e8,stroke-width:2px
+  class EA,SVC zone
+  class GOV,S2,S3,S4,S5 control
+  class S1 identity

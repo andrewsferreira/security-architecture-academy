@@ -1,0 +1,32 @@
+flowchart TB
+  accTitle: Fluxo conceitual do pagamento por link da Aurora Pagamentos
+  accDescr: O lojista cria um link de pagamento no portal autenticado. O comprador abre o link na internet e informa os dados do cartão em uma página hospedada pela Aurora, de modo que o lojista nunca recebe os dados do cartão. A Aurora autoriza a transação com a adquirente e avisa o lojista por um webhook assinado. O ambiente de dados de cartão fica isolado do portal do lojista.
+
+  LOJ(["Lojista"])
+  COMP(["Comprador"])
+  subgraph NET["Internet"]
+    LOJ
+    COMP
+  end
+  subgraph AUR["Aurora — zona de aplicação"]
+    PORT["Portal do lojista"]
+    LINK["Serviço de links"]
+  end
+  subgraph CDE["Aurora — ambiente de dados de cartão"]
+    CHK["Página de pagamento hospedada"]
+    AUTH["Autorização"]
+  end
+  ADQ["Adquirente"]
+
+  LOJ -- "cria link (autenticado)" --> PORT --> LINK
+  COMP -- "abre o link" --> CHK
+  CHK -- "dados do cartão" --> AUTH --> ADQ
+  AUTH -- "resultado" --> LINK
+  LINK -- "webhook assinado" --> LOJ
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef untrusted stroke:#dc2626,stroke-width:2px,stroke-dasharray:5 4
+  class NET,AUR,CDE zone
+  class CHK,AUTH control
+  class COMP untrusted

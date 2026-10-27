@@ -1,0 +1,34 @@
+flowchart LR
+  accTitle: Propriedades de segurança e mecanismos típicos que as realizam
+  accDescr: Confidencialidade é realizada por controle de acesso e criptografia. Integridade, por hashes, assinaturas e controles de alteração. Disponibilidade, por redundância e capacidade. Autenticidade, por autenticação de usuários e de origem de mensagens. Autorização, por políticas de acesso. Não repúdio, por assinaturas digitais e registros protegidos. Responsabilização, por identidades individuais e trilhas de auditoria.
+
+  subgraph P["Propriedade"]
+    C["Confidencialidade"]
+    I["Integridade"]
+    A["Disponibilidade"]
+    AU["Autenticidade"]
+    AZ["Autorização"]
+    NR["Não repúdio"]
+    AC["Responsabilização"]
+  end
+  subgraph M["Mecanismos típicos"]
+    M1["Controle de acesso · criptografia"]
+    M2["Hash · MAC · assinatura · controle de mudanças"]
+    M3["Redundância · capacidade · backup"]
+    M4["Autenticação de usuários e de origem"]
+    M5["Políticas de acesso · RBAC/ABAC"]
+    M6["Assinatura digital · logs protegidos"]
+    M7["Identidade individual · trilha de auditoria"]
+  end
+  C --> M1
+  I --> M2
+  A --> M3
+  AU --> M4
+  AZ --> M5
+  NR --> M6
+  AC --> M7
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  class P,M zone
+  class M1,M2,M3,M4,M5,M6,M7 control

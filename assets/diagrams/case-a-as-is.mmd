@@ -1,0 +1,40 @@
+flowchart TB
+  accTitle: Arquitetura As-Is da Meridiana Distribuidora
+  accDescr: Usuários remotos, representantes comerciais e três fornecedores acessam a rede por uma VPN SSL autenticada apenas por senha. Na internet também chegam os clientes do portal B2B, hospedado na DMZ, que acessa diretamente o banco de dados do ERP na rede interna. A rede interna é plana: estações, servidores, controladores de domínio, ERP, servidor de arquivos, o servidor legado de etiquetas e o NAS de backup estão no mesmo segmento, que também recebe os três centros de distribuição por VPN site-to-site. O Active Directory sincroniza identidades com o Microsoft 365. Os logs ficam apenas nos próprios servidores, por sete dias.
+
+  subgraph INET["Internet"]
+    REM(["Usuários remotos e fornecedores"])
+    CLI(["Clientes B2B"])
+    M365["Microsoft 365"]
+  end
+  FW{{"Firewall de borda (NGFW)"}}
+  VPN["VPN SSL<br/><small>somente senha · 150 usuários</small>"]
+  subgraph DMZ["DMZ"]
+    PORTAL["Portal B2B<br/><small>Linux · Java</small>"]
+  end
+  subgraph FLAT["Rede interna plana"]
+    WS["Estações de trabalho"]
+    DC["Controladores de domínio<br/><small>11 contas Domain Admins</small>"]
+    ERP["ERP + banco Oracle"]
+    FS["Servidor de arquivos"]
+    LEG["Servidor de etiquetas<br/><small>Windows Server 2012 R2</small>"]
+    NAS["NAS de backup<br/><small>no domínio · mesma sala</small>"]
+    SYNC["Sincronização de identidades"]
+  end
+  subgraph CDS["3 centros de distribuição"]
+    WMS["WMS e coletores"]
+  end
+
+  REM --> VPN --> FLAT
+  CLI -- "HTTPS" --> FW --> PORTAL
+  PORTAL -- "conexão direta ao banco" --> ERP
+  CDS <== "VPN site-to-site" ==> FLAT
+  SYNC -- "sincroniza contas" --> M365
+  WMS --> LEG
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef untrusted stroke:#dc2626,stroke-width:2px,stroke-dasharray:5 4
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  class INET,DMZ,FLAT,CDS zone
+  class REM,CLI,LEG,NAS untrusted
+  class FW control

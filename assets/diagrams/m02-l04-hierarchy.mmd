@@ -1,0 +1,24 @@
+flowchart TB
+  accTitle: Hierarquia de documentos e controles de segurança
+  accDescr: A política expressa a intenção da direção. Os princípios orientam decisões de arquitetura. Os padrões tornam os princípios obrigatórios e verificáveis. As baselines definem configurações mínimas por tecnologia. Os controles implementam os requisitos no ambiente. Diretrizes recomendam e procedimentos descrevem como executar. Exceções aprovadas permitem desvios temporários de padrões e baselines, com controles compensatórios, e alimentam a revisão dos padrões.
+
+  POL["Política<br/><small>intenção da direção · obrigatória</small>"]
+  PRI["Princípios<br/><small>orientam decisões</small>"]
+  STD["Padrões<br/><small>obrigatórios e verificáveis</small>"]
+  BAS["Baselines<br/><small>configuração mínima por tecnologia</small>"]
+  CTL["Controles<br/><small>mecanismos no ambiente</small>"]
+  GUI["Diretrizes<br/><small>recomendações</small>"]
+  PRO["Procedimentos<br/><small>como executar</small>"]
+  EXC{"Exceção<br/><small>desvio temporário aprovado</small>"}
+
+  POL --> PRI --> STD --> BAS --> CTL
+  STD -.-> GUI
+  CTL -.-> PRO
+  STD -. "desvio" .-> EXC
+  BAS -. "desvio" .-> EXC
+  EXC -. "padrão inadequado?" .-> STD
+
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef untrusted stroke:#dc2626,stroke-width:2px,stroke-dasharray:5 4
+  class STD,BAS control
+  class EXC untrusted

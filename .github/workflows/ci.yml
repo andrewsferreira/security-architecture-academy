@@ -1,4 +1,4 @@
-# Validação da página institucional em pushes e Pull Requests.
+# Validação de Pull Requests e pushes.
 # Segurança: permissões somente leitura, sem secrets, sem pull_request_target.
 name: CI
 
@@ -27,7 +27,7 @@ jobs:
       - uses: DavidAnson/markdownlint-cli2-action@21c1be1b93ad9ed58fa840aacc3f279cde2a72ff # v24.2.0
 
   validate:
-    name: Manifesto, atribuição, build e links
+    name: Estrutura, manifesto, build e links
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -39,16 +39,52 @@ jobs:
           python-version: "3.13"
           cache: pip
           cache-dependency-path: requirements*.txt
-      - run: pip install -r requirements.txt
-      - name: Manifesto da publicação (integridade)
-        run: python scripts/verify_release_manifest.py
+      - run: pip install -r requirements-dev.txt
       - name: Atribuição de autoria
         run: python scripts/check_attribution.py
+      - name: Manifesto de release (repositório público)
+        run: python scripts/verify_release_manifest.py --if-present
+      - name: Estrutura do repositório
+        run: python scripts/check_structure.py
+      - name: Curriculum manifest
+        run: python scripts/validate_manifest.py
+      - name: Curriculum Roadmap sincronizado
+        run: python scripts/render_curriculum.py --check
+      - name: Integridade dos assets
+        run: python scripts/check_assets.py
       - name: Contraste WCAG
         run: python scripts/check_contrast.py
+      - name: Matrizes de decisão (aritmética)
+        run: python scripts/check_decision_matrices.py
+      - name: Research Library (referências e arquivos privados)
+        run: python scripts/validate_references.py
       - name: Build do portal
         run: python -m zensical build --clean
       - name: Links internos
         run: python scripts/check_links.py
-      - name: Atribuição de autoria no site compilado
-        run: python scripts/check_attribution.py --path site
+      - name: Testes dos scripts
+        run: python -m pytest -q tests examples
+
+  diagrams:
+    name: Sintaxe dos diagramas Mermaid
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      PUPPETEER_SKIP_DOWNLOAD: "true"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: "22"
+      - name: Renderizar todas as fontes
+        run: |
+          echo "{\"executablePath\":\"$(command -v google-chrome)\",\"args\":[\"--no-sandbox\"]}" > "$RUNNER_TEMP/puppeteer.json"
+          mkdir -p "$RUNNER_TEMP/diagrams"
+          for f in assets/diagrams/*.mmd; do
+            echo "::group::$f"
+            npx --yes @mermaid-js/mermaid-cli@12.0.0 -q -p "$RUNNER_TEMP/puppeteer.json" \
+              -i "$f" -o "$RUNNER_TEMP/diagrams/$(basename "$f" .mmd).svg"
+            echo "::endgroup::"
+          done

@@ -1,0 +1,35 @@
+name: Report a broken resource
+description: Link quebrado, imagem ausente, diagrama que não renderiza ou referência indisponível.
+title: "[Recurso] "
+labels: ["type: bug", "status: needs-triage"]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Página onde o problema aparece
+    validations:
+      required: true
+  - type: input
+    id: resource
+    attributes:
+      label: Recurso afetado
+      description: URL do link, nome da imagem ou do diagrama.
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Problema
+      options:
+        - Link retorna erro (404, 500…)
+        - Link redireciona para conteúdo diferente
+        - Imagem ou diagrama não carrega
+        - Referência foi substituída por nova versão
+        - Outro
+    validations:
+      required: true
+  - type: input
+    id: replacement
+    attributes:
+      label: Substituto sugerido
+      description: Link oficial atualizado, se você souber.

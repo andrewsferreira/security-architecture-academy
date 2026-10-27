@@ -1,0 +1,22 @@
+flowchart TB
+  accTitle: Ciclo de vida de uma exceção
+  accDescr: Uma exceção começa com uma solicitação que descreve o desvio, o motivo, o risco, os controles compensatórios, a duração e o responsável. Segue para análise de risco e aprovação pelo nível de autoridade correspondente ao risco. Uma vez aprovada, é registrada e monitorada. Ao vencer, ela é encerrada se o desvio foi corrigido ou renovada mediante nova análise. Exceções recorrentes sobre o mesmo padrão levam à revisão do padrão.
+
+  REQ["Solicitação<br/><small>desvio, motivo, risco, compensação, prazo, dono</small>"]
+  ANA["Análise de risco"]
+  APR{"Aprovação<br/><small>autoridade conforme o risco</small>"}
+  REG["Registro de exceções"]
+  MON["Monitoramento<br/><small>controles compensatórios ativos</small>"]
+  VEN{"Vencimento"}
+  END_["Encerrada"]
+  REV["Revisão do padrão"]
+
+  REQ --> ANA --> APR
+  APR -- "aprovada" --> REG --> MON --> VEN
+  APR -- "rejeitada" --> END_
+  VEN -- "desvio corrigido" --> END_
+  VEN -- "renovação com nova análise" --> ANA
+  REG -. "exceções recorrentes" .-> REV
+
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  class APR,MON control

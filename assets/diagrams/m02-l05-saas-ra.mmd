@@ -1,0 +1,31 @@
+flowchart TB
+  accTitle: Arquitetura de referência interna para integração com SaaS
+  accDescr: Usuários do Grupo Horizonte acessam o SaaS por login único federado no provedor de identidade central, com MFA. Contas são criadas e removidas automaticamente por provisionamento SCIM a partir do ciclo de vida de identidades. Logs de auditoria do SaaS são coletados pelo SIEM. Integrações de dados passam pela plataforma de integração com segredos no cofre corporativo. A avaliação de terceiros e a classificação de dados ocorrem antes da contratação.
+
+  U(["Usuário"])
+  subgraph GRP["Grupo Horizonte"]
+    IDP["Provedor de identidade central<br/><small>SSO · MFA</small>"]
+    IGA["Ciclo de vida de identidades"]
+    INT["Plataforma de integração"]
+    VAULT["Cofre de segredos"]
+    SIEM["SIEM"]
+  end
+  subgraph EXTZ["Fornecedor SaaS"]
+    SAAS["Aplicação SaaS"]
+  end
+  GOV["Avaliação de terceiros<br/>e classificação de dados"]
+
+  U -- "SAML ou OIDC" --> IDP -- "asserção federada" --> SAAS
+  IGA -- "SCIM: criar, alterar, remover" --> SAAS
+  SAAS -. "logs de auditoria" .-> SIEM
+  INT -- "API autenticada" --> SAAS
+  VAULT -. "credenciais de integração" .-> INT
+  GOV -. "pré-requisito da contratação" .-> SAAS
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef identity stroke:#2f74e8,stroke-width:2px
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef untrusted stroke:#dc2626,stroke-width:2px,stroke-dasharray:5 4
+  class GRP,EXTZ zone
+  class IDP,IGA identity
+  class VAULT,SIEM,GOV control

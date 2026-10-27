@@ -1,0 +1,29 @@
+flowchart LR
+  accTitle: Fluxos permitidos e proibidos nos modelos Bell-LaPadula e Biba
+  accDescr: No modelo Bell-LaPadula, que protege confidencialidade, um sujeito de nível Secreto pode ler documentos Secretos e Confidenciais, mas não Ultrassecretos — não lê acima; e pode escrever em Secreto e Ultrassecreto, mas não em Confidencial — não escreve abaixo. No modelo Biba, que protege integridade, a lógica se inverte: um processo de integridade média não lê dados de integridade baixa e não escreve em dados de integridade alta.
+
+  subgraph BLP["Bell-LaPadula — confidencialidade"]
+    direction TB
+    TS["Ultrassecreto"]
+    S(["Sujeito · Secreto"])
+    CF["Confidencial"]
+    S -- "lê ✓" --> CF
+    S -- "escreve ✓" --> TS
+    S -. "lê ✗ (no read up)" .-> TS
+    S -. "escreve ✗ (no write down)" .-> CF
+  end
+  subgraph BIBA["Biba — integridade"]
+    direction TB
+    HI["Integridade alta<br/><small>configuração calibrada</small>"]
+    MID(["Processo · integridade média"])
+    LO["Integridade baixa<br/><small>entrada da internet</small>"]
+    MID -- "lê ✓" --> HI
+    MID -- "escreve ✓" --> LO
+    MID -. "lê ✗ (no read down)" .-> LO
+    MID -. "escreve ✗ (no write up)" .-> HI
+  end
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef identity stroke:#2f74e8,stroke-width:2px
+  class BLP,BIBA zone
+  class S,MID identity

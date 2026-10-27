@@ -1,0 +1,1425 @@
+# Manifesto público gerado por scripts/export_release.py — escopo cumulativo até R1 (final). Não editar: a fonte é o repositório de desenvolvimento.
+schema_version: 2
+updated: 2026-10-23
+statuses:
+  planned: Planejado — definido no currículo, sem conteúdo.
+  draft: Rascunho — conteúdo em escrita, fora da navegação.
+  in-review: Em revisão — conteúdo completo aguardando revisão técnica.
+  published: Publicado — revisado e disponível no site público.
+  deprecated: Descontinuado — mantido por referência, com indicação do substituto.
+tiers:
+- id: fundamental
+  title: Fundamental
+  summary: Compreender conceitos e terminologia.
+- id: professional
+  title: Professional
+  summary: Aplicar conceitos na análise e no desenho de soluções.
+- id: architect
+  title: Architect
+  summary: Justificar decisões, avaliar alternativas, gerenciar riscos e documentar a arquitetura.
+tracks:
+- id: fundamentals
+  title: Fundamentals
+  tier: fundamental
+  summary: Conceitos necessários para compreender arquitetura.
+- id: professional
+  title: Professional
+  tier: professional
+  summary: Aplicação de arquitetura em organizações reais.
+- id: advanced
+  title: Advanced
+  tier: architect
+  summary: Decisões corporativas, ambientes híbridos complexos, governança e liderança técnica.
+stages:
+- id: n0
+  title: Nível 0 — Fundamentos de Tecnologia e Segurança
+  summary: Infraestrutura, redes, cloud e fundamentos de segurança como linguagem comum.
+- id: n1
+  title: Nível 1 — Fundamentos de Arquitetura
+  summary: O ofício do arquiteto, governança e riscos, e métodos de design e threat modeling.
+- id: n2
+  title: Nível 2 — Arquiteturas de Infraestrutura
+  summary: Rede, identidade, Zero Trust e ambientes on-premises e legados.
+- id: n3
+  title: Nível 3 — Arquitetura Cloud e Híbrida
+  summary: AWS, Azure, Google Cloud e a integração segura entre ambientes.
+- id: n4
+  title: Nível 4 — Arquitetura de Segurança Aplicada
+  summary: Aplicações, dados, gestão de vulnerabilidades e exposição, operações e resiliência.
+- id: n5
+  title: Nível 5 — Arquitetura Corporativa Avançada
+  summary: Arquitetura corporativa, governança entre empresas e projeto final.
+phases:
+- id: 0
+  title: Fase 0 — Planejamento acadêmico e técnico
+  status: in-review
+- id: 1
+  title: Fase 1 — MVP educacional (Módulo 02)
+  status: in-review
+- id: 2
+  title: Fase 2 — Formação profissional prioritária
+  status: planned
+- id: 3
+  title: Fase 3 — Expansão curricular
+  status: planned
+domains:
+- id: infrastructure-foundations
+  title: Infrastructure Foundations
+- id: security-foundations
+  title: Security Foundations
+- id: grc
+  title: Governance, Risk & Compliance
+- id: iam
+  title: Identity & Access Management
+- id: zero-trust
+  title: Zero Trust Architecture
+- id: network-security
+  title: Network Security
+- id: cloud-security
+  title: Cloud Security
+- id: hybrid-multicloud
+  title: Hybrid & Multicloud Security
+- id: application-security
+  title: Application Security
+- id: data-security
+  title: Data Security
+- id: vulnerability-management
+  title: Vulnerability Management
+- id: security-operations
+  title: Security Operations & Resilience
+- id: enterprise-architecture
+  title: Enterprise Security Architecture
+- id: ai-security
+  title: AI & Non-Human Identity Security
+modules:
+- id: M00
+  slug: foundations
+  title: Fundamentos de Infraestrutura e Computação
+  stage: n0
+  phase: 3
+  domains:
+  - infrastructure-foundations
+  prerequisites: []
+  status: published
+  path: modules/00-foundations/index.md
+  lessons:
+  - id: M00-L01
+    title: Computação, sistemas operacionais e virtualização
+    tier: fundamental
+    minutes: 60
+    status: published
+    file: 01-computing-os-virtualization.md
+    published_on: &id001 2026-10-27
+    reviewed_by: &id002
+    - Andrews Ferreira
+  - id: M00-L02
+    title: 'Redes TCP/IP: modelo OSI, endereçamento, DNS, DHCP e NAT'
+    tier: fundamental
+    minutes: 75
+    status: published
+    file: 02-tcp-ip-networking.md
+    published_on: *id001
+    reviewed_by: *id002
+  - id: M00-L03
+    title: 'Segmentação e conectividade: VLAN, roteamento, VPN, TLS e firewalls'
+    tier: fundamental
+    minutes: 75
+    status: published
+    file: 03-segmentation-connectivity.md
+    published_on: *id001
+    reviewed_by: *id002
+  - id: M00-L04
+    title: Datacenters, armazenamento, clusters e alta disponibilidade
+    tier: fundamental
+    minutes: 60
+    status: published
+    file: 04-datacenter-high-availability.md
+    published_on: *id001
+    reviewed_by: *id002
+  - id: M00-L05
+    title: Containers, Kubernetes, APIs, microsserviços e serverless
+    tier: fundamental
+    minutes: 75
+    status: published
+    file: 05-containers-apis-serverless.md
+    published_on: *id001
+    reviewed_by: *id002
+  - id: M00-L06
+    title: 'Cloud computing: modelos de serviço e de implantação'
+    tier: fundamental
+    minutes: 60
+    status: published
+    file: 06-cloud-computing-models.md
+    published_on: *id001
+    reviewed_by: *id002
+  - id: M00-L07
+    title: 'Lendo diagramas arquiteturais: componentes, fluxos e fronteiras'
+    tier: fundamental
+    minutes: 60
+    status: published
+    file: 07-reading-architecture-diagrams.md
+    published_on: *id001
+    reviewed_by: *id002
+  published_on: *id001
+  reviewed_by: *id002
+- id: M01
+  slug: security-fundamentals
+  title: Fundamentos de Segurança
+  stage: n0
+  phase: 3
+  domains:
+  - security-foundations
+  prerequisites:
+  - M00
+  status: published
+  path: modules/01-security-fundamentals/index.md
+  lessons:
+  - id: M01-L01
+    title: 'Propriedades de segurança: CIA, autenticidade, autorização e não repúdio'
+    tier: fundamental
+    minutes: 60
+    status: published
+    file: 01-security-properties.md
+    published_on: *id001
+    reviewed_by: *id002
+  - id: M01-L02
+    title: Princípios de design seguro
+    tier: fundamental
+    minutes: 75
+    status: published
+    file: 02-secure-design-principles.md
+    published_on: *id001
+    reviewed_by: *id002
+  - id: M01-L03
+    title: Trust boundaries, attack surface e responsabilidade compartilhada
+    tier: fundamental
+    minutes: 60
+    status: published
+    file: 03-trust-boundaries-attack-surface.md
+    published_on: *id001
+    reviewed_by: *id002
+  - id: M01-L04
+    title: 'Criptografia aplicada: simétrica, assimétrica, hashing e assinaturas'
+    tier: fundamental
+    minutes: 75
+    status: published
+    file: 04-applied-cryptography.md
+    published_on: *id001
+    reviewed_by: *id002
+  - id: M01-L05
+    title: PKI, certificados, TLS e gerenciamento de chaves
+    tier: fundamental
+    minutes: 75
+    status: published
+    file: 05-pki-tls-key-management.md
+    published_on: *id001
+    reviewed_by: *id002
+  - id: M01-L06
+    title: Ameaça, vulnerabilidade, risco, exposição e controle
+    tier: fundamental
+    minutes: 60
+    status: published
+    file: 06-threat-vulnerability-risk.md
+    published_on: *id001
+    reviewed_by: *id002
+  - id: M01-L07
+    title: 'Modelos formais: Bell-LaPadula, Biba, Clark-Wilson e Brewer-Nash'
+    tier: professional
+    minutes: 60
+    status: published
+    file: 07-formal-security-models.md
+    published_on: *id001
+    reviewed_by: *id002
+  published_on: *id001
+  reviewed_by: *id002
+- id: M02
+  slug: security-architecture
+  title: Introdução à Arquitetura de Segurança
+  stage: n1
+  phase: 1
+  domains:
+  - enterprise-architecture
+  - security-foundations
+  prerequisites:
+  - M00
+  - M01
+  status: published
+  path: modules/02-security-architecture/index.md
+  lessons:
+  - id: M02-L01
+    title: O papel do Security Architect
+    tier: fundamental
+    minutes: 60
+    status: published
+    file: 01-security-architect-role.md
+    published_on: *id001
+    reviewed_by: *id002
+  - id: M02-L02
+    title: Enterprise, Solution e Security Architecture
+    tier: fundamental
+    minutes: 60
+    status: published
+    file: 02-enterprise-solution-security-architecture.md
+    published_on: *id001
+    reviewed_by: *id002
+  - id: M02-L03
+    title: Arquitetura conceitual, lógica e física
+    tier: professional
+    minutes: 75
+    status: published
+    file: 03-conceptual-logical-physical.md
+    published_on: *id001
+    reviewed_by: *id002
+  - id: M02-L04
+    title: Princípios, padrões, baselines e exceções
+    tier: professional
+    minutes: 75
+    status: published
+    file: 04-principles-standards-baselines-exceptions.md
+    published_on: *id001
+    reviewed_by: *id002
+  - id: M02-L05
+    title: Arquiteturas de referência e blueprints
+    tier: professional
+    minutes: 60
+    status: published
+    file: 05-reference-architectures-blueprints.md
+    published_on: *id001
+    reviewed_by: *id002
+  - id: M02-L06
+    title: 'Frameworks, padrões e certificações: NIST, SABSA, TOGAF, CISSP e ISSAP'
+    tier: professional
+    minutes: 90
+    status: published
+    file: 06-frameworks.md
+    published_on: *id001
+    reviewed_by: *id002
+  - id: M02-L07
+    title: 'Business-driven Security Architecture: de requisitos de negócio a requisitos de segurança'
+    tier: architect
+    minutes: 90
+    status: published
+    file: 07-business-driven-requirements.md
+    published_on: *id001
+    reviewed_by: *id002
+  - id: M02-L08
+    title: Architecture Decision Records
+    tier: architect
+    minutes: 75
+    status: published
+    file: 08-architecture-decision-records.md
+    published_on: *id001
+    reviewed_by: *id002
+  published_on: *id001
+  reviewed_by: *id002
+- id: M03
+  slug: governance-risk
+  title: Governança, Riscos e Controles
+  stage: n1
+  phase: 2
+  domains:
+  - grc
+  prerequisites:
+  - M02
+  status: planned
+  lessons:
+  - id: M03-L01
+    title: Governança de segurança e o NIST CSF 2.0
+    tier: fundamental
+    minutes: 75
+    status: planned
+  - id: M03-L02
+    title: NIST Risk Management Framework (SP 800-37)
+    tier: professional
+    minutes: 75
+    status: planned
+  - id: M03-L03
+    title: 'Seleção e tailoring de controles: SP 800-53 e CIS Controls'
+    tier: professional
+    minutes: 90
+    status: planned
+  - id: M03-L04
+    title: 'ISO/IEC 27001/27002, LGPD e PCI DSS: propósito e escopo'
+    tier: fundamental
+    minutes: 75
+    status: planned
+  - id: M03-L05
+    title: Business Impact Analysis, RTO e RPO
+    tier: professional
+    minutes: 60
+    status: planned
+  - id: M03-L06
+    title: Risk assessment, risk register e tratamento de riscos
+    tier: professional
+    minutes: 90
+    status: planned
+  - id: M03-L07
+    title: Catálogo de controles e arquitetura baseada em risco
+    tier: architect
+    minutes: 75
+    status: planned
+  - id: M03-L08
+    title: Indicadores, maturidade e reporte à governança
+    tier: architect
+    minutes: 60
+    status: planned
+- id: M04
+  slug: threat-modeling
+  title: Métodos de Design e Threat Modeling
+  stage: n1
+  phase: 3
+  domains:
+  - application-security
+  - enterprise-architecture
+  prerequisites:
+  - M02
+  status: planned
+  lessons:
+  - id: M04-L01
+    title: Data Flow Diagrams e fluxos de confiança
+    tier: fundamental
+    minutes: 60
+    status: planned
+  - id: M04-L02
+    title: STRIDE aplicado à arquitetura
+    tier: professional
+    minutes: 75
+    status: planned
+  - id: M04-L03
+    title: Attack trees e abuse cases
+    tier: professional
+    minutes: 60
+    status: planned
+  - id: M04-L04
+    title: MITRE ATT&CK para cenários de ataque
+    tier: professional
+    minutes: 75
+    status: planned
+  - id: M04-L05
+    title: Pontos únicos de falha e análise de dependências
+    tier: professional
+    minutes: 60
+    status: planned
+  - id: M04-L06
+    title: De ameaças a requisitos de segurança
+    tier: architect
+    minutes: 75
+    status: planned
+  - id: M04-L07
+    title: Revisão arquitetural, As-Is/To-Be e validação de controles
+    tier: architect
+    minutes: 75
+    status: planned
+- id: M05
+  slug: network-security
+  title: Network Security Architecture
+  stage: n2
+  phase: 3
+  domains:
+  - network-security
+  prerequisites:
+  - M00
+  - M02
+  status: planned
+  lessons:
+  - id: M05-L01
+    title: Zonas de confiança, segmentação e microsegmentação
+    tier: fundamental
+    minutes: 75
+    status: planned
+  - id: M05-L02
+    title: 'Perímetro e inspeção: DMZ, WAF, NGFW, IDS/IPS e proxies'
+    tier: professional
+    minutes: 75
+    status: planned
+  - id: M05-L03
+    title: Tráfego North-South e East-West
+    tier: professional
+    minutes: 60
+    status: planned
+  - id: M05-L04
+    title: 'Acesso remoto: VPN, ZTNA e bastion hosts'
+    tier: professional
+    minutes: 75
+    status: planned
+  - id: M05-L05
+    title: SD-WAN, SASE e SSE
+    tier: professional
+    minutes: 60
+    status: planned
+  - id: M05-L06
+    title: Network Access Control
+    tier: professional
+    minutes: 45
+    status: planned
+  - id: M05-L07
+    title: Desenho de uma rede corporativa segura
+    tier: architect
+    minutes: 90
+    status: planned
+- id: M06
+  slug: iam
+  title: Identity & Access Management
+  stage: n2
+  phase: 2
+  domains:
+  - iam
+  prerequisites:
+  - M01
+  - M02
+  status: planned
+  lessons:
+  - id: M06-L01
+    title: 'Disciplinas de identidade: IAM, IGA, PAM e PIM'
+    tier: fundamental
+    minutes: 60
+    status: planned
+  - id: M06-L02
+    title: 'Modelos de autorização: RBAC, ABAC e acesso contextual'
+    tier: professional
+    minutes: 75
+    status: planned
+  - id: M06-L03
+    title: 'Diretórios e autenticação corporativa: Active Directory, LDAP e Kerberos'
+    tier: professional
+    minutes: 90
+    status: planned
+  - id: M06-L04
+    title: 'Federação: SAML 2.0, OAuth 2.0 e OpenID Connect'
+    tier: professional
+    minutes: 90
+    status: planned
+  - id: M06-L05
+    title: 'Identidade híbrida: Active Directory, Microsoft Entra ID e provedores cloud'
+    tier: architect
+    minutes: 90
+    status: planned
+  - id: M06-L06
+    title: Contas privilegiadas e identidades de máquina
+    tier: professional
+    minutes: 75
+    status: planned
+  - id: M06-L07
+    title: Workload Identity Federation
+    tier: architect
+    minutes: 60
+    status: planned
+  - id: M06-L08
+    title: Ciclo de vida de identidades e segregação de funções
+    tier: professional
+    minutes: 60
+    status: planned
+  - id: M06-L09
+    title: Recuperação de identidade em incidentes
+    tier: architect
+    minutes: 75
+    status: planned
+- id: M07
+  slug: zero-trust
+  title: Zero Trust Architecture
+  stage: n2
+  phase: 2
+  domains:
+  - zero-trust
+  - iam
+  - network-security
+  prerequisites:
+  - M05
+  - M06
+  status: planned
+  lessons:
+  - id: M07-L01
+    title: Fundamentos de Zero Trust e o NIST SP 800-207
+    tier: fundamental
+    minutes: 75
+    status: planned
+  - id: M07-L02
+    title: 'Componentes lógicos: Policy Engine, Policy Administrator e PEP'
+    tier: professional
+    minutes: 60
+    status: planned
+  - id: M07-L03
+    title: Abordagens identity-centric, resource-centric e de rede
+    tier: professional
+    minutes: 60
+    status: planned
+  - id: M07-L04
+    title: Verificação contínua, postura de dispositivo e acesso adaptativo
+    tier: professional
+    minutes: 75
+    status: planned
+  - id: M07-L05
+    title: Segmentação e proteção de workloads
+    tier: professional
+    minutes: 60
+    status: planned
+  - id: M07-L06
+    title: CISA Zero Trust Maturity Model
+    tier: architect
+    minutes: 60
+    status: planned
+  - id: M07-L07
+    title: Implantação progressiva com sistemas legados e restrições
+    tier: architect
+    minutes: 90
+    status: planned
+- id: M08
+  slug: onprem-legacy
+  title: On-Premises e Sistemas Legados
+  stage: n2
+  phase: 3
+  domains:
+  - infrastructure-foundations
+  - security-operations
+  prerequisites:
+  - M05
+  - M06
+  status: planned
+  lessons:
+  - id: M08-L01
+    title: Segurança de datacenters
+    tier: fundamental
+    minutes: 60
+    status: planned
+  - id: M08-L02
+    title: Hardening e baselines de configuração
+    tier: professional
+    minutes: 75
+    status: planned
+  - id: M08-L03
+    title: Arquitetura para Windows Server, Linux e Active Directory
+    tier: professional
+    minutes: 90
+    status: planned
+  - id: M08-L04
+    title: Backup, recuperação e resiliência contra ransomware
+    tier: professional
+    minutes: 75
+    status: planned
+  - id: M08-L05
+    title: Sistemas sem suporte e controles compensatórios
+    tier: architect
+    minutes: 60
+    status: planned
+  - id: M08-L06
+    title: Protocolos inseguros e dependências legadas
+    tier: professional
+    minutes: 60
+    status: planned
+  - id: M08-L07
+    title: Integração com ambientes modernos e modernização gradual
+    tier: architect
+    minutes: 75
+    status: planned
+- id: M09
+  slug: aws
+  title: AWS Security Architecture
+  stage: n3
+  phase: 3
+  domains:
+  - cloud-security
+  prerequisites:
+  - M05
+  - M06
+  status: planned
+  lessons:
+  - id: M09-L01
+    title: Security Pillar do Well-Architected e responsabilidade compartilhada
+    tier: fundamental
+    minutes: 60
+    status: planned
+  - id: M09-L02
+    title: AWS Organizations, multi-account, landing zones e Control Tower
+    tier: professional
+    minutes: 90
+    status: planned
+  - id: M09-L03
+    title: IAM e IAM Identity Center
+    tier: professional
+    minutes: 90
+    status: planned
+  - id: M09-L04
+    title: 'Rede: VPC, Security Groups, NACLs, roteamento e endpoints'
+    tier: professional
+    minutes: 75
+    status: planned
+  - id: M09-L05
+    title: 'Dados e segredos: AWS KMS e Secrets Manager'
+    tier: professional
+    minutes: 60
+    status: planned
+  - id: M09-L06
+    title: 'Detecção e governança: CloudTrail, Config, GuardDuty, Security Hub, Inspector e Macie'
+    tier: professional
+    minutes: 90
+    status: planned
+  - id: M09-L07
+    title: AWS Security Reference Architecture e integração com on-premises
+    tier: architect
+    minutes: 90
+    status: planned
+- id: M10
+  slug: azure-gcp
+  title: Azure e Google Cloud
+  stage: n3
+  phase: 3
+  domains:
+  - cloud-security
+  - iam
+  prerequisites:
+  - M05
+  - M06
+  status: planned
+  lessons:
+  - id: M10-L01
+    title: Azure Well-Architected, Cloud Adoption Framework e Azure Landing Zones
+    tier: professional
+    minutes: 75
+    status: planned
+  - id: M10-L02
+    title: Microsoft Entra ID e identidade híbrida
+    tier: professional
+    minutes: 75
+    status: planned
+  - id: M10-L03
+    title: Defender for Cloud, Azure Policy e Azure Arc
+    tier: professional
+    minutes: 75
+    status: planned
+  - id: M10-L04
+    title: 'Google Cloud: Architecture Framework e hierarquia de recursos'
+    tier: professional
+    minutes: 60
+    status: planned
+  - id: M10-L05
+    title: Google Cloud IAM, Organization Policy e Security Command Center
+    tier: professional
+    minutes: 75
+    status: planned
+  - id: M10-L06
+    title: Equivalências e particularidades entre AWS, Azure e Google Cloud
+    tier: architect
+    minutes: 60
+    status: planned
+  - id: M10-L07
+    title: Mapeamento para o Microsoft SC-100
+    tier: architect
+    minutes: 45
+    status: planned
+- id: M11
+  slug: hybrid-multicloud
+  title: Hybrid & Multicloud Security Architecture
+  stage: n3
+  phase: 2
+  domains:
+  - hybrid-multicloud
+  - cloud-security
+  - network-security
+  - iam
+  prerequisites:
+  - M06
+  - M07
+  status: planned
+  lessons:
+  - id: M11-L01
+    title: 'Conectividade híbrida: VPN site-to-site, AWS Direct Connect e Azure ExpressRoute'
+    tier: professional
+    minutes: 90
+    status: planned
+  - id: M11-L02
+    title: Arquitetura de DNS híbrido
+    tier: professional
+    minutes: 60
+    status: planned
+  - id: M11-L03
+    title: Identidade e federação entre Active Directory e provedores cloud
+    tier: architect
+    minutes: 90
+    status: planned
+  - id: M11-L04
+    title: Logs, observabilidade, SIEM e SOC multiambiente
+    tier: professional
+    minutes: 75
+    status: planned
+  - id: M11-L05
+    title: Segredos, certificados, criptografia e chaves distribuídos
+    tier: professional
+    minutes: 75
+    status: planned
+  - id: M11-L06
+    title: 'Políticas consistentes e postura: CSPM, CNAPP, CWPP, CIEM e DSPM'
+    tier: architect
+    minutes: 90
+    status: planned
+  - id: M11-L07
+    title: Asset discovery e inventário corporativo
+    tier: professional
+    minutes: 60
+    status: planned
+  - id: M11-L08
+    title: Backup, disaster recovery e continuidade em ambientes híbridos
+    tier: architect
+    minutes: 75
+    status: planned
+  - id: M11-L09
+    title: Comunicação segura entre workloads
+    tier: professional
+    minutes: 60
+    status: planned
+  - id: M11-L10
+    title: Responsabilidade compartilhada, soberania, latência e vendor lock-in
+    tier: architect
+    minutes: 75
+    status: planned
+  - id: M11-L11
+    title: 'Três modelos de referência híbridos: As-Is e To-Be'
+    tier: architect
+    minutes: 120
+    status: planned
+- id: M12
+  slug: application-security
+  title: Application Security Architecture
+  stage: n4
+  phase: 3
+  domains:
+  - application-security
+  prerequisites:
+  - M04
+  - M06
+  status: planned
+  lessons:
+  - id: M12-L01
+    title: Secure SDLC e DevSecOps
+    tier: fundamental
+    minutes: 60
+    status: planned
+  - id: M12-L02
+    title: OWASP ASVS como especificação de requisitos
+    tier: professional
+    minutes: 60
+    status: planned
+  - id: M12-L03
+    title: Arquitetura de API Security
+    tier: professional
+    minutes: 75
+    status: planned
+  - id: M12-L04
+    title: Autenticação e autorização distribuídas
+    tier: professional
+    minutes: 75
+    status: planned
+  - id: M12-L05
+    title: API Gateway, service mesh e mTLS
+    tier: professional
+    minutes: 60
+    status: planned
+  - id: M12-L06
+    title: Segurança de microsserviços e containers
+    tier: professional
+    minutes: 75
+    status: planned
+  - id: M12-L07
+    title: CI/CD, IaC e software supply chain
+    tier: architect
+    minutes: 75
+    status: planned
+  - id: M12-L08
+    title: SAST, DAST, SCA, secrets scanning e SBOM na arquitetura
+    tier: professional
+    minutes: 60
+    status: planned
+- id: M13
+  slug: data-security
+  title: Data Security Architecture
+  stage: n4
+  phase: 3
+  domains:
+  - data-security
+  prerequisites:
+  - M01
+  - M03
+  status: planned
+  lessons:
+  - id: M13-L01
+    title: Classificação e ciclo de vida de dados
+    tier: fundamental
+    minutes: 60
+    status: planned
+  - id: M13-L02
+    title: Criptografia at rest, in transit e in use
+    tier: professional
+    minutes: 75
+    status: planned
+  - id: M13-L03
+    title: Tokenização, hashing e mascaramento
+    tier: professional
+    minutes: 60
+    status: planned
+  - id: M13-L04
+    title: KMS, HSM e rotação de chaves
+    tier: professional
+    minutes: 75
+    status: planned
+  - id: M13-L05
+    title: Data Loss Prevention e segurança de bancos de dados
+    tier: professional
+    minutes: 75
+    status: planned
+  - id: M13-L06
+    title: Governança de dados distribuídos, privacidade, retenção e LGPD
+    tier: architect
+    minutes: 75
+    status: planned
+  - id: M13-L07
+    title: Zero Trust aplicado a dados
+    tier: architect
+    minutes: 60
+    status: planned
+- id: M14
+  slug: vulnerability-management
+  title: Vulnerability & Exposure Management Architecture
+  stage: n4
+  phase: 3
+  domains:
+  - vulnerability-management
+  prerequisites:
+  - M03
+  status: planned
+  lessons:
+  - id: M14-L01
+    title: Arquitetura de um programa corporativo de gestão de vulnerabilidades
+    tier: professional
+    minutes: 75
+    status: planned
+  - id: M14-L02
+    title: Descoberta e cobertura de ativos
+    tier: professional
+    minutes: 60
+    status: planned
+  - id: M14-L03
+    title: 'Cobertura por superfície: infraestrutura, web, APIs, cloud, AD e containers'
+    tier: professional
+    minutes: 75
+    status: planned
+  - id: M14-L04
+    title: Vulnerability Management versus Exposure Management
+    tier: professional
+    minutes: 60
+    status: planned
+  - id: M14-L05
+    title: 'Priorização: CVSS, EPSS, CISA KEV e contexto de negócio'
+    tier: architect
+    minutes: 75
+    status: planned
+  - id: M14-L06
+    title: Ownership, SLA, remediação e exceções
+    tier: professional
+    minutes: 60
+    status: planned
+  - id: M14-L07
+    title: Automação, integrações, KPIs, KRIs e dashboards
+    tier: professional
+    minutes: 60
+    status: planned
+  - id: M14-L08
+    title: Programa centralizado para múltiplas organizações
+    tier: architect
+    minutes: 75
+    status: planned
+- id: M15
+  slug: security-operations
+  title: Security Operations & Resilience Architecture
+  stage: n4
+  phase: 3
+  domains:
+  - security-operations
+  prerequisites:
+  - M05
+  - M06
+  status: planned
+  lessons:
+  - id: M15-L01
+    title: Arquitetura de logging e telemetria
+    tier: professional
+    minutes: 75
+    status: planned
+  - id: M15-L02
+    title: SIEM, SOAR, XDR e EDR
+    tier: professional
+    minutes: 75
+    status: planned
+  - id: M15-L03
+    title: Detecção em ambientes híbridos
+    tier: architect
+    minutes: 60
+    status: planned
+  - id: M15-L04
+    title: Incident response e gestão de crises
+    tier: professional
+    minutes: 75
+    status: planned
+  - id: M15-L05
+    title: Resiliência contra ransomware, backup imutável e disaster recovery
+    tier: architect
+    minutes: 75
+    status: planned
+  - id: M15-L06
+    title: Validação de controles e exercícios tabletop
+    tier: professional
+    minutes: 60
+    status: planned
+  - id: M15-L07
+    title: Segurança da cadeia de suprimentos
+    tier: architect
+    minutes: 60
+    status: planned
+- id: M16
+  slug: enterprise-architecture
+  title: Enterprise Security Architecture
+  stage: n5
+  phase: 2
+  domains:
+  - enterprise-architecture
+  - grc
+  prerequisites:
+  - M03
+  - M11
+  status: planned
+  lessons:
+  - id: M16-L01
+    title: Arquitetura orientada ao negócio com SABSA
+    tier: architect
+    minutes: 90
+    status: planned
+  - id: M16-L02
+    title: SABSA e TOGAF integrados
+    tier: architect
+    minutes: 75
+    status: planned
+  - id: M16-L03
+    title: Modelos centralizado, federado e descentralizado
+    tier: architect
+    minutes: 60
+    status: planned
+  - id: M16-L04
+    title: Arquitetura corporativa de referência e shared security services
+    tier: architect
+    minutes: 75
+    status: planned
+  - id: M16-L05
+    title: Governança de segurança entre empresas de um grupo
+    tier: architect
+    minutes: 75
+    status: planned
+  - id: M16-L06
+    title: Architecture Review Boards, padrões, exceções e technical debt
+    tier: architect
+    minutes: 75
+    status: planned
+  - id: M16-L07
+    title: Gestão de stakeholders e negociação de riscos
+    tier: architect
+    minutes: 60
+    status: planned
+  - id: M16-L08
+    title: Estratégia, roadmaps, orçamento, TCO e priorização de investimentos
+    tier: architect
+    minutes: 90
+    status: planned
+- id: M17
+  slug: capstone
+  title: Estudos de Caso e Projeto Final
+  stage: n5
+  phase: 3
+  domains:
+  - enterprise-architecture
+  - hybrid-multicloud
+  prerequisites:
+  - M16
+  status: planned
+  lessons:
+  - id: M17-L01
+    title: Avaliação de maturidade e levantamento de requisitos
+    tier: architect
+    minutes: 90
+    status: planned
+  - id: M17-L02
+    title: Arquitetura base, identificação de lacunas e seleção de controles
+    tier: architect
+    minutes: 120
+    status: planned
+  - id: M17-L03
+    title: Desenho da arquitetura híbrida e da governança de segurança
+    tier: architect
+    minutes: 120
+    status: planned
+  - id: M17-L04
+    title: Roadmap de 90 dias, 6 meses e 12 meses
+    tier: architect
+    minutes: 90
+    status: planned
+  - id: M17-L05
+    title: Apresentação executiva e documentação para engenharia
+    tier: architect
+    minutes: 90
+    status: planned
+complements:
+- id: C01
+  slug: ai-security
+  title: 'Complemento: Segurança de IA/LLM e identidades não humanas'
+  phase: 3
+  domains:
+  - ai-security
+  - application-security
+  - iam
+  prerequisites:
+  - M06
+  - M12
+  status: planned
+  lessons:
+  - id: C01-L01
+    title: Arquitetura de aplicações com IA e LLM
+    tier: professional
+    minutes: 75
+    status: planned
+  - id: C01-L02
+    title: 'Ameaças a sistemas de IA: OWASP Top 10 for LLM e MITRE ATLAS'
+    tier: professional
+    minutes: 75
+    status: planned
+  - id: C01-L03
+    title: Identidades não humanas e agentes de IA
+    tier: architect
+    minutes: 60
+    status: planned
+  - id: C01-L04
+    title: Riscos emergentes e governança de IA
+    tier: architect
+    minutes: 60
+    status: planned
+releases:
+- id: R1
+  version: 0.1.0
+  title: Release 1 — Fundamentals
+  status: approved
+  candidate: v0.1.0-fundamentals-rc1
+  modules:
+  - M00
+  - M01
+  - M02
+  case_studies:
+  - CS-A
+  labs:
+  - LAB-00
+  - LAB-01
+  - LAB-02
+  assessments:
+  - AS-DIAG
+  - AS-M00
+  - AS-M01
+  - AS-M02
+  - AS-FUND
+  artifacts:
+  - ART-ADR
+  - ART-SRS
+  - ART-ARC
+  approved_by:
+  - Andrews Ferreira
+  approved_on: 2026-10-27
+  approved_source_commit: 94c6cb4d67519737760ba63912a921cb6681e8bb
+  public_commit: null
+  published_on: null
+  url: null
+- id: R2
+  version: 0.2.0
+  title: Release 2 — Professional
+  status: in-development
+  modules:
+  - M03
+  - M04
+  - M05
+  - M06
+  - M07
+  - M08
+  - M09
+  - M10
+  - M11
+  - M12
+  - M13
+  - M14
+  - M15
+  case_studies:
+  - CS-B
+  - CS-C
+  - CS-E
+  labs: []
+  assessments:
+  - AS-MID
+  artifacts:
+  - ART-SAA
+  - ART-TM
+  - ART-SCM
+  - ART-RR
+  - ART-HSAB
+  - ART-SMA
+  - ART-VMP
+  approved_by: []
+  approved_on: null
+  approved_source_commit: null
+  public_commit: null
+  published_on: null
+  url: null
+- id: R3
+  version: 0.3.0
+  title: Release 3 — Architect
+  status: planned
+  modules:
+  - M16
+  - M17
+  complements:
+  - C01
+  case_studies:
+  - CS-D
+  labs: []
+  assessments:
+  - AS-FINAL
+  - AS-ADV-EN
+  artifacts:
+  - ART-ROAD
+  - ART-EXEC
+  - ART-RACI
+  approved_by: []
+  approved_on: null
+  approved_source_commit: null
+  public_commit: null
+  published_on: null
+  url: null
+case_studies:
+- id: CS-A
+  title: Caso A — Datacenter tradicional (Meridiana Distribuidora)
+  modules:
+  - M02
+  - M05
+  - M06
+  - M08
+  phase: 1
+  status: published
+  path: case-studies/case-a-meridiana/index.md
+  published_on: *id001
+  reviewed_by: *id002
+- id: CS-B
+  title: Caso B — Migração para AWS
+  modules:
+  - M09
+  - M11
+  phase: 3
+  status: planned
+- id: CS-C
+  title: Caso C — Arquitetura híbrida com Azure e AWS
+  modules:
+  - M10
+  - M11
+  phase: 2
+  status: planned
+- id: CS-D
+  title: Caso D — Grupo empresarial com subsidiárias
+  modules:
+  - M16
+  phase: 2
+  status: planned
+- id: CS-E
+  title: Caso E — Programa corporativo de Vulnerability Management
+  modules:
+  - M14
+  phase: 3
+  status: planned
+labs:
+- id: LAB-00
+  title: Laboratório 00 — Plano de endereçamento e segmentação
+  modules:
+  - M00
+  phase: 1
+  status: published
+  tested: true
+  path: labs/lab-00-network-plan.md
+  published_on: *id001
+  reviewed_by: *id002
+- id: LAB-01
+  title: Laboratório 01 — Mecanismos de segurança na prática
+  modules:
+  - M01
+  phase: 1
+  status: published
+  tested: true
+  path: labs/lab-01-security-mechanisms.md
+  published_on: *id001
+  reviewed_by: *id002
+- id: LAB-02
+  title: Laboratório 02 — Modelagem arquitetural como código
+  modules:
+  - M02
+  phase: 1
+  status: published
+  tested: true
+  path: labs/lab-02-architecture-modeling.md
+  published_on: *id001
+  reviewed_by: *id002
+assessments:
+- id: AS-DIAG
+  title: Avaliação diagnóstica de fundamentos
+  kind: diagnostic
+  modules:
+  - M00
+  - M01
+  phase: 1
+  status: published
+  path: assessments/diagnostic-fundamentals.md
+  answers: assessments/answers/diagnostic-fundamentals.md
+  published_on: *id001
+  reviewed_by: *id002
+- id: AS-M00
+  title: Avaliação do Módulo 00
+  kind: module
+  modules:
+  - M00
+  phase: 1
+  status: published
+  path: assessments/m00-foundations.md
+  answers: assessments/answers/m00-foundations.md
+  published_on: *id001
+  reviewed_by: *id002
+- id: AS-M01
+  title: Avaliação do Módulo 01
+  kind: module
+  modules:
+  - M01
+  phase: 1
+  status: published
+  path: assessments/m01-security-fundamentals.md
+  answers: assessments/answers/m01-security-fundamentals.md
+  published_on: *id001
+  reviewed_by: *id002
+- id: AS-FUND
+  title: Avaliação final de Fundamentals (integradora)
+  kind: final
+  modules:
+  - M00
+  - M01
+  - M02
+  phase: 1
+  status: published
+  path: assessments/fundamentals-final.md
+  answers: assessments/answers/fundamentals-final.md
+  published_on: *id001
+  reviewed_by: *id002
+- id: AS-M02
+  title: Avaliação do Módulo 02
+  kind: module
+  modules:
+  - M02
+  phase: 1
+  status: published
+  path: assessments/m02-security-architecture.md
+  answers: assessments/answers/m02-security-architecture.md
+  published_on: *id001
+  reviewed_by: *id002
+- id: AS-MID
+  title: Avaliação intermediária (Níveis 1 e 2)
+  kind: intermediate
+  modules:
+  - M03
+  - M04
+  - M05
+  - M06
+  - M07
+  - M08
+  phase: 2
+  status: planned
+- id: AS-FINAL
+  title: Avaliação final
+  kind: final
+  modules:
+  - M09
+  - M10
+  - M11
+  - M12
+  - M13
+  - M14
+  - M15
+  - M16
+  phase: 3
+  status: planned
+- id: AS-ADV-EN
+  title: Advanced assessment (English, CISSP/ISSAP reasoning style)
+  kind: advanced
+  modules:
+  - M02
+  - M03
+  - M06
+  - M07
+  - M11
+  - M16
+  phase: 3
+  status: planned
+artifacts:
+- id: ART-ADR
+  title: Architecture Decision Record
+  phase: 1
+  status: published
+  path: artifacts/architecture-decision-record.md
+  published_on: *id001
+  reviewed_by: *id002
+- id: ART-SRS
+  title: Security Requirements Specification
+  phase: 1
+  status: published
+  path: artifacts/security-requirements-specification.md
+  published_on: *id001
+  reviewed_by: *id002
+- id: ART-ARC
+  title: Architecture Review Checklist
+  phase: 1
+  status: published
+  path: artifacts/architecture-review-checklist.md
+  published_on: *id001
+  reviewed_by: *id002
+- id: ART-SAA
+  title: Security Architecture Assessment
+  phase: 2
+  status: planned
+- id: ART-TM
+  title: Threat Model
+  phase: 3
+  status: planned
+- id: ART-SCM
+  title: Security Control Matrix
+  phase: 2
+  status: planned
+- id: ART-RR
+  title: Risk Register
+  phase: 2
+  status: planned
+- id: ART-HSAB
+  title: Hybrid Security Architecture Blueprint
+  phase: 2
+  status: planned
+- id: ART-SMA
+  title: Security Maturity Assessment
+  phase: 2
+  status: planned
+- id: ART-VMP
+  title: Vulnerability Management Program
+  phase: 3
+  status: planned
+- id: ART-ROAD
+  title: Security Architecture Roadmap
+  phase: 2
+  status: planned
+- id: ART-EXEC
+  title: Executive Architecture Summary
+  phase: 2
+  status: planned
+- id: ART-RACI
+  title: Matriz RACI
+  phase: 2
+  status: planned

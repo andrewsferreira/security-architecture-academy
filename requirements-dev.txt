@@ -1,0 +1,3 @@
+# Ferramentas de teste dos scripts de validação.
+-r requirements.txt
+pytest==9.1.1

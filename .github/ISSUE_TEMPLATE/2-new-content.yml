@@ -1,0 +1,54 @@
+name: Suggest new learning content
+description: Proponha um tema, aula, laboratório, estudo de caso ou padrão.
+title: "[Conteúdo] "
+labels: ["type: content", "type: proposal", "status: needs-triage"]
+body:
+  - type: input
+    id: topic
+    attributes:
+      label: Tema
+    validations:
+      required: true
+  - type: dropdown
+    id: format
+    attributes:
+      label: Formato sugerido
+      options:
+        - Technical Lesson
+        - Technical Lab
+        - Case Study
+        - Architecture Pattern
+        - Reference Architecture
+        - Glossary Entry
+        - Outro
+    validations:
+      required: true
+  - type: dropdown
+    id: level
+    attributes:
+      label: Nível
+      options: [Fundamentals, Professional, Architect, Não sei]
+    validations:
+      required: true
+  - type: input
+    id: module
+    attributes:
+      label: Módulo relacionado
+      description: "ID do Curriculum Roadmap (ex.: M07), se houver."
+  - type: textarea
+    id: why
+    attributes:
+      label: Por que este conteúdo é importante
+      description: Qual lacuna ou decisão de arquitetura ele ajuda a resolver?
+    validations:
+      required: true
+  - type: textarea
+    id: references
+    attributes:
+      label: Referências sugeridas
+  - type: checkboxes
+    id: contribute
+    attributes:
+      label: Participação
+      options:
+        - label: Posso ajudar a escrever ou revisar este conteúdo.

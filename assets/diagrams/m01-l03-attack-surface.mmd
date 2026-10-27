@@ -1,0 +1,36 @@
+flowchart TB
+  accTitle: Superfície de ataque e fronteiras de confiança de uma aplicação de agendamento
+  accDescr: Os pontos de entrada são o site público, a API móvel, o painel administrativo, a integração com o laboratório parceiro e o acesso administrativo aos servidores. Cada ponto de entrada atravessa ao menos uma fronteira de confiança. O painel administrativo e a integração com o parceiro são os pontos de entrada de maior privilégio, e por isso concentram controles adicionais.
+
+  subgraph EXT["Fora da organização — não confiável"]
+    PAC(["Paciente"])
+    MOB(["App móvel"])
+    LAB(["Laboratório parceiro"])
+  end
+  subgraph DMZ["DMZ"]
+    WEB["Site de agendamento<br/><small>entrada 1</small>"]
+    API["API móvel<br/><small>entrada 2</small>"]
+    B2B["Endpoint de integração<br/><small>entrada 4 · mTLS</small>"]
+  end
+  subgraph INT["Rede interna"]
+    ADM["Painel administrativo<br/><small>entrada 3 · só rede interna + MFA</small>"]
+    CORE["Serviço de agenda"]
+    DB[("Agendas e dados de pacientes")]
+  end
+  subgraph MGT["Zona de gestão"]
+    OPS(["Administradores<br/><small>entrada 5</small>"])
+  end
+
+  PAC --> WEB --> CORE
+  MOB --> API --> CORE
+  LAB --> B2B --> CORE
+  ADM --> CORE
+  CORE --> DB
+  OPS -. "SSH via bastion" .-> CORE
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef untrusted stroke:#dc2626,stroke-width:2px,stroke-dasharray:5 3
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  class EXT,DMZ,INT,MGT zone
+  class PAC,MOB,LAB untrusted
+  class ADM,B2B control

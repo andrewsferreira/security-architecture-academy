@@ -1,0 +1,40 @@
+name: Report technical problems
+description: Problema no portal, build, CI, scripts ou ambiente local.
+title: "[Técnico] "
+labels: ["type: infrastructure", "status: needs-triage"]
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Área
+      options:
+        - Portal publicado (navegação, busca, layout)
+        - Build local (make, zensical)
+        - Scripts de validação
+        - GitHub Actions
+        - Outro
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Passos para reproduzir
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Comportamento esperado e observado
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs ou mensagens de erro
+      description: Remova qualquer token, caminho pessoal ou informação sensível antes de colar.
+      render: text
+  - type: input
+    id: env
+    attributes:
+      label: Ambiente
+      description: Sistema operacional, navegador ou versão do Python.

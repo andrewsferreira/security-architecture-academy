@@ -1,0 +1,22 @@
+flowchart TB
+  accTitle: Rastreabilidade da fonte oficial à aula
+  accDescr: A fonte oficial é registrada na bibliografia com um ID estável, verificada na página oficial, tem capítulos localizados e lidos, é mapeada a conceitos e módulos no mapa de conhecimento e é citada nas aulas por ID e localização. O validador confere cada ligação.
+
+  F["Fonte oficial<br/><small>autor, instituição ou editora</small>"]
+  B["bibliography.yml<br/><small>ID estável · versão · acesso · redistribuição</small>"]
+  K["knowledge-map.yml<br/><small>conceito · localização · módulo</small>"]
+  A["Aula<br/><small>sources · further_reading · Referências</small>"]
+  V["validate_references.py"]
+
+  F -- "verificação" --> B
+  B -- "capítulos localizados e lidos" --> K
+  K --> A
+  B --> A
+  V -. "confere" .-> B
+  V -. "confere" .-> K
+  V -. "confere" .-> A
+
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef identity stroke:#2f74e8,stroke-width:2px
+  class V control
+  class B,K identity

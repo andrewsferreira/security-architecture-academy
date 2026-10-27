@@ -1,0 +1,20 @@
+{
+  "name": "Meridiana Distribuidora — As-Is (fictício)",
+  "allocations": {
+    "datacenter": "10.0.0.0/16",
+    "aws-portal": "10.0.0.0/16",
+    "cd-contagem": "192.168.10.0/24"
+  },
+  "zones": [
+    {"name": "internet", "trust": "untrusted", "environment": "internet"},
+    {"name": "rede-corporativa", "trust": "internal", "environment": "datacenter", "cidr": "10.0.0.0/16", "hosts": 220, "roles": ["users", "servers", "management"]},
+    {"name": "vpc-portal", "trust": "dmz", "environment": "aws-portal", "cidr": "10.0.0.0/20", "hosts": 6, "roles": ["servers"]},
+    {"name": "cd-contagem", "trust": "internal", "environment": "cd-contagem", "cidr": "192.168.10.0/24", "hosts": 60, "roles": ["users", "servers"]}
+  ],
+  "flows": [
+    {"from": "internet", "to": "rede-corporativa", "ports": [3389], "purpose": "acesso remoto do fornecedor do ERP"},
+    {"from": "internet", "to": "vpc-portal", "ports": [443], "purpose": "clientes B2B"},
+    {"from": "vpc-portal", "to": "rede-corporativa", "ports": "any"},
+    {"from": "cd-contagem", "to": "rede-corporativa", "ports": "any", "purpose": "WMS e arquivos"}
+  ]
+}

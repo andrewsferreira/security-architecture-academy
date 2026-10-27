@@ -1,0 +1,37 @@
+flowchart TB
+  accTitle: Aplicação moderna com API gateway, microsserviços em Kubernetes e função serverless
+  accDescr: Clientes chamam um API gateway, que autentica e encaminha as requisições ao cluster Kubernetes. No cluster, o ingress distribui o tráfego para os serviços de pedidos e de pagamentos, cada um em seu namespace, com pods construídos a partir de imagens do registry. Um evento de pedido aprovado aciona uma função serverless que envia notificações. O plano de controle do Kubernetes, com o API server, é separado do plano de dados onde rodam os pods.
+
+  CLI(["App móvel / parceiro"])
+  GW["API gateway<br/><small>autenticação · rate limit</small>"]
+  subgraph K8S["Cluster Kubernetes"]
+    subgraph CP["Plano de controle"]
+      API["API server · etcd · scheduler"]
+    end
+    ING["Ingress controller"]
+    subgraph NS1["Namespace pedidos"]
+      SV1["Serviço de pedidos<br/><small>pods</small>"]
+    end
+    subgraph NS2["Namespace pagamentos"]
+      SV2["Serviço de pagamentos<br/><small>pods</small>"]
+    end
+  end
+  REG[("Registry de imagens")]
+  Q["Fila de eventos"]
+  FN["Função serverless<br/><small>notificações</small>"]
+
+  CLI -- "HTTPS · token" --> GW --> ING
+  ING --> SV1
+  SV1 -- "chamada interna" --> SV2
+  SV1 -- "pedido aprovado" --> Q --> FN
+  REG -. "imagens" .-> SV1
+  REG -. "imagens" .-> SV2
+  API -. "agenda e configura" .-> SV1
+  API -. "agenda e configura" .-> SV2
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef identity stroke:#2f74e8,stroke-width:2px
+  class K8S,CP,NS1,NS2 zone
+  class GW control
+  class API identity

@@ -1,0 +1,31 @@
+flowchart TB
+  accTitle: Fronteiras de isolamento entre processos, máquinas virtuais e containers
+  accDescr: No servidor físico, o hipervisor cria máquinas virtuais, cada uma com seu próprio kernel. Dentro de uma máquina virtual, vários containers compartilham o mesmo kernel e são isolados por namespaces e cgroups. Processos dentro de um container são separados pelo modelo de usuários e permissões do sistema operacional. Cada fronteira é mais forte que a seguinte, de fora para dentro: hardware e hipervisor, kernel, e por fim permissões de processo.
+
+  subgraph HW["Servidor físico — CPU com extensões de virtualização, memória, discos"]
+    HV["Hipervisor tipo 1<br/><small>fronteira entre VMs</small>"]
+    subgraph VM1["VM 1 — kernel próprio"]
+      K1["Kernel Linux"]
+      subgraph CT["Containers — mesmo kernel"]
+        C1["Container A<br/><small>namespaces · cgroups</small>"]
+        C2["Container B<br/><small>namespaces · cgroups</small>"]
+      end
+    end
+    subgraph VM2["VM 2 — kernel próprio"]
+      K2["Kernel Windows Server"]
+      P1["Processo de serviço<br/><small>conta de serviço</small>"]
+      P2["Processo de usuário"]
+    end
+  end
+
+  HV --> K1
+  HV --> K2
+  K1 --> C1
+  K1 --> C2
+  K2 --> P1
+  K2 --> P2
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  class HW,VM1,VM2,CT zone
+  class HV,K1,K2 control

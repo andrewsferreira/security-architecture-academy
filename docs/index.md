@@ -1,6 +1,6 @@
 ---
 title: Início
-description: Formação aberta e progressiva em Arquitetura de Segurança da Informação — objetivo do projeto e os fundamentos que serão tratados no primeiro nível.
+description: Plataforma educacional aberta e progressiva de Arquitetura de Segurança da Informação — dos fundamentos às arquiteturas corporativas, cloud e híbridas.
 hide:
   - navigation
   - toc
@@ -15,12 +15,12 @@ hide:
 
 <h1>Security Architecture Academy</h1>
 
-<p class="saa-lead">Uma formação aberta, gratuita e progressiva em Arquitetura de Segurança da Informação — dos fundamentos às arquiteturas corporativas, cloud e híbridas, com diagramas, padrões e decisões explicadas.</p>
+<p class="saa-lead">Uma formação aberta e progressiva em Arquitetura de Segurança da Informação — dos fundamentos às arquiteturas corporativas, cloud e híbridas, com diagramas, padrões e decisões explicadas.</p>
 
 <div class="saa-actions" markdown>
 
-[Fundamentos da formação](#fundamentos-que-serao-tratados){ .md-button .md-button--primary }
-[Repositório no GitHub](https://github.com/andrewsferreira/security-architecture-academy){ .md-button }
+[Conhecer o currículo](curriculum/index.md){ .md-button .md-button--primary }
+[Ver o roadmap](about/roadmap.md){ .md-button }
 
 </div>
 
@@ -35,93 +35,213 @@ hide:
 
 </div>
 
-## Objetivo
+## Learning Paths
 
-<p class="saa-section-intro">Formar profissionais capazes de projetar, avaliar e justificar arquiteturas de segurança em ambientes corporativos, cloud e híbridos.</p>
+<p class="saa-section-intro">Três níveis de formação publicados progressivamente. Cada nível pressupõe o anterior e termina com a capacidade de tomar decisões de arquitetura mais amplas.</p>
 
-A Security Architecture Academy é um projeto educacional independente, em português brasileiro, que preserva a terminologia técnica em inglês usada no mercado. Mais do que apresentar controles e ferramentas, a formação ensina a **raciocinar como arquiteto de segurança**: entender o negócio e os riscos, transformar necessidades em requisitos, comparar alternativas com critérios explícitos e registrar decisões que outras pessoas consigam revisar.
+<!-- release-status:start -->
 
-<div class="grid cards" markdown>
+!!! success "Disponível agora"
 
--   :lucide-graduation-cap:{ .lg .saa-card-icon } **Progressiva**
+    A Academy é disponibilizada progressivamente, por nível. Publicado: **v0.1.0 — Fundamentals**. Os níveis seguintes entram no portal somente depois de concluídos e revisados.
 
-    ---
+[Começar pelos Fundamentals](modules/00-foundations/01-computing-os-virtualization.md){ .md-button .md-button--primary }
+[Ver o currículo](curriculum/index.md){ .md-button }
 
-    Três níveis cumulativos — Fundamentals, Professional e Architect —, cada um apoiado no anterior.
+<div class="saa-journey" markdown>
 
--   :lucide-workflow:{ .lg .saa-card-icon } **Orientada a decisões**
+<div class="saa-journey__step" markdown>
 
-    ---
+### Fundamentals
 
-    Diagramas, trade-offs, matrizes de decisão e registros de decisão arquitetural (ADRs) em todas as aulas.
+**Módulos 00 a 02.** Infraestrutura, fundamentos de segurança e introdução à arquitetura de segurança, com laboratórios, estudo de caso e avaliação final integradora.
 
--   :lucide-book-open:{ .lg .saa-card-icon } **Fundamentada e prática**
-
-    ---
-
-    Fontes reconhecidas — NIST, ISO, CIS, OWASP, SABSA, TOGAF e literatura técnica —, com versão e data; estudos de caso e laboratórios locais, sem custo, com dados fictícios.
+<span class="saa-status saa-status--published">Disponível</span> <span class="saa-meta">v0.1.0</span>
 
 </div>
 
-## Fundamentos que serão tratados
+<div class="saa-journey__step" markdown>
 
-<p class="saa-section-intro">O primeiro nível, <strong>Fundamentals</strong>, constrói a base para o restante da formação, na sequência infraestrutura → segurança da informação → arquitetura de segurança.</p>
+### Professional
 
-<div class="grid cards" markdown>
+**Módulos 03 a 15.** Governança, threat modeling, rede, identidade, Zero Trust, legados, AWS, Azure, Google Cloud, híbrido, aplicações, dados, vulnerabilidades e operações.
 
--   :lucide-server:{ .lg .saa-card-icon } **M00 — Fundamentos de Infraestrutura e Computação**
-
-    ---
-
-    - Computação, sistemas operacionais e virtualização
-    - Redes TCP/IP: modelo OSI, endereçamento, DNS, DHCP e NAT
-    - Segmentação e conectividade: VLAN, roteamento, VPN, TLS e firewalls
-    - Datacenters, armazenamento, clusters e alta disponibilidade
-    - Containers, Kubernetes, APIs, microsserviços e serverless
-    - Cloud computing: modelos de serviço e de implantação
-    - Leitura de diagramas arquiteturais: componentes, fluxos e fronteiras
-
--   :lucide-layers:{ .lg .saa-card-icon } **M01 — Fundamentos de Segurança**
-
-    ---
-
-    - Propriedades de segurança: CIA, autenticidade, autorização e não repúdio
-    - Princípios de design seguro e defense in depth
-    - Trust boundaries, attack surface e responsabilidade compartilhada
-    - Criptografia aplicada: simétrica, assimétrica, hashing e assinaturas
-    - PKI, certificados, TLS e gerenciamento de chaves
-    - Ameaça, vulnerabilidade, risco, exposição e controle
-    - Modelos formais: Bell-LaPadula, Biba, Clark-Wilson e Brewer-Nash
-
--   :lucide-building-2:{ .lg .saa-card-icon } **M02 — Introdução à Arquitetura de Segurança**
-
-    ---
-
-    - O papel do Security Architect
-    - Enterprise, Solution e Security Architecture
-    - Arquitetura conceitual, lógica e física
-    - Princípios, padrões, baselines e exceções
-    - Arquiteturas de referência e blueprints
-    - Frameworks: NIST, SABSA, TOGAF, CISSP e ISSAP
-    - Requisitos de segurança orientados ao negócio
-    - Architecture Decision Records
+<span class="saa-status saa-status--draft">Em desenvolvimento</span> <span class="saa-meta">v0.2.0</span>
 
 </div>
 
-Os fundamentos incluem também **laboratórios locais e sem custo** (plano de endereçamento e segmentação, mecanismos de segurança na prática e modelagem arquitetural como código), um **estudo de caso** de datacenter tradicional, **avaliações por módulo** com gabaritos comentados e uma **avaliação final integradora**.
+<div class="saa-journey__step" markdown>
 
-## Próximos níveis
+### Architect
 
-| Nível | Foco | Situação |
-|:---|:---|:---|
-| **Fundamentals** | Infraestrutura, fundamentos de segurança e introdução à arquitetura de segurança | <span class="saa-status saa-status--in-review">Em revisão</span> |
-| **Professional** | Governança e riscos, threat modeling, redes, identidade, Zero Trust, legados, AWS, Azure, Google Cloud, híbrido e multicloud, aplicações, dados, vulnerabilidades e operações | <span class="saa-status saa-status--draft">Em desenvolvimento</span> |
-| **Architect** | Arquitetura corporativa, governança entre unidades, segurança de IA e projeto final | <span class="saa-status saa-status--planned">Planejado</span> |
+**Módulos 16 e 17 e complemento de IA.** Arquitetura corporativa, governança entre unidades, estudos de caso integradores e projeto final.
 
-!!! info "Conteúdo em preparação"
+<span class="saa-status saa-status--planned">Planejado</span> <span class="saa-meta">v0.3.0</span>
 
-    As aulas ainda não estão publicadas. O primeiro nível está em revisão e será disponibilizado neste endereço depois de aprovado; os níveis seguintes serão publicados progressivamente.
+</div>
 
-## Licença e independência
+</div>
 
-O conteúdo educacional é distribuído sob [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.pt-br) e o código sob [MIT](https://opensource.org/license/mit). A Security Architecture Academy é um projeto independente, sem afiliação, patrocínio ou endosso das organizações, normas e certificações citadas.
+<!-- release-status:end -->
+
+[Detalhes das trilhas](learning-paths/index.md)
+
+## Explore Security Architecture
+
+<p class="saa-section-intro">Os domínios de conhecimento que estruturam a formação. Cada módulo do currículo está mapeado para um ou mais domínios.</p>
+
+<div class="grid cards" markdown>
+
+-   :lucide-server:{ .lg .saa-card-icon } **Infrastructure Foundations**
+
+    ---
+
+    Computação, redes, datacenter, containers e cloud — a base para ler qualquer arquitetura.
+
+-   :lucide-layers:{ .lg .saa-card-icon } **Security Foundations**
+
+    ---
+
+    Princípios, terminologia, defesa em profundidade e o papel do arquiteto de segurança.
+
+-   :lucide-scale:{ .lg .saa-card-icon } **Governance, Risk & Compliance**
+
+    ---
+
+    Políticas, gestão de riscos, frameworks normativos e evidências de conformidade.
+
+-   :lucide-fingerprint:{ .lg .saa-card-icon } **Identity & Access Management**
+
+    ---
+
+    Identidades humanas e de máquina, federação, autorização e acesso privilegiado.
+
+-   :lucide-shield-check:{ .lg .saa-card-icon } **Zero Trust Architecture**
+
+    ---
+
+    Decisões de acesso explícitas, contínuas e baseadas em contexto.
+
+-   :lucide-network:{ .lg .saa-card-icon } **Network Security**
+
+    ---
+
+    Segmentação, zonas de confiança, inspeção de tráfego e conectividade segura.
+
+-   :lucide-cloud:{ .lg .saa-card-icon } **Cloud Security**
+
+    ---
+
+    Modelo de responsabilidade compartilhada, landing zones e guardrails.
+
+-   :lucide-git-fork:{ .lg .saa-card-icon } **Hybrid & Multicloud Security**
+
+    ---
+
+    Políticas consistentes entre data centers e múltiplos provedores.
+
+-   :lucide-code-xml:{ .lg .saa-card-icon } **Application Security**
+
+    ---
+
+    Arquitetura segura de aplicações e APIs, threat modeling e supply chain.
+
+-   :lucide-database:{ .lg .saa-card-icon } **Data Security**
+
+    ---
+
+    Classificação, criptografia, gestão de chaves, privacidade e retenção.
+
+-   :lucide-radar:{ .lg .saa-card-icon } **Vulnerability Management**
+
+    ---
+
+    Gestão de vulnerabilidades e exposição orientada a risco.
+
+-   :lucide-activity:{ .lg .saa-card-icon } **Security Operations & Resilience**
+
+    ---
+
+    Arquitetura de detecção e resposta, continuidade e recuperação.
+
+-   :lucide-building-2:{ .lg .saa-card-icon } **Enterprise Security Architecture**
+
+    ---
+
+    Frameworks, reference architectures, ADRs e governança de arquitetura.
+
+</div>
+
+## Learning Experience
+
+<div class="grid" markdown>
+
+<div class="card" markdown>
+
+**:lucide-book-open: Aulas técnicas**
+
+Conceitos explicados em português, com terminologia em inglês e referências rastreáveis a normas e frameworks.
+
+</div>
+
+<div class="card" markdown>
+
+**:lucide-workflow: Diagramas arquiteturais**
+
+Cada conceito estrutural acompanhado de diagramas editáveis, legíveis em modo claro e escuro.
+
+</div>
+
+<div class="card" markdown>
+
+**:lucide-flask-conical: Exercícios e laboratórios**
+
+Atividades práticas com ambientes fictícios — nunca dados, credenciais ou sistemas reais.
+
+</div>
+
+<div class="card" markdown>
+
+**:lucide-file-check-2: Projetos de arquitetura**
+
+Estudos de caso, ADRs e uma reference architecture como projeto final.
+
+</div>
+
+</div>
+
+## Featured Architecture
+
+<p class="saa-section-intro">Exemplo conceitual da relação que a formação explora: o negócio orienta o risco, o risco define requisitos, os requisitos viram controles e os controles protegem workloads em ambientes híbridos.</p>
+
+```mermaid
+--8<-- "assets/diagrams/architecture-overview.mmd"
+```
+
+## Project Roadmap
+
+<p class="saa-section-intro">A plataforma, o currículo completo e a Research Library já existem; o conteúdo chega ao portal por níveis, cada um com revisão própria antes da publicação. O estado de cada nível aparece acima e no roadmap.</p>
+
+[Roadmap completo](about/roadmap.md)
+
+## Start Exploring
+
+<div class="grid cards" markdown>
+
+-   :lucide-map:{ .lg .saa-card-icon } **[Curriculum Roadmap](curriculum/index.md)**
+
+    Os 18 módulos e 135 aulas, por nível e domínio, com status editorial real.
+
+-   :lucide-compass:{ .lg .saa-card-icon } **[Como usar a Academy](getting-started/index.md)**
+
+    Como a plataforma está organizada e como acompanhar a evolução.
+
+-   :lucide-info:{ .lg .saa-card-icon } **[Sobre o projeto](about/index.md)**
+
+    Propósito, princípios e o que esperar da formação.
+
+-   :lucide-git-pull-request:{ .lg .saa-card-icon } **[Contribuir](internal/workflow.md)**
+
+    Fluxo de contribuição, padrões editoriais e Design System.
+
+</div>

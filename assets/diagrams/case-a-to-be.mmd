@@ -1,0 +1,71 @@
+flowchart TB
+  accTitle: Arquitetura To-Be lógica da Meridiana Distribuidora
+  accDescr: Todo acesso remoto passa por acesso por aplicação com identidade federada, MFA e verificação de postura do dispositivo; fornecedores recebem acesso just-in-time apenas às aplicações necessárias, com gravação de sessão. O portal B2B, na DMZ, acessa o ERP somente por uma API de integração na zona de aplicações. A rede interna é dividida em zonas de usuários, aplicações, dados, gestão, centros de distribuição e legados, com política de comunicação entre zonas aplicada pelo firewall interno. A administração ocorre apenas a partir da zona de gestão, com contas administrativas separadas. Backups imutáveis e uma cópia isolada fora do site protegem a recuperação. Logs de todas as zonas, do EDR e do Microsoft 365 chegam a um SIEM com monitoramento contínuo.
+
+  subgraph INET["Internet"]
+    REM(["Usuários remotos"])
+    FOR(["Fornecedores"])
+    CLI(["Clientes B2B"])
+    M365["Microsoft 365 / Entra ID<br/><small>MFA · acesso condicional</small>"]
+  end
+  ZTNA["Acesso remoto por aplicação<br/><small>identidade + MFA + postura</small>"]
+  PAMV["Acesso privilegiado de fornecedores<br/><small>just-in-time · gravação</small>"]
+  FWB{{"Firewall de borda + WAF"}}
+  subgraph DMZ["DMZ"]
+    PORTAL["Portal B2B"]
+  end
+  FWI{{"Firewall interno<br/><small>política entre zonas</small>"}}
+  subgraph USR["Zona de usuários"]
+    WS["Estações com EDR"]
+  end
+  subgraph APP["Zona de aplicações"]
+    API["API de integração do ERP"]
+    ERPAPP["ERP — aplicação"]
+  end
+  subgraph DATA["Zona de dados"]
+    DB["Banco do ERP"]
+    FS["Servidor de arquivos"]
+  end
+  subgraph MGMT["Zona de gestão"]
+    PAW["Estações administrativas dedicadas"]
+    DC["Controladores de domínio<br/><small>tiering de administração</small>"]
+  end
+  subgraph LEGZ["Zona de legados"]
+    LEG["Servidor de etiquetas<br/><small>isolado até a substituição</small>"]
+  end
+  subgraph CDS["Centros de distribuição"]
+    WMS["WMS e coletores"]
+  end
+  subgraph BKP["Recuperação"]
+    IMM["Backup imutável"]
+    OFF["Cópia isolada fora do site"]
+  end
+  SIEM["SIEM + monitoramento"]
+
+  REM --> ZTNA
+  FOR --> PAMV
+  ZTNA -- "por aplicação" --> FWI
+  PAMV -- "sessões aprovadas" --> FWI
+  CLI --> FWB --> PORTAL
+  PORTAL -- "HTTPS autenticado" --> API
+  M365 -. "identidade federada" .-> ZTNA
+  FWI --- USR
+  FWI --- APP
+  FWI --- DATA
+  FWI --- MGMT
+  FWI --- LEGZ
+  CDS <== "VPN site-to-site para zona dos CDs" ==> FWI
+  API --> ERPAPP --> DB
+  WMS -- "somente porta da aplicação" --> LEG
+  DATA -. "backups" .-> IMM -.-> OFF
+  APP -. "logs" .-> SIEM
+  MGMT -. "logs" .-> SIEM
+  M365 -. "logs" .-> SIEM
+  WS -. "telemetria EDR" .-> SIEM
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef identity stroke:#2f74e8,stroke-width:2px
+  class INET,DMZ,USR,APP,DATA,MGMT,LEGZ,CDS,BKP zone
+  class ZTNA,PAMV,FWB,FWI,SIEM,IMM control
+  class M365 identity

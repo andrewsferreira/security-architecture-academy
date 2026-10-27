@@ -1,0 +1,29 @@
+flowchart TB
+  accTitle: Livraria Ipê — arquitetura atual (cenário da avaliação final de Fundamentals)
+  accDescr: Clientes na internet acessam a loja virtual, uma única máquina virtual em um provedor de nuvem IaaS com IP público, que hospeda aplicação e banco de dados juntos e guarda o backup no mesmo disco. A loja chama o provedor de pagamentos por HTTPS com uma chave de API escrita no código. A administração da VM é feita por RDP, aberto à internet, com a conta Administrator compartilhada por três pessoas. No escritório, uma rede única reúne estações dos funcionários, o servidor de arquivos com notas fiscais e a rede Wi-Fi de visitantes. Os funcionários acessam o painel administrativo da loja pela internet, só com senha. Não há coleta centralizada de logs.
+
+  CLI(["Clientes"])
+  subgraph IAAS["Nuvem IaaS"]
+    VM["VM única — IP público<br/><small>loja + banco + backup no mesmo disco</small>"]
+  end
+  PAY["Provedor de pagamentos<br/><small>chave de API no código</small>"]
+  subgraph ESC["Escritório — rede única"]
+    EST["Estações (40)"]
+    FS["Servidor de arquivos<br/><small>notas fiscais</small>"]
+    WIFI["Wi-Fi de visitantes"]
+  end
+  ADM(["3 administradores<br/><small>conta Administrator compartilhada</small>"])
+
+  CLI -- "HTTPS 443" --> VM
+  VM -- "HTTPS" --> PAY
+  ADM -- "RDP 3389 pela internet" --> VM
+  EST -- "painel admin — só senha" --> VM
+  EST --- FS
+  WIFI --- EST
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef untrusted stroke:#dc2626,stroke-width:2px,stroke-dasharray:5 3
+  classDef actor stroke:#64748b
+  class IAAS,ESC zone
+  class VM,WIFI untrusted
+  class CLI,ADM actor

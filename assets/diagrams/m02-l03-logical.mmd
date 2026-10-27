@@ -1,0 +1,36 @@
+flowchart TB
+  accTitle: Visão lógica do acesso administrativo da Aurora Pagamentos
+  accDescr: O administrador autentica no provedor de identidade com OpenID Connect e autenticação multifator resistente a phishing. Um broker de acesso privilegiado concede elevação just-in-time após aprovação e abre a sessão por um bastion, que é o único componente autorizado a alcançar a zona de pagamentos por protocolos administrativos. A sessão é gravada, e eventos do provedor de identidade, do broker e do bastion são enviados ao SIEM.
+
+  ADM(["Administrador"])
+  subgraph CORP["Zona corporativa"]
+    ADM
+  end
+  subgraph SEC["Serviços de segurança"]
+    IDP["Provedor de identidade<br/><small>OIDC · MFA resistente a phishing</small>"]
+    PAM["Broker de acesso privilegiado<br/><small>just-in-time · aprovação</small>"]
+    REC["Gravação de sessões"]
+    SIEM["SIEM"]
+  end
+  subgraph MGMT["Zona de gestão"]
+    BAS["Bastion<br/><small>único caminho administrativo</small>"]
+  end
+  subgraph PAY["Zona de pagamentos — PCI"]
+    SYS["Servidores e bancos de pagamento"]
+  end
+
+  ADM -- "HTTPS · OIDC" --> IDP
+  ADM -- "HTTPS · token" --> PAM
+  PAM -- "credencial temporária" --> BAS
+  BAS -- "SSH / RDP" --> SYS
+  BAS -- "stream da sessão" --> REC
+  IDP -. "eventos" .-> SIEM
+  PAM -. "eventos" .-> SIEM
+  BAS -. "eventos" .-> SIEM
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef identity stroke:#2f74e8,stroke-width:2px
+  class CORP,SEC,MGMT,PAY zone
+  class PAM,BAS,REC,SIEM control
+  class IDP identity

@@ -1,0 +1,30 @@
+flowchart TB
+  accTitle: Segmentação de rede por zonas de confiança
+  accDescr: O tráfego da internet passa por uma zona de borda antes de alcançar a camada de aplicação e, depois, a camada de dados. Cada travessia entre zonas é controlada por um ponto de inspeção. A zona de gestão possui acesso administrativo restrito e separado do tráfego de produção.
+
+  NETX(("Internet"))
+  subgraph EDGE["Zona de borda"]
+    WAF["WAF / reverse proxy"]
+  end
+  subgraph APPZ["Zona de aplicação"]
+    APP["Serviços de aplicação"]
+  end
+  subgraph DATAZ["Zona de dados"]
+    DB[("Bancos de dados")]
+  end
+  subgraph MGMT["Zona de gestão"]
+    BAS["Acesso administrativo<br/>(bastion / PAM)"]
+  end
+
+  NETX -- "HTTPS" --> WAF
+  WAF -- "portas permitidas" --> APP
+  APP -- "somente protocolo do banco" --> DB
+  BAS -. "sessões administrativas registradas" .-> APP
+  BAS -. "sessões administrativas registradas" .-> DB
+
+  classDef untrusted stroke:#dc2626,stroke-width:2px,stroke-dasharray:5 4
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  class NETX untrusted
+  class WAF,BAS control
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  class EDGE,APPZ,DATAZ,MGMT zone

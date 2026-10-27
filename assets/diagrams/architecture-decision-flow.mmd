@@ -1,0 +1,17 @@
+flowchart TD
+  accTitle: Fluxo de decisão arquitetural
+  accDescr: Um novo requisito é comparado a padrões existentes. Se houver um padrão aprovado, ele é aplicado; caso contrário, alternativas são levantadas e avaliadas com threat modeling e análise de riscos. A decisão é registrada em um ADR e passa por design review antes da implementação.
+
+  START(["Novo requisito ou mudança"]) --> PAT{"Existe padrão<br/>aprovado?"}
+  PAT -- "sim" --> APPLY["Aplicar reference architecture"]
+  PAT -- "não" --> OPT["Levantar alternativas"]
+  OPT --> TM["Threat modeling e<br/>análise de riscos"]
+  TM --> DEC["Decisão e trade-offs"]
+  DEC --> ADR["Registrar ADR"]
+  ADR --> REV{"Design review"}
+  REV -- "aprovado" --> IMPL(["Implementação"])
+  REV -- "ajustes" --> OPT
+  APPLY --> IMPL
+
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  class TM,REV control

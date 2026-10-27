@@ -1,0 +1,22 @@
+flowchart TB
+  accTitle: Funções dos controles ao longo de um incidente
+  accDescr: Linha do tempo de uma tentativa de ransomware contra um servidor de arquivos fictício, de cima para baixo. Antes do evento atuam controles dissuasórios, como aviso legal e monitoramento visível, e preventivos, como MFA na VPN e segmentação; um controle compensatório, um bastion com MFA, substitui parcialmente o MFA em um sistema legado que não o suporta. Se a prevenção falhar, o evento ocorre. Durante o evento, controles detectivos, como o EDR e alertas no SIEM, identificam a atividade e disparam a resposta. Depois, controles corretivos isolam o host e restauram os arquivos a partir de backup imutável, e as lições aprendidas realimentam os controles preventivos.
+
+  DS["Dissuasório — antes<br/><small>aviso legal, monitoramento visível</small>"]
+  CM["Compensatório — antes<br/><small>bastion com MFA para o sistema legado</small>"]
+  PV["Preventivo — antes<br/><small>MFA na VPN, segmentação</small>"]
+  EV(["Evento<br/><small>tentativa de ransomware</small>"])
+  DT["Detectivo — durante<br/><small>EDR, alerta no SIEM</small>"]
+  CR["Corretivo — depois<br/><small>isolar o host, restaurar do backup imutável</small>"]
+
+  DS --> PV
+  CM -. "substitui parcialmente" .-> PV
+  PV -- "se falhar" --> EV
+  EV --> DT
+  DT -- "dispara a resposta" --> CR
+  CR -. "lições aprendidas realimentam" .-> PV
+
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef untrusted stroke:#dc2626,stroke-width:2px,stroke-dasharray:5 3
+  class DS,PV,CM,DT,CR control
+  class EV untrusted

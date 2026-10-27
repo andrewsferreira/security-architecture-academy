@@ -1,0 +1,29 @@
+flowchart TB
+  accTitle: Arquitetura proposta para análise na avaliação do Módulo 02
+  accDescr: Clientes acessam pela internet um aplicativo móvel que chama um API Gateway na DMZ com token OAuth. O gateway encaminha as chamadas por HTTP sem autenticação ao serviço de pedidos na zona de aplicações. O serviço de pedidos grava no banco de pedidos na zona de dados. Um painel administrativo, na mesma zona de aplicações, é publicado diretamente na internet pelo firewall para a equipe de suporte acessar de casa, com usuário e senha. Os logs do gateway ficam no próprio gateway.
+
+  CLI(["Cliente"])
+  SUP(["Equipe de suporte"])
+  subgraph NET["Internet"]
+    CLI
+    SUP
+  end
+  subgraph DMZ["DMZ"]
+    GW["API Gateway<br/><small>logs locais</small>"]
+  end
+  subgraph APPZ["Zona de aplicações"]
+    ORD["Serviço de pedidos"]
+    ADM["Painel administrativo"]
+  end
+  subgraph DATAZ["Zona de dados"]
+    DB[("Banco de pedidos<br/><small>dados pessoais</small>")]
+  end
+
+  CLI -- "HTTPS · OAuth 2.0" --> GW
+  GW -- "HTTP · sem autenticação" --> ORD
+  ORD -- "TLS · usuário de banco" --> DB
+  SUP -- "HTTPS · usuário e senha" --> ADM
+  ADM -- "TLS · usuário de banco" --> DB
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  class NET,DMZ,APPZ,DATAZ zone

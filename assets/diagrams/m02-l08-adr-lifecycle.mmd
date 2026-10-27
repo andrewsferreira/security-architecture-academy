@@ -1,0 +1,12 @@
+flowchart LR
+  accTitle: Ciclo de vida de um ADR e encadeamento de decisões
+  accDescr: Um ADR nasce como Proposta e é discutido na revisão. Aceito, ele não é mais editado no conteúdo. Se a decisão perde validade sem substituta, o ADR passa a Depreciado. Se outra decisão a substitui, um novo ADR é escrito e o antigo recebe o status Substituído por, com ligação ao novo. As consequências de um ADR aceito, como o ADR-012, tornam-se o contexto de ADRs seguintes, como o ADR-015.
+
+  P(["Proposta"]) -- "revisão" --> A["Aceito<br/><small>conteúdo imutável</small>"]
+  A -- "perde validade" --> D["Depreciado"]
+  A -- "nova decisão" --> S["Substituído por ADR-NNN"]
+  S -.-> N(["Novo ADR"])
+  A -. "consequências viram contexto" .-> C["ADR seguinte<br/><small>ex.: ADR-012 → ADR-015</small>"]
+
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  class A control

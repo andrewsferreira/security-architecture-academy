@@ -1,0 +1,5 @@
+# Necessário apenas para regenerar a identidade visual (scripts/build_brand.py).
+# Requer também as fontes Inter (OTF) instaladas — ver docs/internal/design-system.md.
+CairoSVG==2.9.1
+fonttools==4.67.0
+uharfbuzz==0.56.4

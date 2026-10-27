@@ -1,0 +1,20 @@
+sequenceDiagram
+  accTitle: Caminho de uma requisição web de uma estação corporativa até um site na internet
+  accDescr: A estação obtém endereço IP por DHCP, resolve o nome do site no servidor DNS interno, que consulta a internet. A requisição HTTPS segue ao gateway padrão, o firewall de borda traduz o endereço privado para um público com NAT e encaminha ao servidor. A resposta retorna pelo mesmo caminho, e o firewall desfaz a tradução usando a tabela de estados.
+
+  participant E as Estação 10.20.30.15
+  participant D as DHCP
+  participant R as DNS interno
+  participant F as Firewall de borda (NAT)
+  participant S as Site 203.0.113.80
+
+  E->>D: DHCP Discover / Request
+  D-->>E: IP 10.20.30.15/24, gateway 10.20.30.1, DNS 10.20.0.53
+  E->>R: Consulta DNS: www.example.com (UDP/53)
+  R-->>E: 203.0.113.80
+  E->>F: TCP SYN 10.20.30.15:51514 → 203.0.113.80:443
+  Note over F: NAT: origem vira 198.51.100.10:40211<br/>registra o estado da conexão
+  F->>S: TCP SYN 198.51.100.10:40211 → :443
+  S-->>F: SYN-ACK
+  F-->>E: SYN-ACK (tradução desfeita pela tabela de estados)
+  E->>S: Handshake TLS e requisição HTTP, via firewall

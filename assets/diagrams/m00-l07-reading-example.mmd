@@ -1,0 +1,30 @@
+flowchart TB
+  accTitle: Diagrama de exemplo com componentes, fluxos rotulados e fronteiras de confiança
+  accDescr: Um cliente na internet acessa o portal na DMZ por HTTPS. O portal chama a API de pedidos na zona de aplicações por HTTPS com mTLS, e a API grava no banco de dados na zona de dados. A API também envia eventos ao serviço SaaS de e-mail. Cada fluxo indica protocolo, autenticação e dados; cada fronteira de confiança está marcada por uma zona, e os números identificam os fluxos citados no texto.
+
+  C(["Cliente"])
+  subgraph Z0["Internet — confiança 0"]
+    C
+  end
+  subgraph Z1["DMZ — confiança 1"]
+    P["Portal web"]
+  end
+  subgraph Z2["Zona de aplicações — confiança 2"]
+    A["API de pedidos"]
+  end
+  subgraph Z3["Zona de dados — confiança 3"]
+    D[("Banco de pedidos<br/><small>dados pessoais</small>")]
+  end
+  subgraph EXT["Terceiro — SaaS"]
+    M["Serviço de e-mail"]
+  end
+
+  C -- "① HTTPS · sessão do cliente · dados pessoais" --> P
+  P -- "② HTTPS mTLS · token de serviço" --> A
+  A -- "③ SQL/TLS · conta de serviço" --> D
+  A -- "④ HTTPS · chave de API · e-mail e nome" --> M
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef untrusted stroke:#dc2626,stroke-width:2px,stroke-dasharray:5 3
+  class Z0,Z1,Z2,Z3,EXT zone
+  class C untrusted

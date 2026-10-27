@@ -1,0 +1,52 @@
+# Modelo As-Is da Meridiana Distribuidora (Caso A) — dados fictícios.
+# Escala de confiança das zonas: 0 (nenhuma, internet) a 4 (máxima, gestão).
+name: "Meridiana Distribuidora — As-Is"
+
+zones:
+  - {id: internet, name: Internet, trust: 0}
+  - {id: dmz, name: DMZ, trust: 1}
+  - {id: internal, name: Rede interna plana, trust: 2}
+  - {id: cds, name: Centros de distribuição, trust: 2}
+  - {id: cloud, name: Microsoft 365, trust: 2}
+
+components:
+  - {id: remote-users, name: Usuários remotos, type: actor, zone: internet}
+  - {id: vendor-erp, name: Fornecedor do ERP, type: actor, zone: internet}
+  - {id: customers, name: Clientes B2B, type: actor, zone: internet}
+  - {id: edge-fw, name: Firewall de borda, type: firewall, zone: dmz, critical: true, redundancy: 1, logging: local}
+  - {id: vpn, name: VPN SSL, type: remote-access, zone: dmz, critical: true, redundancy: 1, logging: local}
+  - {id: portal, name: Portal B2B, type: application, zone: dmz, critical: true, redundancy: 1, logging: local}
+  - {id: workstations, name: Estações de trabalho, type: workstation, zone: internal}
+  - {id: dc, name: Controladores de domínio, type: directory, zone: internal, critical: true, redundancy: 2, logging: local}
+  - {id: erp-app, name: ERP, type: application, zone: internal, critical: true, redundancy: 1, logging: local}
+  - {id: erp-db, name: Banco do ERP, type: database, zone: internal, critical: true, redundancy: 1, logging: local}
+  - {id: file-server, name: Servidor de arquivos, type: server, zone: internal, critical: true, redundancy: 1, logging: local}
+  - {id: label-server, name: Servidor de etiquetas, type: server, zone: internal, supported: false, critical: true, redundancy: 1, logging: local}
+  - id: nas
+    name: NAS de backup
+    type: backup
+    zone: internal
+    critical: true
+    redundancy: 1
+    logging: local
+    identity: corporate-domain
+    immutable: false
+    offsite: false
+  - {id: wms, name: WMS e coletores, type: device, zone: cds}
+  - {id: m365, name: Microsoft 365, type: saas, zone: cloud}
+
+flows:
+  - {from: remote-users, to: vpn, protocol: HTTPS, authn: password, encrypted: true, data: internal, purpose: remote-access}
+  - {from: vpn, to: workstations, protocol: "IP (rede inteira)", authn: password, encrypted: false, data: internal, purpose: remote-access}
+  - {from: vendor-erp, to: vpn, protocol: HTTPS, authn: shared, encrypted: true, data: confidential, purpose: admin}
+  - {from: vpn, to: erp-app, protocol: RDP, authn: shared, encrypted: true, data: confidential, purpose: admin}
+  - {from: customers, to: portal, protocol: HTTPS, authn: password, encrypted: true, data: confidential, purpose: business}
+  - {from: portal, to: erp-db, protocol: "Oracle Net", authn: password, encrypted: false, data: confidential, purpose: business}
+  - {from: workstations, to: dc, protocol: "Kerberos/LDAP", authn: password, encrypted: true, data: internal, purpose: business}
+  - {from: workstations, to: dc, protocol: RDP, authn: password, encrypted: true, data: internal, purpose: admin}
+  - {from: workstations, to: erp-app, protocol: HTTPS, authn: password, encrypted: true, data: confidential, purpose: business}
+  - {from: erp-app, to: erp-db, protocol: "Oracle Net", authn: password, encrypted: false, data: confidential, purpose: business}
+  - {from: wms, to: label-server, protocol: "TCP aplicação", authn: none, encrypted: false, data: internal, purpose: business}
+  - {from: wms, to: erp-app, protocol: HTTPS, authn: password, encrypted: true, data: confidential, purpose: business}
+  - {from: erp-db, to: nas, protocol: SMB, authn: password, encrypted: false, data: confidential, purpose: backup}
+  - {from: dc, to: m365, protocol: HTTPS, authn: certificate, encrypted: true, data: internal, purpose: identity-sync}

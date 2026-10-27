@@ -1,0 +1,24 @@
+flowchart TB
+  accTitle: Defense in depth no acesso a um sistema de pagamentos
+  accDescr: Uma requisição de um atacante precisa atravessar várias camadas independentes até chegar aos dados de pagamento: o WAF na borda, a autenticação multifator no provedor de identidade, a autorização por objeto na aplicação, a segmentação entre a aplicação e o banco, a criptografia dos dados no banco e a detecção pelo SIEM. Cada camada usa um mecanismo diferente, de modo que a falha de uma não compromete as demais.
+
+  ATK(["Requisição externa"])
+  WAF["Camada 1 · WAF<br/><small>filtra ataques conhecidos</small>"]
+  IDP["Camada 2 · Identidade<br/><small>MFA resistente a phishing</small>"]
+  APP["Camada 3 · Aplicação<br/><small>autorização por objeto</small>"]
+  NET["Camada 4 · Segmentação<br/><small>só a aplicação alcança o banco</small>"]
+  DB[("Camada 5 · Dados<br/><small>cifrados com chave no KMS</small>")]
+  SIEM["Camada transversal · Detecção<br/><small>SIEM correlaciona eventos</small>"]
+
+  ATK --> WAF --> IDP --> APP --> NET --> DB
+  WAF -.-> SIEM
+  IDP -.-> SIEM
+  APP -.-> SIEM
+  NET -.-> SIEM
+
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef identity stroke:#2f74e8,stroke-width:2px
+  classDef untrusted stroke:#dc2626,stroke-width:2px,stroke-dasharray:5 3
+  class WAF,APP,NET,SIEM control
+  class IDP identity
+  class ATK untrusted

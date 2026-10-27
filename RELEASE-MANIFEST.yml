@@ -1,38 +1,385 @@
-# Gerado por scripts/export_landing.py — não editar. Verificado por scripts/verify_release_manifest.py.
+# Gerado por scripts/export_release.py — não editar. Verificado por scripts/verify_release_manifest.py.
 schema_version: 1
-release: R0
-version: 0.0.1
-tag: v0.0.1
-title: Página institucional
+release: R1
+version: 0.1.0
+tag: v0.1.0
+candidate: v0.1.0-fundamentals-rc1
+title: Release 1 — Fundamentals
 mode: final
 status: approved
+levels:
+- n0
+- n1
 scope:
-  pages:
-  - docs/index.md
-  modules: []
-  lessons: []
-  note: 'Página institucional: objetivo do projeto e fundamentos que serão tratados. Nenhuma aula publicada.'
+  modules:
+  - id: M00
+    title: Fundamentos de Infraestrutura e Computação
+    status: published
+    prerequisites: []
+  - id: M01
+    title: Fundamentos de Segurança
+    status: published
+    prerequisites:
+    - M00
+  - id: M02
+    title: Introdução à Arquitetura de Segurança
+    status: published
+    prerequisites:
+    - M00
+    - M01
+  lessons:
+  - id: M00-L01
+    title: Computação, sistemas operacionais e virtualização
+    status: published
+  - id: M00-L02
+    title: 'Redes TCP/IP: modelo OSI, endereçamento, DNS, DHCP e NAT'
+    status: published
+  - id: M00-L03
+    title: 'Segmentação e conectividade: VLAN, roteamento, VPN, TLS e firewalls'
+    status: published
+  - id: M00-L04
+    title: Datacenters, armazenamento, clusters e alta disponibilidade
+    status: published
+  - id: M00-L05
+    title: Containers, Kubernetes, APIs, microsserviços e serverless
+    status: published
+  - id: M00-L06
+    title: 'Cloud computing: modelos de serviço e de implantação'
+    status: published
+  - id: M00-L07
+    title: 'Lendo diagramas arquiteturais: componentes, fluxos e fronteiras'
+    status: published
+  - id: M01-L01
+    title: 'Propriedades de segurança: CIA, autenticidade, autorização e não repúdio'
+    status: published
+  - id: M01-L02
+    title: Princípios de design seguro
+    status: published
+  - id: M01-L03
+    title: Trust boundaries, attack surface e responsabilidade compartilhada
+    status: published
+  - id: M01-L04
+    title: 'Criptografia aplicada: simétrica, assimétrica, hashing e assinaturas'
+    status: published
+  - id: M01-L05
+    title: PKI, certificados, TLS e gerenciamento de chaves
+    status: published
+  - id: M01-L06
+    title: Ameaça, vulnerabilidade, risco, exposição e controle
+    status: published
+  - id: M01-L07
+    title: 'Modelos formais: Bell-LaPadula, Biba, Clark-Wilson e Brewer-Nash'
+    status: published
+  - id: M02-L01
+    title: O papel do Security Architect
+    status: published
+  - id: M02-L02
+    title: Enterprise, Solution e Security Architecture
+    status: published
+  - id: M02-L03
+    title: Arquitetura conceitual, lógica e física
+    status: published
+  - id: M02-L04
+    title: Princípios, padrões, baselines e exceções
+    status: published
+  - id: M02-L05
+    title: Arquiteturas de referência e blueprints
+    status: published
+  - id: M02-L06
+    title: 'Frameworks, padrões e certificações: NIST, SABSA, TOGAF, CISSP e ISSAP'
+    status: published
+  - id: M02-L07
+    title: 'Business-driven Security Architecture: de requisitos de negócio a requisitos de segurança'
+    status: published
+  - id: M02-L08
+    title: Architecture Decision Records
+    status: published
+  case_studies:
+  - id: CS-A
+    title: Caso A — Datacenter tradicional (Meridiana Distribuidora)
+    status: published
+  labs:
+  - id: LAB-00
+    title: Laboratório 00 — Plano de endereçamento e segmentação
+    status: published
+  - id: LAB-01
+    title: Laboratório 01 — Mecanismos de segurança na prática
+    status: published
+  - id: LAB-02
+    title: Laboratório 02 — Modelagem arquitetural como código
+    status: published
+  assessments:
+  - id: AS-DIAG
+    title: Avaliação diagnóstica de fundamentos
+    status: published
+  - id: AS-M00
+    title: Avaliação do Módulo 00
+    status: published
+  - id: AS-M01
+    title: Avaliação do Módulo 01
+    status: published
+  - id: AS-FUND
+    title: Avaliação final de Fundamentals (integradora)
+    status: published
+  - id: AS-M02
+    title: Avaliação do Módulo 02
+    status: published
+  artifacts:
+  - id: ART-ADR
+    title: Architecture Decision Record
+    status: published
+  - id: ART-SRS
+    title: Security Requirements Specification
+    status: published
+  - id: ART-ARC
+    title: Architecture Review Checklist
+    status: published
+diagrams:
+- architecture-decision-flow
+- architecture-overview
+- as-fund-as-is
+- as-fund-to-be
+- assessment-m02-task1
+- case-a-as-is
+- case-a-to-be
+- control-lifecycle
+- hybrid-infrastructure
+- identity-access-flow
+- layered-security
+- learning-journey
+- m00-l01-isolation
+- m00-l02-packet-path
+- m00-l03-segmented-network
+- m00-l04-ha-datacenter
+- m00-l05-modern-platforms
+- m00-l06-shared-responsibility
+- m00-l07-reading-example
+- m00-module-map
+- m01-l01-aaa-flow
+- m01-l01-properties
+- m01-l02-defense-in-depth
+- m01-l03-attack-surface
+- m01-l04-hybrid-encryption
+- m01-l05-pki-tls
+- m01-l06-control-functions
+- m01-l06-risk-model
+- m01-l07-blp-biba
+- m01-module-map
+- m02-l01-engagement
+- m02-l02-scopes
+- m02-l02-security-layers
+- m02-l03-conceptual
+- m02-l03-logical
+- m02-l03-physical
+- m02-l04-exception-flow
+- m02-l04-hierarchy
+- m02-l05-reference-chain
+- m02-l05-saas-ra
+- m02-l06-framework-map
+- m02-l07-paylink
+- m02-l07-traceability
+- m02-l08-adr-lifecycle
+- m02-module-map
+- network-segmentation
+- research-traceability
+- risk-management-process
+- zero-trust-flow
+references:
+- ARC42-ISO42010-SUMMARY
+- AWS-SECURITY-PILLAR
+- AWS-SRA
+- AWS-WA-RELIABILITY
+- AWS-WA-SECURITY-DESIGN
+- AZURE-WAF-SECURITY
+- AZURE-WAF-SECURITY-CHECKLIST
+- BOOK-ANDERSON-SE3
+- BOOK-GOOGLE-BSRS
+- CABF-SC081
+- CIS-CONTROLS-V8-1
+- CSA-GUIDANCE-V5
+- GCP-ENTERPRISE-FOUNDATIONS
+- GCP-WAF-SECURITY
+- ISC2-CISSP-OUTLINE
+- ISC2-ISSAP-2025
+- ISO-42010-2022
+- K8S-SECURITY-OVERVIEW
+- MITRE-ATTACK
+- MS-MCRA
+- NIST-CSF-2
+- NIST-CSF-FAQ
+- NIST-CSF-INFORMATIVE-REFS
+- NIST-FIPS-203
+- NIST-IR-8547
+- NIST-RMF
+- NIST-SP1800-16
+- NIST-SP800-125
+- NIST-SP800-145
+- NIST-SP800-160-V1R1
+- NIST-SP800-190
+- NIST-SP800-204
+- NIST-SP800-207
+- NIST-SP800-215
+- NIST-SP800-30-R1
+- NIST-SP800-34-R1
+- NIST-SP800-41-R1
+- NIST-SP800-53
+- NIST-SP800-57-PT1-R5
+- NYGARD-ADR-2011
+- OWASP-ASVS-5
+- RFC-1918
+- RFC-9846
+- SABSA-W100
+- SABSA-W101
+- SABSA-W105
+- SABSA-W117
+- SALTZER-SCHROEDER-1975
+- TOG-RISK-SECURITY
+- TOG-SABSA-2011
+- TOG-TOGAF-10
+- TOG-TOGAF9-PRINCIPLES
+editorial_state: approved
+technical_state: validado pela exportação (ver validações na árvore)
 approval:
   approved_by:
   - Andrews Ferreira
-  approved_on: '2026-10-26'
-  approved_source_commit: 35dd66ad37d9932eeecbb9c82b4c5e6f2cf544f5
-  note: Criação e publicação automática da página básica do projeto no GitHub Pages, citando o objetivo e os fundamentos que serão tratados, solicitadas pelo mantenedor em 2026-10-26.
+  approved_on: '2026-10-27'
+  approved_source_commit: 94c6cb4d67519737760ba63912a921cb6681e8bb
 source:
   repository: andrewsferreira/security-architecture-academy-dev
-  commit: 35dd66ad37d9932eeecbb9c82b4c5e6f2cf544f5
+  commit: 42dacf815532ee7fb4661bc5a55d6857a66a74ec
   dirty: false
+  approved_source_commit: 94c6cb4d67519737760ba63912a921cb6681e8bb
 public_commit: null
+publication:
+  published_on: null
+  url: null
 files:
   .editorconfig: f77bc966bd7bb06b5d27d21715047d53ae7c04002d5df234dc1535bd2dce6d89
   .gitattributes: 274a808c4e2d4af14eed463abaceea18bc69bcdac0e545505a57113e50a14a73
-  .github/workflows/ci.yml: 731713aeac4b0a1b20c4c6127462be8048b966d8886bf8c92f094ca8c86b55bc
-  .github/workflows/pages.yml: 66857e1ebe2ee51ecae39e02c6a7b3b1582baed0b44a423c11cfbe1ff4d8e9c7
+  .github/ISSUE_TEMPLATE/1-documentation-error.yml: 2cd5a5865c92a3b78b55e20b3adc72e5f45d50e31dfdf7ebb5b2e05e0f594608
+  .github/ISSUE_TEMPLATE/2-new-content.yml: 41ef714f65a22ae571a8c2b47351e90f672083ac24b818c1664979c58577eeea
+  .github/ISSUE_TEMPLATE/3-broken-resource.yml: 9b1f891d2ee4f6924c02d16a7bf600bd10f5f7c2d35679953ff9d03bf9af6231
+  .github/ISSUE_TEMPLATE/4-architecture-improvement.yml: 1a785ecf46b6dd7bc0fb3e3373c653093e6bfc72538151000a639548caba0b05
+  .github/ISSUE_TEMPLATE/5-technical-problem.yml: da342a8dbd1a617175e2d3c83383ec98d6bfc35a7788823df6bcb24bce61205d
+  .github/ISSUE_TEMPLATE/config.yml: eb47025c0de2edb269c45e0027e6b7681e8c4b3190197cad470676017e5c7c3c
+  .github/PULL_REQUEST_TEMPLATE.md: ab0cac34a8e514f9bd2d3bddc11f66c056b8925a7610903a451bba149540f89f
+  .github/dependabot.yml: 548a9b63762ee8065b01bd937686a566cdcd89bf44b0192b11b6d26e3047d629
+  .github/workflows/ci.yml: e26bf9ce0e20c3528ed7f9f2349e63779b89f331b4152817e8a8680463270084
+  .github/workflows/links.yml: b3404c676674bbcf442445204f83854f597e738dd6bd73cc4bad4e5c2085f7ed
+  .github/workflows/pages.yml: 15355b76f3d9834fb4b5696b128f8cda9d82d43e11642f5b8d3da6213c5d7c48
   .gitignore: 46b75b71c6b7b438c51e8c988163efb21fa001b38d71038e25487946432c8e83
   .markdownlint-cli2.jsonc: fa0f864dc2897833ca5adedc56753984fba82496e6fe74a364ee45864c1585a4
+  CHANGELOG.md: 10e1f450b047077ef67b24349f145816a9c06ce83ec0e9811127c10c1fd471bf
+  CODE_OF_CONDUCT.md: 73707aaeb5f07ce4cdf6797d268a3c15ac4087ad3b34a12cd2d58730028fb1e1
+  CONTRIBUTING.md: ff8338a4621378a04fddaa0b72f7e476e41e7a0b5d3fb781f6d02c3034968d19
+  CURRICULUM.md: 8004f1eed6014ac1f14ec520cfe41a054eb1ef15cf4a7090af40ff7cadb51c15
+  GETTING-STARTED.md: 528f026ea3abbc81443caaabd04eb433546886f69ab12e31a08d247ee04b8fd5
   LICENSE: d557539df68e771cc1eedcc91d13f70fca930e508d11eedcafa4b15db49e3744
   LICENSE-CODE: 083db2c29bbde280a12b804a7b46501754a8df1805710133c3bf7af4751079af
-  README.md: 28f22dd65d722bfd0c19f8bfdc961af1fd899d0934fcab0046d5772f2dc2b18d
+  LICENSING.md: 23b08e2a7e615ef7ce3612fe1858b2e370d635ca6d0d90f6f4782375a799786e
+  Makefile: 62dba31887bd58e67d90463a2cd0e04cb094679f2054063a8e6ece59e052bf53
+  PROJECT-STANDARDS.md: 95bd5a542a5dfb679da2ef6b61f6ab1324a8edd0d5a25e593ccadd089a283029
+  README.md: 95ff4abbe274a25b56c84379dc9e561fb1959360744d23226d799b564f5b7051
+  ROADMAP.md: 3fe82cc3b8574002e9378177c2109df70370581223dcd3fe214745f1e70e7c23
+  SECURITY.md: d48e88b7de384893a811654c2ea86ff6fb57c19ecd0f047b105158fd2c728a00
+  assets/branding/apple-touch-icon.png: 8b996784fc493914660968831178fd70ce76ca4f59aa4e114493c57ff644dbac
+  assets/branding/banner-dark.svg: 9caf1795287f8306efe8abfe9811852dafaffd3ed94558d3e29383382aa953a8
+  assets/branding/banner-light.svg: 4d0ef388a8fff1d400f0e3d9ebada4336349dfe405faa12b61bf24e831b8cb53
+  assets/branding/banner.svg: 9caf1795287f8306efe8abfe9811852dafaffd3ed94558d3e29383382aa953a8
+  assets/branding/favicon.png: 41983ca881e992c2005f14ea1e7ab56573f9cefb58c9b353c89661ea0c14c206
+  assets/branding/icon.svg: ba1d046ce45ce2d5f89d44dbf3ca8aa73fe251fbb53410ebb602ce36fd8d9b5e
+  assets/branding/logo-dark.svg: 34f5e71f0cacf21717f1c047e3e98a69e31efbb219f28b4a8e8029cdc667a73b
+  assets/branding/logo-light.svg: 67b8fd1c607fa06018af3c61a94af8d5784b3ccb3d751ff5facefb36089ddb52
+  assets/branding/logo.svg: 67b8fd1c607fa06018af3c61a94af8d5784b3ccb3d751ff5facefb36089ddb52
+  assets/branding/social-preview.png: 9378eb0c6df446c017dfb5f3fe22522024d5990f2de035acc8f52a013b1f7414
+  assets/branding/social-preview.svg: f4b9ec48bd41973bcc780ba525ea6520538863c333b53b75a0c5e5b708cbe941
+  assets/branding/symbol-dark.svg: c256e84115d58b3df4917228699f621c2ba58f115296bc50287565d2b0e38ad1
+  assets/branding/symbol-light.svg: 8b339f93500ba9d75a6de867a450f2b1d1447613717bed73c96fdd334893d867
+  assets/diagrams/architecture-decision-flow.mmd: 9f0055a0b07447bc9ea366e13194c321292a34d2a36811fd98cc677d7cb572ac
+  assets/diagrams/architecture-overview.mmd: ab1972fe5982b91d916718996f6de8c2aff98f28c7382868b33d315c5cf6ecc6
+  assets/diagrams/as-fund-as-is.mmd: 8209e8b0919bc5d0c5b1aa8f418e4ef5ec007b8747dd10a7a64082b787320a32
+  assets/diagrams/as-fund-to-be.mmd: 1e6a246e29376f6822dccbbeecad35fb98bf60364d76bc0aab58d67191d7a998
+  assets/diagrams/assessment-m02-task1.mmd: 57b9f607531d7687351b0b9e3fbb053885201b88c2a254b7b2f8273da6eaa292
+  assets/diagrams/case-a-as-is.mmd: d39338647de58be3577466dfcb29505b570e35ae898dc910b71eea89f68c0861
+  assets/diagrams/case-a-to-be.mmd: b0f3672500068c3ed68155f8a59bae1d8376e72e581c60ceaa1bf322f5449cda
+  assets/diagrams/control-lifecycle.mmd: 8087664e1fd69bf17db61737a37996a7ec589c36350d30a994d1ca5fcfe69dbb
+  assets/diagrams/hybrid-infrastructure.mmd: ae401e0ee053b628c542cb099af3bd8b4361f027e8e2bcac9db35fc0b6fa3a5a
+  assets/diagrams/identity-access-flow.mmd: 68f45aae44e6db7a86656daeded24a7f7bf75b3cb0dd9f2f43a6567990601d6b
+  assets/diagrams/layered-security.mmd: 30691c8fc3c53c8b51e95fc0b2bf1fa37bb313abcdd466695485763cdad0d0c6
+  assets/diagrams/learning-journey.mmd: f9ebcbb5ab8d86eb2122fd8b960ad3511e576b4d5f6831141c0022985631777a
+  assets/diagrams/m00-l01-isolation.mmd: f06a537f7e38cd8883d9d34197f3bec47b56f0b133217173de8a22d86a13b44d
+  assets/diagrams/m00-l02-packet-path.mmd: d8d8b01037b71877f7ba94cc61e0972b38f71977d654b102c62db6feea3c4012
+  assets/diagrams/m00-l03-segmented-network.mmd: c0d65db51ab90d5bb521e077d87d4c8740dd396805d4e88f792a31ff1d517206
+  assets/diagrams/m00-l04-ha-datacenter.mmd: d88dc642e707845a6bdf18ff06c469f39c1e8628a4f3d216a34b670f3969e1f9
+  assets/diagrams/m00-l05-modern-platforms.mmd: 15f3d209493e74cc854aa15529d858d5bc902f6528e4b06556e6ff9255f5f349
+  assets/diagrams/m00-l06-shared-responsibility.mmd: 7f2e042cd34c5284769b6f4763dd634e1291f4a0a147224b70d1e2c699a05edc
+  assets/diagrams/m00-l07-reading-example.mmd: d86ba8019cbdde15f98d41a9e2b3c8d7dacc61f88731586d0127c7309e6ef8ed
+  assets/diagrams/m00-module-map.mmd: 84ade22644eed4e923b3a1479c4183bd360c0f5588daae8aade9f0e09dbdbfc6
+  assets/diagrams/m01-l01-aaa-flow.mmd: f615e928146a07b853454e0f8e0bffd3963aa46301b860540d7fd9355c990ced
+  assets/diagrams/m01-l01-properties.mmd: 2e9d2710962dc256b988fd5b8a8120743938226cdff9f77908d55483f9faf5e2
+  assets/diagrams/m01-l02-defense-in-depth.mmd: bad63f4d2f4c55ddf3b81717ca49227c987ae9de06bf2f29df7343800d92f886
+  assets/diagrams/m01-l03-attack-surface.mmd: 2e28042dd75e045873553e1f45a92c85b2db764e60f30560188eacee993236e2
+  assets/diagrams/m01-l04-hybrid-encryption.mmd: e4754082caef54552029f23bb105981597de35cd5d5d09dd730f9ffa69b7172f
+  assets/diagrams/m01-l05-pki-tls.mmd: 252c3dd9916d589cca88320561700dd3c9afefda5ae0a528b2a07dcce494606b
+  assets/diagrams/m01-l06-control-functions.mmd: 90b7e12f763a6c5e0bd34606388b9e198ee079dc35c769e798ab97b3c67a025d
+  assets/diagrams/m01-l06-risk-model.mmd: 4aa38cd252db295f6bfe0b9315abfc12f806caa7f5d4ffda991f73953734e161
+  assets/diagrams/m01-l07-blp-biba.mmd: 32fe1430f5da11187958796268c6811e202ffaa3c3334be749642a1cafaaf26d
+  assets/diagrams/m01-module-map.mmd: 44e945699ff70e31ece3f303397d4416ec75c93fe56e22529d0a08168ae48af8
+  assets/diagrams/m02-l01-engagement.mmd: ccd827e8898007bd3de9c8126e54144a497564577e102bc439ccc0376f55ba83
+  assets/diagrams/m02-l02-scopes.mmd: 58a373696c5ef3b1a062b20d95d32d09a3effcfe31144e40af544f5462c76a5c
+  assets/diagrams/m02-l02-security-layers.mmd: 911da59465c2cabd985ab221f56cf390d586d73e523c06b3fd94307c380ec3df
+  assets/diagrams/m02-l03-conceptual.mmd: 28c0fcc58bb90a773fbb83a19bfdcc0a3671c6a912477fd1a64fa0dc38caa48b
+  assets/diagrams/m02-l03-logical.mmd: f2a4fca40da8b5dd8cff94fe44558b8280ac84d59fe90b6dfe7a8a9e50d27c62
+  assets/diagrams/m02-l03-physical.mmd: 517075b38ca7fcffe71d7d6489737cb481807d7de9f06be46e710f56fafb83bd
+  assets/diagrams/m02-l04-exception-flow.mmd: 26dcf915315e1ed4f1c14ef5553f8cb35bad78f87b7be26990ebef2f21417cbd
+  assets/diagrams/m02-l04-hierarchy.mmd: 4ae6f4bb7367b33f1a79e1f39ddfc9f5bd4e4c8efa69299c258ff9cb57134a2e
+  assets/diagrams/m02-l05-reference-chain.mmd: 1734e4cf1099e08f78acf1b0babad2902d80f1eb5c0c20c988fe89c36de8a2fb
+  assets/diagrams/m02-l05-saas-ra.mmd: 5f00f2b3d0ee63a342eddc322d903d4f71d3c26a39c076a86be9d9f8412604fd
+  assets/diagrams/m02-l06-framework-map.mmd: cac9cfc636d621f295cb7ed05aefe01d7ab7e772bbc52785c8c53d36e3a29307
+  assets/diagrams/m02-l07-paylink.mmd: 1b060cd350358a655c1e9c7ecb9645e6c5460e864a95378445f8a8879792d6b0
+  assets/diagrams/m02-l07-traceability.mmd: 93c4b28a6c6abba6adf1e0a1e8b6c4abcd4c2df73d083e3e6271f94f20b8f652
+  assets/diagrams/m02-l08-adr-lifecycle.mmd: d6597c6389b4479d25a110e469e2640d35ff464494fa7211b3a0207f6196fa67
+  assets/diagrams/m02-module-map.mmd: 49cddc3a2741223d9d278c6fae4d5cfe3ff2dbcefe70123e3f3541397189a9aa
+  assets/diagrams/network-segmentation.mmd: 3e579144cf3a2a4ae29a6b5ba97fa07ce289e44327d37d3f60d5c80fbed69f44
+  assets/diagrams/research-traceability.mmd: b066b89243de304f24ff5784dc2bafcd53838909f7cc7153d82cae86c4f84711
+  assets/diagrams/risk-management-process.mmd: bdb77e32a16c3b9518457ccf5510bec77c1ee81611a73c98a7bdfc45a94ce3c3
+  assets/diagrams/zero-trust-flow.mmd: 216ce2743dc0abaf71bf2801e87fa55dc51d8dfc25a833926fd77c0c7c81cf07
+  authoring/README.md: 9bf1cc6ae66bae6369b07889fe96cbaf8ee97ff1b710b462ad4d141fd2c1c8a6
+  authoring/architecture-decision-record.md: 936107705077c415a912626d7785e8127ddd1257313dee1bb474550698475cf4
+  authoring/architecture-pattern.md: 9a0c4b9e490f2f0d1d092587d7c72c5075c808b3649ce76f26d99c01fba2d282
+  authoring/assessment.md: 66aff99ddb7fa82b784c80d98c5d9e507c02d2c0f392a7b60f7ad66c3539300e
+  authoring/case-study.md: a44245694fc9fd13ca78beb6a05713ed4378c5001c836420bf2dbfdfab814280
+  authoring/concept-explanation.md: 074cdd6f775c5a5f4d52f9c053bcad4fb624a63f25196b9463d93e826760b6f7
+  authoring/control-mapping.md: ae589d34610a7574435d5d6d9b3fbbe4b1f2243ceac1979abfa56e2c4d7ebefc
+  authoring/external-resource.md: 582a50bc712058adb9f6d3696c92fdd6115836a96beb593b359814a0e1676cd6
+  authoring/glossary-entry.md: d1b9677b05434202ed8d47ddf158f835db20df3fe25cf3ee1e53a50184f1ecb6
+  authoring/module-overview.md: 2105603e0bd7be25769bfc8e6eae57d8474eabdd9dd42bfeca28918ed855dac4
+  authoring/reference-architecture.md: 1e12f28e1769bf444ddadb6887d5681c21bc9863700c1da6f4a7270d003faab1
+  authoring/technical-lab.md: c0c2442555d0a95f16772a74596f499c17e6a6b1882ed910a25eb99605c99e50
+  authoring/technical-lesson.md: 0519d255cc9a5240b83fb8c1bbe187d03857e0d2bd1e20533b4bfcb8bebfb7ea
+  authoring/threat-model.md: 0126cd78b0a1d707f5a468608e673752c3c0b76200196fb809f2296c983d381c
+  curriculum/manifest.yml: 691dbd2986338118a5f6211f90ae39806e874ca36b40ddb54a22a3284b42a855
+  curriculum/public-allowlist.yml: a55926b1d24a0167ea576068e5ad581fa6a9922cd4faf1a5cacc97b931a6e083
+  docs/about/index.md: 6299ffc84481bb0fd525181a5f4d4c8c2703afddbc6f0ad49a130cdf1e0db382
+  docs/about/licensing.md: 89db619223cde32b4e5f7e959fc1d7ba1c45a5dc938e7ead26512b7370fe27bb
+  docs/about/references.md: 89916a7e321ba476089020ab51be9e9cfa763b06ee039aef12fced9903b8ea67
+  docs/about/roadmap.md: 51774c658da63682892da273c845bb33828af31336d9975bc47fe423504b1061
+  docs/artifacts/architecture-decision-record.md: 24e96fb8ad582674e2aec15161d2ba3bc70973e1e0c774f5b40e818dcf86aca1
+  docs/artifacts/architecture-review-checklist.md: d97c576f998441e0d4628733895b4dbe4e2dd6182b655c52589200031b0f6bbc
+  docs/artifacts/index.md: 3f051fa2f5f37177433337f0a5515029a3ddddfed85fc6b27782384352ee04e9
+  docs/artifacts/security-requirements-specification.md: d59c87fb5d59c636a6600b11d4cd1d44b3ac87616399a78cbd8eaeea653e1495
+  docs/assessments/answers/diagnostic-fundamentals.md: 8b15cbaba56f3d3fb953e0f8311bb0765a58ab60749cb8e405848a0373157f6f
+  docs/assessments/answers/fundamentals-final.md: dea74aac494afa0a01491cd6c098732b52c7a263ca477ef6672faf4198528768
+  docs/assessments/answers/m00-foundations.md: 42738d5ce9a47d151efe147b5bd6afdbc04c5767ba4dde5da0846cbc561bb83a
+  docs/assessments/answers/m01-security-fundamentals.md: 337470847c5fe2fe4cbe46359510c797b8f878560f9f4be4a6d8b449d8058582
+  docs/assessments/answers/m02-security-architecture.md: 658ebf33fd57571bcfd1a09745df772cfd883f9cf8e52145abb7d5b78bff402f
+  docs/assessments/diagnostic-fundamentals.md: 45d1cad111c1e5c335253fffe39388b50c8ad324e482dae4726dc21f6f6e7dc7
+  docs/assessments/fundamentals-final.md: 0185f762218bc4735fd598ea90fffda3a2fd986d84746117ec9bed1df2f45b1c
+  docs/assessments/index.md: ea9590e893f731530e775f14aeed59c1bf8807e4c1f9ad4b3370011625b2373b
+  docs/assessments/m00-foundations.md: f7a3258929761a8335e689ac50619476c010c13071dea7a41bb59372412ec28a
+  docs/assessments/m01-security-fundamentals.md: c02a8d963ccbd45fa26b5c0a12e92b59a188f3bb28fb6c3a51882f40dc91b5d2
+  docs/assessments/m02-security-architecture.md: 4cb6cbbc637b2e3a81e9b4654bc8e9215c9d030f0684f54eb0384d3c9455e993
+  docs/assessments/rubrics.md: 24d0299be76da34f5208a811ec9c2e2d4c197aedeb1f7690a677622cbec35625
   docs/assets/branding/apple-touch-icon.png: 8b996784fc493914660968831178fd70ce76ca4f59aa4e114493c57ff644dbac
   docs/assets/branding/banner-dark.svg: 9caf1795287f8306efe8abfe9811852dafaffd3ed94558d3e29383382aa953a8
   docs/assets/branding/banner-light.svg: 4d0ef388a8fff1d400f0e3d9ebada4336349dfe405faa12b61bf24e831b8cb53
@@ -59,14 +406,126 @@ files:
   docs/assets/images/hero-architecture-light.svg: 691f85ed4609e60255d3f5475711f3de3dc588f3765342d80a01e8024e525d33
   docs/assets/javascripts/a11y.js: 94c84ea388baf3fe5d434d05ac985d16e79ee17820af8842e760e0f5d1239892
   docs/assets/stylesheets/extra.css: 1fdefa426de33c95c8495a8c9239626c5928f7cd8afadf96ca421263123bd244
-  docs/index.md: ea5a9fa3555083832cccbbd20e4fdad387a05d667e8d0f8c529261b03b14bbc7
+  docs/case-studies/case-a-meridiana/adr-001-remote-access.md: 803f384010cd015c3c7e7f4de686f13f91148982b25beb54f16c0736c1556123
+  docs/case-studies/case-a-meridiana/adr-002-segmentation.md: ec0ea6e6844f07381664c76bceb78d870f42d2c62053191b05d52a149104c4af
+  docs/case-studies/case-a-meridiana/adr-003-logging.md: 0b36d86d14656389faceeedb92d25e17790eafc63faaf3dbe87fb38cca21cfb2
+  docs/case-studies/case-a-meridiana/index.md: 9cc04034e956558964419ec3edcbc228a5ece7020c7858c37f5a30df97330635
+  docs/case-studies/case-a-meridiana/solution.md: 7f871a1cfc708d9ddff40862c74af8b00bb5f66ad3da544ca9982a9b3dd117ff
+  docs/case-studies/index.md: e8ae4475c33434348a3879aade2919d6db2593664ac4aa9aea3290d13632a886
+  docs/certification-mapping/index.md: d9d08d3aaff02cb923622bb21c098d3a837b8d207a993bd17b4c4092d0a37aec
+  docs/curriculum/competencies.md: ff8364dba9c5c45992936a2a8a99b66a90bbd932a141b560bde34ca5a4e04980
+  docs/curriculum/coverage-matrix.md: c478536c8b60e958440d022e9ca44d6828b4f2fdc434b45ac1529e3a475c5fa7
+  docs/curriculum/dependencies.md: fbe43031f8df166a3b819a20a25f87c8b37e529f2173da67350d77a0e549711f
+  docs/curriculum/index.md: 997ae978605cec9776c3c793027a3452e84d310ef5e4df93076351dd69cac064
+  docs/getting-started/index.md: 828a3cc34b7f57b316c377abb9fcf3863070b307c60ac3c78f0414b33c644e6e
+  docs/getting-started/local-development.md: 8ed915f590553588d5db49c2efa19a12e926a769fada77c12fdee62afbbc3441
+  docs/index.md: 5c513db37e57a163a4a737aa3ff4460555c3593c9390ad54a4552ba50d8c5cd4
+  docs/internal/components.md: ce564c56f17aaff8b93624886471ea0e996e36bc913ee4328c9736a6344e8203
+  docs/internal/content-model.md: 5c4398948bcf3fba9c4e0c0bcf14d99ea2b4099f8f16b047fc13efd4d9197c47
+  docs/internal/design-system.md: 60449c4c01acfcd06fc06455efce030ff0c2278f2a0a9db40fc324b152fa9657
+  docs/internal/diagrams.md: 682463afcb922091762f055f0b87f2b5a3d9af4fc62391351e02f4efa0c284b0
+  docs/internal/index.md: de2988a12ec54273f79379daa300771ab62852737a9549ef47b4d98f44007c4f
+  docs/internal/style-guide.md: 22ece0fa95f1111e4863afdbce7549628bf68f7698d1d07423047831eeef5120
+  docs/internal/workflow.md: 730f6d6c2b7938983de61a4d8836fa26ba866da28e9ee931c974dd5d195970b8
+  docs/labs/index.md: cdd40b61d5b01d319c027658080be4ac51f46177da1ca4167ff4c0d222f9db5b
+  docs/labs/lab-00-network-plan.md: a6b0befcdea31a5c9a12b2916eed60b4aaf469303c51324a824e4cacad565c4a
+  docs/labs/lab-01-security-mechanisms.md: 8044e500b3295a61df2b6eea31de8a9f79f8fefb9ef0f7ecca9ede0c21f44d4d
+  docs/labs/lab-02-architecture-modeling.md: e0b4d6767c52f16b2d4598c1ef8223aa4d886f7fc3232abfd0380fdb0b67a8b4
+  docs/learning-paths/index.md: 37a2c1acf3bd6f7953e6f25cdf97be4e97e22294c07f6d3bcc865f5a40847c9b
+  docs/learning-paths/study-plan.md: 576cd0a6fbe2b481e643079593df32e1de40c4862178f2ea8aacefa2d53282d8
+  docs/modules/00-foundations/01-computing-os-virtualization.md: 758b84c8b84b78f111075fdedcd4e792c2ffc832da900e661e3bcd1c70e21444
+  docs/modules/00-foundations/02-tcp-ip-networking.md: 74a270e7e5e14dae49e51ccfa8f701a08ed0068733ffc57dc2f55fcd47b7692d
+  docs/modules/00-foundations/03-segmentation-connectivity.md: 7d218fc104d585951dc01c8deca85bc0354463c18fe70e321618afcedcf50757
+  docs/modules/00-foundations/04-datacenter-high-availability.md: b46d9090e149c20e0c8e8e33219141021c1739d4e3dcdca7c5c6a3fc86a087ef
+  docs/modules/00-foundations/05-containers-apis-serverless.md: f1131a32798887265810c8cad7b6d427fb661d35eccabcad99dd15b285c9d03d
+  docs/modules/00-foundations/06-cloud-computing-models.md: 92cda3bca7392014cf958b3e62f25a4627fffdef8e19088bed4fb86a3185aaee
+  docs/modules/00-foundations/07-reading-architecture-diagrams.md: e9191e518c475ab743c8fd7999062e65d491e895f0db8d9e7c637880b97c333f
+  docs/modules/00-foundations/index.md: b0aee22b03e67535156d0279f9cb63515d21414aaa8e53c10303b50489c2eb91
+  docs/modules/01-security-fundamentals/01-security-properties.md: 6a522ae0cc345da9249be4a2b8b55a6ddc995ffcff7f60a56eaa36511726d2f1
+  docs/modules/01-security-fundamentals/02-secure-design-principles.md: 0d5ba06a720f617daab860709ffb50730ebd9ceee7fe978100fcded3c47e356f
+  docs/modules/01-security-fundamentals/03-trust-boundaries-attack-surface.md: 40b11a140f11bfa0e2f452f4ea59984954b7cd667876917922eb5a5e18b3bdae
+  docs/modules/01-security-fundamentals/04-applied-cryptography.md: f08dda21b32a756e42203a290c11276f7c563ec66fed2ada6bb8e2b693b31fce
+  docs/modules/01-security-fundamentals/05-pki-tls-key-management.md: b54084a54c9cf654f7b7064bf3b7f1a3d676f3627168b0c27e118759217c1b29
+  docs/modules/01-security-fundamentals/06-threat-vulnerability-risk.md: 153ac9d21116991426dcad792fe3619e39903de73894aa3ebe952e7d893676e0
+  docs/modules/01-security-fundamentals/07-formal-security-models.md: b17f8b38371990bf0f5a4a734a48ad7f7ab65adcb24928c9460c9817cdaec251
+  docs/modules/01-security-fundamentals/index.md: c2151e16ff0d7f57ef05add8eb65d779f73231bdb17a9b60606c0ccb4a41881a
+  docs/modules/02-security-architecture/01-security-architect-role.md: 3d3a94dd19e4879508ed37e5df1832f240eeb5c7dd70a687c9a232d194ffc5a8
+  docs/modules/02-security-architecture/02-enterprise-solution-security-architecture.md: f1e6f9bd71bf9e91716b7a49b8f1896095de073198214ac95587fbd0365fbf6b
+  docs/modules/02-security-architecture/03-conceptual-logical-physical.md: 7628817ccffc87b9944e85f8dd1d2d0244500825cd56d99fb3c2cc3eaf097c83
+  docs/modules/02-security-architecture/04-principles-standards-baselines-exceptions.md: 5542277aa0cd621ebc8df2625c29e1033605749c8941d7b775b9257ee568ac80
+  docs/modules/02-security-architecture/05-reference-architectures-blueprints.md: 9a21360f965de4036d7bc510baf7743eceb66a27cecfefd762702b5025ce4bc6
+  docs/modules/02-security-architecture/06-frameworks.md: 5878ab79c02fd9cf287625f654cc85fc593b5f9e4d44af655a29d146f73c60ef
+  docs/modules/02-security-architecture/07-business-driven-requirements.md: b5aae1587c725a8246f4778ca7e0ea905f52777412de3a4efe58312087659cf0
+  docs/modules/02-security-architecture/08-architecture-decision-records.md: a1366dbce55a498e74248b8ee9be25e327fe2fd7d35df1ee5c71f5a8df0389e9
+  docs/modules/02-security-architecture/index.md: e6987d218bcf3c3f4c05581ea35d41ab0ad105f34aa62abeddec6969b38c03ed
+  docs/resources/books.md: d628da704d685de14c60d91126ffe8df47a3c0c2c6d3d2138d635cb0e9e48d45
+  docs/resources/cloud-security.md: eb34c362be617c90781e064bb1a23df14450929ac9b2af6970cfa2140a1f0624
+  docs/resources/coverage.md: ccff888a340e22627dc416ead4fd499c2748b94629505071ec79f6b816101b07
+  docs/resources/index.md: 03996d3fedb2b2898a30e9014edd9c892530eea21f410fa61be423dba4db741a
+  docs/resources/m02-bibliographic-review.md: bc5dedc60b983c3b1470c527544ce16b8ac82ec7f0a8401e090765c08e0389c2
+  docs/resources/notes/anderson-security-engineering.md: 8bff949b050319aabcb0194fc51c7a8252a46b08e3fe6d5dc68a0687cc75cbfd
+  docs/resources/notes/cloud-foundations.md: d8c762251dc6af5fbdb21eb45a8e7a644de8895c76d3b2701b0e7dabd9af4464
+  docs/resources/notes/google-bsrs.md: 2e3b772e9234810ba36a3614663626044c6fe3b7d04fd37428474a1ad811cf5e
+  docs/resources/notes/nist-architecture-set.md: d81b85f5c2f3d17dfd611ec55a34fa26e17e4ca166c8c64a79a87edf8338fe6c
+  docs/resources/notes/sabsa-white-papers.md: 86c6c4fd5236d987578521a9b0931cc5d21ad7602263fa14f31280b7c5f6db98
+  docs/resources/official-frameworks.md: ea94817dc01d9295aa9691e0a4a9f69f29f2cdf64f4b0a1304b8573efa740f3e
+  docs/resources/reading-plan.md: 49e738fd0902f3ea97c48d3e7f3e392bc19dfba072044bb1b28b72c8063375d8
+  docs/resources/reference-matrix.md: c4c7dc38d7842602f3e15084d987328172663ec8c28928ab3e29ff7f09ee8556
+  docs/resources/research-methodology.md: 4b89245892a6a0efc2bc797359caf2cc4773d29ace3285906b676dc7380ec8c3
+  examples/lab-00-network-plan/README.md: f85144efe2c945dfaeb76fef9e8ba9b706928caa87a34b199ca4c039a94f075e
+  examples/lab-00-network-plan/models/meridiana-as-is.json: dc5f3ec34ea026af06e20721e11648d505212548122c8f7a7b89c7e59e6f61ea
+  examples/lab-00-network-plan/netplan.py: 4e2a9006fa54b77b8973ab70591a9b0b7b71d0153f440c01bd00de8d971cfa42
+  examples/lab-00-network-plan/solutions/meridiana-to-be.json: e8050b7f00ac7812d311e2f6b6c3ae83b64b2a9f58e07be068e29492f6123c13
+  examples/lab-00-network-plan/tests/test_netplan.py: 46a15445840b447af7555bee6133d7b23a002d0ee311271f04cf1b5309fa2476
+  examples/lab-01-security-mechanisms/README.md: 2d9e870ceb8e2909e773b812494dd896f63b1ecdc0678a8b51d234d4a906ada6
+  examples/lab-01-security-mechanisms/data/docs/politica-reembolso.txt: 60e0a529f7079d9fbe0abb4464e853053faa706698c7982ac567cc4c7c4c072f
+  examples/lab-01-security-mechanisms/data/docs/tabela-fretes.txt: 1ea642b36f6d54c3977fb48173722ecae942d672cd18a01c443802659c4233f3
+  examples/lab-01-security-mechanisms/data/users.json: a69f766845ea72c29f9ff4f820458546e766fd7d556e4dd56010bcb6b5416070
+  examples/lab-01-security-mechanisms/data/wordlist.txt: 20023eeaa84b72b2ade7738f55ba56b8f1cf1bbe7e0a39cd2e32d599e54288da
+  examples/lab-01-security-mechanisms/seclab.py: 232723771345f442ed4a1a7f0bd7a9cb063ebd190296c07476984c62bc604987
+  examples/lab-01-security-mechanisms/tests/test_seclab.py: 30dfe976c6a2b5d39e857f558df33f6965cbbb030ba5bd20413118e25e08440e
+  examples/lab-02-architecture-modeling/README.md: 44550581b851e0bd138ffa644375fa183561a04e1f1a5486d787eb77df958382
+  examples/lab-02-architecture-modeling/archcheck.py: 78cf8a952b497d1c3b94c5faa266c6d3090c3683b80f997fa35c55fe8fde4b4a
+  examples/lab-02-architecture-modeling/models/meridiana-as-is.yaml: 4a83bb205a280b369964d189c42354c97260a32c335d45fdc3b062382f24c90c
+  examples/lab-02-architecture-modeling/solutions/meridiana-to-be.yaml: 87d6151dd6692a6a9c50b5705fad24a2dab74eb66458cc348a009c6facd6410d
+  examples/lab-02-architecture-modeling/tests/test_archcheck.py: 24dce5f422595f4136e02c372d46f764b10b2befff9928ec46f6822be860ac89
   includes/abbreviations.md: 7535554a6b2422e88f2b7e78d60b919b4f60bb4ea7b17cb4018eb45ef918fa7d
   overrides/main.html: 3e894c1af96bdffe3fa95428f6bd15c47452a4ee40cab29296894c68818c5097
+  private-research/README.md: fcfc0209b22d175fcf59a01a35ff8e40af877539e6735b8fd64a8a61955fb0b9
+  requirements-brand.txt: e203d5777740d0a7463c1ff5022f810152697f14a98d58007c9cbf9e25286806
+  requirements-dev.txt: 25facd13c826b2efffe822136963bb2773a8da137344c3119667d298c1bb5ca1
   requirements.txt: 60d7d3b583620dc2b679916bb8e2b5e3b11077cfe381d18d062485c05c4a7917
+  research/README.md: 97278b0caf561e1c8aca1ba7e32d655b3dd9d78d7f470d76d51921bb610fe64d
+  research/bibliography.yml: 2f7f27cafc27fb078727a8c6f748a1f6da1c1e2ae5dc6e55d82d1d1ebb955078
+  research/knowledge-map.yml: 39fb5cd11bf0440b75c251052ea4ffffd565d3df38da7058be38295df5499294
+  research/notes/BOOK-ANDERSON-SE3.md: 08aec4093ec38fdf4b46d95d62b7ce85e06266a76491e31a48585f8f279fec54
+  research/notes/BOOK-GOOGLE-BSRS.md: 57803a1950c438d49eda99f47eec1400849d5eea92f1e8b620474f5eb59855cd
+  research/notes/CLOUD-FOUNDATIONS.md: 18eb0dd1fdf948fdb7ed6b8041a19a9de71dfbc80db5fc960079078355c1da26
+  research/notes/NIST-ARCHITECTURE-SET.md: 58190e9178b506deed7f91b0770dad78cb6a5fa9692a253e770a0d2aecb9db7d
+  research/notes/SABSA-WHITE-PAPERS.md: f5dff0b7338fb72ceb426cc527ff57895ae236c8a71e6708efbd5049c7fb9127
+  research/reading-priorities.md: 9598f4a529c9475119e76811594914d903b5da542c74c48cfa0840b3af13207b
+  research/retroactive-review-m02.md: a84c6830c8e960794eff2e20dae34c488954863d1d1e9438e1d3b5bebca09bcb
+  research/source-verification.md: 27db2c5b393a59b3c5207005c5cb2676e2398b5d1ef216663335f73132db0d9f
   scripts/_common.py: 6100fa45b2f32c893726a77f6738df39221afb2522b66a10a82db31748ff02b3
   scripts/attribution_allowlist.yml: c7984df95612b347df1e250be14b02512e8de4f64499f0c04c2397068906e575
+  scripts/build_brand.py: 2d741a3a7c1756925cab6b3ccad7a5236b38ee8ce1f895708d05ae11615d59d4
+  scripts/check_assets.py: 44f57c0879ef10404236909d0614b5b54623fa3c7af3f381e65896cc430cb029
   scripts/check_attribution.py: 4697a2a9ae2820a2f67ecfee4fc5e13ebd7a586e6a48b67dcfca3bc560430f46
   scripts/check_contrast.py: fbf06e9879caeaeea4fbb033dc018d588e49485c6d7fda3aa1a338f4c9243568
+  scripts/check_decision_matrices.py: 3d8776596d23574d71d9fd34dfbc02af1431949154e75836f98477a48c4dfc67
   scripts/check_links.py: 411e2dbab5556abfdcb95f9fa832beda45a0bf5e303a01b129fdc3d1159168f4
+  scripts/check_structure.py: afd6c4b044d71dfa616fcbb570f45e9a1de27cabb240e4143cbb77819918d6fa
+  scripts/create_labels.sh: 8202ff2e4d401387cd9bb99f446564ed2bc9902a873fcff32dd23e9d7db3ecac
+  scripts/export_release.py: b3658928f7311c8e08e5010d6c78f8e903309d21d39290ed7ccde5b6588340de
+  scripts/render_curriculum.py: 5ac4aa6a0ed21cb8febdecc1ebf7e1b4c4a5ca30841afa0ead72f627928f9b55
+  scripts/validate_manifest.py: 89d3b0ccf64b8f1216ba728c06441fe4443bc7c7da6effbd1a1e9fd926a092b0
+  scripts/validate_references.py: b3de4da34b8d2c48ad1531b7ee71bffd89becd648e28ce259b3a02e742cc9fd6
   scripts/verify_release_manifest.py: 32ae16e2dee1dcaaa1ae8397e6d9c065768b44c6beff264ec28704419c05a402
-  zensical.toml: 367cd0f8da47920da586a46fd72ea8dd65ff5ffe362baa4fd642a315036ea8a0
+  tests/conftest.py: a4d66d2583ecc36d93aea8ad62526230ffb4faaa5f5b7393b411697dfa246be6
+  tests/test_assessments.py: f158e73362b83ecec76ae5844bf50c8e21ee24ff5b749a9626e8dd96b0c6c762
+  tests/test_attribution.py: ec6d1c198aef6bf74419d5f098881b4f3102b283cae67076a9fe9bc0ac7c2dff
+  tests/test_manifest.py: 435d47ca12fd26ef89ab937250e0c5a2e7a29951a90b1cf32a1bd21bbe5a00c7
+  tests/test_references.py: 166fd23db1e90be510535188f5c2c7c24968187ab29667402ef707d5014916d8
+  tests/test_release.py: 51ad8efd47c067f260bc48fe80a6394be6b6c5d9fe0fc0f22821f241a1c80c47
+  tests/test_tooling.py: be5e154ec3e374341baabe287bc9e9321a0d6e4ba3e6cc18b32c128ac0012b7f
+  zensical.toml: 56ac7a5e8f7dca33d599e9cf59938e262174c561323906ddbd004f361b242378

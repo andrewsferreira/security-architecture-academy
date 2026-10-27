@@ -1,0 +1,40 @@
+flowchart TB
+  accTitle: Aplicação de três camadas com alta disponibilidade em dois sites
+  accDescr: Usuários chegam a um par de balanceadores ativo-passivo. Os balanceadores distribuem as requisições entre servidores de aplicação em dois racks diferentes. O banco de dados roda em cluster com réplica síncrona no mesmo site e réplica assíncrona no site secundário. O storage tem controladoras redundantes, e o backup copia os dados para um repositório isolado. Cada componente duplicado elimina um ponto único de falha; a réplica assíncrona define o RPO do site secundário.
+
+  U(["Usuários"])
+  subgraph S1["Site primário"]
+    subgraph LB["Balanceadores — ativo/passivo"]
+      LB1["LB 1"]
+      LB2["LB 2"]
+    end
+    subgraph APPT["Camada de aplicação — racks A e B"]
+      A1["App 1 · rack A"]
+      A2["App 2 · rack B"]
+    end
+    subgraph DBT["Cluster de banco de dados"]
+      DB1[("Primário")]
+      DB2[("Réplica síncrona")]
+    end
+    SAN[("Storage<br/><small>controladoras redundantes</small>")]
+  end
+  subgraph S2["Site secundário"]
+    DB3[("Réplica assíncrona<br/><small>define o RPO</small>")]
+  end
+  BK[("Repositório de backup isolado")]
+
+  U --> LB1
+  LB1 -. "heartbeat" .- LB2
+  LB1 --> A1
+  LB1 --> A2
+  A1 --> DB1
+  A2 --> DB1
+  DB1 -- "síncrona" --> DB2
+  DB1 -- "assíncrona" --> DB3
+  DB1 --> SAN
+  SAN -- "backup" --> BK
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  class S1,S2,LB,APPT,DBT zone
+  class BK control

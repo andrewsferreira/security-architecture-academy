@@ -1,0 +1,34 @@
+flowchart LR
+  accTitle: Divisão de responsabilidades por modelo de serviço
+  accDescr: Em todas as colunas, o cliente responde por dados, identidades e acessos e pela configuração do que usa. No IaaS, o cliente também responde por aplicação, runtime, sistema operacional e rede virtual; o provedor, por virtualização e infraestrutura física. No PaaS, o provedor assume também sistema operacional e runtime. No SaaS, o provedor responde por quase toda a pilha, e o cliente mantém dados, identidades, acessos e configuração do serviço.
+
+  subgraph IAAS["IaaS"]
+    direction TB
+    I1["Dados · identidades · acessos"]:::cust
+    I2["Aplicação e runtime"]:::cust
+    I3["Sistema operacional e rede virtual"]:::cust
+    I4["Virtualização e hardware"]:::prov
+  end
+  subgraph PAAS["PaaS"]
+    direction TB
+    P1["Dados · identidades · acessos"]:::cust
+    P2["Aplicação implantada e configuração"]:::cust
+    P3["Runtime e sistema operacional"]:::prov
+    P4["Virtualização e hardware"]:::prov
+  end
+  subgraph SAAS["SaaS"]
+    direction TB
+    S1["Dados · identidades · acessos"]:::cust
+    S2["Configuração do serviço"]:::cust
+    S3["Aplicação e runtime"]:::prov
+    S4["Infraestrutura completa"]:::prov
+  end
+  I1 ~~~ I2 ~~~ I3 ~~~ I4
+  P1 ~~~ P2 ~~~ P3 ~~~ P4
+  S1 ~~~ S2 ~~~ S3 ~~~ S4
+  IAAS ~~~ PAAS ~~~ SAAS
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef cust stroke:#2f74e8,stroke-width:2px
+  classDef prov stroke:#0e9fb8,stroke-width:2px
+  class IAAS,PAAS,SAAS zone

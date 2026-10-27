@@ -1,0 +1,23 @@
+flowchart LR
+  accTitle: Segurança como etapa final versus arquitetura integrada ao ciclo de vida
+  accDescr: No modelo tradicional, a segurança aparece apenas como revisão antes da produção, quando mudanças são caras. No modelo recomendado, o arquiteto participa da concepção, do desenho, da construção e da operação, com atividades proporcionais ao risco em cada etapa.
+
+  subgraph T["Modelo tradicional — segurança como portão"]
+    direction LR
+    T1["Ideia"] --> T2["Desenho"] --> T3["Construção"] --> T4{"Revisão de<br/>segurança"}
+    T4 -- "achados tardios" --> T3
+    T4 --> T5["Produção"]
+  end
+
+  subgraph R["Modelo recomendado — arquitetura integrada"]
+    direction LR
+    R1["Ideia<br/><small>classificação de risco</small>"] --> R2["Desenho<br/><small>requisitos, threat model, ADR</small>"]
+    R2 --> R3["Construção<br/><small>padrões e guardrails</small>"]
+    R3 --> R4["Produção<br/><small>validação e métricas</small>"]
+    R4 -. "lições e exceções" .-> R1
+  end
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  class T,R zone
+  class T4,R2 control

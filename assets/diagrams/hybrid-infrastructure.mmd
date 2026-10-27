@@ -1,0 +1,43 @@
+flowchart TB
+  accTitle: Infraestrutura híbrida conceitual
+  accDescr: Um data center on-premises e dois provedores de cloud conectados por links privados e criptografados. Identidade centralizada e monitoramento centralizado atendem todos os ambientes, garantindo políticas consistentes.
+
+  subgraph ONP["On-premises"]
+    direction TB
+    DC["Data center"]
+    LEG["Sistemas legados"]
+    DC --- LEG
+  end
+
+  subgraph C1["Cloud provider A"]
+    direction TB
+    VPC1["Rede virtual"]
+    W1["Workloads"]
+    VPC1 --- W1
+  end
+
+  subgraph C2["Cloud provider B"]
+    direction TB
+    VPC2["Rede virtual"]
+    W2["Workloads"]
+    VPC2 --- W2
+  end
+
+  DC <== "link privado criptografado" ==> VPC1
+  DC <== "link privado criptografado" ==> VPC2
+
+  IDP["Identidade centralizada"]
+  SIEM["Monitoramento centralizado"]
+  IDP -.-> ONP
+  IDP -.-> C1
+  IDP -.-> C2
+  ONP -. logs .-> SIEM
+  C1 -. logs .-> SIEM
+  C2 -. logs .-> SIEM
+
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef identity stroke:#2f74e8,stroke-width:2px
+  class IDP identity
+  class SIEM control
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  class ONP,C1,C2 zone

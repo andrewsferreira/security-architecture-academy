@@ -1,10 +1,13 @@
 # =============================================================================
-# Security Architecture Academy — página institucional (Zensical)
-# Configuração da fase anterior à Release 1: uma única página com o objetivo do
-# projeto e os fundamentos que serão tratados. Fonte: landing/ no repositório de
-# desenvolvimento; publicada por scripts/export_landing.py. Será substituída pela
-# configuração completa do portal quando a Release 1 for publicada.
+# Security Architecture Academy — configuração do portal (Zensical)
+# Referência: https://zensical.org/docs/
+#
+# Regra de navegação: somente páginas com conteúdo real entram em `nav`.
+# Módulos planejados existem apenas em curriculum/manifest.yml. Páginas
+# `in-review` podem estar em nav em branches de revisão; o deploy da `main`
+# exige `published` (validate_manifest.py --release, check_structure.py --release).
 # =============================================================================
+
 [project]
 site_name = "Security Architecture Academy"
 site_url = "https://andrewsferreira.github.io/security-architecture-academy/"
@@ -13,11 +16,131 @@ site_author = "Andrews Ferreira"
 copyright = "Security Architecture Academy — conteúdo sob CC BY 4.0 e código sob MIT. Projeto educacional independente, sem afiliação com as organizações citadas."
 repo_url = "https://github.com/andrewsferreira/security-architecture-academy"
 repo_name = "andrewsferreira/security-architecture-academy"
+edit_uri = "edit/main/docs/"
 extra_css = ["assets/stylesheets/extra.css"]
 extra_javascript = ["assets/javascripts/a11y.js"]
 
 nav = [
   { "Início" = "index.md" },
+  { "Currículo" = [
+    "curriculum/index.md",
+    { "Dependências" = "curriculum/dependencies.md" },
+    { "Competências" = "curriculum/competencies.md" },
+    { "Matriz de cobertura" = "curriculum/coverage-matrix.md" },
+    { "Learning Paths" = "learning-paths/index.md" },
+    { "Plano de estudos" = "learning-paths/study-plan.md" },
+    { "Mapeamento de certificações" = "certification-mapping/index.md" },
+  ] },
+  { "Módulos" = [
+    { "M00 — Fundamentos de Infraestrutura" = [
+      "modules/00-foundations/index.md",
+      "modules/00-foundations/01-computing-os-virtualization.md",
+      "modules/00-foundations/02-tcp-ip-networking.md",
+      "modules/00-foundations/03-segmentation-connectivity.md",
+      "modules/00-foundations/04-datacenter-high-availability.md",
+      "modules/00-foundations/05-containers-apis-serverless.md",
+      "modules/00-foundations/06-cloud-computing-models.md",
+      "modules/00-foundations/07-reading-architecture-diagrams.md",
+    ] },
+    { "M01 — Fundamentos de Segurança" = [
+      "modules/01-security-fundamentals/index.md",
+      "modules/01-security-fundamentals/01-security-properties.md",
+      "modules/01-security-fundamentals/02-secure-design-principles.md",
+      "modules/01-security-fundamentals/03-trust-boundaries-attack-surface.md",
+      "modules/01-security-fundamentals/04-applied-cryptography.md",
+      "modules/01-security-fundamentals/05-pki-tls-key-management.md",
+      "modules/01-security-fundamentals/06-threat-vulnerability-risk.md",
+      "modules/01-security-fundamentals/07-formal-security-models.md",
+    ] },
+    { "M02 — Arquitetura de Segurança" = [
+      "modules/02-security-architecture/index.md",
+      "modules/02-security-architecture/01-security-architect-role.md",
+      "modules/02-security-architecture/02-enterprise-solution-security-architecture.md",
+      "modules/02-security-architecture/03-conceptual-logical-physical.md",
+      "modules/02-security-architecture/04-principles-standards-baselines-exceptions.md",
+      "modules/02-security-architecture/05-reference-architectures-blueprints.md",
+      "modules/02-security-architecture/06-frameworks.md",
+      "modules/02-security-architecture/07-business-driven-requirements.md",
+      "modules/02-security-architecture/08-architecture-decision-records.md",
+    ] },
+  ] },
+  { "Prática" = [
+    { "Estudos de caso" = [
+      "case-studies/index.md",
+      { "Caso A — Meridiana" = [
+        "case-studies/case-a-meridiana/index.md",
+        "case-studies/case-a-meridiana/solution.md",
+        "case-studies/case-a-meridiana/adr-001-remote-access.md",
+        "case-studies/case-a-meridiana/adr-002-segmentation.md",
+        "case-studies/case-a-meridiana/adr-003-logging.md",
+      ] },
+    ] },
+    { "Laboratórios" = [
+      "labs/index.md",
+      "labs/lab-00-network-plan.md",
+      "labs/lab-01-security-mechanisms.md",
+      "labs/lab-02-architecture-modeling.md",
+    ] },
+    { "Avaliações" = [
+      "assessments/index.md",
+      "assessments/diagnostic-fundamentals.md",
+      "assessments/m00-foundations.md",
+      "assessments/m01-security-fundamentals.md",
+      "assessments/m02-security-architecture.md",
+      "assessments/fundamentals-final.md",
+      "assessments/rubrics.md",
+      { "Gabaritos" = [
+        "assessments/answers/diagnostic-fundamentals.md",
+        "assessments/answers/m00-foundations.md",
+        "assessments/answers/m01-security-fundamentals.md",
+        "assessments/answers/m02-security-architecture.md",
+        "assessments/answers/fundamentals-final.md",
+      ] },
+    ] },
+    { "Modelos" = [
+      "artifacts/index.md",
+      "artifacts/architecture-decision-record.md",
+      "artifacts/security-requirements-specification.md",
+      "artifacts/architecture-review-checklist.md",
+    ] },
+    { "Research Library" = [
+      "resources/index.md",
+      "resources/books.md",
+      "resources/official-frameworks.md",
+      "resources/cloud-security.md",
+      "resources/reading-plan.md",
+      "resources/reference-matrix.md",
+      "resources/coverage.md",
+      "resources/research-methodology.md",
+      "resources/m02-bibliographic-review.md",
+      { "Notas de leitura" = [
+        "resources/notes/anderson-security-engineering.md",
+        "resources/notes/google-bsrs.md",
+        "resources/notes/nist-architecture-set.md",
+        "resources/notes/sabsa-white-papers.md",
+        "resources/notes/cloud-foundations.md",
+      ] },
+    ] },
+  ] },
+  { "Começar" = [
+    "getting-started/index.md",
+    { "Desenvolvimento local" = "getting-started/local-development.md" },
+  ] },
+  { "Sobre" = [
+    "about/index.md",
+    { "Roadmap" = "about/roadmap.md" },
+    { "Referências" = "about/references.md" },
+    { "Licenciamento" = "about/licensing.md" },
+  ] },
+  { "Handbook" = [
+    "internal/index.md",
+    { "Design System" = "internal/design-system.md" },
+    { "Guia editorial" = "internal/style-guide.md" },
+    { "Modelo de conteúdo" = "internal/content-model.md" },
+    { "Padrões de diagramas" = "internal/diagrams.md" },
+    { "Referência de componentes" = "internal/components.md" },
+    { "Fluxo de contribuição" = "internal/workflow.md" },
+  ] },
 ]
 
 [project.theme]
@@ -29,6 +152,8 @@ favicon = "assets/branding/favicon.png"
 font = false
 features = [
   "announce.dismiss",
+  "content.action.edit",
+  "content.action.view",
   "content.code.annotate",
   "content.code.copy",
   "content.footnote.tooltips",
@@ -48,6 +173,8 @@ features = [
 
 [project.theme.icon]
 repo = "fontawesome/brands/github"
+edit = "lucide/pencil"
+view = "lucide/file-code"
 
 [[project.theme.palette]]
 media = "(prefers-color-scheme)"
@@ -77,6 +204,11 @@ name = "Repositório no GitHub"
 
 [project.extra]
 generator = false
+
+# O tema exibe o `status` do front matter como ícone na navegação. Só
+# `in-review` é sinalizado (com texto acessível); `published` é ocultado via CSS.
+[project.extra.status]
+in-review = "Em revisão — conteúdo ainda não aprovado para publicação"
 
 # -----------------------------------------------------------------------------
 # Markdown

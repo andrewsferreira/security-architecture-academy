@@ -1,0 +1,20 @@
+flowchart TB
+  accTitle: Processo de gestão de riscos
+  accDescr: Processo iterativo de gestão de riscos inspirado na ISO 31000. Após estabelecer escopo e contexto, os riscos são identificados, analisados e avaliados; em seguida são tratados. Comunicação e consulta, assim como monitoramento e análise crítica, acompanham todas as etapas.
+
+  CTX["Escopo, contexto e critérios"] --> ID["Identificação de riscos"]
+  ID --> AN["Análise de riscos"]
+  AN --> EV["Avaliação de riscos"]
+  EV --> TR{"Tratamento"}
+  TR -- "mitigar" --> CT["Controles"]
+  TR -- "transferir · evitar · aceitar" --> DEC["Decisão registrada<br/>e risk owner"]
+
+  COM["Comunicação e consulta"] -.- CTX
+  COM -.- EV
+  MON["Monitoramento e análise crítica"] -.- AN
+  MON -.- TR
+  CT --> MON
+  DEC --> MON
+
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  class CT control

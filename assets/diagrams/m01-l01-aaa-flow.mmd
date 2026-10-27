@@ -1,0 +1,18 @@
+sequenceDiagram
+  accTitle: Do pedido à decisão — identificação, autenticação, autorização e registro
+  accDescr: A Maria pede para aprovar um pagamento no sistema financeiro. O sistema a redireciona ao provedor de identidade. Ela se identifica com seu nome de usuário e se autentica com senha e um segundo fator. O provedor emite uma asserção que diz quem ela é, sem dizer o que pode fazer. O sistema pergunta ao ponto de decisão de política se a Maria, com o papel de aprovadora até determinado valor, pode aprovar aquele pagamento específico. A política nega porque o valor excede o limite dela. O sistema recusa a operação e registra quem tentou, o quê, quando e o resultado, em um registro protegido contra alteração. Identificação diz quem alega ser, autenticação comprova, autorização decide o que pode fazer e o registro garante responsabilização.
+
+  actor U as Maria
+  participant APP as Sistema financeiro
+  participant IDP as Provedor de identidade
+  participant PDP as Política de autorização
+  participant LOG as Registro protegido
+  U->>APP: Aprovar pagamento de R$ 500 mil
+  APP->>IDP: Quem é você?
+  U->>IDP: Identificação (usuário maria)
+  U->>IDP: Autenticação (senha + segundo fator)
+  IDP-->>APP: Asserção — esta é a Maria, papel aprovadora
+  APP->>PDP: Maria pode aprovar ESTE pagamento?
+  PDP-->>APP: Negado — acima do limite de aprovação
+  APP-->>U: Operação recusada
+  APP->>LOG: Quem, o quê, quando, resultado

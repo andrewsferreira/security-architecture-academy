@@ -1,0 +1,64 @@
+# Solução de referência: modelo To-Be lógico da Meridiana Distribuidora (Caso A).
+# Consulte somente depois de construir o seu próprio modelo To-Be.
+name: "Meridiana Distribuidora — To-Be (referência)"
+
+zones:
+  - {id: internet, name: Internet, trust: 0}
+  - {id: dmz, name: DMZ, trust: 1}
+  - {id: users, name: Zona de usuários, trust: 2}
+  - {id: cds, name: Centros de distribuição, trust: 2}
+  - {id: legacy, name: Zona de legados, trust: 2}
+  - {id: cloud, name: Microsoft 365 / Entra ID, trust: 2}
+  - {id: apps, name: Zona de aplicações, trust: 3}
+  - {id: data, name: Zona de dados, trust: 3}
+  - {id: recovery, name: Recuperação, trust: 4}
+  - {id: mgmt, name: Zona de gestão, trust: 4, management: true}
+
+components:
+  - {id: remote-users, name: Usuários remotos, type: actor, zone: internet}
+  - {id: vendor-erp, name: Fornecedor do ERP, type: actor, zone: internet}
+  - {id: customers, name: Clientes B2B, type: actor, zone: internet}
+  - {id: idp, name: Provedor de identidade, type: identity-provider, zone: cloud}
+  - {id: m365, name: Microsoft 365, type: saas, zone: cloud}
+  - {id: ztna, name: Acesso remoto por aplicação, type: remote-access, zone: dmz, critical: true, redundancy: 2, logging: central}
+  - {id: vendor-pam, name: Acesso privilegiado de fornecedores, type: remote-access, zone: dmz, critical: true, redundancy: 2, logging: central}
+  - {id: edge-fw, name: Firewall de borda e WAF, type: firewall, zone: dmz, critical: true, redundancy: 2, logging: central}
+  - {id: portal, name: Portal B2B, type: application, zone: dmz, critical: true, redundancy: 2, logging: central}
+  - {id: workstations, name: Estações com EDR, type: workstation, zone: users}
+  - {id: erp-api, name: API de integração do ERP, type: application, zone: apps, critical: true, redundancy: 2, logging: central}
+  - {id: erp-app, name: ERP, type: application, zone: apps, critical: true, redundancy: 2, logging: central}
+  - {id: erp-db, name: Banco do ERP, type: database, zone: data, critical: true, redundancy: 2, logging: central}
+  - {id: file-server, name: Servidor de arquivos, type: server, zone: data, critical: true, redundancy: 2, logging: central}
+  - {id: paw, name: Estações administrativas dedicadas, type: admin-workstation, zone: mgmt}
+  - {id: dc, name: Controladores de domínio, type: directory, zone: mgmt, critical: true, redundancy: 2, logging: central}
+  - {id: label-server, name: Servidor de etiquetas, type: server, zone: legacy, supported: false, logging: central}
+  - id: backup
+    name: Backup imutável
+    type: backup
+    zone: recovery
+    critical: true
+    redundancy: 2
+    logging: central
+    identity: isolated
+    immutable: true
+    offsite: true
+  - {id: siem, name: SIEM com MDR, type: siem, zone: mgmt}
+  - {id: wms, name: WMS e coletores, type: device, zone: cds}
+
+flows:
+  - {from: remote-users, to: idp, protocol: HTTPS, authn: mfa, encrypted: true, data: internal, purpose: authentication}
+  - {from: remote-users, to: ztna, protocol: HTTPS, authn: mfa, encrypted: true, data: internal, purpose: remote-access}
+  - {from: ztna, to: erp-app, protocol: "HTTPS por aplicação", authn: token, encrypted: true, data: confidential, purpose: business}
+  - {from: vendor-erp, to: vendor-pam, protocol: HTTPS, authn: mfa, encrypted: true, data: internal, purpose: remote-access}
+  - {from: vendor-pam, to: erp-app, protocol: "sessão gravada", authn: token, encrypted: true, data: confidential, purpose: vendor-support}
+  - {from: customers, to: portal, protocol: HTTPS, authn: mfa, encrypted: true, data: confidential, purpose: business}
+  - {from: portal, to: erp-api, protocol: HTTPS, authn: mtls, encrypted: true, data: confidential, purpose: business}
+  - {from: erp-api, to: erp-app, protocol: HTTPS, authn: mtls, encrypted: true, data: confidential, purpose: business}
+  - {from: erp-app, to: erp-db, protocol: "Oracle Net com TLS", authn: certificate, encrypted: true, data: confidential, purpose: business}
+  - {from: workstations, to: erp-app, protocol: HTTPS, authn: token, encrypted: true, data: confidential, purpose: business}
+  - {from: workstations, to: dc, protocol: "Kerberos/LDAP", authn: token, encrypted: true, data: internal, purpose: authentication}
+  - {from: paw, to: dc, protocol: RDP, authn: mfa, encrypted: true, data: internal, purpose: admin}
+  - {from: wms, to: label-server, protocol: "TCP aplicação (porta única)", authn: certificate, encrypted: true, data: internal, purpose: business}
+  - {from: wms, to: erp-api, protocol: HTTPS, authn: mtls, encrypted: true, data: confidential, purpose: business}
+  - {from: erp-db, to: backup, protocol: "HTTPS (agente)", authn: certificate, encrypted: true, data: confidential, purpose: backup}
+  - {from: dc, to: siem, protocol: syslog-TLS, authn: certificate, encrypted: true, data: internal, purpose: logging}

@@ -1,0 +1,15 @@
+flowchart TB
+  accTitle: Ciclo de vida de um controle de segurança
+  accDescr: Um controle nasce de um requisito, é desenhado, implementado e validado. Em operação, é monitorado continuamente e revisado periodicamente; a revisão pode ajustar o desenho ou desativar o controle quando o requisito deixa de existir.
+
+  REQ["Requisito<br/><small>risco · norma · contrato</small>"] --> DES["Desenho"]
+  DES --> IMP["Implementação"]
+  IMP --> VAL["Validação<br/><small>testes · evidências</small>"]
+  VAL --> OPS["Operação e monitoramento"]
+  OPS --> REV{"Revisão periódica"}
+  REV -- "ajuste necessário" --> DES
+  REV -- "eficaz" --> OPS
+  REV -- "requisito extinto" --> RET["Desativação documentada"]
+
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  class VAL,REV control

@@ -1,0 +1,19 @@
+flowchart TB
+  accTitle: Da referência externa à solução implantada
+  accDescr: Referências externas, como arquiteturas de referência de provedores e frameworks, são adaptadas pela organização em uma arquitetura de referência interna, que incorpora seus princípios, padrões e restrições. Dessa referência interna derivam blueprints implementáveis, frequentemente como código, que as equipes instanciam em soluções concretas. Desvios das soluções e mudanças nas referências externas realimentam a referência interna.
+
+  EXT["Referências externas<br/><small>AWS SRA · MCRA · NIST SP 800-207</small>"]
+  RA["Arquitetura de referência interna<br/><small>princípios, padrões, padrões de desenho</small>"]
+  BP["Blueprint<br/><small>implementável · frequentemente IaC</small>"]
+  S1["Solução A"]
+  S2["Solução B"]
+
+  EXT -- "adaptar ao contexto" --> RA
+  RA -- "especializar" --> BP
+  BP -- "instanciar" --> S1
+  BP -- "instanciar" --> S2
+  S1 -. "desvios e lições" .-> RA
+  EXT -. "novas versões" .-> RA
+
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  class RA,BP control

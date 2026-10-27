@@ -1,0 +1,33 @@
+flowchart TB
+  accTitle: Mapa do Módulo 02
+  accDescr: As aulas 01 e 02 definem o papel do arquiteto e o lugar da arquitetura de segurança. As aulas 03, 04 e 05 dão as ferramentas de representação, organização de regras e reutilização. A aula 06 situa os frameworks. As aulas 07 e 08 fecham o ciclo, transformando necessidades de negócio em requisitos e registrando decisões. O laboratório, o estudo de caso e a avaliação aplicam o conjunto.
+
+  subgraph Q["Quem e onde"]
+    L01["L01 · Papel do Security Architect"]
+    L02["L02 · Enterprise, Solution e Security Architecture"]
+  end
+  subgraph F["Ferramentas do arquiteto"]
+    L03["L03 · Conceitual, lógica e física"]
+    L04["L04 · Princípios, padrões e exceções"]
+    L05["L05 · Referências e blueprints"]
+    L06["L06 · Frameworks"]
+  end
+  subgraph D["Do negócio à decisão"]
+    L07["L07 · Requisitos orientados ao negócio"]
+    L08["L08 · Architecture Decision Records"]
+  end
+  subgraph A["Aplicação"]
+    LAB["Laboratório 02"]
+    CASE["Caso A"]
+    QZ["Avaliação do módulo"]
+  end
+
+  L01 --> L02 --> L03
+  L03 --> L04 --> L05 --> L06
+  L06 --> L07 --> L08
+  L08 --> LAB --> CASE --> QZ
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  class Q,F,D,A zone
+  class CASE control

@@ -1,0 +1,23 @@
+flowchart TB
+  accTitle: Escopos de arquitetura e o papel transversal da segurança
+  accDescr: A arquitetura corporativa define princípios, capacidades e o estado-alvo de toda a organização, nas dimensões de negócio, dados, aplicações e tecnologia. A arquitetura de soluções aplica essas definições a uma iniciativa específica. A arquitetura de segurança atravessa os dois níveis: no nível corporativo fornece princípios, padrões e o catálogo de serviços de segurança; no nível da solução fornece requisitos, threat model e decisões.
+
+  subgraph EA["Enterprise Architecture — toda a organização"]
+    direction LR
+    B["Negócio"] --- D["Dados"] --- A["Aplicações"] --- T["Tecnologia"]
+  end
+  subgraph SA["Solution Architecture — uma iniciativa"]
+    direction LR
+    S1["Requisitos da solução"] --> S2["Desenho"] --> S3["Implementação"]
+  end
+  SEC["Security Architecture<br/><small>transversal</small>"]
+
+  EA -- "princípios, padrões e estado-alvo" --> SA
+  SA -- "desvios e lições aprendidas" --> EA
+  SEC -. "princípios, padrões e catálogo de serviços de segurança" .-> EA
+  SEC -. "requisitos, threat model e ADRs" .-> SA
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  class EA,SA zone
+  class SEC control

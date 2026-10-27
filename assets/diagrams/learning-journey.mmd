@@ -1,0 +1,16 @@
+flowchart LR
+  accTitle: Jornada de aprendizagem em seis níveis
+  accDescr: A formação evolui do Nível 0, fundamentos de tecnologia e segurança, ao Nível 1, fundamentos de arquitetura, passando pelos Níveis 2 e 3, arquiteturas de infraestrutura, cloud e híbridas, e pelo Nível 4, segurança aplicada, até o Nível 5, arquitetura corporativa avançada e projeto final.
+
+  N0["Nível 0<br/><small>Fundamentos de tecnologia e segurança<br/>M00–M01</small>"]
+  N1["Nível 1<br/><small>Fundamentos de arquitetura<br/>M02–M04</small>"]
+  N2["Nível 2<br/><small>Arquiteturas de infraestrutura<br/>M05–M08</small>"]
+  N3["Nível 3<br/><small>Cloud e híbrido<br/>M09–M11</small>"]
+  N4["Nível 4<br/><small>Segurança aplicada<br/>M12–M15</small>"]
+  N5["Nível 5<br/><small>Arquitetura corporativa<br/>M16–M17</small>"]
+  N0 --> N1 --> N2 --> N3 --> N4 --> N5
+
+  classDef identity stroke:#2f74e8,stroke-width:2px
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  class N0,N1,N2,N3,N4 identity
+  class N5 control

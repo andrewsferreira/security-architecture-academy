@@ -1,0 +1,41 @@
+flowchart TB
+  accTitle: Livraria Ipê — arquitetura proposta de referência (gabarito da avaliação final)
+  accDescr: Na nuvem, um balanceador com firewall de aplicação web é o único ponto exposto à internet. A aplicação da loja e o banco de dados ficam em sub-redes privadas separadas, e o banco só aceita conexões da aplicação. A chave do provedor de pagamentos fica em um cofre de segredos. Backups diários vão para outra conta de armazenamento, imutável, com restauração testada. Administradores entram com contas individuais e MFA por uma VPN ou bastion, sem RDP exposto. No escritório, a rede é separada em zonas de funcionários, de servidores e de visitantes, esta com acesso apenas à internet. O painel administrativo exige MFA. Logs da nuvem, do bastion e do firewall são enviados a um serviço central com alertas.
+
+  CLI(["Clientes"])
+  subgraph CLOUD["Nuvem"]
+    WAF{{"Balanceador + WAF<br/><small>único ponto exposto</small>"}}
+    APP["Aplicação da loja<br/><small>sub-rede privada</small>"]
+    DB[("Banco de dados<br/><small>só aceita a aplicação</small>")]
+    VAULT["Cofre de segredos<br/><small>chave do pagamento</small>"]
+    BAS["Bastion / VPN<br/><small>MFA · contas individuais</small>"]
+    WAF --> APP --> DB
+    APP -.-> VAULT
+    BAS --> APP
+  end
+  BKP[("Backup imutável<br/><small>outra conta · restauração testada</small>")]
+  PAY["Provedor de pagamentos"]
+  LOG["Logs centralizados<br/><small>alertas</small>"]
+  subgraph ESC["Escritório segmentado"]
+    EST["Zona de funcionários"]
+    FS["Zona de servidores<br/><small>notas fiscais</small>"]
+    WIFI["Zona de visitantes<br/><small>só internet</small>"]
+  end
+  ADM(["Administradores<br/><small>contas individuais</small>"])
+
+  CLI -- "HTTPS" --> WAF
+  APP -- "HTTPS" --> PAY
+  DB -. "backup diário" .-> BKP
+  ADM -- "MFA" --> BAS
+  EST -- "painel admin com MFA" --> WAF
+  EST -- "SMB autorizado" --> FS
+  CLOUD -.-> LOG
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef identity stroke:#2f74e8,stroke-width:2px
+  classDef actor stroke:#64748b
+  class CLOUD,ESC zone
+  class WAF,VAULT,BKP,LOG control
+  class BAS identity
+  class CLI,ADM actor

@@ -1,0 +1,25 @@
+flowchart LR
+  accTitle: Rastreabilidade do objetivo de negócio à evidência
+  accDescr: Um objetivo de negócio é traduzido em atributos de negócio que a segurança precisa garantir, cada um com uma métrica. Ameaças e obrigações regulatórias são consideradas junto com os atributos para derivar requisitos de segurança verificáveis. Cada requisito é atendido por um ou mais controles, e cada controle produz evidências que comprovam o atendimento. A rastreabilidade funciona nos dois sentidos.
+
+  OBJ["Objetivo de negócio"]
+  ATT["Atributos de negócio<br/><small>com métricas</small>"]
+  THR["Ameaças"]
+  REG["Obrigações<br/><small>leis, contratos, normas</small>"]
+  REQ["Requisitos de segurança<br/><small>verificáveis</small>"]
+  CTL["Controles"]
+  EVD["Evidências"]
+
+  OBJ --> ATT --> REQ
+  THR --> REQ
+  REG --> REQ
+  REQ --> CTL --> EVD
+  EVD -. "comprova" .-> REQ
+  CTL -. "justificado por" .-> ATT
+
+  classDef identity stroke:#2f74e8,stroke-width:2px
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef untrusted stroke:#dc2626,stroke-width:2px,stroke-dasharray:5 4
+  class OBJ,ATT identity
+  class REQ,CTL control
+  class THR untrusted

@@ -1,0 +1,32 @@
+# Verificação semanal de links externos (Markdown e registro bibliográfico da
+# Research Library). Não bloqueia PRs: indisponibilidades de terceiros são
+# reportadas no resumo da execução para tratamento manual.
+name: External links
+
+on:
+  schedule:
+    - cron: "17 9 * * 1" # segundas-feiras, 09:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lychee:
+    name: Verificar links externos
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
+        with:
+          args: >-
+            --no-progress --max-retries 3 --accept 200,206,429
+            --exclude-path site --exclude-path authoring --exclude-path private-research
+            --exclude '^https://andrewsferreira\.github\.io/security-architecture-academy'
+            --exclude '^https://github\.com/andrewsferreira/security-architecture-academy/(edit|security|issues/new)'
+            './**/*.md' './research/*.yml'
+          fail: false
+          jobSummary: true

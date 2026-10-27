@@ -1,0 +1,41 @@
+flowchart TB
+  accTitle: Rede corporativa segmentada com VLANs, firewall entre zonas e VPN
+  accDescr: A internet chega ao firewall de borda, que publica serviços na DMZ e termina a VPN de acesso remoto. Um firewall interno separa as VLANs de usuários, servidores e gestão; a comunicação entre VLANs passa sempre por ele e só os fluxos permitidos pela política atravessam. O servidor web da DMZ fala com a aplicação interna apenas por HTTPS com TLS, e a administração parte somente da VLAN de gestão.
+
+  INET(["Internet"])
+  REM(["Usuário remoto"])
+  subgraph EDGE["Borda"]
+    FWE["Firewall de borda<br/><small>NAT · VPN</small>"]
+  end
+  subgraph DMZ["DMZ — 172.16.10.0/24"]
+    WEB["Servidor web / proxy reverso"]
+  end
+  FWI["Firewall interno<br/><small>política entre zonas</small>"]
+  subgraph USR["VLAN 20 — Usuários"]
+    WS["Estações"]
+  end
+  subgraph SRV["VLAN 30 — Servidores"]
+    APP["Aplicação"]
+    DB[("Banco de dados")]
+  end
+  subgraph MGT["VLAN 99 — Gestão"]
+    JMP["Estação de administração"]
+  end
+
+  INET -- "HTTPS 443" --> FWE --> WEB
+  REM -- "VPN · MFA" --> FWE
+  WEB -- "HTTPS · TLS" --> FWI
+  FWE -- "túnel VPN" --> FWI
+  WS -- "HTTPS" --> FWI
+  FWI -- "fluxos permitidos" --> APP
+  APP -- "SQL · TLS" --> DB
+  JMP -- "SSH / RDP" --> FWI
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef untrusted stroke:#dc2626,stroke-width:2px,stroke-dasharray:5 3
+  classDef actor stroke:#64748b,stroke-width:1.5px
+  class EDGE,DMZ,USR,SRV,MGT zone
+  class FWE,FWI control
+  class INET untrusted
+  class REM actor

@@ -1,0 +1,24 @@
+flowchart TB
+  accTitle: Como os frameworks se complementam
+  accDescr: O NIST CSF 2.0 fornece a linguagem de resultados de cibersegurança para a governança. O SABSA conecta requisitos de negócio a serviços e mecanismos de segurança com rastreabilidade. O TOGAF organiza o processo de arquitetura corporativa no qual a segurança é integrada. Catálogos de controles, como o NIST SP 800-53 e os CIS Controls, alimentam a seleção de controles. O NIST RMF organiza a gestão de riscos no ciclo de vida de cada sistema. Os outlines de CISSP e ISSAP descrevem competências profissionais e não são métodos de arquitetura.
+
+  CSF["NIST CSF 2.0<br/><small>resultados · governança · perfis</small>"]
+  SABSA["SABSA<br/><small>do negócio ao mecanismo · rastreabilidade</small>"]
+  TOGAF["TOGAF<br/><small>processo de arquitetura corporativa</small>"]
+  CAT["Catálogos de controles<br/><small>NIST SP 800-53 · CIS Controls</small>"]
+  RMF["NIST RMF<br/><small>risco no ciclo de vida do sistema</small>"]
+  CERT["CISSP · ISSAP<br/><small>mapas de competência profissional</small>"]
+
+  CSF -- "define o que alcançar" --> SABSA
+  TOGAF -- "processo em que a segurança se integra" --> SABSA
+  SABSA -- "requisitos e serviços" --> CAT
+  CAT -- "controles selecionados" --> RMF
+  RMF -. "estado dos riscos" .-> CSF
+  CERT -. "orienta o desenvolvimento do profissional" .-> SABSA
+
+  classDef identity stroke:#2f74e8,stroke-width:2px
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef actor stroke:#64748b,stroke-width:1.5px
+  class CSF,TOGAF identity
+  class SABSA,CAT,RMF control
+  class CERT actor

@@ -1,0 +1,20 @@
+sequenceDiagram
+  accTitle: Fluxo de identidade e acesso com OpenID Connect
+  accDescr: O usuário acessa uma aplicação, que o redireciona ao provedor de identidade usando Authorization Code com PKCE. Após a autenticação, a aplicação troca o código por tokens e chama a API com um access token, que a API valida antes de autorizar a operação.
+
+  autonumber
+  actor U as Usuário
+  participant APP as Aplicação (Client)
+  participant IDP as Identity Provider
+  participant API as API (Resource Server)
+
+  U->>APP: Acessa recurso protegido
+  APP->>IDP: Authorization Request (code + PKCE)
+  IDP->>U: Autenticação (MFA conforme política)
+  U->>IDP: Credenciais e fatores
+  IDP-->>APP: Authorization Code
+  APP->>IDP: Token Request (code + code_verifier)
+  IDP-->>APP: ID Token + Access Token
+  APP->>API: Requisição com Access Token
+  API->>API: Valida assinatura, audience, expiração e escopos
+  API-->>APP: Resposta autorizada

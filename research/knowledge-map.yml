@@ -1,0 +1,852 @@
+# Mapa de conhecimento público gerado por scripts/export_release.py — escopo até R1.
+schema_version: 1
+updated: 2026-10-23
+concepts:
+- id: KC-R1-01
+  concept: Policy, mechanism, assurance e incentive
+  ref: BOOK-ANDERSON-SE3
+  locator: Cap. 1, §1.2 A framework (p. 4)
+  consulted: true
+  modules:
+  - M01
+  - M02
+  lessons:
+  - M02-L01
+  tier: fundamental
+  learning_type: conceito
+  application: Estruturar a análise de qualquer controle em quatro perguntas — o que deve ser alcançado, com que mecanismo, com quanta confiança e com quais incentivos.
+  limitations: Framework analítico, não um método de projeto; não define artefatos nem processo.
+  examples: Revisar a decisão de MFA no Caso A pelas quatro perspectivas, incluindo o incentivo da seguradora.
+- id: KC-R1-02
+  concept: Trusted versus trustworthy
+  ref: BOOK-ANDERSON-SE3
+  locator: Cap. 1, §1.7 Definitions (p. 11)
+  consulted: true
+  modules:
+  - M01
+  - M02
+  - M07
+  lessons:
+  - M01-L01
+  - M02-L01
+  diagrams:
+  - m01-l03-attack-surface
+  tier: fundamental
+  learning_type: conceito
+  application: Identificar quais componentes, se falharem, quebram a política (trusted) e exigir evidência de que merecem essa posição (trustworthy).
+  limitations: Definições gerais; não indicam como medir o quanto um componente é confiável.
+  examples: Exercício de listar os componentes "trusted" de uma arquitetura de acesso remoto e a evidência de cada um.
+- id: KC-R1-03
+  concept: Controle de acesso em camadas (aplicação, middleware, sistema operacional, hardware)
+  ref: BOOK-ANDERSON-SE3
+  locator: Cap. 6, §6.1–6.3 (pp. 207–231)
+  consulted: true
+  modules:
+  - M01
+  - M02
+  - M06
+  - M08
+  lessons:
+  - M01-L02
+  - M02-L03
+  - M02-L04
+  diagrams:
+  - m01-l02-defense-in-depth
+  tier: professional
+  learning_type: conceito
+  application: Decidir em que camada cada regra de acesso deve ser aplicada e evitar depender só da camada mais expressiva e menos confiável.
+  limitations: Foco em sistemas e plataformas; não trata de federação de identidade corporativa ou cloud IAM.
+  examples: Mapear as camadas de controle de acesso de um serviço de pedidos — da autorização por objeto ao isolamento por container.
+- id: KC-R1-04
+  concept: ACLs versus capabilities; DAC versus MAC
+  ref: BOOK-ANDERSON-SE3
+  locator: Cap. 6, §6.2.2, §6.2.4 e §6.2.5 (pp. 211–217)
+  consulted: true
+  modules:
+  - M01
+  - M06
+  lessons:
+  - M00-L01
+  - M01-L02
+  tier: professional
+  learning_type: conceito
+  application: Escolher o modelo de representação de permissões conforme a necessidade de auditoria, revogação e delegação.
+  limitations: Exemplos centrados em sistemas operacionais.
+  examples: Comparar políticas baseadas em recurso e em identidade de um provedor cloud com ACLs e capabilities.
+- id: KC-R1-05
+  concept: Environmental creep — controles que se degradam quando o ambiente muda
+  ref: BOOK-ANDERSON-SE3
+  locator: Cap. 6, §6.4.5 Environmental creep (p. 238)
+  consulted: true
+  modules:
+  - M02
+  - M08
+  - M14
+  lessons:
+  - M02-L04
+  diagrams:
+  - m02-l04-exception-flow
+  tier: professional
+  learning_type: conceito
+  application: Justificar revisão periódica de padrões, baselines e exceções quando o contexto de uso muda.
+  limitations: Discussão breve; não propõe processo de revisão.
+  examples: Revisitar a exceção do servidor de etiquetas do Caso A quando os coletores passarem a usar Wi-Fi.
+- id: KC-R1-06
+  concept: Economia da segurança — externalidades, informação assimétrica e incentivos desalinhados
+  ref: BOOK-ANDERSON-SE3
+  locator: Cap. 8, §8.3 e §8.6 (pp. 281–308)
+  consulted: true
+  modules:
+  - M02
+  - M03
+  - M14
+  - M16
+  lessons:
+  - M02-L02
+  tier: architect
+  learning_type: conceito
+  application: Explicar à diretoria por que um controle falha quando quem o opera não arca com o custo da falha, e redesenhar responsabilidades.
+  limitations: Análise econômica qualitativa; não fornece modelo de quantificação de risco.
+  examples: Discussão sobre quem deve ser o dono do risco do backup no Caso A.
+- id: KC-R1-07
+  concept: Compartimentação e fronteiras entre pares (segurança multilateral)
+  ref: BOOK-ANDERSON-SE3
+  locator: Cap. 10, §10.1–10.2 (pp. 341–346) e §10.4.8 Chinese Wall (p. 369)
+  consulted: true
+  modules:
+  - M01
+  - M05
+  - M13
+  lessons:
+  - M01-L03
+  - M01-L07
+  diagrams:
+  - m01-l07-blp-biba
+  tier: professional
+  learning_type: conceito
+  application: Desenhar fronteiras que impeçam fluxos laterais entre unidades de negócio ou clientes, não apenas entre níveis hierárquicos.
+  limitations: Exemplos de saúde, inteligência e serviços financeiros; adaptação a segmentação de rede é do arquiteto.
+  examples: Segmentação entre subsidiárias em um grupo empresarial (Caso C futuro).
+- id: KC-R1-08
+  concept: Gestão de risco e priorização de objetivos de proteção no desenvolvimento
+  ref: BOOK-ANDERSON-SE3
+  locator: Cap. 27, §27.2 Risk management (p. 966) e §27.4 Prioritising protection goals (p. 978)
+  consulted: true
+  modules:
+  - M02
+  - M03
+  - M04
+  lessons:
+  - M01-L06
+  - M02-L07
+  diagrams:
+  - m02-l07-traceability
+  tier: professional
+  learning_type: método
+  application: Separar, em uma estimativa de risco, o que é dado, o que é suposição e o que é negociação — e priorizar objetivos de proteção com o negócio.
+  limitations: Não prescreve uma escala de risco específica.
+  examples: Exercício de decisão da aula M02-L07 com estimativas explicitamente marcadas como suposições.
+- id: KC-R1-09
+  concept: Threat modelling, fault trees e FMEA
+  ref: BOOK-ANDERSON-SE3
+  locator: Cap. 27, §27.3.3–27.3.5 (pp. 971–975)
+  consulted: true
+  modules:
+  - M04
+  - M12
+  lessons:
+  - M01-L06
+  tier: professional
+  learning_type: método
+  application: Escolher a técnica de análise conforme o problema — árvores para caminhos de ataque, FMEA para modos de falha, threat modelling para fronteiras de confiança.
+  limitations: Visão comparativa; o passo a passo de cada técnica fica para fontes específicas.
+  examples: Laboratório do M04 com árvore de ataque e threat model do mesmo sistema.
+- concept: Metodologias top-down, iterativa e DevSecOps
+  ref: BOOK-ANDERSON-SE3
+  locator: Cap. 27, §27.5 Methodology (pp. 980–995)
+  consulted: true
+  modules:
+  - M02
+  - M12
+  tier: professional
+  learning_type: método
+  application: Posicionar a revisão de arquitetura em ciclos ágeis sem transformá-la em gargalo.
+  limitations: Exemplos de ecossistemas específicos (Azure, Google) refletem o período de escrita.
+  examples: Desenho do modelo de engajamento do arquiteto (M02-L01).
+- id: KC-R1-10
+  concept: Assurance como processo contínuo; limites da avaliação e certificação
+  ref: BOOK-ANDERSON-SE3
+  locator: Cap. 28, §28.1–28.3 (pp. 1015–1044)
+  consulted: true
+  modules:
+  - M03
+  - M14
+  - M16
+  lessons:
+  - M02-L06
+  tier: architect
+  learning_type: conceito
+  application: Tratar certificações e avaliações como evidência parcial e planejar manutenção e correção durante todo o ciclo de vida.
+  limitations: Discussão crítica de regimes de avaliação; não substitui os requisitos de um programa de conformidade específico.
+  examples: Discussão sobre o que uma certificação de fornecedor garante — e o que não garante — no M03.
+- id: KC-R1-11
+  concept: Sete princípios (tenets) de Zero Trust
+  ref: NIST-SP800-207
+  locator: §2.1 Tenets of Zero Trust (p. 6)
+  consulted: true
+  modules:
+  - M02
+  - M07
+  lessons:
+  - M00-L07
+  - M02-L05
+  tier: professional
+  learning_type: conceito
+  application: Avaliar uma arquitetura pelos sete princípios — recurso, comunicação protegida, acesso por sessão, política dinâmica, monitoramento de postura, reavaliação contínua e coleta de dados.
+  limitations: Princípios orientadores; o documento não define níveis de maturidade nem métricas.
+  examples: Checklist de revisão que pergunta, para cada fluxo do Caso A, quais princípios o To-Be atende.
+- concept: Componentes lógicos (PDP, PEP) e modelos de implantação
+  ref: NIST-SP800-207
+  locator: §3 Logical Components (p. 9); §3.2 Deployed Variations (p. 13); §3.3 Trust Algorithm (p. 17)
+  consulted: false
+  modules:
+  - M07
+  - M11
+  tier: professional
+  learning_type: conceito
+  application: Projetar decisões de acesso por recurso, avaliadas continuamente, com pontos de decisão e de aplicação explícitos.
+  limitations: Arquitetura abstrata; não prescreve produtos nem sequência de migração detalhada.
+  examples: Lab do M07 com PDP/PEP simulados para um aplicativo interno.
+- concept: Coexistência de Zero Trust com o perímetro (arquitetura híbrida)
+  ref: NIST-SP800-207
+  locator: §7.2 Hybrid ZTA and Perimeter-Based Architecture (p. 36); §4.2 Multi-cloud/Cloud-to-Cloud Enterprise (p. 24)
+  consulted: false
+  modules:
+  - M07
+  - M11
+  - M16
+  tier: architect
+  learning_type: método
+  application: Planejar a migração gradual de uma rede de perímetro para decisões de acesso por recurso, mantendo os dois modelos por um período.
+  limitations: Orientação de alto nível, escrita para agências federais dos EUA.
+  examples: Roadmap de 12 meses da Meridiana (Caso A) relido como migração parcial para Zero Trust.
+- id: KC-R1-12
+  concept: Princípios de design seguro e confiável
+  ref: NIST-SP800-160-V1R1
+  locator: Apêndice E, Principles for Trustworthy Secure Design, E.1–E.30 (p. 82)
+  consulted: false
+  modules:
+  - M01
+  - M02
+  - M04
+  lessons:
+  - M01-L02
+  - M01-L07
+  - M02-L04
+  diagrams:
+  - m02-l04-hierarchy
+  tier: fundamental
+  learning_type: conceito
+  application: Fundamentar os princípios ensinados (defense in depth, least privilege, mediated access, minimal trusted elements) na lista normativa do NIST.
+  limitations: Nomes e numeração conferidos no sumário; definições ainda a conferir no texto.
+  examples: Exercício de mapear cada decisão de um ADR para um ou mais princípios do Apêndice E.
+- id: KC-R1-13
+  concept: Requisito, política e mecanismo
+  ref: NIST-SP800-160-V1R1
+  locator: Apêndice C.3 Distinguishing Requirements, Policy, and Mechanisms (p. 68)
+  consulted: false
+  modules:
+  - M02
+  lessons:
+  - M02-L07
+  diagrams:
+  - m02-l07-traceability
+  tier: professional
+  learning_type: conceito
+  application: Separar o que a organização exige, a regra que expressa a exigência e o mecanismo que a realiza — base da escrita de requisitos verificáveis.
+  limitations: Seção localizada pelo sumário; conteúdo a ler.
+  examples: Reescrita de requisitos vagos (M02-L07, Tarefa 3 da avaliação do módulo).
+- id: KC-R1-14
+  concept: Processos técnicos do ciclo de vida, da missão à validação
+  ref: NIST-SP800-160-V1R1
+  locator: Apêndice H, H.1–H.4, H.9 e H.11 (pp. 115–137)
+  consulted: false
+  modules:
+  - M02
+  - M04
+  - M16
+  lessons:
+  - M02-L07
+  tier: architect
+  learning_type: método
+  application: Estruturar a rastreabilidade do objetivo de negócio ao requisito, à arquitetura e à evidência de verificação e validação.
+  limitations: Processos genéricos de engenharia de sistemas; precisam ser adaptados ao ciclo de projetos da organização.
+  examples: Matriz de rastreabilidade do M02-L07 comparada com a sequência H.1 → H.4 → H.9.
+- concept: Pilares e estágios de maturidade Zero Trust
+  ref: CISA-ZTMM-2
+  locator: Documento — cinco pilares, três capacidades transversais, quatro estágios
+  consulted: true
+  modules:
+  - M07
+  - M16
+  tier: professional
+  learning_type: catálogo
+  application: Avaliar a maturidade atual por pilar e definir um roadmap incremental.
+  limitations: Voltado a agências federais dos EUA; confirmação de versão e data por fonte secundária.
+  examples: Avaliação de maturidade da Meridiana por pilar após o To-Be.
+- id: KC-R1-15
+  concept: CSF 2.0 — Functions, Organizational Profiles e Tiers
+  ref: NIST-CSF-2
+  locator: Documento — Functions, Profiles e Tiers
+  consulted: true
+  modules:
+  - M02
+  - M03
+  - M16
+  lessons:
+  - M02-L06
+  - M02-L07
+  diagrams:
+  - m02-l06-framework-map
+  tier: professional
+  learning_type: catálogo
+  application: Comunicar postura e prioridades em linguagem de negócio, com perfis atual e alvo por unidade.
+  limitations: Taxonomia de resultados; não diz como implementar controles.
+  examples: Perfil atual e alvo da subsidiária no exercício da aula M02-L06.
+- id: KC-R1-16
+  concept: Mapeamento entre CSF 2.0 e catálogos de controles
+  ref: NIST-CSF-INFORMATIVE-REFS
+  locator: Página de Informative References — download .xlsx e catálogo
+  consulted: true
+  modules:
+  - M03
+  - M16
+  lessons:
+  - M02-L06
+  diagrams:
+  - m02-l06-framework-map
+  tier: professional
+  learning_type: catálogo
+  application: Ligar um resultado do CSF aos controles do SP 800-53, ISO/IEC 27001:2022 ou CIS Controls 8.1 sem criar mapeamentos próprios do zero.
+  limitations: Mapeamentos de terceiros não têm a correção testada pelo NIST.
+  examples: Exercício do M03 de rastrear um resultado do CSF até controles de dois catálogos.
+- concept: Catálogo de controles versus baseline versus obrigação regulatória
+  ref: NIST-SP800-53
+  locator: Página oficial — Rev. 5, Release 5.2.0; partes SP 800-53A e SP 800-53B
+  consulted: true
+  modules:
+  - M02
+  - M03
+  tier: professional
+  learning_type: catálogo
+  application: Evitar tratar o catálogo inteiro como obrigatório; selecionar e adaptar controles a partir de um baseline e do risco.
+  limitations: Catálogo extenso; baselines estão na publicação 800-53B, não no catálogo.
+  examples: Seleção proporcional de controles na aula M02-L04.
+- id: KC-R1-17
+  concept: Arquitetura de segurança orientada ao negócio (SABSA)
+  ref: SABSA-W101
+  locator: White paper W101 — conteúdo a ler
+  consulted: false
+  modules:
+  - M02
+  - M16
+  lessons:
+  - M02-L03
+  - M02-L06
+  - M02-L07
+  diagrams:
+  - m02-l03-conceptual
+  tier: architect
+  learning_type: método
+  application: Derivar requisitos de segurança de atributos de negócio mensuráveis, com rastreabilidade até os mecanismos.
+  limitations: Descrição atual das aulas conferida em material secundário; leitura do W100/W101 pendente.
+  examples: Business Attributes Profile do portal de laudos (M02-L06).
+- id: KC-R1-18
+  concept: Princípios de arquitetura de segurança corporativa (SABSA)
+  ref: SABSA-W105
+  locator: White paper W105 (janeiro de 2026) — conteúdo a ler
+  consulted: false
+  modules:
+  - M02
+  - M16
+  lessons:
+  - M02-L04
+  tier: architect
+  learning_type: conceito
+  application: Comparar o catálogo de princípios da organização com os princípios publicados pelo SABSA Institute.
+  limitations: Não lido nesta revisão.
+  examples: Revisão dos princípios da aula M02-L04.
+- id: KC-R1-19
+  concept: Registro de decisões de arquitetura (ADR)
+  ref: NYGARD-ADR-2011
+  locator: Artigo — seções Title, Context, Decision, Status, Consequences
+  consulted: true
+  modules:
+  - M02
+  - M16
+  lessons:
+  - M02-L08
+  tier: professional
+  learning_type: prática
+  application: Registrar decisões com contexto e consequências, substituindo em vez de editar decisões aceitas.
+  limitations: Formato mínimo; não trata de governança de decisões em escala.
+  examples: ADR-001 a ADR-003 do Caso A.
+- concept: Áreas de segurança de um workload em cloud (AWS)
+  ref: AWS-SECURITY-PILLAR
+  locator: Definition — sete áreas de boas práticas
+  consulted: true
+  modules:
+  - M09
+  - M11
+  tier: professional
+  learning_type: catálogo
+  application: Revisar um workload pelas sete áreas e pelo modelo de responsabilidade compartilhada.
+  limitations: Específico da AWS; termos e serviços não se transpõem diretamente a outros provedores.
+  examples: Revisão do portal B2B da Meridiana se migrado para a AWS.
+- concept: Checklist de revisão de segurança (Azure SE:01–SE:12)
+  ref: AZURE-WAF-SECURITY-CHECKLIST
+  locator: SE:01–SE:12
+  consulted: true
+  modules:
+  - M10
+  - M11
+  tier: professional
+  learning_type: prática
+  application: Conduzir uma revisão de desenho com itens verificáveis, de baseline a resposta a incidentes.
+  limitations: Específico do Azure; data da página (14/11/2023) anterior à última atualização do pilar.
+  examples: Exercício do M10 aplicando SE:04 (segmentação) e SE:05 (IAM) a uma landing zone.
+- concept: Fundação corporativa em cloud — hierarquia, identidade, rede, guardrails e logs
+  ref: GCP-ENTERPRISE-FOUNDATIONS
+  locator: Página principal do blueprint (Markdown oficial)
+  consulted: true
+  modules:
+  - M10
+  - M11
+  - M16
+  tier: architect
+  learning_type: estudo de caso
+  application: Comparar landing zones de provedores e derivar guardrails preventivos (políticas) e detectivos (monitoramento central).
+  limitations: Específico do Google Cloud; o código de referência exige conta e pode gerar custo.
+  examples: Comparação de landing zones AWS, Azure e Google Cloud no M11.
+- concept: Domínios de segurança em cloud (CSA)
+  ref: CSA-GUIDANCE-V5
+  locator: Doze domínios (lista da página oficial)
+  consulted: true
+  modules:
+  - M09
+  - M10
+  - M11
+  tier: professional
+  learning_type: catálogo
+  application: Usar os domínios como checklist neutro de provedor antes de ir à documentação específica.
+  limitations: Download sujeito a login; conteúdo dos domínios não lido nesta revisão.
+  examples: Matriz de cobertura dos módulos de cloud.
+- concept: Requisitos verificáveis de segurança de aplicações
+  ref: OWASP-ASVS-5
+  locator: ASVS 5.0.0 — capítulos a mapear
+  consulted: false
+  modules:
+  - M12
+  tier: professional
+  learning_type: catálogo
+  application: Derivar requisitos de aplicação verificáveis e níveis de verificação por criticidade.
+  limitations: Estrutura de capítulos da 5.0.0 não conferida nesta revisão.
+  examples: Requisitos do serviço de pedidos (avaliação do M02, tarefa 3).
+- id: KC-R1-20
+  concept: Segurança e confiabilidade como propriedades conjuntas
+  ref: BOOK-GOOGLE-BSRS
+  locator: Cap. 1 The Intersection of Security and Reliability
+  consulted: false
+  modules:
+  - M01
+  - M15
+  lessons:
+  - M00-L04
+  - M01-L02
+  diagrams:
+  - m00-l04-ha-datacenter
+  tier: professional
+  learning_type: conceito
+  application: Tratar disponibilidade, recuperação e segurança no mesmo desenho, com trade-offs explícitos.
+  limitations: Sumário conferido; capítulo não lido nesta revisão.
+  examples: Requisitos de recuperação no Caso A.
+- concept: Design for least privilege
+  ref: BOOK-GOOGLE-BSRS
+  locator: Cap. 5 Design for Least Privilege
+  consulted: false
+  modules:
+  - M06
+  - M07
+  tier: professional
+  learning_type: conceito
+  application: Projetar acesso administrativo com privilégio mínimo, proxies e aprovações.
+  limitations: Sumário conferido; capítulo não lido nesta revisão.
+  examples: Acesso administrativo da Aurora Pagamentos (M02-L03).
+- concept: Design for resilience and recovery
+  ref: BOOK-GOOGLE-BSRS
+  locator: Cap. 8 Design for Resilience; Cap. 9 Design for Recovery
+  consulted: false
+  modules:
+  - M15
+  tier: professional
+  learning_type: conceito
+  application: Projetar degradação controlada e recuperação após comprometimento.
+  limitations: Sumário conferido; capítulos não lidos nesta revisão.
+  examples: Backup isolado e imutável do Caso A.
+- id: KC-M00-01
+  concept: Fronteiras de isolamento — kernel, hipervisor e containers
+  ref: BOOK-ANDERSON-SE3
+  locator: Cap. 6, §6.2.11 Sandboxing (p. 224) e §6.2.12 Virtualisation (p. 225)
+  consulted: true
+  modules:
+  - M00
+  - M01
+  lessons:
+  - M00-L01
+  - M00-L05
+  diagrams:
+  - m00-l01-isolation
+  tier: fundamental
+  learning_type: conceito
+  application: Escolher entre processo, container, VM ou host separado conforme a diferença de confiança entre as cargas.
+  limitations: Anderson discute mecanismos e seus limites; não prescreve critérios de consolidação.
+  examples: Agendamento exposto da Lumen Saúde em VM e segmento separados dos prontuários.
+- id: KC-M00-02
+  concept: Faixas de endereçamento privado e o papel do NAT
+  ref: RFC-1918
+  locator: RFC 1918 (BCP 5), faixas 10/8, 172.16/12 e 192.168/16
+  consulted: true
+  modules:
+  - M00
+  - M05
+  - M11
+  lessons:
+  - M00-L02
+  diagrams:
+  - m00-l02-packet-path
+  tier: fundamental
+  learning_type: conceito
+  application: Planejar endereçamento corporativo sem sobreposição e reconhecer que NAT é tradução, não política de segurança.
+  limitations: Não trata segurança; NAT e encaminhamento de porta podem expor hosts com endereço privado.
+  examples: RDP publicado por encaminhamento de porta na Meridiana.
+- id: KC-M00-03
+  concept: Política de firewall com negação por padrão e regras justificadas
+  ref: NIST-SP800-41-R1
+  locator: Documento — política de firewall (página oficial conferida)
+  consulted: false
+  modules:
+  - M00
+  - M05
+  lessons:
+  - M00-L03
+  diagrams:
+  - m00-l03-segmented-network
+  tier: fundamental
+  learning_type: método
+  application: Estruturar a política entre zonas com origem, destino, serviço, justificativa, dono e revisão.
+  limitations: Documento de 2009; seções específicas ainda não lidas.
+  examples: Zonas da Meridiana — usuários, aplicações, dados, gestão, backup e coletores.
+- id: KC-M00-04
+  concept: TLS 1.3 vigente (RFC 9846) e diferença entre proteger o caminho e a conversa
+  ref: RFC-9846
+  locator: §1.2 (relação com o RFC 8446)
+  consulted: true
+  modules:
+  - M00
+  - M01
+  - M13
+  lessons:
+  - M00-L03
+  tier: fundamental
+  learning_type: conceito
+  application: Exigir TLS de ponta a ponta também em redes internas e entre ambientes já ligados por VPN.
+  limitations: Especificação de protocolo; não define política de versões ou de cifras para a organização.
+  examples: Aplicação na cloud acessando banco no datacenter por VPN e TLS.
+- id: KC-M00-05
+  concept: RTO, RPO, replicação e backup isolado
+  ref: NIST-SP800-34-R1
+  locator: Documento — planejamento de contingência e BIA (página oficial conferida)
+  consulted: false
+  modules:
+  - M00
+  - M03
+  - M08
+  - M15
+  lessons:
+  - M00-L04
+  diagrams:
+  - m00-l04-ha-datacenter
+  tier: fundamental
+  learning_type: conceito
+  application: Derivar a arquitetura de disponibilidade e recuperação de RTO e RPO definidos pelo negócio.
+  limitations: Escrito para sistemas federais dos EUA; seções ainda não lidas.
+  examples: Réplica do ERP da Meridiana versus backup imutável fora do site.
+- id: KC-M00-06
+  concept: Princípios de confiabilidade — recuperação automática, teste de recuperação, escala horizontal
+  ref: AWS-WA-RELIABILITY
+  locator: Design principles — Reliability Pillar
+  consulted: true
+  modules:
+  - M00
+  - M09
+  - M15
+  lessons:
+  - M00-L04
+  tier: fundamental
+  learning_type: conceito
+  application: Justificar testes periódicos de restauração e servidores sem estado atrás de balanceadores.
+  limitations: Orientação de um provedor, escrita para workloads em AWS.
+  examples: Agendamento da Lumen com RTO de 1 hora e RPO de 5 minutos.
+- id: KC-M00-07
+  concept: Níveis de contramedidas para containers — imagem, registry, orquestrador, container, host e hardware
+  ref: NIST-SP800-190
+  locator: Organização das contramedidas (boletim ITL de outubro de 2017)
+  consulted: true
+  modules:
+  - M00
+  - M12
+  lessons:
+  - M00-L05
+  diagrams:
+  - m00-l05-modern-platforms
+  tier: fundamental
+  learning_type: conceito
+  application: Revisar uma plataforma de containers etapa a etapa, do build à execução.
+  limitations: Conferido pelo boletim de apresentação; o texto integral da SP 800-190 não foi lido.
+  examples: Namespaces sem política de rede e RBAC amplo na Aurora Pagamentos.
+- id: KC-M00-08
+  concept: Características essenciais e modelos de serviço e implantação de cloud
+  ref: NIST-SP800-145
+  locator: §2 (pp. 2–3)
+  consulted: true
+  modules:
+  - M00
+  - M09
+  - M10
+  - M11
+  lessons:
+  - M00-L06
+  diagrams:
+  - m00-l06-shared-responsibility
+  tier: fundamental
+  learning_type: conceito
+  application: Explicar o que muda na segurança em cada modelo e por que a governança em cloud precisa ser automática.
+  limitations: Definição de 2011; não cobre multicloud nem serviços atuais.
+  examples: Três formas de levar o agendamento da Lumen para a cloud.
+- id: KC-M00-09
+  concept: Arquitetura versus descrição, visões e preocupações
+  ref: ISO-42010-2022
+  locator: Norma — conceitos de descrição de arquitetura (resumo público)
+  consulted: false
+  modules:
+  - M00
+  - M02
+  lessons:
+  - M00-L07
+  - M02-L01
+  diagrams:
+  - m00-l07-reading-example
+  tier: fundamental
+  learning_type: conceito
+  application: Ler diagramas como visões para públicos específicos e perguntar o que cada visão omite.
+  limitations: Norma paga; texto integral não acessível.
+  examples: Diagrama aprovado da Aurora que omitia administração, logs e segredos.
+- id: KC-M01-01
+  concept: Sigilo, confidencialidade e privacidade
+  ref: BOOK-ANDERSON-SE3
+  locator: Cap. 1, §1.7 Definitions (p. 11)
+  consulted: true
+  modules:
+  - M01
+  - M13
+  lessons:
+  - M01-L01
+  diagrams:
+  - m01-l01-properties
+  tier: fundamental
+  learning_type: conceito
+  application: Distinguir proteção técnica contra leitura (sigilo) das obrigações de confidencialidade e dos direitos de privacidade exigidos por leis como a LGPD.
+  limitations: Definições conceituais; não tratam requisitos legais específicos.
+  examples: Requisitos de dados de pacientes da Lumen Saúde.
+- id: KC-M01-02
+  concept: Sistema adequadamente seguro — níveis toleráveis, ASARP e evidência
+  ref: NIST-SP800-160-V1R1
+  locator: §3.2 The Concept of an Adequately Secure System (p. 13)
+  consulted: true
+  modules:
+  - M01
+  - M02
+  lessons:
+  - M01-L01
+  tier: fundamental
+  learning_type: conceito
+  application: Formular requisitos com grau e forma de verificação, em vez de buscar segurança máxima.
+  limitations: Conceito de engenharia; não fornece métricas prontas.
+  examples: Requisitos por propriedade para o cadastro de fornecedores da Meridiana.
+- id: KC-M01-03
+  concept: Princípios de design de proteção (Saltzer e Schroeder)
+  ref: SALTZER-SCHROEDER-1975
+  locator: Lista dos dez princípios (conferida em fonte secundária)
+  consulted: false
+  modules:
+  - M01
+  - M02
+  lessons:
+  - M01-L02
+  diagrams:
+  - m01-l02-defense-in-depth
+  tier: fundamental
+  learning_type: conceito
+  application: Usar princípios como critérios explícitos de decisão em revisões e ADRs.
+  limitations: Artigo original não aberto; lista conferida em fonte secundária.
+  examples: Revisão por princípios da API de estornos da Aurora.
+- id: KC-M01-04
+  concept: Confiança versus confiabilidade demonstrada por evidência
+  ref: NIST-SP800-160-V1R1
+  locator: Cap. 2, Trust and Trustworthiness (p. 10)
+  consulted: true
+  modules:
+  - M01
+  - M02
+  - M07
+  lessons:
+  - M01-L03
+  diagrams:
+  - m01-l03-attack-surface
+  tier: fundamental
+  learning_type: conceito
+  application: Exigir evidência da confiabilidade dos componentes que ficam do lado confiável de uma fronteira.
+  limitations: Conceito; a forma de produzir evidência é tratada nos apêndices não lidos.
+  examples: Integração com laboratório parceiro da Lumen.
+- id: KC-M01-05
+  concept: Criptografia pós-quântica — FIPS 203, 204 e 205 e transição proposta
+  ref: NIST-FIPS-203
+  locator: Páginas oficiais dos FIPS 203, 204 e 205 (13/08/2024)
+  consulted: true
+  modules:
+  - M01
+  - M13
+  lessons:
+  - M01-L04
+  - M01-L05
+  diagrams:
+  - m01-l04-hybrid-encryption
+  tier: fundamental
+  learning_type: conceito
+  application: Priorizar inventário criptográfico e agilidade, começando por dados com confidencialidade de longo prazo.
+  limitations: A transição (NIST IR 8547) ainda é um rascunho público.
+  examples: Arquivo de conciliação da Aurora.
+- id: KC-M01-06
+  concept: Redução da validade máxima de certificados TLS públicos para 47 dias
+  ref: CABF-SC081
+  locator: Ballot SC081v3, aprovada em 11/04/2025
+  consulted: true
+  modules:
+  - M01
+  - M13
+  lessons:
+  - M01-L05
+  diagrams:
+  - m01-l05-pki-tls
+  tier: fundamental
+  learning_type: conceito
+  application: Justificar inventário e renovação automática de certificados.
+  limitations: Aplica-se a certificados públicos; etapas intermediárias conferidas em fonte secundária.
+  examples: Certificado esquecido que parou os centros de distribuição da Meridiana.
+- id: KC-M01-12
+  concept: Forward secrecy depende do modo de troca de chaves do TLS 1.3 (certificado com troca efêmera, PSK sozinha, PSK com troca efêmera, 0-RTT)
+  ref: RFC-9846
+  locator: §2.2 e §2.3
+  consulted: true
+  modules:
+  - M01
+  lessons:
+  - M01-L05
+  diagrams:
+  - m01-l05-pki-tls
+  tier: fundamental
+  learning_type: conceito
+  application: Exigir troca de chaves efêmera nas configurações de TLS e tratar dados 0-RTT como não protegidos contra replay.
+  limitations: Especificação de protocolo; a política de quais modos habilitar é decisão da organização.
+  examples: Retomada de sessão com PSK em clientes móveis da Aurora.
+- id: KC-M01-07
+  concept: Elementos de uma avaliação de riscos
+  ref: NIST-SP800-30-R1
+  locator: Sec. 2.3.1, modelo genérico de risco (pp. 8–12)
+  consulted: true
+  modules:
+  - M01
+  - M03
+  - M14
+  lessons:
+  - M01-L06
+  diagrams:
+  - m01-l06-risk-model
+  tier: fundamental
+  learning_type: método
+  application: Expressar riscos como cenários com fonte de ameaça, vulnerabilidade, probabilidade e impacto.
+  limitations: Escrito para o governo federal dos EUA; a escala e os exemplos precisam ser adaptados ao contexto da organização.
+  examples: Três cenários de risco da Meridiana.
+- id: KC-M01-08
+  concept: Estimativas de risco misturam dados, suposições e política
+  ref: BOOK-ANDERSON-SE3
+  locator: Cap. 27, §27.2 Risk management (p. 966) e §27.3.6 Quantifying risks (p. 975)
+  consulted: true
+  modules:
+  - M01
+  - M03
+  lessons:
+  - M01-L06
+  tier: fundamental
+  learning_type: conceito
+  application: Registrar justificativas para cada nota de probabilidade e impacto.
+  limitations: Discussão crítica; não propõe uma escala.
+  examples: Reescrita do relatório de riscos da Meridiana.
+- id: KC-M01-09
+  concept: Bell-LaPadula e Biba
+  ref: BOOK-ANDERSON-SE3
+  locator: Cap. 9, §9.3.2 (p. 320) e §9.3.5 (p. 325)
+  consulted: true
+  modules:
+  - M01
+  lessons:
+  - M01-L07
+  diagrams:
+  - m01-l07-blp-biba
+  tier: professional
+  learning_type: conceito
+  application: Separar dados não confiáveis de configurações de alta integridade; entender controle mandatório.
+  limitations: Modelos rígidos; canais encobertos e composição ficam fora de suas premissas (§9.6).
+  examples: Processamento de arquivos de parceiros da Aurora.
+- id: KC-M01-10
+  concept: Clark-Wilson — CDI, UDI, TP, IVP, separação de funções e auditoria
+  ref: BOOK-ANDERSON-SE3
+  locator: Cap. 12, §12.2.3 (p. 410)
+  consulted: true
+  modules:
+  - M01
+  - M06
+  - M13
+  lessons:
+  - M01-L07
+  - M01-L01
+  tier: professional
+  learning_type: conceito
+  application: Exigir que dados críticos mudem apenas por procedimentos controlados, com dupla aprovação e trilha de auditoria.
+  limitations: Exige separação de funções sem defini-la; não garante que a transação esteja correta.
+  examples: Correções diretas no banco do ERP da Meridiana.
+- id: KC-M01-11
+  concept: Chinese Wall (Brewer-Nash)
+  ref: BOOK-ANDERSON-SE3
+  locator: Cap. 10, §10.4.8 (p. 369)
+  consulted: true
+  modules:
+  - M01
+  - M06
+  lessons:
+  - M01-L07
+  tier: professional
+  learning_type: conceito
+  application: Regras de acesso com estado para conflitos de interesse.
+  limitations: Vulnerável a canais encobertos e a períodos curtos de resfriamento.
+  examples: Consultoria da Aurora atendendo varejistas concorrentes.

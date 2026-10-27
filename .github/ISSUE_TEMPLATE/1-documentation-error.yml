@@ -1,0 +1,43 @@
+name: Report a documentation error
+description: Erro técnico, conceitual, de digitação ou de tradução em uma página.
+title: "[Erro] "
+labels: ["type: bug", "status: needs-triage"]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Página
+      description: "URL ou caminho do arquivo (ex.: docs/curriculum/index.md)."
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Tipo de erro
+      options:
+        - Conceito técnico incorreto
+        - Referência desatualizada ou incorreta
+        - Diagrama incorreto ou confuso
+        - Digitação, gramática ou tradução
+        - Outro
+    validations:
+      required: true
+  - type: textarea
+    id: current
+    attributes:
+      label: O que está escrito
+      description: Copie o trecho ou descreva o problema.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: O que deveria estar escrito
+      description: Proposta de correção.
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Fonte que fundamenta a correção
+      description: Norma, documentação oficial ou publicação (com versão), quando aplicável.

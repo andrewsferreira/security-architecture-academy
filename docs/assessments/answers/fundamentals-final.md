@@ -79,7 +79,7 @@ Também aceitáveis: chave de API no código (uso indevido da conta de pagamento
 - **Contexto:** banco na mesma VM exposta, backup no mesmo disco, equipe de três pessoas, orçamento limitado.
 - **Alternativas:** (A) manter na VM e só fechar portas; (B) banco em VM separada em sub-rede privada; (C) banco gerenciado pelo provedor em sub-rede privada.
 - **Critérios:** redução de exposição, esforço de operação, backup e restauração, custo.
-- **Decisão:** **C — banco gerenciado**, porque transfere ao provedor patch e execução de backup (M09-L01 aprofunda a responsabilidade compartilhada) e a equipe é pequena.
+- **Decisão:** **C — banco gerenciado**, porque transfere ao provedor patch e execução de backup (Módulo 9 — Aula 01 aprofunda a responsabilidade compartilhada) e a equipe é pequena.
 - **Consequências negativas:** custo mensal maior que o da VM; menos controle sobre versão e janelas de manutenção; dependência do provedor.
 - **Risco residual:** falha na aplicação ainda pode expor dados que ela acessa legitimamente — tratado pelo WAF, testes de segurança da aplicação e privilégio mínimo no usuário do banco.
 

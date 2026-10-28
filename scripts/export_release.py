@@ -53,6 +53,8 @@ from typing import Any
 
 import yaml
 
+from _common import publication_target, release_publications
+
 ROOT = Path(__file__).resolve().parent.parent
 SCOPES = ("modules", "complements", "case_studies", "labs", "assessments", "artifacts")
 COLLECTIONS = ("case_studies", "labs", "assessments", "artifacts")
@@ -88,8 +90,10 @@ def load_allowlist(root: Path = ROOT) -> dict[str, list[str]]:
 
 
 def is_public(rel: str, allow: dict[str, list[str]]) -> bool:
-    if rel in allow.get("exclude", []):
-        return False
+    """Arquivo pode ir ao repositório público? ``exclude`` aceita caminhos exatos e diretórios (terminados em /)."""
+    for item in allow.get("exclude", []):
+        if rel == item or (item.endswith("/") and rel.startswith(item)):
+            return False
     return rel in allow["files"] or any(rel.startswith(d) for d in allow["directories"])
 
 
@@ -123,6 +127,12 @@ def sha256(path: Path) -> str:
 
 def release_manifest(manifest: dict[str, Any], release: dict[str, Any], scope: dict[str, set[str]],
                      mode: str, out: Path, source: dict[str, Any]) -> dict[str, Any]:
+    """Manifesto da publicação gerada — a versão inicial da release ou a versão de correção em preparo.
+
+    ``history`` lista as publicações anteriores da mesma release (versão, datas e commits), sem alterá-las.
+    """
+    records = release_publications(release)
+    target = records[-1]
     """Manifesto de publicação gravado na raiz da árvore exportada."""
     units = [u for key in ("modules", "complements") for u in manifest.get(key) or [] if str(u["id"]) in scope[key]]
     lessons, refs = [], set()
@@ -143,15 +153,19 @@ def release_manifest(manifest: dict[str, Any], release: dict[str, Any], scope: d
         if path.is_file() and rel != RELEASE_MANIFEST:
             files[rel] = sha256(path)
     approved = mode == "final"
+    history = [{"version": str(r["version"]), "kind": r["kind"], "published_on": _iso(r.get("published_on")),
+                "approved_source_commit": r.get("approved_source_commit"), "public_commit": r.get("public_commit")}
+               for r in records[:-1]]
     return {
         "schema_version": 1,
         "release": release["id"],
-        "version": str(release["version"]),
-        "tag": f"v{release['version']}",
-        "candidate": release.get("candidate"),
-        "title": release.get("title"),
+        "version": str(target["version"]),
+        "tag": f"v{target['version']}",
+        "kind": target["kind"],
+        "candidate": target.get("candidate"),
+        "title": target.get("title") or release.get("title"),
         "mode": mode,
-        "status": release.get("status"),
+        "status": target.get("status"),
         "levels": sorted({str(u.get("stage")) for u in units}),
         "scope": {
             "modules": [{"id": u["id"], "title": u.get("title"), "status": u.get("status"),
@@ -164,15 +178,20 @@ def release_manifest(manifest: dict[str, Any], release: dict[str, Any], scope: d
         "editorial_state": "approved" if approved else "in-review — aguardando revisão do mantenedor",
         "technical_state": "validado pela exportação (ver validações na árvore)",
         "approval": {
-            "approved_by": list(release.get("approved_by") or []),
-            "approved_on": release.get("approved_on").isoformat() if release.get("approved_on") else None,
-            "approved_source_commit": release.get("approved_source_commit"),
+            "approved_by": list(target.get("approved_by") or []),
+            "approved_on": _iso(target.get("approved_on")),
+            "approved_source_commit": target.get("approved_source_commit"),
         },
         "source": source,
-        "public_commit": release.get("public_commit"),
-        "publication": {"published_on": release.get("published_on"), "url": release.get("url")},
+        "public_commit": target.get("public_commit"),
+        "publication": {"published_on": _iso(target.get("published_on")), "url": target.get("url")},
+        "history": history,
         "files": files,
     }
+
+
+def _iso(value: Any) -> Any:
+    return value.isoformat() if isinstance(value, dt.date) else value
 
 
 # ----------------------------------------------------------------- escopo
@@ -240,8 +259,22 @@ def is_excluded(rel: str, prefixes: list[str], out_modules: set[str]) -> bool:
 # ------------------------------------------------------------- transformações
 def transform_manifest(manifest: dict[str, Any], scope: dict[str, set[str]], mode: str,
                        release: dict[str, Any]) -> dict[str, Any]:
-    approvers = list(release.get("approved_by") or [])
-    date = release.get("approved_on")
+    """Manifesto público. No modo final, itens do escopo passam a ``published``.
+
+    Itens já publicados conservam a data e os revisores da publicação original; só itens publicados
+    pela primeira vez recebem a data e os aprovadores desta publicação (inicial ou de correção).
+    """
+    target = publication_target(release)
+    approvers = list(target.get("approved_by") or [])
+    date = target.get("approved_on")
+
+    def publish(item: dict[str, Any]) -> None:
+        first = item.get("status") != "published" or not item.get("published_on")
+        item["status"] = "published"
+        if first:
+            item["published_on"] = date
+            item["reviewed_by"] = approvers
+
     for key in ("modules", "complements"):
         for unit in manifest.get(key) or []:
             inside = str(unit["id"]) in scope[key]
@@ -256,9 +289,7 @@ def transform_manifest(manifest: dict[str, Any], scope: dict[str, set[str]], mod
             elif mode == "final":
                 for item in [unit] + list(unit.get("lessons") or []):
                     if item.get("status") in {"in-review", "published"}:
-                        item["status"] = "published"
-                        item["published_on"] = date
-                        item["reviewed_by"] = approvers
+                        publish(item)
     for key in COLLECTIONS:
         for item in manifest.get(key) or []:
             if str(item["id"]) not in scope[key]:
@@ -266,9 +297,7 @@ def transform_manifest(manifest: dict[str, Any], scope: dict[str, set[str]], mod
                 for field in ("path", "answers", "tested", "published_on", "reviewed_by"):
                     item.pop(field, None)
             elif mode == "final" and item.get("status") in {"in-review", "published"}:
-                item["status"] = "published"
-                item["published_on"] = date
-                item["reviewed_by"] = approvers
+                publish(item)
     return manifest
 
 
@@ -299,7 +328,7 @@ def transform_nav(config_text: str, out: Path) -> str:
     lines = []
     for line in config_text.splitlines(keepends=True):
         match = NAV_ITEM_RE.match(line)
-        if match and not (out / "docs" / match.group(1)).is_file():
+        if match and not match.group(1).startswith(("http://", "https://")) and not (out / "docs" / match.group(1)).is_file():
             continue
         lines.append(line)
     text = "".join(lines)
@@ -310,12 +339,24 @@ def transform_nav(config_text: str, out: Path) -> str:
         text = new
 
 
-def publish_page(text: str, approvers: list[str], date: dt.date) -> str:
+def publish_page(text: str, approvers: list[str], date: dt.date, rel: str = "") -> str:
+    """Marca como publicada uma página do escopo aprovado.
+
+    Não altera o Handbook (``docs/internal/``), que documenta os status, nem as linhas de
+    tabela em que o selo é a primeira célula: são definições de status (legendas), não o
+    estado de um item.
+    """
+    if rel.startswith("docs/internal/"):
+        return text
     text = STATUS_LINE_RE.sub("status: published", text, count=1)
     names = ", ".join(approvers)
     text = REVIEWED_RE.sub(f"reviewed_by: [{names}]", text, count=1)
     text = text.replace(REVIEW_ROW, f"| Revisão técnica | {names} — {date.isoformat()} |")
-    return text.replace(BADGE_IN_REVIEW, BADGE_PUBLISHED)
+    lines = text.split("\n")
+    for i, line in enumerate(lines):
+        if BADGE_IN_REVIEW in line and not line.lstrip().startswith("| " + BADGE_IN_REVIEW):
+            lines[i] = line.replace(BADGE_IN_REVIEW, BADGE_PUBLISHED)
+    return "\n".join(lines)
 
 
 # ---------------------------------------------------------------- execução
@@ -325,12 +366,14 @@ def export(release_id: str, mode: str, out: Path, root: Path = ROOT) -> dict[str
     manifest = load_manifest(root)
     release = next((r for r in manifest.get("releases") or [] if str(r.get("id")) == release_id), None)
     scope = cumulative_scope(manifest, release_id)
+    pub = publication_target(release)
+    label = f"{release_id} v{pub['version']}"
     if mode == "final":
-        if release.get("status") not in {"approved", "published"}:
-            raise ExportError(f"{release_id}: modo final exige release 'approved' (atual: {release.get('status')!r}) — "
+        if pub.get("status") not in {"approved", "published"}:
+            raise ExportError(f"{label}: modo final exige publicação 'approved' (atual: {pub.get('status')!r}) — "
                               "a aprovação é registrada pelo mantenedor no manifesto")
-        if not release.get("approved_by") or not isinstance(release.get("approved_on"), dt.date):
-            raise ExportError(f"{release_id}: approved_by e approved_on precisam estar preenchidos pelo mantenedor")
+        if not pub.get("approved_by") or not isinstance(pub.get("approved_on"), dt.date):
+            raise ExportError(f"{label}: approved_by e approved_on precisam estar preenchidos pelo mantenedor")
     if out.exists() and any(out.iterdir()):
         raise ExportError(f"{out} não está vazio — escolha um diretório novo")
 
@@ -370,10 +413,10 @@ def export(release_id: str, mode: str, out: Path, root: Path = ROOT) -> dict[str
     (out / "zensical.toml").write_text(transform_nav((root / "zensical.toml").read_text(encoding="utf-8"), out),
                                        encoding="utf-8")
     if mode == "final":
-        approvers = list(release["approved_by"])
+        approvers = list(pub["approved_by"])
         for page in (out / "docs").rglob("*.md"):
             text = page.read_text(encoding="utf-8")
-            new = publish_page(text, approvers, release["approved_on"])
+            new = publish_page(text, approvers, pub["approved_on"], page.relative_to(out).as_posix())
             if new != text:
                 page.write_text(new, encoding="utf-8")
 
@@ -384,7 +427,7 @@ def export(release_id: str, mode: str, out: Path, root: Path = ROOT) -> dict[str
     for cache in out.rglob("__pycache__"):
         shutil.rmtree(cache)
 
-    approved_commit = check_approved_commit(root, release, copied) if mode == "final" else None
+    approved_commit = check_approved_commit(root, pub, copied) if mode == "final" else None
     head = git(root, "rev-parse", "HEAD")
     dirty = bool(git(root, "status", "--porcelain", "--untracked-files=no"))
     source = {"repository": PRIVATE_REPOSITORY, "commit": head, "dirty": dirty,

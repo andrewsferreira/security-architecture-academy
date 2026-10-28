@@ -1,6 +1,7 @@
 ---
 id: M02-L08
-title: "Architecture Decision Records"
+title: "Aula 08 — Architecture Decision Records"
+public_title: "Módulo 2 — Aula 08 — Architecture Decision Records"
 description: Como registrar decisões arquiteturais significativas em ADRs, com contexto, alternativas, consequências, riscos residuais e critérios de revisão — e como manter um registro de decisões útil ao longo do tempo.
 domain: enterprise-architecture
 tier: architect
@@ -19,12 +20,12 @@ reviewed_by: [Andrews Ferreira]
 module: M02
 ---
 
-# Architecture Decision Records
+# Aula 08 — Architecture Decision Records { #architecture-decision-records }
 
 <div class="saa-lesson-meta" markdown>
-<span class="saa-level">Nível 1 · M02-L08</span>
+<span class="saa-level">Módulo 2 · Nível 1</span>
 <span class="saa-tier saa-tier--architect">Architect</span>
-<span class="saa-meta">75 min</span>
+<span class="saa-meta">75 min · ID técnico: M02-L08</span>
 </div>
 
 ## Resumo
@@ -199,7 +200,7 @@ ADRs no repositório têm uma vantagem prática: **mudam junto com o código** q
 |:---|:---|:---|
 | Formato de ADR | Registrar decisões de forma curta e consistente | M. Nygard, *Documenting Architecture Decisions* (2011) |
 | Separação entre arquitetura e sua descrição | ADRs fazem parte da descrição de arquitetura, não da arquitetura em si | ISO/IEC/IEEE 42010:2022 |
-| Aceitação formal de risco | Registrar o dono do risco residual | Detalhado no M03 (tratamento de riscos) |
+| Aceitação formal de risco | Registrar o dono do risco residual | Detalhado no Módulo 3 (tratamento de riscos) |
 | Modelo da Academy | Estrutura com extensões de segurança | [Architecture Decision Record](../../artifacts/architecture-decision-record.md) |
 
 ## Aplicabilidade: on-premises, cloud e híbrido
@@ -340,6 +341,24 @@ ADRs no repositório têm uma vantagem prática: **mudam junto com o código** q
 - Consequências negativas e risco residual com dono são o que tornam o ADR útil no futuro.
 - ADRs aceitos são imutáveis: mudanças geram novos ADRs que substituem os anteriores.
 - ADRs vivem perto do código, ligam-se a requisitos e exceções, e precisam de critérios de verificação.
+
+<!-- next-steps:start -->
+
+!!! tip "Próximos passos"
+
+    Você concluiu a última aula do **Módulo 2** — [voltar ao módulo](index.md).
+
+    Pratique e avalie o módulo:
+
+    - [Laboratório 02 — Modelagem arquitetural como código](../../labs/lab-02-architecture-modeling.md)
+    - [Avaliação do Módulo 2](../../assessments/m02-security-architecture.md)
+
+    Atividades integradoras:
+
+    - [Caso A — Datacenter tradicional (Meridiana Distribuidora)](../../case-studies/case-a-meridiana/index.md)
+    - [Avaliação final de Fundamentals (integradora)](../../assessments/fundamentals-final.md)
+
+<!-- next-steps:end -->
 
 ## Referências
 

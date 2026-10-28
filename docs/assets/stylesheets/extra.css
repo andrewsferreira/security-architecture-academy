@@ -193,6 +193,10 @@
 .saa-tier--professional { color: var(--saa-primary); }
 .saa-tier--architect { color: var(--saa-secondary); }
 .saa-meta { font-size: 0.72rem; color: var(--saa-text-muted); }
+/* Em telas estreitas, selos longos (nível com título) quebram a linha em vez de estourar a página */
+@media screen and (max-width: 30em) {
+  .md-typeset .saa-lesson-meta .saa-level { white-space: normal; max-width: 100%; border-radius: 0.8em; }
+}
 
 /* Ícone de status do tema na navegação: só "em revisão" é sinalizado */
 .md-status--published, .md-status--deprecated { display: none; }

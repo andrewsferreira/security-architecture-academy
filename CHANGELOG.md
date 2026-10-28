@@ -6,6 +6,31 @@ O formato segue o [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e 
 
 ## [Unreleased]
 
+Estabilização da Release 1 — Fundamentals (v0.1.1, em preparação; não publicada).
+
+### Changed
+
+- Nomenclatura pública de módulos e aulas: o Módulo 00 passa a ser exibido como **Módulo Inicial** e os demais como **Módulo 1** a **Módulo 17**; as aulas, como **Aula 01**, **Aula 02**… pela ordem do manifesto, reiniciando a cada módulo. Títulos de página, menu, índices, currículo, trilhas, avaliações, laboratórios e referências cruzadas usam os nomes públicos; os IDs técnicos (`M00-L01`…), arquivos, URLs e âncoras não mudam. Regras em `scripts/naming.py`, aplicadas por `make curriculum`.
+- Última aula de cada módulo com "Próximos passos": laboratório e avaliação do módulo, atividades integradoras e o módulo seguinte, quando publicado.
+- ROADMAP, Como usar a Academy, plano de estudo e matriz de cobertura atualizados para a Release 1 publicada.
+- Navegação pública reorganizada em sete grupos: Início, Começar, Fundamentals, Prática, Research Library, Currículo e Roadmap, Sobre. Fundamentals agrupa os módulos por nível (Nível 0 — Módulo Inicial e Módulo 1; Nível 1 — Módulo 2), a Research Library deixa de ficar dentro da Prática e não há mais aba Módulos. Os endereços das páginas não mudam.
+- Portal atualizado para o Zensical 0.0.72.
+- Versões de correção de uma release registradas em `patches` no manifesto, com aprovação e publicação próprias; o manifesto da árvore pública passa a trazer o histórico de versões.
+
+### Removed
+
+- Documentação operacional do repositório de desenvolvimento deixa a árvore pública: Handbook (`internal/`), guia de ambiente local, templates de autoria e padrões internos. As demais páginas mantêm o endereço e as âncoras da v0.1.0.
+
+### Fixed
+
+- A exportação final da v0.1.0 trocou o selo "In Review" por "Published" na legenda de status do currículo, no Modelo de conteúdo e no Design System; legendas e Handbook deixam de ser alterados, com teste de regressão.
+- Gabarito da avaliação diagnóstica ainda dizia que os módulos de fundamentos não estavam publicados.
+- Nos índices do Módulo Inicial e do Módulo 1, o selo de nível causava rolagem horizontal a 360 px de largura.
+
+## [0.1.0] — 2026-10-27
+
+Release 1 — Fundamentals publicada no GitHub Pages: Módulos 00, 01 e 02 (22 aulas), laboratórios 00 a 02, Caso A, avaliação diagnóstica, avaliações de módulo, avaliação final integradora e modelos. A lista abaixo reúne todo o desenvolvimento até esta primeira publicação.
+
 ### Added
 
 - Página institucional para o GitHub Pages antes da Release 1 (`landing/`): objetivo do projeto e fundamentos que serão tratados, sem conteúdo de aulas; gerada por `scripts/export_landing.py` com manifesto verificável e workflows próprios.
@@ -20,21 +45,21 @@ O formato segue o [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e 
     - Workflows de CI, publicação no GitHub Pages e verificação semanal de links externos; Dependabot.
     - Documentação de comunidade: CONTRIBUTING, Código de Conduta, política de segurança, issue forms e PR template.
     - Proposta de licenciamento (licença ainda não aplicada).
-- Planejamento acadêmico (fase 0, em revisão):
+- Planejamento acadêmico (fase 0):
     - Manifesto v2: seis níveis, três trilhas (Fundamentals, Professional, Advanced), quatro fases, 14 domínios, 18 módulos (M00–M17) com 135 aulas e o complemento C01; coleções de estudos de caso, laboratórios, avaliações e artefatos.
     - `CURRICULUM.md` e páginas do portal geradas do manifesto; grafo de dependências em Mermaid.
     - Mapa de competências, matriz de cobertura, mapeamento de certificações, learning paths e plano de estudos.
     - `curriculum/sources.yml`: registro de fontes com data de verificação e marcação "não verificada".
     - Padrão de aula com 14 elementos e de laboratório com 10 elementos (`authoring/`).
     - `GETTING-STARTED.md` e registro de progresso das entregas.
-- MVP educacional (fase 1, em revisão):
+- MVP educacional (fase 1):
     - Módulo 02 — Introdução à Arquitetura de Segurança, com 8 aulas e 14 diagramas.
     - Caso A — Meridiana Distribuidora: enunciado, solução de referência, As-Is/To-Be e ADR-001 a ADR-003.
     - Laboratório 02 — modelagem arquitetural como código (`examples/lab-02-architecture-modeling/`), com testes.
     - Avaliação diagnóstica e avaliação do Módulo 02, com gabaritos separados e rubricas.
     - Modelos para o estudante: ADR, especificação de requisitos de segurança e checklist de revisão.
 - `scripts/check_decision_matrices.py`: recalcula os totais ponderados das matrizes de decisão.
-- Research Library (em revisão):
+- Research Library:
     - `research/bibliography.yml` (schema 2): 51 referências com IDs estáveis, estados independentes de acesso, redistribuição e verificação, e 106 capítulos ou seções localizados (26 lidos), com páginas impressas.
     - Livros *Security Engineering*, 3ª ed. (Anderson) e *Building Secure and Reliable Systems* (Google); SP 800-160 Vol. 1 Rev. 1 e SP 800-207 com sumários conferidos; catálogo de white papers SABSA; AWS, Azure, Google Cloud e CSA.
     - `research/knowledge-map.yml` com 32 conceitos × fonte × localização × módulo; cinco notas de leitura originais; plano de leitura; registro de verificação com ações manuais pendentes.
@@ -42,7 +67,7 @@ O formato segue o [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e 
     - Portal: seção *Research Library* com registro, livros, frameworks, cloud, plano de leitura, matriz de referências, cobertura bibliográfica, metodologia e notas.
     - `scripts/validate_references.py` (CI e deploy): esquema, IDs, citações das aulas, consistência do mapa de conhecimento, referências não usadas, módulos sem fontes e arquivos privados versionados; `--report` e `--links`.
     - `private-research/` ignorada pelo git; PDFs e EPUBs ignorados em todo o repositório.
-- Release 1 — Fundamentals (em revisão, não publicada):
+- Release 1 — Fundamentals (publicada nesta versão):
     - Módulo 00 — Fundamentos de Infraestrutura e Computação (7 aulas) e Módulo 01 — Fundamentos de Segurança (7 aulas).
     - Laboratório 00 — plano de endereçamento e segmentação (`examples/lab-00-network-plan/`, 6 testes) e Laboratório 01 — mecanismos de segurança: integridade, HMAC, armazenamento de senhas e autorização (`examples/lab-01-security-mechanisms/`, 5 testes), executados em diretório limpo.
     - Avaliações dos Módulos 00 e 01 e avaliação final integradora de Fundamentals (Livraria Ipê), com gabaritos comentados e critérios objetivos.

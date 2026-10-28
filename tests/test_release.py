@@ -72,6 +72,10 @@ def test_excluded_paths_cover_out_of_scope_content(manifest):
 
 def test_transform_manifest_final_publishes_only_scope(manifest):
     data = copy.deepcopy(manifest)
+    for mod in data["modules"]:
+        if mod["id"] == "M00":
+            mod.update(status="in-review", reviewed_by=[])
+            mod.pop("published_on", None)
     rel = {"approved_by": ["mantenedor"], "approved_on": dt.date(2026, 11, 1)}
     scope = ex.cumulative_scope(data, "R1")
     out = ex.transform_manifest(data, scope, "final", rel)
@@ -108,9 +112,22 @@ def test_publish_page_marks_review():
     assert "saa-status--published" in out
 
 
+def test_publish_page_keeps_status_definitions():
+    """Legendas e o Handbook descrevem os status: a exportação final não pode reescrevê-los."""
+    badge = '<span class="saa-status saa-status--in-review">In Review</span>'
+    legend = f"| {badge} | Conteúdo completo, aguardando revisão técnica. |\n"
+    row = f"| [Laboratório 00](lab-00.md) | M00 | {badge} |\n"
+    out = ex.publish_page(legend + row, ["Mantenedor"], dt.date(2026, 11, 1), "docs/curriculum/index.md")
+    assert out.splitlines()[0] == legend.rstrip("\n")
+    assert "saa-status--published" in out.splitlines()[1]
+    handbook = f"{badge}\n| {badge} | Branch de revisão |\n"
+    assert ex.publish_page(handbook, ["Mantenedor"], dt.date(2026, 11, 1), "docs/internal/design-system.md") == handbook
+
+
 def test_final_mode_requires_maintainer_approval(manifest, tmp_path, monkeypatch):
     data = copy.deepcopy(manifest)
     data["releases"][0].update(status="in-review", approved_by=[], approved_on=None)
+    data["releases"][0].pop("patches", None)  # regra da primeira publicação; correções: testes abaixo
     monkeypatch.setattr(ex, "load_manifest", lambda root=None: data)
     with pytest.raises(ex.ExportError, match="approved"):
         ex.export("R1", "final", tmp_path / "out")
@@ -163,3 +180,70 @@ def test_final_export_is_bound_to_the_approved_commit(tmp_path):
         ex.check_approved_commit(tmp_path, rel, exported)
     with pytest.raises(ex.ExportError, match="SHA completo"):
         ex.check_approved_commit(tmp_path, {"approved_source_commit": None}, exported)
+
+
+# ------------------------------------------------------------ versões de correção
+def _r1_with_patch(manifest, **patch):
+    data = copy.deepcopy(manifest)
+    r1 = next(r for r in data["releases"] if r["id"] == "R1")
+    record = {"version": "0.1.1", "title": "R1 (correção)", "status": "in-review", "approved_by": [],
+              "approved_on": None, "approved_source_commit": None, "public_commit": None, "published_on": None}
+    record.update(patch)
+    r1["patches"] = [record]
+    return data, r1
+
+
+def test_patch_preserves_original_publication(manifest):
+    """Itens publicados na v0.1.0 mantêm data e revisores; só itens novos recebem os da correção."""
+    data, r1 = _r1_with_patch(manifest, status="approved", approved_by=["Mantenedor"],
+                              approved_on=dt.date(2026, 11, 2), approved_source_commit="b" * 40)
+    original = {m["id"]: (m.get("published_on"), m.get("reviewed_by")) for m in data["modules"] if m["status"] == "published"}
+    lab = next(x for x in data["labs"] if x["id"] == "LAB-00")
+    lab.update(status="in-review", reviewed_by=[])
+    lab.pop("published_on", None)
+    out = ex.transform_manifest(data, ex.cumulative_scope(data, "R1"), "final", r1)
+    mods = {m["id"]: m for m in out["modules"]}
+    for mid, (published_on, reviewers) in original.items():
+        assert (mods[mid]["published_on"], mods[mid]["reviewed_by"]) == (published_on, reviewers), mid
+    new_lab = next(x for x in out["labs"] if x["id"] == "LAB-00")
+    assert new_lab["published_on"] == dt.date(2026, 11, 2) and new_lab["reviewed_by"] == ["Mantenedor"]
+
+
+def test_patch_release_manifest_has_own_version_and_history(manifest, tmp_path):
+    data, r1 = _r1_with_patch(manifest, status="approved", approved_by=["Mantenedor"],
+                              approved_on=dt.date(2026, 11, 2), approved_source_commit="b" * 40)
+    (tmp_path / "assets" / "diagrams").mkdir(parents=True)
+    out = ex.release_manifest(data, r1, ex.cumulative_scope(data, "R1"), "final", tmp_path, {"commit": "c" * 40})
+    assert (out["version"], out["tag"], out["kind"], out["status"]) == ("0.1.1", "v0.1.1", "patch", "approved")
+    assert out["approval"]["approved_source_commit"] == "b" * 40
+    assert out["approval"]["approved_on"] == "2026-11-02"
+    assert out["history"][0]["version"] == "0.1.0"
+    assert out["history"][0]["approved_source_commit"] == r1["approved_source_commit"]
+    assert out["history"][0]["public_commit"] == r1["public_commit"]
+
+
+def test_final_export_requires_patch_approval(manifest, tmp_path, monkeypatch):
+    data, _ = _r1_with_patch(manifest)
+    monkeypatch.setattr(ex, "load_manifest", lambda root=None: data)
+    with pytest.raises(ex.ExportError, match="v0.1.1"):
+        ex.export("R1", "final", tmp_path / "out")
+
+
+def test_patch_rules_in_manifest_validator(manifest):
+    from _common import ROOT, load_config, nav_files
+
+    nav = nav_files(load_config())
+
+    def errors(**patch):
+        data, _ = _r1_with_patch(manifest, **patch)
+        return [e for e in validate(data, ROOT, nav).errors if " v0." in e]
+
+    assert errors() == []
+    reused = next(r for r in manifest["releases"] if r["id"] == "R1")["approved_source_commit"]
+    assert any("repete" in e for e in errors(status="approved", approved_by=["M"], approved_on=dt.date(2026, 11, 2),
+                                             approved_source_commit=reused))
+    assert any("aprovação só pode" in e for e in errors(approved_by=["M"]))
+    assert any("public_commit" in e for e in errors(status="published", approved_by=["M"], approved_on=dt.date(2026, 11, 2),
+                                                    approved_source_commit="b" * 40, published_on=dt.date(2026, 11, 2)))
+    assert any("maior que a anterior" in e for e in errors(version="0.1.0"))
+    assert any("0.1.N" in e for e in errors(version="0.2.1"))

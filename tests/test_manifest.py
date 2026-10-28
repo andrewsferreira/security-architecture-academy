@@ -42,6 +42,12 @@ def minimal(manifest: dict) -> dict:
             item.pop("tested", None)
             item.pop("reviewed_by", None)
             item.pop("published_on", None)
+    # Releases já aprovadas ou publicadas voltam a 'in-review': os itens acima deixaram de estar publicados.
+    for rel in data.get("releases") or []:
+        if rel.get("status") in {"approved", "published"}:
+            rel.update(status="in-review", approved_by=[], approved_on=None, approved_source_commit=None,
+                       public_commit=None, published_on=None, url=None)
+            rel.pop("patches", None)
     return data
 
 

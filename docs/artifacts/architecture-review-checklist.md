@@ -9,7 +9,7 @@ reviewed_by: [Andrews Ferreira]
 
 # Modelo: Architecture Review Checklist
 
-Checklist para conduzir uma revisão arquitetural de segurança. Cada item admite três respostas — **Atende**, **Não atende** ou **Não se aplica** — e todo *Não atende* gera um achado com recomendação. O checklist consolida os itens das aulas do Módulo 02; módulos posteriores acrescentam seções específicas.
+Checklist para conduzir uma revisão arquitetural de segurança. Cada item admite três respostas — **Atende**, **Não atende** ou **Não se aplica** — e todo *Não atende* gera um achado com recomendação. O checklist consolida os itens das aulas do Módulo 2; módulos posteriores acrescentam seções específicas.
 
 ## Modelo
 

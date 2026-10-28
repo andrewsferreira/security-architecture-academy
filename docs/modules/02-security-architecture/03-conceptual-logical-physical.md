@@ -1,6 +1,7 @@
 ---
 id: M02-L03
-title: "Arquitetura conceitual, lógica e física"
+title: "Aula 03 — Arquitetura conceitual, lógica e física"
+public_title: "Módulo 2 — Aula 03 — Arquitetura conceitual, lógica e física"
 description: Como representar uma solução em três níveis de abstração, manter a rastreabilidade entre eles e usar a visão lógica para unificar ambientes on-premises, cloud e híbridos.
 domain: enterprise-architecture
 tier: professional
@@ -19,12 +20,12 @@ reviewed_by: [Andrews Ferreira]
 module: M02
 ---
 
-# Arquitetura conceitual, lógica e física
+# Aula 03 — Arquitetura conceitual, lógica e física { #arquitetura-conceitual-logica-e-fisica }
 
 <div class="saa-lesson-meta" markdown>
-<span class="saa-level">Nível 1 · M02-L03</span>
+<span class="saa-level">Módulo 2 · Nível 1</span>
 <span class="saa-tier saa-tier--professional">Professional</span>
-<span class="saa-meta">75 min</span>
+<span class="saa-meta">75 min · ID técnico: M02-L03</span>
 </div>
 
 ## Resumo
@@ -33,7 +34,7 @@ module: M02
 
     A mesma solução pode ser descrita como "administradores acessam o ambiente de pagamentos por um serviço controlado", como "um broker PAM concede elevação just-in-time e abre sessões por um bastion gravado" ou como "a VM bastion na VLAN 140 alcança a zona PCI pela porta 22". As três frases estão certas — e respondem a perguntas diferentes. Esta aula ensina a separar esses níveis, conectá-los e usar a separação como ferramenta, especialmente em ambientes híbridos.
 
-**Pré-requisitos:** [Enterprise, Solution e Security Architecture](02-enterprise-solution-security-architecture.md) e leitura de diagramas (M00-L07).
+**Pré-requisitos:** [Enterprise, Solution e Security Architecture](02-enterprise-solution-security-architecture.md) e leitura de diagramas (Módulo Inicial — Aula 07).
 
 **Objetivos de aprendizagem** — ao final, você será capaz de:
 
@@ -104,7 +105,7 @@ Repare na terceira linha: **o mesmo componente lógico tem duas realizações f�
 
 ### Relação com frameworks
 
-Vários frameworks usam níveis de abstração semelhantes, com nomes e quantidades diferentes. O SABSA, por exemplo, organiza a arquitetura em camadas que vão do contexto de negócio (*contextual*) até componentes e operação, passando por *conceptual*, *logical* e *physical* — aprofundado na [aula 06](06-frameworks.md) e no M16. O importante não é o nome das camadas, mas **não misturar tipos de decisão em uma mesma visão**.
+Vários frameworks usam níveis de abstração semelhantes, com nomes e quantidades diferentes. O SABSA, por exemplo, organiza a arquitetura em camadas que vão do contexto de negócio (*contextual*) até componentes e operação, passando por *conceptual*, *logical* e *physical* — aprofundado na [aula 06](06-frameworks.md) e no Módulo 16. O importante não é o nome das camadas, mas **não misturar tipos de decisão em uma mesma visão**.
 
 ### As-Is e To-Be em cada nível
 

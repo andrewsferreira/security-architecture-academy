@@ -1,6 +1,6 @@
 ---
 id: M02
-title: "Módulo 02 — Introdução à Arquitetura de Segurança"
+title: "Módulo 2 — Introdução à Arquitetura de Segurança"
 description: O ofício do arquiteto de segurança, níveis de abstração, princípios e padrões, arquiteturas de referência, frameworks, requisitos orientados ao negócio e ADRs.
 stage: n1
 status: published
@@ -9,7 +9,7 @@ last_updated: 2026-10-27
 reviewed_by: [Andrews Ferreira]
 ---
 
-# Módulo 02 — Introdução à Arquitetura de Segurança
+# Módulo 2 — Introdução à Arquitetura de Segurança { #modulo-02-introducao-a-arquitetura-de-seguranca }
 
 <div class="saa-lesson-meta" markdown>
 <span class="saa-level">Nível 1 — Fundamentos de Arquitetura</span>
@@ -38,23 +38,27 @@ Ao concluir o módulo, você será capaz de:
 
 | Pré-requisito | Por quê | Como validar |
 |:---|:---|:---|
-| M00 — Fundamentos de infraestrutura | As aulas usam diagramas com redes, cloud, APIs e identidade. | Seção A da [avaliação diagnóstica](../../assessments/diagnostic-fundamentals.md) |
-| M01 — Fundamentos de segurança | Princípios, trust boundaries, risco e tipos de controle são o vocabulário do módulo. | Seções B e C da avaliação diagnóstica |
+| Módulo Inicial — Fundamentos de infraestrutura | As aulas usam diagramas com redes, cloud, APIs e identidade. | Seção A da [avaliação diagnóstica](../../assessments/diagnostic-fundamentals.md) |
+| Módulo 1 — Fundamentos de segurança | Princípios, trust boundaries, risco e tipos de controle são o vocabulário do módulo. | Seções B e C da avaliação diagnóstica |
 
 Profissionais com experiência em Vulnerability Management, pentest, AppSec ou infraestrutura geralmente dominam esses fundamentos na prática. A avaliação diagnóstica serve para confirmar isso e apontar lacunas pontuais antes do módulo.
 
 ## Aulas
 
-| Aula | Tema | Profundidade | Tempo |
+<!-- lessons:start -->
+
+| Aula | Tema | Profundidade | Duração |
 |:---|:---|:---|:---|
-| [M02-L01](01-security-architect-role.md) | O papel do Security Architect | Fundamental | 60 min |
-| [M02-L02](02-enterprise-solution-security-architecture.md) | Enterprise, Solution e Security Architecture | Fundamental | 60 min |
-| [M02-L03](03-conceptual-logical-physical.md) | Arquitetura conceitual, lógica e física | Professional | 75 min |
-| [M02-L04](04-principles-standards-baselines-exceptions.md) | Princípios, padrões, baselines e exceções | Professional | 75 min |
-| [M02-L05](05-reference-architectures-blueprints.md) | Arquiteturas de referência e blueprints | Professional | 60 min |
-| [M02-L06](06-frameworks.md) | Frameworks, padrões e certificações: NIST, SABSA, TOGAF, CISSP e ISSAP | Professional | 90 min |
-| [M02-L07](07-business-driven-requirements.md) | Business-driven Security Architecture | Architect | 90 min |
-| [M02-L08](08-architecture-decision-records.md) | Architecture Decision Records | Architect | 75 min |
+| [Aula 01](01-security-architect-role.md) | O papel do Security Architect | Fundamental | 60 min |
+| [Aula 02](02-enterprise-solution-security-architecture.md) | Enterprise, Solution e Security Architecture | Fundamental | 60 min |
+| [Aula 03](03-conceptual-logical-physical.md) | Arquitetura conceitual, lógica e física | Professional | 75 min |
+| [Aula 04](04-principles-standards-baselines-exceptions.md) | Princípios, padrões, baselines e exceções | Professional | 75 min |
+| [Aula 05](05-reference-architectures-blueprints.md) | Arquiteturas de referência e blueprints | Professional | 60 min |
+| [Aula 06](06-frameworks.md) | Frameworks, padrões e certificações: NIST, SABSA, TOGAF, CISSP e ISSAP | Professional | 90 min |
+| [Aula 07](07-business-driven-requirements.md) | Business-driven Security Architecture: de requisitos de negócio a requisitos de segurança | Architect | 90 min |
+| [Aula 08](08-architecture-decision-records.md) | Architecture Decision Records | Architect | 75 min |
+
+<!-- lessons:end -->
 
 ## Atividades do módulo
 
@@ -62,8 +66,8 @@ Profissionais com experiência em Vulnerability Management, pentest, AppSec ou i
 |:---|:---|:---|
 | [Laboratório 02 — Modelagem arquitetural como código](../../labs/lab-02-architecture-modeling.md) | C3, C4, C6, C8 | 2 a 3 h |
 | [Caso A — Meridiana Distribuidora](../../case-studies/case-a-meridiana/index.md) | C1 a C10 | 4 a 6 h |
-| [Avaliação do Módulo 02](../../assessments/m02-security-architecture.md) | C1, C2, C5, C6, C8 | 90 min |
-| [Avaliação final de Fundamentals — Livraria Ipê](../../assessments/fundamentals-final.md) | Integra M00, M01 e M02 | 3 a 4 h |
+| [Avaliação do Módulo 2](../../assessments/m02-security-architecture.md) | C1, C2, C5, C6, C8 | 90 min |
+| [Avaliação final de Fundamentals — Livraria Ipê](../../assessments/fundamentals-final.md) | Integra Módulo Inicial, Módulo 1 e Módulo 2 | 3 a 4 h |
 
 ## Mapa do módulo
 
@@ -73,7 +77,7 @@ Profissionais com experiência em Vulnerability Management, pentest, AppSec ou i
 --8<-- "assets/diagrams/m02-module-map.mmd"
 ```
 
-<figcaption>Figura 1 — Mapa do Módulo 02.</figcaption>
+<figcaption>Figura 1 — Mapa do Módulo 2.</figcaption>
 </figure>
 
 ## Organizações fictícias usadas no módulo

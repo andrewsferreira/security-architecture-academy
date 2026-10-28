@@ -1,31 +1,31 @@
 ---
-title: "Gabarito — Avaliação do Módulo 02"
-description: Gabarito comentado da avaliação do Módulo 02, com justificativa das alternativas incorretas, respostas de referência das tarefas e rubrica de correção.
+title: "Gabarito — Avaliação do Módulo 2"
+description: Gabarito comentado da avaliação do Módulo 2, com justificativa das alternativas incorretas, respostas de referência das tarefas e rubrica de correção.
 status: published
 last_updated: 2026-10-23
 reviewed_by: [Andrews Ferreira]
 ---
 
-# Gabarito — Avaliação do Módulo 02
+# Gabarito — Avaliação do Módulo 2 { #gabarito-avaliacao-do-modulo-02 }
 
 !!! warning "Responda primeiro"
 
-    Este é o gabarito da [avaliação do Módulo 02](../m02-security-architecture.md). Faça a avaliação antes de ler.
+    Este é o gabarito da [avaliação do Módulo 2](../m02-security-architecture.md). Faça a avaliação antes de ler.
 
 ## Parte 1 — Respostas comentadas
 
 | Questão | Resposta | Aula |
 |:---|:---|:---|
-| 1 | **b** | M02-L01 |
-| 2 | **d** | M02-L02 |
-| 3 | **a** | M02-L03 |
-| 4 | **c** | M02-L04 |
-| 5 | **b** | M02-L04 |
-| 6 | **d** | M02-L05 |
-| 7 | **a** | M02-L06 |
-| 8 | **c** | M02-L07 |
-| 9 | **d** | M02-L03 |
-| 10 | **c** | M02-L08 |
+| 1 | **b** | Módulo 2 — Aula 01 |
+| 2 | **d** | Módulo 2 — Aula 02 |
+| 3 | **a** | Módulo 2 — Aula 03 |
+| 4 | **c** | Módulo 2 — Aula 04 |
+| 5 | **b** | Módulo 2 — Aula 04 |
+| 6 | **d** | Módulo 2 — Aula 05 |
+| 7 | **a** | Módulo 2 — Aula 06 |
+| 8 | **c** | Módulo 2 — Aula 07 |
+| 9 | **d** | Módulo 2 — Aula 03 |
+| 10 | **c** | Módulo 2 — Aula 08 |
 
 **1 — (b).** Com um único arquiteto, a aprovação universal concentra decisões no fim do ciclo, gera fila e incentiva o contorno do processo. (a) ignora o efeito de gargalo; (c) é o oposto — o envolvimento tardio *aumenta* o custo de correção; (d) a aprovação universal não substitui padrões, e padrões são justamente o que permite o autoatendimento.
 
@@ -117,6 +117,6 @@ Seleções diferentes da referência na Tarefa 4 são aceitas quando a matriz ju
 
 | Resultado | O que fazer |
 |:---|:---|
-| ≥ 70 e nenhuma tarefa *Insuficiente* | Siga para o Caso A ou para o Módulo 03. |
+| ≥ 70 e nenhuma tarefa *Insuficiente* | Siga para o Caso A ou para o Módulo 3. |
 | ≥ 70 com alguma tarefa *Insuficiente* | Revise a aula correspondente e refaça a tarefa. |
 | < 70 | Revise as aulas indicadas na Parte 1 e refaça o exercício de decisão de cada uma. |

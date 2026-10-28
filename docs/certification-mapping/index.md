@@ -20,14 +20,14 @@ Este mapeamento mostra **onde** os objetivos públicos de certificações releva
 
 | Domínio CISSP | Módulos da Academy |
 |:---|:---|
-| 1. Security and Risk Management | M02, M03, M16 |
-| 2. Asset Security | M13, M03 |
-| 3. Security Architecture and Engineering | M01, M02, M04, M07, M13 |
-| 4. Communication and Network Security | M00, M05, M11 |
-| 5. Identity and Access Management (IAM) | M06, M07 |
-| 6. Security Assessment and Testing | M04, M14, M15 |
-| 7. Security Operations | M08, M14, M15 |
-| 8. Software Development Security | M12 |
+| 1. Security and Risk Management | Módulos 2, 3 e 16 |
+| 2. Asset Security | Módulos 13 e 3 |
+| 3. Security Architecture and Engineering | Módulos 1, 2, 4, 7 e 13 |
+| 4. Communication and Network Security | Módulo Inicial, Módulo 5 e Módulo 11 |
+| 5. Identity and Access Management (IAM) | Módulos 6 e 7 |
+| 6. Security Assessment and Testing | Módulos 4, 14 e 15 |
+| 7. Security Operations | Módulos 8, 14 e 15 |
+| 8. Software Development Security | Módulo 12 |
 
 ## ISSAP — Information Systems Security Architecture Professional
 
@@ -35,10 +35,10 @@ Este mapeamento mostra **onde** os objetivos públicos de certificações releva
 
 | Domínio ISSAP | Peso | Módulos da Academy |
 |:---|:---|:---|
-| 1. Governance, Risk, and Compliance (GRC) | 21% | M02, M03, M16 |
-| 2. Security Architecture Modeling | 22% | M02, M04, M16, M17 |
-| 3. Infrastructure and System Security Architecture | 32% | M05, M07, M08, M09, M10, M11, M15 |
-| 4. Identity and Access Management (IAM) Architecture | 25% | M06, M07, M11 |
+| 1. Governance, Risk, and Compliance (GRC) | 21% | Módulos 2, 3 e 16 |
+| 2. Security Architecture Modeling | 22% | Módulos 2, 4, 16 e 17 |
+| 3. Infrastructure and System Security Architecture | 32% | Módulos 5, 7, 8, 9, 10, 11 e 15 |
+| 4. Identity and Access Management (IAM) Architecture | 25% | Módulos 6, 7 e 11 |
 
 !!! note "Mudança relevante"
 
@@ -50,12 +50,12 @@ Este mapeamento mostra **onde** os objetivos públicos de certificações releva
 
 | Grupo de habilidades SC-100 | Peso | Módulos da Academy |
 |:---|:---|:---|
-| Design solutions that align with security best practices and priorities | 20–25% | M02, M03, M07, M16 |
-| Design security operations, identity, and compliance capabilities | 25–30% | M06, M10, M11, M15 |
-| Design security solutions for infrastructure | 25–30% | M05, M08, M10, M11 |
-| Design security solutions for applications and data | 20–25% | M12, M13 |
+| Design solutions that align with security best practices and priorities | 20–25% | Módulos 2, 3, 7 e 16 |
+| Design security operations, identity, and compliance capabilities | 25–30% | Módulos 6, 10, 11 e 15 |
+| Design security solutions for infrastructure | 25–30% | Módulos 5, 8, 10 e 11 |
+| Design security solutions for applications and data | 20–25% | Módulos 12 e 13 |
 
-O SC-100 é orientado ao ecossistema Microsoft. A Academy cobre os conceitos de forma neutra e aprofunda o Azure no M10; a lição M10-L07 detalha o mapeamento quando o módulo for publicado.
+O SC-100 é orientado ao ecossistema Microsoft. A Academy cobre os conceitos de forma neutra e aprofunda o Azure no Módulo 10; a lição Módulo 10 — Aula 07 detalha o mapeamento quando o módulo for publicado.
 
 ## Recursos oficiais gratuitos
 

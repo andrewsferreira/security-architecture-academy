@@ -1,7 +1,7 @@
 ---
 id: AS-DIAG
 title: "Avaliação diagnóstica de fundamentos"
-description: Diagnóstico dos fundamentos de infraestrutura, segurança, risco e controles necessários para o Módulo 02, com indicação de estudo por seção.
+description: Diagnóstico dos fundamentos de infraestrutura, segurança, risco e controles necessários para o Módulo 2, com indicação de estudo por seção.
 status: published
 last_updated: 2026-10-27
 reviewed_by: [Andrews Ferreira]
@@ -10,21 +10,21 @@ reviewed_by: [Andrews Ferreira]
 # Avaliação diagnóstica de fundamentos
 
 <div class="saa-lesson-meta" markdown>
-<span class="saa-level">Diagnóstico · M00 e M01</span>
+<span class="saa-level">Diagnóstico · Módulo Inicial e Módulo 1</span>
 <span class="saa-tier saa-tier--fundamental">Fundamental</span>
 <span class="saa-meta">45 a 60 min · 18 questões</span>
 </div>
 
 ## Para que serve
 
-Esta avaliação verifica se você domina os fundamentos que o [Módulo 02](../modules/02-security-architecture/index.md) pressupõe. Ela **não é eliminatória**: o resultado indica o que revisar antes de seguir.
+Esta avaliação verifica se você domina os fundamentos que o [Módulo 2](../modules/02-security-architecture/index.md) pressupõe. Ela **não é eliminatória**: o resultado indica o que revisar antes de seguir.
 
 !!! tip "Como fazer"
 
     - Responda sem consultar materiais, anotando suas respostas.
     - Marque as questões em que você **chutou** — elas contam como erro para fins de estudo.
     - Confira no [gabarito comentado](answers/diagnostic-fundamentals.md) somente ao final.
-    - **Critério:** 70% ou mais **em cada seção** (pelo menos 5 de 6). Abaixo disso, o gabarito indica as aulas de M00 ou M01 a estudar.
+    - **Critério:** 70% ou mais **em cada seção** (pelo menos 5 de 6). Abaixo disso, o gabarito indica as aulas do Módulo Inicial ou Módulo 1 a estudar.
 
 ## Seção A — Infraestrutura e redes
 

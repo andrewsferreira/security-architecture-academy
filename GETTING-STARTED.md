@@ -9,9 +9,9 @@ Como estudar com a Security Architecture Academy. A versão navegável está no 
 
 | Seu perfil | Percurso sugerido |
 |:---|:---|
-| Iniciando na área ou vindo de desenvolvimento ou suporte | [Avaliação diagnóstica](docs/assessments/diagnostic-fundamentals.md) → [Módulo 00](docs/modules/00-foundations/index.md) → [Módulo 01](docs/modules/01-security-fundamentals/index.md) → Módulo 02 |
-| Vindo de infraestrutura | Diagnóstico → [Módulo 01](docs/modules/01-security-fundamentals/index.md), consultando o Módulo 00 nos temas indicados → Módulo 02 |
-| Analista de segurança migrando para arquitetura | Diagnóstico → revisar no Módulo 01 os temas indicados → [Módulo 02](docs/modules/02-security-architecture/index.md) → [Caso A](docs/case-studies/case-a-meridiana/index.md) → [Laboratório 02](docs/labs/lab-02-architecture-modeling.md) → [avaliação do módulo](docs/assessments/m02-security-architecture.md) → [avaliação final de Fundamentals](docs/assessments/fundamentals-final.md) |
+| Iniciando na área ou vindo de desenvolvimento ou suporte | [Avaliação diagnóstica](docs/assessments/diagnostic-fundamentals.md) → [Módulo Inicial](docs/modules/00-foundations/index.md) → [Módulo 1](docs/modules/01-security-fundamentals/index.md) → Módulo 2 |
+| Vindo de infraestrutura | Diagnóstico → [Módulo 1](docs/modules/01-security-fundamentals/index.md), consultando o Módulo Inicial nos temas indicados → Módulo 2 |
+| Analista de segurança migrando para arquitetura | Diagnóstico → revisar no Módulo 1 os temas indicados → [Módulo 2](docs/modules/02-security-architecture/index.md) → [Caso A](docs/case-studies/case-a-meridiana/index.md) → [Laboratório 02](docs/labs/lab-02-architecture-modeling.md) → [avaliação do módulo](docs/assessments/m02-security-architecture.md) → [avaliação final de Fundamentals](docs/assessments/fundamentals-final.md) |
 | Já atua como arquiteto | [Mapa de competências](docs/curriculum/competencies.md) → avaliação do módulo → aulas para as lacunas |
 | Preparando-se para certificações | [Mapeamento de certificações](docs/certification-mapping/index.md), como guia complementar ao material oficial |
 
@@ -47,7 +47,7 @@ make install     # .venv com dependências fixadas
 make serve       # http://localhost:8000/security-architecture-academy/
 ```
 
-Detalhes e comandos sem `make` em [Desenvolvimento local](docs/getting-started/local-development.md).
+Sem `make`: `python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements-dev.txt` e depois `python -m zensical serve`.
 
 ## Princípios
 

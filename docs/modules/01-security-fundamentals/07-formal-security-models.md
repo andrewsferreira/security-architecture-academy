@@ -1,6 +1,7 @@
 ---
 id: M01-L07
-title: "Modelos formais: Bell-LaPadula, Biba, Clark-Wilson e Brewer-Nash"
+title: "Aula 07 — Modelos formais: Bell-LaPadula, Biba, Clark-Wilson e Brewer-Nash"
+public_title: "Módulo 1 — Aula 07 — Modelos formais: Bell-LaPadula, Biba, Clark-Wilson e Brewer-Nash"
 description: Os modelos formais clássicos de segurança — confidencialidade multinível, integridade, integridade comercial e conflito de interesses —, o que ensinam sobre controle de acesso e onde aparecem em sistemas atuais.
 domain: security-foundations
 tier: professional
@@ -19,12 +20,12 @@ reviewed_by: [Andrews Ferreira]
 module: M01
 ---
 
-# Modelos formais: Bell-LaPadula, Biba, Clark-Wilson e Brewer-Nash
+# Aula 07 — Modelos formais: Bell-LaPadula, Biba, Clark-Wilson e Brewer-Nash { #modelos-formais-bell-lapadula-biba-clark-wilson-e-brewer-nash }
 
 <div class="saa-lesson-meta" markdown>
-<span class="saa-level">Nível 0 · M01-L07</span>
+<span class="saa-level">Módulo 1 · Nível 0</span>
 <span class="saa-tier saa-tier--professional">Professional</span>
-<span class="saa-meta">60 min</span>
+<span class="saa-meta">60 min · ID técnico: M01-L07</span>
 </div>
 
 ## Resumo
@@ -137,7 +138,7 @@ Os problemas apontados por Anderson para sistemas multinível (§9.6) valem para
 
 ## Aplicabilidade: on-premises, cloud e híbrido
 
-Os modelos são independentes de ambiente. Seus mecanismos aparecem em SELinux e AppArmor (controle mandatório), nos níveis de integridade do Windows, em rótulos de classificação de dados em plataformas de colaboração e em políticas de acesso baseadas em atributos (ABAC, M06-L02), que permitem expressar regras como as de Brewer-Nash.
+Os modelos são independentes de ambiente. Seus mecanismos aparecem em SELinux e AppArmor (controle mandatório), nos níveis de integridade do Windows, em rótulos de classificação de dados em plataformas de colaboração e em políticas de acesso baseadas em atributos (ABAC, Módulo 6 — Aula 02), que permitem expressar regras como as de Brewer-Nash.
 
 ## Como especificar e implementar
 
@@ -221,6 +222,21 @@ Os modelos são independentes de ambiente. Seus mecanismos aparecem em SELinux e
 - Clark-Wilson formaliza a integridade comercial: dados críticos mudam apenas por procedimentos controlados, com separação de funções e auditoria.
 - Brewer-Nash aplica regras com estado para conflitos de interesse.
 - As limitações dos modelos — canais encobertos, composição, custo prático — são lições para qualquer arquitetura.
+
+<!-- next-steps:start -->
+
+!!! tip "Próximos passos"
+
+    Você concluiu a última aula do **Módulo 1** — [voltar ao módulo](index.md).
+
+    Pratique e avalie o módulo:
+
+    - [Laboratório 01 — Mecanismos de segurança na prática](../../labs/lab-01-security-mechanisms.md)
+    - [Avaliação do Módulo 1](../../assessments/m01-security-fundamentals.md)
+
+    Em seguida: [Módulo 2 — Introdução à Arquitetura de Segurança](../../modules/02-security-architecture/index.md).
+
+<!-- next-steps:end -->
 
 ## Referências
 

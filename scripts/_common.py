@@ -88,3 +88,40 @@ class Report:
 
 def exit_with(report: Report) -> None:
     sys.exit(report.finish())
+
+
+# ------------------------------------------------------- versões de correção
+PUBLICATION_FIELDS = ("version", "title", "status", "candidate", "approved_by", "approved_on",
+                      "approved_source_commit", "public_commit", "published_on", "url")
+
+
+def release_publications(release: dict[str, Any]) -> list[dict[str, Any]]:
+    """Publicações de uma release, em ordem: a versão inicial e as versões de correção (``patches``).
+
+    A primeira publicação fica nos campos da própria release e nunca é reescrita; cada correção
+    (v0.1.1, v0.1.2…) tem aprovação, commit e datas próprios em ``patches``. O escopo é sempre o
+    da release — uma correção não cria release paralela.
+    """
+    base = {field: release.get(field) for field in PUBLICATION_FIELDS}
+    base["kind"] = "initial"
+    records = [base]
+    for patch in release.get("patches") or []:
+        record = {field: patch.get(field) for field in PUBLICATION_FIELDS}
+        record["kind"] = "patch"
+        record["title"] = record["title"] or release.get("title")
+        record["url"] = record["url"] or release.get("url")
+        records.append(record)
+    return records
+
+
+def publication_target(release: dict[str, Any]) -> dict[str, Any]:
+    """Publicação que a exportação gera: a última registrada (inicial ou correção)."""
+    return release_publications(release)[-1]
+
+
+def current_version(release: dict[str, Any]) -> str:
+    """Versão mais recente aprovada ou publicada (a que o portal apresenta); senão, a versão da release."""
+    for record in reversed(release_publications(release)):
+        if record.get("status") in {"approved", "published"}:
+            return str(record["version"])
+    return str(release.get("version"))

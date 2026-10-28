@@ -1,6 +1,7 @@
 ---
 id: M02-L04
-title: "Princípios, padrões, baselines e exceções"
+title: "Aula 04 — Princípios, padrões, baselines e exceções"
+public_title: "Módulo 2 — Aula 04 — Princípios, padrões, baselines e exceções"
 description: A hierarquia que liga a intenção da direção à configuração no ambiente — política, princípios, padrões, baselines e controles — e como gerenciar exceções sem perder o controle do risco.
 domain: grc
 tier: professional
@@ -19,12 +20,12 @@ reviewed_by: [Andrews Ferreira]
 module: M02
 ---
 
-# Princípios, padrões, baselines e exceções
+# Aula 04 — Princípios, padrões, baselines e exceções { #principios-padroes-baselines-e-excecoes }
 
 <div class="saa-lesson-meta" markdown>
-<span class="saa-level">Nível 1 · M02-L04</span>
+<span class="saa-level">Módulo 2 · Nível 1</span>
 <span class="saa-tier saa-tier--professional">Professional</span>
-<span class="saa-meta">75 min</span>
+<span class="saa-meta">75 min · ID técnico: M02-L04</span>
 </div>
 
 ## Resumo
@@ -33,7 +34,7 @@ module: M02
 
     Entre a frase "protegemos os dados dos clientes" e a configuração de um servidor existe uma cadeia de documentos e decisões. Quando essa cadeia está bem construída, cada configuração pode ser explicada e cada desvio é consciente. Quando está quebrada, há políticas que ninguém aplica, padrões que ninguém consegue cumprir e exceções que ninguém lembra de encerrar. Esta aula ensina a construir a cadeia e a gerenciar seus desvios.
 
-**Pré-requisitos:** [Arquitetura conceitual, lógica e física](03-conceptual-logical-physical.md), princípios de design seguro (M01-L02) e tipos de controle (M01-L06).
+**Pré-requisitos:** [Arquitetura conceitual, lógica e física](03-conceptual-logical-physical.md), princípios de design seguro (Módulo 1 — Aula 02) e tipos de controle (Módulo 1 — Aula 06).
 
 **Objetivos de aprendizagem** — ao final, você será capaz de:
 
@@ -143,7 +144,7 @@ Boas práticas para baselines:
 
 ### Controles e suas funções
 
-Controles são classificados pela função que exercem sobre o risco (detalhado em M01-L06):
+Controles são classificados pela função que exercem sobre o risco (detalhado em Módulo 1 — Aula 06):
 
 | Função | Objetivo | Exemplo |
 |:---|:---|:---|
@@ -214,7 +215,7 @@ A autoridade para aprovar deve crescer com o risco: um risco baixo pode ser acei
 | Baseline de configuração | Garantir configuração mínima segura e conhecida | NIST SP 800-53 Rev. 5: CM-2 (Baseline Configuration), CM-6 (Configuration Settings) |
 | Configuração segura de ativos | Estabelecer e manter configurações seguras | CIS Controls v8.1: Controle 4 |
 | Políticas e procedimentos por família de controles | Garantir que cada família tenha política e procedimento | NIST SP 800-53 Rev. 5: controles "-1" de cada família (por exemplo, AC-1) |
-| Aceitação formal de risco | Exceções aceitas por autoridade adequada | Detalhado no M03 (risk register e tratamento de riscos) |
+| Aceitação formal de risco | Exceções aceitas por autoridade adequada | Detalhado no Módulo 3 (risk register e tratamento de riscos) |
 | Automação de boas práticas | Padrões aplicados e verificados continuamente | AWS Well-Architected, princípio *Automate security best practices* |
 | Segurança por design | Princípios incorporados desde o desenho | Google Cloud Well-Architected, princípio *Implement security by design* |
 

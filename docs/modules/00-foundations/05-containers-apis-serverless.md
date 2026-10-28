@@ -1,6 +1,7 @@
 ---
 id: M00-L05
-title: "Containers, Kubernetes, APIs, microsserviços e serverless"
+title: "Aula 05 — Containers, Kubernetes, APIs, microsserviços e serverless"
+public_title: "Módulo Inicial — Aula 05 — Containers, Kubernetes, APIs, microsserviços e serverless"
 description: Os componentes das plataformas de aplicação modernas — APIs, microsserviços, imagens e registries, Kubernetes, service mesh e serverless — e as novas fronteiras de segurança que eles criam.
 domain: infrastructure-foundations
 tier: fundamental
@@ -19,12 +20,12 @@ reviewed_by: [Andrews Ferreira]
 module: M00
 ---
 
-# Containers, Kubernetes, APIs, microsserviços e serverless
+# Aula 05 — Containers, Kubernetes, APIs, microsserviços e serverless { #containers-kubernetes-apis-microsservicos-e-serverless }
 
 <div class="saa-lesson-meta" markdown>
-<span class="saa-level">Nível 0 · M00-L05</span>
+<span class="saa-level">Módulo Inicial · Nível 0</span>
 <span class="saa-tier saa-tier--fundamental">Fundamental</span>
-<span class="saa-meta">75 min</span>
+<span class="saa-meta">75 min · ID técnico: M00-L05</span>
 </div>
 
 ## Resumo
@@ -137,7 +138,7 @@ A figura mostra as fronteiras típicas: o **API gateway** é o ponto de entrada 
 | **On-premises** | A organização opera o plano de controle do Kubernetes, os nodes e o registry. |
 | **Kubernetes gerenciado em cloud** | O provedor opera o plano de controle; o cliente configura acesso a ele, nodes (em muitos serviços), cargas, RBAC e políticas. |
 | **Serverless** | O provedor opera toda a plataforma; o cliente responde por código, permissões, eventos e dados. |
-| **Híbrido** | Clusters em vários ambientes exigem políticas e identidade de serviços consistentes — tema da M11-L09 e do M12. |
+| **Híbrido** | Clusters em vários ambientes exigem políticas e identidade de serviços consistentes — tema da Aula 09 do Módulo 11 e do Módulo 12. |
 
 ## Como especificar e implementar
 
@@ -215,7 +216,7 @@ A figura mostra as fronteiras típicas: o **API gateway** é o ponto de entrada 
     - **B** acrescenta separação de execução: um escape de container no processamento não cai em um node que roda pagamentos.
     - **C** cria a separação mais forte (outra conta, outra plataforma) e um contrato estreito (a fila), mas exige que a equipe domine serverless e governança multi-conta.
 
-    O critério é o mesmo da L01: **quanto maior a diferença de confiança entre as cargas, mais forte deve ser a fronteira entre elas**.
+    O critério é o mesmo da Aula 01: **quanto maior a diferença de confiança entre as cargas, mais forte deve ser a fronteira entre elas**.
 
 ## Pontos-chave
 
@@ -235,7 +236,7 @@ A figura mostra as fronteiras típicas: o **API gateway** é o ponto de entrada 
 
 ### Leitura complementar
 
-- OWASP. *Application Security Verification Standard 5.0.0*. <https://owasp.org/www-project-ASVS/> — requisitos verificáveis para aplicações e APIs, usados no M12.
+- OWASP. *Application Security Verification Standard 5.0.0*. <https://owasp.org/www-project-ASVS/> — requisitos verificáveis para aplicações e APIs, usados no Módulo 12.
 - R. Anderson. *Security Engineering*, 3ª ed. Cap. 6, §6.2.11 *Sandboxing* e §6.2.12 *Virtualisation* (pp. 224–225).
 
 ### Aplicação prática

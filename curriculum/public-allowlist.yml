@@ -21,7 +21,6 @@ files:
   - CONTRIBUTING.md
   - CODE_OF_CONDUCT.md
   - SECURITY.md
-  - PROJECT-STANDARDS.md
   - LICENSING.md
   - LICENSE
   - LICENSE-CODE
@@ -34,12 +33,10 @@ files:
   - .gitattributes
   - .gitignore
   - .markdownlint-cli2.jsonc
-  - private-research/README.md
 
 directories:
   - .github/
   - assets/
-  - authoring/
   - curriculum/
   - docs/
   - examples/
@@ -50,9 +47,17 @@ directories:
   - tests/
 
 # Exceções dentro dos diretórios acima: ficam só no desenvolvimento.
+# Documentação operacional (Handbook, templates de autoria, padrões internos, preparação do
+# ambiente de manutenção) não é conteúdo educacional e não vai ao Pages nem ao repositório
+# público. Diretórios terminam em "/".
 exclude:
+  - docs/internal/                       # Handbook de manutenção e relatórios internos
+  - docs/getting-started/local-development.md   # preparação do ambiente de manutenção do portal
+  - authoring/                           # templates de autoria
+  - PROJECT-STANDARDS.md                 # padrões internos de produção e publicação
+  - private-research/README.md           # pasta local de cópias de pesquisa (ignorada pelo git)
+  - .github/dependabot.yml               # atualizações de dependências acontecem no desenvolvimento
   - scripts/export_landing.py            # gera a página institucional anterior à Release 1
-  - docs/internal/fundamentals-final-editorial-review.md   # relatório interno de revisão editorial
 
 # Ficam só no desenvolvimento (documentado para revisão; a allowlist já os exclui):
 # PROGRESS.md, RELEASE-PLAN.md, RELEASE-*-REVIEW-PACKAGE.md, FINAL-CONSOLIDATION-REPORT.md,

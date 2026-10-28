@@ -37,6 +37,6 @@ Usada para exemplos concretos de cloud e identidade, sempre após o conceito neu
 - Preferir a **fonte primária** (norma, publicação oficial, RFC) a artigos secundários.
 - Informar **versão ou revisão** quando a referência for versionada (por exemplo, *NIST SP 800-53 Rev. 5*).
 - Indicar se o recurso é **gratuito ou pago**.
-- Revisar links e versões periodicamente — ver [Fluxo de contribuição](../internal/workflow.md#atualizacao-de-referencias).
+- Revisar links e versões periodicamente — os links externos são verificados semanalmente pelo CI.
 
-O formato de citação está no [Guia editorial](../internal/style-guide.md#referencias-externas).
+O formato de citação: autor ou organização, título em itálico, versão ou ano, link e se o acesso é gratuito ou pago.

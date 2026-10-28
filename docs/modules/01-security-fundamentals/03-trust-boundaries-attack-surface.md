@@ -1,6 +1,7 @@
 ---
 id: M01-L03
-title: "Trust boundaries, attack surface e responsabilidade compartilhada"
+title: "Aula 03 — Trust boundaries, attack surface e responsabilidade compartilhada"
+public_title: "Módulo 1 — Aula 03 — Trust boundaries, attack surface e responsabilidade compartilhada"
 description: Onde a confiança muda dentro de um sistema, como mapear os pontos de entrada que formam a superfície de ataque e como a responsabilidade compartilhada com provedores e parceiros cria fronteiras organizacionais.
 domain: security-foundations
 tier: fundamental
@@ -19,12 +20,12 @@ reviewed_by: [Andrews Ferreira]
 module: M01
 ---
 
-# Trust boundaries, attack surface e responsabilidade compartilhada
+# Aula 03 — Trust boundaries, attack surface e responsabilidade compartilhada { #trust-boundaries-attack-surface-e-responsabilidade-compartilhada }
 
 <div class="saa-lesson-meta" markdown>
-<span class="saa-level">Nível 0 · M01-L03</span>
+<span class="saa-level">Módulo 1 · Nível 0</span>
 <span class="saa-tier saa-tier--fundamental">Fundamental</span>
-<span class="saa-meta">60 min</span>
+<span class="saa-meta">60 min · ID técnico: M01-L03</span>
 </div>
 
 ## Resumo
@@ -105,7 +106,7 @@ O resultado contraria a intuição de que "o que está na internet é o mais cr�
 Quando parte do sistema é operada por terceiros — um provedor de cloud, um SaaS, um parceiro de integração —, surge uma fronteira **organizacional**. Ela tem três características:
 
 - **Visibilidade limitada:** você não vê os controles do outro lado; depende de contratos, relatórios e certificações.
-- **Responsabilidades divididas:** no modelo de cloud, o provedor responde pela infraestrutura e o cliente pelo que configura (M00-L06, com base no NIST SP 800-145).
+- **Responsabilidades divididas:** no modelo de cloud, o provedor responde pela infraestrutura e o cliente pelo que configura (Módulo Inicial — Aula 06, com base no NIST SP 800-145).
 - **Lacunas na divisa:** os incidentes costumam ocorrer onde "cada lado achava que era do outro" — logs que ninguém coleta, contas de integração que ninguém revisa.
 
 ## Exemplo empresarial
@@ -229,7 +230,7 @@ Quando parte do sistema é operada por terceiros — um provedor de cloud, um Sa
 
 ### Aplicação prática
 
-- A tabela de pontos de entrada desta aula é o ponto de partida dos Data Flow Diagrams e do STRIDE no [M04](../../curriculum/index.md).
+- A tabela de pontos de entrada desta aula é o ponto de partida dos Data Flow Diagrams e do STRIDE no [Módulo 4](../../curriculum/index.md).
 
 ## Revisão
 

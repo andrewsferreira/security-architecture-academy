@@ -61,7 +61,7 @@ As trilhas atravessam os módulos agrupando aulas pela profundidade. Elas permit
 |:---|:---|:---|
 | **Objetivo** | Desenvolvimento profissional acelerado nas competências prioritárias | Formação integral e evolução contínua |
 | **Duração** | 16 semanas, 6 a 8 horas por semana (cerca de 100 a 130 horas) | Sem prazo rígido; estimativa acima de 300 horas incluindo atividades |
-| **Escopo** | M02, M03, M06, M07, M11 e M16 completos; aulas selecionadas de M00, M01, M04, M05, M09 e M10 | Todos os 18 módulos, a seção de IA, os cinco estudos de caso e o projeto final |
+| **Escopo** | Módulos 2, 3, 6, 7, 11 e 16 completos; aulas selecionadas do Módulo Inicial, do Módulo 1, do Módulo 4, do Módulo 5, do Módulo 9 e do Módulo 10 | Todos os 18 módulos, a seção de IA, os cinco estudos de caso e o projeto final |
 | **Plano** | [Plano de 16 semanas](study-plan.md#trilha-essencial-16-semanas) | [Formação completa](study-plan.md#formacao-completa) |
 
 !!! warning "Tempo real de estudo"
@@ -74,8 +74,8 @@ O conteúdo chega ao portal em releases cumulativas por nível:
 
 | Release | Módulos | O que significa para as trilhas |
 |:---|:---|:---|
-| **1 — Fundamentals** | M00, M01, M02 | Base de toda a formação: infraestrutura, fundamentos de segurança e introdução à arquitetura, com laboratórios e avaliação final integradora. |
-| **2 — Professional** | M03 a M15 | Completa as aulas de profundidade *Professional* e as aulas *Fundamental* que abrem esses módulos (por exemplo, M03-L01 e M07-L01). |
-| **3 — Architect** | M16, M17, C01 | Completa a trilha Advanced e o projeto final. |
+| **1 — Fundamentals** | Módulo Inicial, Módulo 1 e Módulo 2 | Base de toda a formação: infraestrutura, fundamentos de segurança e introdução à arquitetura, com laboratórios e avaliação final integradora. |
+| **2 — Professional** | Módulos 3 a 15 | Completa as aulas de profundidade *Professional* e as aulas *Fundamental* que abrem esses módulos (por exemplo, Módulo 3 — Aula 01 e Módulo 7 — Aula 01). |
+| **3 — Architect** | Módulos 16 e 17, C01 | Completa a trilha Advanced e o projeto final. |
 
 A trilha transversal **Fundamentals** (aulas de profundidade *Fundamental* de todos os módulos) e a **Release 1 — Fundamentals** não são a mesma coisa: a release publica módulos inteiros, para preservar a sequência e os pré-requisitos de cada um; as aulas de profundidade *Fundamental* dos módulos 03 a 13 chegam com a Release 2. O estado real de cada módulo está no [Curriculum Roadmap](../curriculum/index.md).

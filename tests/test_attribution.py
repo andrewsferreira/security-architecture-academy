@@ -112,10 +112,15 @@ def test_public_allowlist_excludes_process_reports():
     for rel in ("PROGRESS.md", "RELEASE-PLAN.md", "RELEASE-1-REVIEW-PACKAGE.md", "FINAL-CONSOLIDATION-REPORT.md",
                 "ACADEMIC-COMPLETENESS-REPORT.md", "FUNDAMENTALS-PUBLICATION-READINESS.md", "CLAUDE.md"):
         assert not ex.is_public(rel, allow), rel
-    for rel in ("README.md", "docs/index.md", "scripts/check_attribution.py", "LICENSE", "PROJECT-STANDARDS.md"):
+    for rel in ("README.md", "docs/index.md", "scripts/check_attribution.py", "LICENSE", "CONTRIBUTING.md",
+                "research/bibliography.yml", "research/notes/BOOK-ANDERSON-SE3.md", ".github/workflows/pages.yml"):
         assert ex.is_public(rel, allow), rel
-    assert not ex.is_public("scripts/export_landing.py", allow)
-    assert not ex.is_public("docs/internal/fundamentals-final-editorial-review.md", allow)
+    # Documentação operacional e configurações de manutenção ficam só no desenvolvimento.
+    for rel in ("scripts/export_landing.py", "docs/internal/index.md", "docs/internal/design-system.md",
+                "docs/internal/fundamentals-final-editorial-review.md", "docs/internal/fundamentals-v0.1.1-stabilization.md",
+                "docs/getting-started/local-development.md", "authoring/technical-lesson.md", "PROJECT-STANDARDS.md",
+                "private-research/README.md", ".github/dependabot.yml"):
+        assert not ex.is_public(rel, allow), rel
 
 
 def test_landing_export_publishes_no_lessons():

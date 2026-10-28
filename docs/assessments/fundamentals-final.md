@@ -1,7 +1,7 @@
 ---
 id: AS-FUND
 title: "Avaliação final de Fundamentals — Livraria Ipê"
-description: Avaliação integradora da trilha Fundamentals (M00, M01 e M02) — o estudante analisa a arquitetura de uma pequena empresa fictícia, identifica fronteiras e riscos, seleciona controles, escreve requisitos rastreáveis, propõe uma arquitetura-alvo com ADR e a explica em linguagem executiva, com critérios objetivos de correção.
+description: Avaliação integradora da trilha Fundamentals (Módulo Inicial, Módulo 1 e Módulo 2) — o estudante analisa a arquitetura de uma pequena empresa fictícia, identifica fronteiras e riscos, seleciona controles, escreve requisitos rastreáveis, propõe uma arquitetura-alvo com ADR e a explica em linguagem executiva, com critérios objetivos de correção.
 status: published
 last_updated: 2026-10-23
 reviewed_by: [Andrews Ferreira]
@@ -10,7 +10,7 @@ reviewed_by: [Andrews Ferreira]
 # Avaliação final de Fundamentals — Livraria Ipê
 
 <div class="saa-lesson-meta" markdown>
-<span class="saa-level">Avaliação integradora · M00 · M01 · M02</span>
+<span class="saa-level">Avaliação integradora · Módulo Inicial · Módulo 1 · Módulo 2</span>
 <span class="saa-tier saa-tier--fundamental">Fundamental → Professional</span>
 <span class="saa-meta">3 a 4 h · 6 tarefas · 100 pontos</span>
 </div>
@@ -46,7 +46,7 @@ A **Livraria Ipê** (empresa fictícia) vende livros pela internet e em uma loja
 
 ## Tarefa 1 — Ler a arquitetura (15 pontos)
 
-Aplique o método de leitura do M00-L07. Entregue:
+Aplique o método de leitura do Módulo Inicial — Aula 07. Entregue:
 
 - a lista de componentes, incluindo os que **faltam** no diagrama e deveriam estar lá;
 - a lista de fluxos, com protocolo e dado transportado;
@@ -56,25 +56,25 @@ Aplique o método de leitura do M00-L07. Entregue:
 
 ## Tarefa 2 — Identificar riscos (20 pontos)
 
-Descreva os **cinco riscos mais relevantes** no formato do M01-L06: ameaça, vulnerabilidade, ativo, impacto e uma estimativa qualitativa (alta, média, baixa), justificando a ordem.
+Descreva os **cinco riscos mais relevantes** no formato do Módulo 1 — Aula 06: ameaça, vulnerabilidade, ativo, impacto e uma estimativa qualitativa (alta, média, baixa), justificando a ordem.
 
 **Critérios objetivos:** cada risco tem os quatro elementos; pelo menos três dos cinco riscos estão entre: RDP exposto com conta compartilhada; backup no mesmo disco (ransomware ou falha); banco na mesma VM exposta; chave de API no código; painel administrativo só com senha; rede plana com Wi-Fi de visitantes; ausência de logs; a ordenação considera impacto sobre dados pessoais e continuidade.
 
 ## Tarefa 3 — Selecionar controles (20 pontos)
 
-Para cada risco da Tarefa 2, proponha controles **preventivos, detectivos e corretivos** quando fizer sentido, indique o **princípio de design** que cada um aplica (M01-L02) e a **camada** em que atua (identidade, rede, aplicação, dados, operação).
+Para cada risco da Tarefa 2, proponha controles **preventivos, detectivos e corretivos** quando fizer sentido, indique o **princípio de design** que cada um aplica (Módulo 1 — Aula 02) e a **camada** em que atua (identidade, rede, aplicação, dados, operação).
 
 **Critérios objetivos:** cada risco tem pelo menos um controle preventivo e, nos três principais, também um detectivo ou corretivo; princípios citados corretamente (por exemplo, *least privilege*, *defense in depth*, *separation of duties*, *fail-safe defaults*); nenhum controle genérico sem ligação ao risco ("seguir boas práticas").
 
 ## Tarefa 4 — Escrever requisitos rastreáveis (15 pontos)
 
-Escreva **quatro requisitos de segurança** que liguem objetivo de negócio, risco e controle (M02-L07), cada um com a propriedade de segurança, o grau e a forma de verificação (M01-L01).
+Escreva **quatro requisitos de segurança** que liguem objetivo de negócio, risco e controle (Módulo 2 — Aula 07), cada um com a propriedade de segurança, o grau e a forma de verificação (Módulo 1 — Aula 01).
 
 **Critérios objetivos:** cada requisito é verificável; cita a propriedade; rastreia a um risco da Tarefa 2; pelo menos um trata de disponibilidade com números (RTO/RPO) e pelo menos um de dados pessoais.
 
 ## Tarefa 5 — Propor a arquitetura-alvo (20 pontos)
 
-Desenhe a **arquitetura-alvo** em visão lógica (M02-L03) e escreva **um ADR** (M02-L08) para a decisão mais importante, com pelo menos duas alternativas, consequências negativas e risco residual. Respeite as restrições do cenário: equipe de três pessoas, orçamento limitado e preferência por serviços gerenciados.
+Desenhe a **arquitetura-alvo** em visão lógica (Módulo 2 — Aula 03) e escreva **um ADR** (Módulo 2 — Aula 08) para a decisão mais importante, com pelo menos duas alternativas, consequências negativas e risco residual. Respeite as restrições do cenário: equipe de três pessoas, orçamento limitado e preferência por serviços gerenciados.
 
 **Critérios objetivos:** o desenho separa exposição, aplicação e dados; elimina RDP exposto e contas compartilhadas; coloca backup fora do alcance da VM; segmenta o escritório; o ADR compara alternativas com critérios explícitos e declara risco residual; a proposta é operável pela equipe descrita.
 
@@ -100,4 +100,4 @@ Em **no máximo 150 palavras**, explique à diretoria o que muda, por que e em q
 ## Depois da avaliação
 
 - Confira o [gabarito comentado](answers/fundamentals-final.md), que traz uma solução de referência — não a única possível.
-- Concluída a trilha Fundamentals, os próximos passos são o Módulo 03 (governança e riscos) e o Módulo 04 (threat modeling), que aprofundam as Tarefas 2 e 4.
+- Concluída a trilha Fundamentals, os próximos passos são o Módulo 3 (governança e riscos) e o Módulo 4 (threat modeling), que aprofundam as Tarefas 2 e 4.

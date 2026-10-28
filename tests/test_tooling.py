@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from check_contrast import PAIRS, parse_tokens, ratio, resolve
-from _common import iter_nav_files, load_config, nav_files
+from _common import ROOT, iter_nav_files, load_config, nav_files
 
 
 def test_contrast_reference_values():
@@ -23,9 +23,11 @@ def test_nav_iteration_handles_nested_sections():
 
 
 def test_repository_nav_contains_homepage_and_handbook():
+    """O Handbook fica na navegação do desenvolvimento; a árvore pública não o contém."""
     nav = nav_files(load_config())
     assert "index.md" in nav
-    assert "internal/design-system.md" in nav
+    public_tree = (ROOT / "RELEASE-MANIFEST.yml").is_file()
+    assert ("internal/design-system.md" in nav) is not public_tree
 
 
 def test_every_module_page_in_nav_is_declared_in_manifest():

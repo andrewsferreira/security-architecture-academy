@@ -1,6 +1,7 @@
 ---
 id: M00-L04
-title: "Datacenters, armazenamento, clusters e alta disponibilidade"
+title: "Aula 04 — Datacenters, armazenamento, clusters e alta disponibilidade"
+public_title: "Módulo Inicial — Aula 04 — Datacenters, armazenamento, clusters e alta disponibilidade"
 description: Como datacenters, storage, clusters, replicação e backup sustentam a disponibilidade — e como identificar pontos únicos de falha e diferenciar alta disponibilidade de recuperação.
 domain: infrastructure-foundations
 tier: fundamental
@@ -19,12 +20,12 @@ reviewed_by: [Andrews Ferreira]
 module: M00
 ---
 
-# Datacenters, armazenamento, clusters e alta disponibilidade
+# Aula 04 — Datacenters, armazenamento, clusters e alta disponibilidade { #datacenters-armazenamento-clusters-e-alta-disponibilidade }
 
 <div class="saa-lesson-meta" markdown>
-<span class="saa-level">Nível 0 · M00-L04</span>
+<span class="saa-level">Módulo Inicial · Nível 0</span>
 <span class="saa-tier saa-tier--fundamental">Fundamental</span>
-<span class="saa-meta">60 min</span>
+<span class="saa-meta">60 min · ID técnico: M00-L04</span>
 </div>
 
 ## Resumo
@@ -53,7 +54,7 @@ Dois indicadores traduzem isso em requisitos:
 - **RTO (*Recovery Time Objective*)** — tempo máximo aceitável até o serviço voltar.
 - **RPO (*Recovery Point Objective*)** — quantidade máxima aceitável de dados perdidos, medida em tempo ("posso perder os últimos 15 minutos").
 
-Esses valores **vêm do negócio**, por meio de uma análise de impacto (*Business Impact Analysis*, tratada na M03-L05 e no NIST SP 800-34). A arquitetura é a forma de atingi-los com custo proporcional.
+Esses valores **vêm do negócio**, por meio de uma análise de impacto (*Business Impact Analysis*, tratada na Aula 05 do Módulo 3 e no NIST SP 800-34). A arquitetura é a forma de atingi-los com custo proporcional.
 
 ### Ponto único de falha
 
@@ -71,7 +72,7 @@ Um **ponto único de falha** (*single point of failure*, SPOF) é um componente 
 | Armazenamento | RAID, controladoras redundantes, replicação entre arrays | Falha de disco ou controladora |
 | Site | Segundo datacenter ou região de cloud | Desastre no site primário |
 
-Datacenters também são instalações físicas, com controle de acesso, câmeras e procedimentos de entrada — um tema retomado na M08-L01.
+Datacenters também são instalações físicas, com controle de acesso, câmeras e procedimentos de entrada — um tema retomado na Aula 01 do Módulo 8.
 
 ### Balanceamento e clusters
 

@@ -1,6 +1,7 @@
 ---
 id: M02-L01
-title: "O papel do Security Architect"
+title: "Aula 01 — O papel do Security Architect"
+public_title: "Módulo 2 — Aula 01 — O papel do Security Architect"
 description: O que um arquiteto de segurança faz, quais artefatos produz, como se diferencia de engenheiros, analistas e CISO, e como se integra ao ciclo de vida dos projetos.
 domain: enterprise-architecture
 tier: fundamental
@@ -19,12 +20,12 @@ reviewed_by: [Andrews Ferreira]
 module: M02
 ---
 
-# O papel do Security Architect
+# Aula 01 — O papel do Security Architect { #o-papel-do-security-architect }
 
 <div class="saa-lesson-meta" markdown>
-<span class="saa-level">Nível 1 · M02-L01</span>
+<span class="saa-level">Módulo 2 · Nível 1</span>
 <span class="saa-tier saa-tier--fundamental">Fundamental</span>
-<span class="saa-meta">60 min</span>
+<span class="saa-meta">60 min · ID técnico: M02-L01</span>
 </div>
 
 ## Resumo
@@ -33,7 +34,7 @@ module: M02
 
     Você vai entender o que faz um arquiteto de segurança: não é quem configura o firewall nem quem audita o controle, mas quem garante que as decisões de segurança de uma organização sejam **coerentes entre si, proporcionais ao risco e compreensíveis por quem precisa executá-las**. A aula termina com um exercício para desenhar o modelo de atuação de um arquiteto em uma empresa real.
 
-**Pré-requisitos:** princípios de design seguro (M01-L02) e os conceitos de ameaça, vulnerabilidade, risco e controle (M01-L06).
+**Pré-requisitos:** princípios de design seguro (Módulo 1 — Aula 02) e os conceitos de ameaça, vulnerabilidade, risco e controle (Módulo 1 — Aula 06).
 
 **Objetivos de aprendizagem** — ao final, você será capaz de:
 
@@ -129,8 +130,8 @@ O arquiteto precisa de **largura** suficiente para entender todos os domínios e
 
 ### Como o papel se relaciona com outros conceitos
 
-- Com **governança** (M03): o arquiteto transforma políticas em padrões aplicáveis. O CSF 2.0 introduziu a função *Govern*, que inclui a definição de papéis, responsabilidades e autoridades de cibersegurança — o lugar formal onde o papel do arquiteto deve estar descrito.
-- Com **threat modeling** (M04): é a principal ferramenta analítica do arquiteto de soluções.
+- Com **governança** (Módulo 3): o arquiteto transforma políticas em padrões aplicáveis. O CSF 2.0 introduziu a função *Govern*, que inclui a definição de papéis, responsabilidades e autoridades de cibersegurança — o lugar formal onde o papel do arquiteto deve estar descrito.
+- Com **threat modeling** (Módulo 4): é a principal ferramenta analítica do arquiteto de soluções.
 - Com **engenharia de segurança**: o arquiteto define o *quê* e o *porquê*; o engenheiro, o *como*. A qualidade depende do diálogo entre os dois.
 
 ## Exemplo empresarial
@@ -179,10 +180,10 @@ O arquiteto raramente "possui" um controle técnico, mas é responsável por um 
 | Elemento | Objetivo | Referência |
 |:---|:---|:---|
 | Papéis e responsabilidades de arquitetura definidos | Evitar lacunas e sobreposição entre arquitetura, engenharia e operação | NIST CSF 2.0, função Govern (papéis, responsabilidades e autoridades) |
-| Processo de engajamento e triagem por risco | Garantir que iniciativas de alto risco passem por desenho e revisão | Prática de mercado; detalhado em M16-L06 |
-| Princípios e padrões de segurança publicados | Dar às equipes regras reutilizáveis e verificáveis | M02-L04 |
-| Registro de decisões (ADRs) | Tornar decisões rastreáveis e revisáveis | M02-L08 |
-| Processo de exceções com prazo e responsável | Aceitar desvios de forma consciente e temporária | M02-L04 |
+| Processo de engajamento e triagem por risco | Garantir que iniciativas de alto risco passem por desenho e revisão | Prática de mercado; detalhado em Módulo 16 — Aula 06 |
+| Princípios e padrões de segurança publicados | Dar às equipes regras reutilizáveis e verificáveis | Aula 04 |
+| Registro de decisões (ADRs) | Tornar decisões rastreáveis e revisáveis | Aula 08 |
+| Processo de exceções com prazo e responsável | Aceitar desvios de forma consciente e temporária | Aula 04 |
 | Engenharia de segurança no ciclo de vida | Integrar segurança aos processos de engenharia de sistemas | NIST SP 800-160 Vol. 1 Rev. 1 |
 
 ## Aplicabilidade: on-premises, cloud e híbrido

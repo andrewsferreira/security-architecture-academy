@@ -1,6 +1,6 @@
 ---
 id: M01
-title: "Módulo 01 — Fundamentos de Segurança"
+title: "Módulo 1 — Fundamentos de Segurança"
 description: As propriedades que a segurança protege, os princípios de design seguro, fronteiras de confiança e superfície de ataque, criptografia aplicada, PKI e gestão de chaves, a linguagem de risco e os modelos formais de controle de acesso e integridade.
 stage: n0
 status: published
@@ -9,7 +9,7 @@ last_updated: 2026-10-23
 reviewed_by: [Andrews Ferreira]
 ---
 
-# Módulo 01 — Fundamentos de Segurança
+# Módulo 1 — Fundamentos de Segurança { #modulo-01-fundamentos-de-seguranca }
 
 <div class="saa-lesson-meta" markdown>
 <span class="saa-level">Nível 0 — Fundamentos de Tecnologia e Segurança</span>
@@ -35,15 +35,19 @@ Ao concluir o módulo, você será capaz de:
 
 ## Aulas
 
-| Aula | Tema | Duração |
-|:---|:---|:---|
-| [L01](01-security-properties.md) | Propriedades de segurança: CIA, autenticidade, autorização e não repúdio | 60 min |
-| [L02](02-secure-design-principles.md) | Princípios de design seguro | 75 min |
-| [L03](03-trust-boundaries-attack-surface.md) | Trust boundaries, attack surface e responsabilidade compartilhada | 60 min |
-| [L04](04-applied-cryptography.md) | Criptografia aplicada: simétrica, assimétrica, hashing e assinaturas | 75 min |
-| [L05](05-pki-tls-key-management.md) | PKI, certificados, TLS e gerenciamento de chaves | 75 min |
-| [L06](06-threat-vulnerability-risk.md) | Ameaça, vulnerabilidade, risco, exposição e controle | 60 min |
-| [L07](07-formal-security-models.md) | Modelos formais: Bell-LaPadula, Biba, Clark-Wilson e Brewer-Nash | 60 min |
+<!-- lessons:start -->
+
+| Aula | Tema | Profundidade | Duração |
+|:---|:---|:---|:---|
+| [Aula 01](01-security-properties.md) | Propriedades de segurança: CIA, autenticidade, autorização e não repúdio | Fundamental | 60 min |
+| [Aula 02](02-secure-design-principles.md) | Princípios de design seguro | Fundamental | 75 min |
+| [Aula 03](03-trust-boundaries-attack-surface.md) | Trust boundaries, attack surface e responsabilidade compartilhada | Fundamental | 60 min |
+| [Aula 04](04-applied-cryptography.md) | Criptografia aplicada: simétrica, assimétrica, hashing e assinaturas | Fundamental | 75 min |
+| [Aula 05](05-pki-tls-key-management.md) | PKI, certificados, TLS e gerenciamento de chaves | Fundamental | 75 min |
+| [Aula 06](06-threat-vulnerability-risk.md) | Ameaça, vulnerabilidade, risco, exposição e controle | Fundamental | 60 min |
+| [Aula 07](07-formal-security-models.md) | Modelos formais: Bell-LaPadula, Biba, Clark-Wilson e Brewer-Nash | Professional | 60 min |
+
+<!-- lessons:end -->
 
 ## Mapa do módulo
 
@@ -53,20 +57,20 @@ Ao concluir o módulo, você será capaz de:
 --8<-- "assets/diagrams/m01-module-map.mmd"
 ```
 
-<figcaption>Figura 1 — Mapa do Módulo 01.</figcaption>
+<figcaption>Figura 1 — Mapa do Módulo 1.</figcaption>
 </figure>
 
 ## Pré-requisitos
 
 | Pré-requisito | Por quê | Como validar |
 |:---|:---|:---|
-| [Módulo 00](../00-foundations/index.md) | As aulas usam isolamento, redes, segmentação e cloud como contexto | Seção A da [avaliação diagnóstica](../../assessments/diagnostic-fundamentals.md) |
+| [Módulo Inicial](../00-foundations/index.md) | As aulas usam isolamento, redes, segmentação e cloud como contexto | Seção A da [avaliação diagnóstica](../../assessments/diagnostic-fundamentals.md) |
 
 ## Atividades
 
 - [Avaliação diagnóstica de fundamentos](../../assessments/diagnostic-fundamentals.md) — Seções B e C cobrem este módulo.
 - [Laboratório 01 — Mecanismos de segurança na prática](../../labs/lab-01-security-mechanisms.md) — integridade, HMAC, armazenamento de senhas e autorização por objeto (1 h 30 min, sem custo).
-- [Avaliação do Módulo 01](../../assessments/m01-security-fundamentals.md) — dez questões situacionais e duas tarefas de aplicação, com gabarito comentado.
+- [Avaliação do Módulo 1](../../assessments/m01-security-fundamentals.md) — dez questões situacionais e duas tarefas de aplicação, com gabarito comentado.
 - Exercício de decisão ao final de cada aula, com resolução de referência.
 
 ## Referências principais do módulo

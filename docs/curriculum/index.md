@@ -5,12 +5,12 @@ description: Estrutura curricular completa da Security Architecture Academy — 
 
 # Curriculum Roadmap
 
-A formação está organizada em **seis níveis progressivos** (Nível 0 a Nível 5), com **18 módulos** (M00 a M17) e uma seção complementar sobre segurança de IA. Esta página mostra cada módulo, suas aulas e o status editorial real de cada entrega.
+A formação está organizada em **seis níveis progressivos** (Nível 0 a Nível 5), com **18 módulos** (Módulo Inicial ao Módulo 17) e uma seção complementar sobre segurança de IA. Esta página mostra cada módulo, suas aulas e o status editorial real de cada entrega.
 
 !!! note "Como ler esta página"
 
     - Tudo abaixo é gerado de [`curriculum/manifest.yml`](https://github.com/andrewsferreira/security-architecture-academy/blob/main/curriculum/manifest.yml) e verificado no CI.
-    - **Fase** indica a ordem histórica de produção. A publicação segue releases por nível — Fundamentals (M00–M02), Professional (M03–M15) e Architect (M16, M17 e C01) —, descritas no [roadmap](../about/roadmap.md).
+    - **Fase** indica a ordem histórica de produção. A publicação segue releases por nível — Fundamentals (Módulo Inicial ao Módulo 2), Professional (Módulos 3 a 15) e Architect (Módulos 16 e 17 e C01) —, descritas no [roadmap](../about/roadmap.md).
     - **Profundidade** indica o nível de exigência de cada aula: *Fundamental* (compreender), *Professional* (aplicar) e *Architect* (decidir e justificar).
     - Títulos de aulas com status **Planned** são provisórios até a produção do módulo.
 
@@ -20,11 +20,11 @@ A formação está organizada em **seis níveis progressivos** (Nível 0 a Níve
 |:---|:---|
 | <span class="saa-status saa-status--planned">Planned</span> | Definido no currículo, sem conteúdo produzido. |
 | <span class="saa-status saa-status--draft">Draft</span> | Em escrita, fora da navegação. |
-| <span class="saa-status saa-status--published">Published</span> | Conteúdo completo, aguardando revisão técnica. |
+| <span class="saa-status saa-status--in-review">In Review</span> | Conteúdo completo, aguardando revisão técnica. |
 | <span class="saa-status saa-status--published">Published</span> | Revisado e publicado no site público. |
 | <span class="saa-status saa-status--deprecated">Deprecated</span> | Mantido por referência, com indicação do substituto. |
 
-Critérios de cada transição: [Modelo de conteúdo](../internal/content-model.md#criterios-de-publicacao).
+Só conteúdo *Published* aparece no portal; a publicação acontece por release, depois da revisão do mantenedor.
 
 ## Módulos e aulas
 
@@ -36,322 +36,322 @@ Critérios de cada transição: [Modelo de conteúdo](../internal/content-model.
 
 Infraestrutura, redes, cloud e fundamentos de segurança como linguagem comum.
 
-| ID | Módulo | Aulas | Carga | Fase | Status |
+| Módulo | Título | Aulas | Carga | Fase | Status |
 |:---|:---|:---|:---|:---|:---|
-| `M00` | [Fundamentos de Infraestrutura e Computação](../modules/00-foundations/index.md) | 7 | 7 h 45 min | 3 | <span class="saa-status saa-status--published">Published</span> |
-| `M01` | [Fundamentos de Segurança](../modules/01-security-fundamentals/index.md) | 7 | 7 h 45 min | 3 | <span class="saa-status saa-status--published">Published</span> |
+| Módulo Inicial<br><small>`M00`</small> | [Fundamentos de Infraestrutura e Computação](../modules/00-foundations/index.md) | 7 | 7 h 45 min | 3 | <span class="saa-status saa-status--published">Published</span> |
+| Módulo 1<br><small>`M01`</small> | [Fundamentos de Segurança](../modules/01-security-fundamentals/index.md) | 7 | 7 h 45 min | 3 | <span class="saa-status saa-status--published">Published</span> |
 
-??? abstract "M00 — Fundamentos de Infraestrutura e Computação"
+??? abstract "Módulo Inicial — Fundamentos de Infraestrutura e Computação"
 
-    **Domínios:** Infrastructure Foundations · **Pré-requisitos:** nenhum
-
-    | Aula | Título | Profundidade | Tempo | Status |
-    |:---|:---|:---|:---|:---|
-    | `M00-L01` | [Computação, sistemas operacionais e virtualização](../modules/00-foundations/01-computing-os-virtualization.md) | Fundamental | 60 min | <span class="saa-status saa-status--published">Published</span> |
-    | `M00-L02` | [Redes TCP/IP: modelo OSI, endereçamento, DNS, DHCP e NAT](../modules/00-foundations/02-tcp-ip-networking.md) | Fundamental | 75 min | <span class="saa-status saa-status--published">Published</span> |
-    | `M00-L03` | [Segmentação e conectividade: VLAN, roteamento, VPN, TLS e firewalls](../modules/00-foundations/03-segmentation-connectivity.md) | Fundamental | 75 min | <span class="saa-status saa-status--published">Published</span> |
-    | `M00-L04` | [Datacenters, armazenamento, clusters e alta disponibilidade](../modules/00-foundations/04-datacenter-high-availability.md) | Fundamental | 60 min | <span class="saa-status saa-status--published">Published</span> |
-    | `M00-L05` | [Containers, Kubernetes, APIs, microsserviços e serverless](../modules/00-foundations/05-containers-apis-serverless.md) | Fundamental | 75 min | <span class="saa-status saa-status--published">Published</span> |
-    | `M00-L06` | [Cloud computing: modelos de serviço e de implantação](../modules/00-foundations/06-cloud-computing-models.md) | Fundamental | 60 min | <span class="saa-status saa-status--published">Published</span> |
-    | `M00-L07` | [Lendo diagramas arquiteturais: componentes, fluxos e fronteiras](../modules/00-foundations/07-reading-architecture-diagrams.md) | Fundamental | 60 min | <span class="saa-status saa-status--published">Published</span> |
-
-??? abstract "M01 — Fundamentos de Segurança"
-
-    **Domínios:** Security Foundations · **Pré-requisitos:** `M00`
+    **ID técnico:** `M00` · **Domínios:** Infrastructure Foundations · **Pré-requisitos:** nenhum
 
     | Aula | Título | Profundidade | Tempo | Status |
     |:---|:---|:---|:---|:---|
-    | `M01-L01` | [Propriedades de segurança: CIA, autenticidade, autorização e não repúdio](../modules/01-security-fundamentals/01-security-properties.md) | Fundamental | 60 min | <span class="saa-status saa-status--published">Published</span> |
-    | `M01-L02` | [Princípios de design seguro](../modules/01-security-fundamentals/02-secure-design-principles.md) | Fundamental | 75 min | <span class="saa-status saa-status--published">Published</span> |
-    | `M01-L03` | [Trust boundaries, attack surface e responsabilidade compartilhada](../modules/01-security-fundamentals/03-trust-boundaries-attack-surface.md) | Fundamental | 60 min | <span class="saa-status saa-status--published">Published</span> |
-    | `M01-L04` | [Criptografia aplicada: simétrica, assimétrica, hashing e assinaturas](../modules/01-security-fundamentals/04-applied-cryptography.md) | Fundamental | 75 min | <span class="saa-status saa-status--published">Published</span> |
-    | `M01-L05` | [PKI, certificados, TLS e gerenciamento de chaves](../modules/01-security-fundamentals/05-pki-tls-key-management.md) | Fundamental | 75 min | <span class="saa-status saa-status--published">Published</span> |
-    | `M01-L06` | [Ameaça, vulnerabilidade, risco, exposição e controle](../modules/01-security-fundamentals/06-threat-vulnerability-risk.md) | Fundamental | 60 min | <span class="saa-status saa-status--published">Published</span> |
-    | `M01-L07` | [Modelos formais: Bell-LaPadula, Biba, Clark-Wilson e Brewer-Nash](../modules/01-security-fundamentals/07-formal-security-models.md) | Professional | 60 min | <span class="saa-status saa-status--published">Published</span> |
+    | Aula 01<br><small>`M00-L01`</small> | [Computação, sistemas operacionais e virtualização](../modules/00-foundations/01-computing-os-virtualization.md) | Fundamental | 60 min | <span class="saa-status saa-status--published">Published</span> |
+    | Aula 02<br><small>`M00-L02`</small> | [Redes TCP/IP: modelo OSI, endereçamento, DNS, DHCP e NAT](../modules/00-foundations/02-tcp-ip-networking.md) | Fundamental | 75 min | <span class="saa-status saa-status--published">Published</span> |
+    | Aula 03<br><small>`M00-L03`</small> | [Segmentação e conectividade: VLAN, roteamento, VPN, TLS e firewalls](../modules/00-foundations/03-segmentation-connectivity.md) | Fundamental | 75 min | <span class="saa-status saa-status--published">Published</span> |
+    | Aula 04<br><small>`M00-L04`</small> | [Datacenters, armazenamento, clusters e alta disponibilidade](../modules/00-foundations/04-datacenter-high-availability.md) | Fundamental | 60 min | <span class="saa-status saa-status--published">Published</span> |
+    | Aula 05<br><small>`M00-L05`</small> | [Containers, Kubernetes, APIs, microsserviços e serverless](../modules/00-foundations/05-containers-apis-serverless.md) | Fundamental | 75 min | <span class="saa-status saa-status--published">Published</span> |
+    | Aula 06<br><small>`M00-L06`</small> | [Cloud computing: modelos de serviço e de implantação](../modules/00-foundations/06-cloud-computing-models.md) | Fundamental | 60 min | <span class="saa-status saa-status--published">Published</span> |
+    | Aula 07<br><small>`M00-L07`</small> | [Lendo diagramas arquiteturais: componentes, fluxos e fronteiras](../modules/00-foundations/07-reading-architecture-diagrams.md) | Fundamental | 60 min | <span class="saa-status saa-status--published">Published</span> |
+
+??? abstract "Módulo 1 — Fundamentos de Segurança"
+
+    **ID técnico:** `M01` · **Domínios:** Security Foundations · **Pré-requisitos:** Módulo Inicial
+
+    | Aula | Título | Profundidade | Tempo | Status |
+    |:---|:---|:---|:---|:---|
+    | Aula 01<br><small>`M01-L01`</small> | [Propriedades de segurança: CIA, autenticidade, autorização e não repúdio](../modules/01-security-fundamentals/01-security-properties.md) | Fundamental | 60 min | <span class="saa-status saa-status--published">Published</span> |
+    | Aula 02<br><small>`M01-L02`</small> | [Princípios de design seguro](../modules/01-security-fundamentals/02-secure-design-principles.md) | Fundamental | 75 min | <span class="saa-status saa-status--published">Published</span> |
+    | Aula 03<br><small>`M01-L03`</small> | [Trust boundaries, attack surface e responsabilidade compartilhada](../modules/01-security-fundamentals/03-trust-boundaries-attack-surface.md) | Fundamental | 60 min | <span class="saa-status saa-status--published">Published</span> |
+    | Aula 04<br><small>`M01-L04`</small> | [Criptografia aplicada: simétrica, assimétrica, hashing e assinaturas](../modules/01-security-fundamentals/04-applied-cryptography.md) | Fundamental | 75 min | <span class="saa-status saa-status--published">Published</span> |
+    | Aula 05<br><small>`M01-L05`</small> | [PKI, certificados, TLS e gerenciamento de chaves](../modules/01-security-fundamentals/05-pki-tls-key-management.md) | Fundamental | 75 min | <span class="saa-status saa-status--published">Published</span> |
+    | Aula 06<br><small>`M01-L06`</small> | [Ameaça, vulnerabilidade, risco, exposição e controle](../modules/01-security-fundamentals/06-threat-vulnerability-risk.md) | Fundamental | 60 min | <span class="saa-status saa-status--published">Published</span> |
+    | Aula 07<br><small>`M01-L07`</small> | [Modelos formais: Bell-LaPadula, Biba, Clark-Wilson e Brewer-Nash](../modules/01-security-fundamentals/07-formal-security-models.md) | Professional | 60 min | <span class="saa-status saa-status--published">Published</span> |
 
 ### Nível 1 — Fundamentos de Arquitetura
 
 O ofício do arquiteto, governança e riscos, e métodos de design e threat modeling.
 
-| ID | Módulo | Aulas | Carga | Fase | Status |
+| Módulo | Título | Aulas | Carga | Fase | Status |
 |:---|:---|:---|:---|:---|:---|
-| `M02` | [Introdução à Arquitetura de Segurança](../modules/02-security-architecture/index.md) | 8 | 9 h 45 min | 1 | <span class="saa-status saa-status--published">Published</span> |
-| `M03` | Governança, Riscos e Controles | 8 | 10 h | 2 | <span class="saa-status saa-status--planned">Planned</span> |
-| `M04` | Métodos de Design e Threat Modeling | 7 | 8 h | 3 | <span class="saa-status saa-status--planned">Planned</span> |
+| Módulo 2<br><small>`M02`</small> | [Introdução à Arquitetura de Segurança](../modules/02-security-architecture/index.md) | 8 | 9 h 45 min | 1 | <span class="saa-status saa-status--published">Published</span> |
+| Módulo 3<br><small>`M03`</small> | Governança, Riscos e Controles | 8 | 10 h | 2 | <span class="saa-status saa-status--planned">Planned</span> |
+| Módulo 4<br><small>`M04`</small> | Métodos de Design e Threat Modeling | 7 | 8 h | 3 | <span class="saa-status saa-status--planned">Planned</span> |
 
-??? abstract "M02 — Introdução à Arquitetura de Segurança"
+??? abstract "Módulo 2 — Introdução à Arquitetura de Segurança"
 
-    **Domínios:** Enterprise Security Architecture, Security Foundations · **Pré-requisitos:** `M00`, `M01`
-
-    | Aula | Título | Profundidade | Tempo | Status |
-    |:---|:---|:---|:---|:---|
-    | `M02-L01` | [O papel do Security Architect](../modules/02-security-architecture/01-security-architect-role.md) | Fundamental | 60 min | <span class="saa-status saa-status--published">Published</span> |
-    | `M02-L02` | [Enterprise, Solution e Security Architecture](../modules/02-security-architecture/02-enterprise-solution-security-architecture.md) | Fundamental | 60 min | <span class="saa-status saa-status--published">Published</span> |
-    | `M02-L03` | [Arquitetura conceitual, lógica e física](../modules/02-security-architecture/03-conceptual-logical-physical.md) | Professional | 75 min | <span class="saa-status saa-status--published">Published</span> |
-    | `M02-L04` | [Princípios, padrões, baselines e exceções](../modules/02-security-architecture/04-principles-standards-baselines-exceptions.md) | Professional | 75 min | <span class="saa-status saa-status--published">Published</span> |
-    | `M02-L05` | [Arquiteturas de referência e blueprints](../modules/02-security-architecture/05-reference-architectures-blueprints.md) | Professional | 60 min | <span class="saa-status saa-status--published">Published</span> |
-    | `M02-L06` | [Frameworks, padrões e certificações: NIST, SABSA, TOGAF, CISSP e ISSAP](../modules/02-security-architecture/06-frameworks.md) | Professional | 90 min | <span class="saa-status saa-status--published">Published</span> |
-    | `M02-L07` | [Business-driven Security Architecture: de requisitos de negócio a requisitos de segurança](../modules/02-security-architecture/07-business-driven-requirements.md) | Architect | 90 min | <span class="saa-status saa-status--published">Published</span> |
-    | `M02-L08` | [Architecture Decision Records](../modules/02-security-architecture/08-architecture-decision-records.md) | Architect | 75 min | <span class="saa-status saa-status--published">Published</span> |
-
-??? abstract "M03 — Governança, Riscos e Controles"
-
-    **Domínios:** Governance, Risk & Compliance · **Pré-requisitos:** `M02`
+    **ID técnico:** `M02` · **Domínios:** Enterprise Security Architecture, Security Foundations · **Pré-requisitos:** Módulo Inicial, Módulo 1
 
     | Aula | Título | Profundidade | Tempo | Status |
     |:---|:---|:---|:---|:---|
-    | `M03-L01` | Governança de segurança e o NIST CSF 2.0 | Fundamental | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M03-L02` | NIST Risk Management Framework (SP 800-37) | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M03-L03` | Seleção e tailoring de controles: SP 800-53 e CIS Controls | Professional | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M03-L04` | ISO/IEC 27001/27002, LGPD e PCI DSS: propósito e escopo | Fundamental | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M03-L05` | Business Impact Analysis, RTO e RPO | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M03-L06` | Risk assessment, risk register e tratamento de riscos | Professional | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M03-L07` | Catálogo de controles e arquitetura baseada em risco | Architect | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M03-L08` | Indicadores, maturidade e reporte à governança | Architect | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 01<br><small>`M02-L01`</small> | [O papel do Security Architect](../modules/02-security-architecture/01-security-architect-role.md) | Fundamental | 60 min | <span class="saa-status saa-status--published">Published</span> |
+    | Aula 02<br><small>`M02-L02`</small> | [Enterprise, Solution e Security Architecture](../modules/02-security-architecture/02-enterprise-solution-security-architecture.md) | Fundamental | 60 min | <span class="saa-status saa-status--published">Published</span> |
+    | Aula 03<br><small>`M02-L03`</small> | [Arquitetura conceitual, lógica e física](../modules/02-security-architecture/03-conceptual-logical-physical.md) | Professional | 75 min | <span class="saa-status saa-status--published">Published</span> |
+    | Aula 04<br><small>`M02-L04`</small> | [Princípios, padrões, baselines e exceções](../modules/02-security-architecture/04-principles-standards-baselines-exceptions.md) | Professional | 75 min | <span class="saa-status saa-status--published">Published</span> |
+    | Aula 05<br><small>`M02-L05`</small> | [Arquiteturas de referência e blueprints](../modules/02-security-architecture/05-reference-architectures-blueprints.md) | Professional | 60 min | <span class="saa-status saa-status--published">Published</span> |
+    | Aula 06<br><small>`M02-L06`</small> | [Frameworks, padrões e certificações: NIST, SABSA, TOGAF, CISSP e ISSAP](../modules/02-security-architecture/06-frameworks.md) | Professional | 90 min | <span class="saa-status saa-status--published">Published</span> |
+    | Aula 07<br><small>`M02-L07`</small> | [Business-driven Security Architecture: de requisitos de negócio a requisitos de segurança](../modules/02-security-architecture/07-business-driven-requirements.md) | Architect | 90 min | <span class="saa-status saa-status--published">Published</span> |
+    | Aula 08<br><small>`M02-L08`</small> | [Architecture Decision Records](../modules/02-security-architecture/08-architecture-decision-records.md) | Architect | 75 min | <span class="saa-status saa-status--published">Published</span> |
 
-??? abstract "M04 — Métodos de Design e Threat Modeling"
+??? abstract "Módulo 3 — Governança, Riscos e Controles"
 
-    **Domínios:** Application Security, Enterprise Security Architecture · **Pré-requisitos:** `M02`
+    **ID técnico:** `M03` · **Domínios:** Governance, Risk & Compliance · **Pré-requisitos:** Módulo 2
 
     | Aula | Título | Profundidade | Tempo | Status |
     |:---|:---|:---|:---|:---|
-    | `M04-L01` | Data Flow Diagrams e fluxos de confiança | Fundamental | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M04-L02` | STRIDE aplicado à arquitetura | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M04-L03` | Attack trees e abuse cases | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M04-L04` | MITRE ATT&CK para cenários de ataque | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M04-L05` | Pontos únicos de falha e análise de dependências | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M04-L06` | De ameaças a requisitos de segurança | Architect | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M04-L07` | Revisão arquitetural, As-Is/To-Be e validação de controles | Architect | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 01<br><small>`M03-L01`</small> | Governança de segurança e o NIST CSF 2.0 | Fundamental | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 02<br><small>`M03-L02`</small> | NIST Risk Management Framework (SP 800-37) | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 03<br><small>`M03-L03`</small> | Seleção e tailoring de controles: SP 800-53 e CIS Controls | Professional | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 04<br><small>`M03-L04`</small> | ISO/IEC 27001/27002, LGPD e PCI DSS: propósito e escopo | Fundamental | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 05<br><small>`M03-L05`</small> | Business Impact Analysis, RTO e RPO | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 06<br><small>`M03-L06`</small> | Risk assessment, risk register e tratamento de riscos | Professional | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 07<br><small>`M03-L07`</small> | Catálogo de controles e arquitetura baseada em risco | Architect | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 08<br><small>`M03-L08`</small> | Indicadores, maturidade e reporte à governança | Architect | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+
+??? abstract "Módulo 4 — Métodos de Design e Threat Modeling"
+
+    **ID técnico:** `M04` · **Domínios:** Application Security, Enterprise Security Architecture · **Pré-requisitos:** Módulo 2
+
+    | Aula | Título | Profundidade | Tempo | Status |
+    |:---|:---|:---|:---|:---|
+    | Aula 01<br><small>`M04-L01`</small> | Data Flow Diagrams e fluxos de confiança | Fundamental | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 02<br><small>`M04-L02`</small> | STRIDE aplicado à arquitetura | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 03<br><small>`M04-L03`</small> | Attack trees e abuse cases | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 04<br><small>`M04-L04`</small> | MITRE ATT&CK para cenários de ataque | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 05<br><small>`M04-L05`</small> | Pontos únicos de falha e análise de dependências | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 06<br><small>`M04-L06`</small> | De ameaças a requisitos de segurança | Architect | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 07<br><small>`M04-L07`</small> | Revisão arquitetural, As-Is/To-Be e validação de controles | Architect | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
 
 ### Nível 2 — Arquiteturas de Infraestrutura
 
 Rede, identidade, Zero Trust e ambientes on-premises e legados.
 
-| ID | Módulo | Aulas | Carga | Fase | Status |
+| Módulo | Título | Aulas | Carga | Fase | Status |
 |:---|:---|:---|:---|:---|:---|
-| `M05` | Network Security Architecture | 7 | 8 h | 3 | <span class="saa-status saa-status--planned">Planned</span> |
-| `M06` | Identity & Access Management | 9 | 11 h 15 min | 2 | <span class="saa-status saa-status--planned">Planned</span> |
-| `M07` | Zero Trust Architecture | 7 | 8 h | 2 | <span class="saa-status saa-status--planned">Planned</span> |
-| `M08` | On-Premises e Sistemas Legados | 7 | 8 h 15 min | 3 | <span class="saa-status saa-status--planned">Planned</span> |
+| Módulo 5<br><small>`M05`</small> | Network Security Architecture | 7 | 8 h | 3 | <span class="saa-status saa-status--planned">Planned</span> |
+| Módulo 6<br><small>`M06`</small> | Identity & Access Management | 9 | 11 h 15 min | 2 | <span class="saa-status saa-status--planned">Planned</span> |
+| Módulo 7<br><small>`M07`</small> | Zero Trust Architecture | 7 | 8 h | 2 | <span class="saa-status saa-status--planned">Planned</span> |
+| Módulo 8<br><small>`M08`</small> | On-Premises e Sistemas Legados | 7 | 8 h 15 min | 3 | <span class="saa-status saa-status--planned">Planned</span> |
 
-??? abstract "M05 — Network Security Architecture"
+??? abstract "Módulo 5 — Network Security Architecture"
 
-    **Domínios:** Network Security · **Pré-requisitos:** `M00`, `M02`
-
-    | Aula | Título | Profundidade | Tempo | Status |
-    |:---|:---|:---|:---|:---|
-    | `M05-L01` | Zonas de confiança, segmentação e microsegmentação | Fundamental | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M05-L02` | Perímetro e inspeção: DMZ, WAF, NGFW, IDS/IPS e proxies | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M05-L03` | Tráfego North-South e East-West | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M05-L04` | Acesso remoto: VPN, ZTNA e bastion hosts | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M05-L05` | SD-WAN, SASE e SSE | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M05-L06` | Network Access Control | Professional | 45 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M05-L07` | Desenho de uma rede corporativa segura | Architect | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
-
-??? abstract "M06 — Identity & Access Management"
-
-    **Domínios:** Identity & Access Management · **Pré-requisitos:** `M01`, `M02`
+    **ID técnico:** `M05` · **Domínios:** Network Security · **Pré-requisitos:** Módulo Inicial, Módulo 2
 
     | Aula | Título | Profundidade | Tempo | Status |
     |:---|:---|:---|:---|:---|
-    | `M06-L01` | Disciplinas de identidade: IAM, IGA, PAM e PIM | Fundamental | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M06-L02` | Modelos de autorização: RBAC, ABAC e acesso contextual | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M06-L03` | Diretórios e autenticação corporativa: Active Directory, LDAP e Kerberos | Professional | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M06-L04` | Federação: SAML 2.0, OAuth 2.0 e OpenID Connect | Professional | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M06-L05` | Identidade híbrida: Active Directory, Microsoft Entra ID e provedores cloud | Architect | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M06-L06` | Contas privilegiadas e identidades de máquina | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M06-L07` | Workload Identity Federation | Architect | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M06-L08` | Ciclo de vida de identidades e segregação de funções | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M06-L09` | Recuperação de identidade em incidentes | Architect | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 01<br><small>`M05-L01`</small> | Zonas de confiança, segmentação e microsegmentação | Fundamental | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 02<br><small>`M05-L02`</small> | Perímetro e inspeção: DMZ, WAF, NGFW, IDS/IPS e proxies | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 03<br><small>`M05-L03`</small> | Tráfego North-South e East-West | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 04<br><small>`M05-L04`</small> | Acesso remoto: VPN, ZTNA e bastion hosts | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 05<br><small>`M05-L05`</small> | SD-WAN, SASE e SSE | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 06<br><small>`M05-L06`</small> | Network Access Control | Professional | 45 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 07<br><small>`M05-L07`</small> | Desenho de uma rede corporativa segura | Architect | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
 
-??? abstract "M07 — Zero Trust Architecture"
+??? abstract "Módulo 6 — Identity & Access Management"
 
-    **Domínios:** Zero Trust Architecture, Identity & Access Management, Network Security · **Pré-requisitos:** `M05`, `M06`
+    **ID técnico:** `M06` · **Domínios:** Identity & Access Management · **Pré-requisitos:** Módulo 1, Módulo 2
 
     | Aula | Título | Profundidade | Tempo | Status |
     |:---|:---|:---|:---|:---|
-    | `M07-L01` | Fundamentos de Zero Trust e o NIST SP 800-207 | Fundamental | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M07-L02` | Componentes lógicos: Policy Engine, Policy Administrator e PEP | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M07-L03` | Abordagens identity-centric, resource-centric e de rede | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M07-L04` | Verificação contínua, postura de dispositivo e acesso adaptativo | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M07-L05` | Segmentação e proteção de workloads | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M07-L06` | CISA Zero Trust Maturity Model | Architect | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M07-L07` | Implantação progressiva com sistemas legados e restrições | Architect | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 01<br><small>`M06-L01`</small> | Disciplinas de identidade: IAM, IGA, PAM e PIM | Fundamental | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 02<br><small>`M06-L02`</small> | Modelos de autorização: RBAC, ABAC e acesso contextual | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 03<br><small>`M06-L03`</small> | Diretórios e autenticação corporativa: Active Directory, LDAP e Kerberos | Professional | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 04<br><small>`M06-L04`</small> | Federação: SAML 2.0, OAuth 2.0 e OpenID Connect | Professional | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 05<br><small>`M06-L05`</small> | Identidade híbrida: Active Directory, Microsoft Entra ID e provedores cloud | Architect | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 06<br><small>`M06-L06`</small> | Contas privilegiadas e identidades de máquina | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 07<br><small>`M06-L07`</small> | Workload Identity Federation | Architect | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 08<br><small>`M06-L08`</small> | Ciclo de vida de identidades e segregação de funções | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 09<br><small>`M06-L09`</small> | Recuperação de identidade em incidentes | Architect | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
 
-??? abstract "M08 — On-Premises e Sistemas Legados"
+??? abstract "Módulo 7 — Zero Trust Architecture"
 
-    **Domínios:** Infrastructure Foundations, Security Operations & Resilience · **Pré-requisitos:** `M05`, `M06`
+    **ID técnico:** `M07` · **Domínios:** Zero Trust Architecture, Identity & Access Management, Network Security · **Pré-requisitos:** Módulo 5, Módulo 6
 
     | Aula | Título | Profundidade | Tempo | Status |
     |:---|:---|:---|:---|:---|
-    | `M08-L01` | Segurança de datacenters | Fundamental | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M08-L02` | Hardening e baselines de configuração | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M08-L03` | Arquitetura para Windows Server, Linux e Active Directory | Professional | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M08-L04` | Backup, recuperação e resiliência contra ransomware | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M08-L05` | Sistemas sem suporte e controles compensatórios | Architect | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M08-L06` | Protocolos inseguros e dependências legadas | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M08-L07` | Integração com ambientes modernos e modernização gradual | Architect | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 01<br><small>`M07-L01`</small> | Fundamentos de Zero Trust e o NIST SP 800-207 | Fundamental | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 02<br><small>`M07-L02`</small> | Componentes lógicos: Policy Engine, Policy Administrator e PEP | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 03<br><small>`M07-L03`</small> | Abordagens identity-centric, resource-centric e de rede | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 04<br><small>`M07-L04`</small> | Verificação contínua, postura de dispositivo e acesso adaptativo | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 05<br><small>`M07-L05`</small> | Segmentação e proteção de workloads | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 06<br><small>`M07-L06`</small> | CISA Zero Trust Maturity Model | Architect | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 07<br><small>`M07-L07`</small> | Implantação progressiva com sistemas legados e restrições | Architect | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
+
+??? abstract "Módulo 8 — On-Premises e Sistemas Legados"
+
+    **ID técnico:** `M08` · **Domínios:** Infrastructure Foundations, Security Operations & Resilience · **Pré-requisitos:** Módulo 5, Módulo 6
+
+    | Aula | Título | Profundidade | Tempo | Status |
+    |:---|:---|:---|:---|:---|
+    | Aula 01<br><small>`M08-L01`</small> | Segurança de datacenters | Fundamental | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 02<br><small>`M08-L02`</small> | Hardening e baselines de configuração | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 03<br><small>`M08-L03`</small> | Arquitetura para Windows Server, Linux e Active Directory | Professional | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 04<br><small>`M08-L04`</small> | Backup, recuperação e resiliência contra ransomware | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 05<br><small>`M08-L05`</small> | Sistemas sem suporte e controles compensatórios | Architect | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 06<br><small>`M08-L06`</small> | Protocolos inseguros e dependências legadas | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 07<br><small>`M08-L07`</small> | Integração com ambientes modernos e modernização gradual | Architect | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
 
 ### Nível 3 — Arquitetura Cloud e Híbrida
 
 AWS, Azure, Google Cloud e a integração segura entre ambientes.
 
-| ID | Módulo | Aulas | Carga | Fase | Status |
+| Módulo | Título | Aulas | Carga | Fase | Status |
 |:---|:---|:---|:---|:---|:---|
-| `M09` | AWS Security Architecture | 7 | 9 h 15 min | 3 | <span class="saa-status saa-status--planned">Planned</span> |
-| `M10` | Azure e Google Cloud | 7 | 7 h 45 min | 3 | <span class="saa-status saa-status--planned">Planned</span> |
-| `M11` | Hybrid & Multicloud Security Architecture | 11 | 14 h 30 min | 2 | <span class="saa-status saa-status--planned">Planned</span> |
+| Módulo 9<br><small>`M09`</small> | AWS Security Architecture | 7 | 9 h 15 min | 3 | <span class="saa-status saa-status--planned">Planned</span> |
+| Módulo 10<br><small>`M10`</small> | Azure e Google Cloud | 7 | 7 h 45 min | 3 | <span class="saa-status saa-status--planned">Planned</span> |
+| Módulo 11<br><small>`M11`</small> | Hybrid & Multicloud Security Architecture | 11 | 14 h 30 min | 2 | <span class="saa-status saa-status--planned">Planned</span> |
 
-??? abstract "M09 — AWS Security Architecture"
+??? abstract "Módulo 9 — AWS Security Architecture"
 
-    **Domínios:** Cloud Security · **Pré-requisitos:** `M05`, `M06`
-
-    | Aula | Título | Profundidade | Tempo | Status |
-    |:---|:---|:---|:---|:---|
-    | `M09-L01` | Security Pillar do Well-Architected e responsabilidade compartilhada | Fundamental | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M09-L02` | AWS Organizations, multi-account, landing zones e Control Tower | Professional | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M09-L03` | IAM e IAM Identity Center | Professional | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M09-L04` | Rede: VPC, Security Groups, NACLs, roteamento e endpoints | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M09-L05` | Dados e segredos: AWS KMS e Secrets Manager | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M09-L06` | Detecção e governança: CloudTrail, Config, GuardDuty, Security Hub, Inspector e Macie | Professional | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M09-L07` | AWS Security Reference Architecture e integração com on-premises | Architect | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
-
-??? abstract "M10 — Azure e Google Cloud"
-
-    **Domínios:** Cloud Security, Identity & Access Management · **Pré-requisitos:** `M05`, `M06`
+    **ID técnico:** `M09` · **Domínios:** Cloud Security · **Pré-requisitos:** Módulo 5, Módulo 6
 
     | Aula | Título | Profundidade | Tempo | Status |
     |:---|:---|:---|:---|:---|
-    | `M10-L01` | Azure Well-Architected, Cloud Adoption Framework e Azure Landing Zones | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M10-L02` | Microsoft Entra ID e identidade híbrida | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M10-L03` | Defender for Cloud, Azure Policy e Azure Arc | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M10-L04` | Google Cloud: Architecture Framework e hierarquia de recursos | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M10-L05` | Google Cloud IAM, Organization Policy e Security Command Center | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M10-L06` | Equivalências e particularidades entre AWS, Azure e Google Cloud | Architect | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M10-L07` | Mapeamento para o Microsoft SC-100 | Architect | 45 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 01<br><small>`M09-L01`</small> | Security Pillar do Well-Architected e responsabilidade compartilhada | Fundamental | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 02<br><small>`M09-L02`</small> | AWS Organizations, multi-account, landing zones e Control Tower | Professional | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 03<br><small>`M09-L03`</small> | IAM e IAM Identity Center | Professional | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 04<br><small>`M09-L04`</small> | Rede: VPC, Security Groups, NACLs, roteamento e endpoints | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 05<br><small>`M09-L05`</small> | Dados e segredos: AWS KMS e Secrets Manager | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 06<br><small>`M09-L06`</small> | Detecção e governança: CloudTrail, Config, GuardDuty, Security Hub, Inspector e Macie | Professional | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 07<br><small>`M09-L07`</small> | AWS Security Reference Architecture e integração com on-premises | Architect | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
 
-??? abstract "M11 — Hybrid & Multicloud Security Architecture"
+??? abstract "Módulo 10 — Azure e Google Cloud"
 
-    **Domínios:** Hybrid & Multicloud Security, Cloud Security, Network Security, Identity & Access Management · **Pré-requisitos:** `M06`, `M07`
+    **ID técnico:** `M10` · **Domínios:** Cloud Security, Identity & Access Management · **Pré-requisitos:** Módulo 5, Módulo 6
 
     | Aula | Título | Profundidade | Tempo | Status |
     |:---|:---|:---|:---|:---|
-    | `M11-L01` | Conectividade híbrida: VPN site-to-site, AWS Direct Connect e Azure ExpressRoute | Professional | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M11-L02` | Arquitetura de DNS híbrido | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M11-L03` | Identidade e federação entre Active Directory e provedores cloud | Architect | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M11-L04` | Logs, observabilidade, SIEM e SOC multiambiente | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M11-L05` | Segredos, certificados, criptografia e chaves distribuídos | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M11-L06` | Políticas consistentes e postura: CSPM, CNAPP, CWPP, CIEM e DSPM | Architect | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M11-L07` | Asset discovery e inventário corporativo | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M11-L08` | Backup, disaster recovery e continuidade em ambientes híbridos | Architect | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M11-L09` | Comunicação segura entre workloads | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M11-L10` | Responsabilidade compartilhada, soberania, latência e vendor lock-in | Architect | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M11-L11` | Três modelos de referência híbridos: As-Is e To-Be | Architect | 120 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 01<br><small>`M10-L01`</small> | Azure Well-Architected, Cloud Adoption Framework e Azure Landing Zones | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 02<br><small>`M10-L02`</small> | Microsoft Entra ID e identidade híbrida | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 03<br><small>`M10-L03`</small> | Defender for Cloud, Azure Policy e Azure Arc | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 04<br><small>`M10-L04`</small> | Google Cloud: Architecture Framework e hierarquia de recursos | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 05<br><small>`M10-L05`</small> | Google Cloud IAM, Organization Policy e Security Command Center | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 06<br><small>`M10-L06`</small> | Equivalências e particularidades entre AWS, Azure e Google Cloud | Architect | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 07<br><small>`M10-L07`</small> | Mapeamento para o Microsoft SC-100 | Architect | 45 min | <span class="saa-status saa-status--planned">Planned</span> |
+
+??? abstract "Módulo 11 — Hybrid & Multicloud Security Architecture"
+
+    **ID técnico:** `M11` · **Domínios:** Hybrid & Multicloud Security, Cloud Security, Network Security, Identity & Access Management · **Pré-requisitos:** Módulo 6, Módulo 7
+
+    | Aula | Título | Profundidade | Tempo | Status |
+    |:---|:---|:---|:---|:---|
+    | Aula 01<br><small>`M11-L01`</small> | Conectividade híbrida: VPN site-to-site, AWS Direct Connect e Azure ExpressRoute | Professional | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 02<br><small>`M11-L02`</small> | Arquitetura de DNS híbrido | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 03<br><small>`M11-L03`</small> | Identidade e federação entre Active Directory e provedores cloud | Architect | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 04<br><small>`M11-L04`</small> | Logs, observabilidade, SIEM e SOC multiambiente | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 05<br><small>`M11-L05`</small> | Segredos, certificados, criptografia e chaves distribuídos | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 06<br><small>`M11-L06`</small> | Políticas consistentes e postura: CSPM, CNAPP, CWPP, CIEM e DSPM | Architect | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 07<br><small>`M11-L07`</small> | Asset discovery e inventário corporativo | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 08<br><small>`M11-L08`</small> | Backup, disaster recovery e continuidade em ambientes híbridos | Architect | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 09<br><small>`M11-L09`</small> | Comunicação segura entre workloads | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 10<br><small>`M11-L10`</small> | Responsabilidade compartilhada, soberania, latência e vendor lock-in | Architect | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 11<br><small>`M11-L11`</small> | Três modelos de referência híbridos: As-Is e To-Be | Architect | 120 min | <span class="saa-status saa-status--planned">Planned</span> |
 
 ### Nível 4 — Arquitetura de Segurança Aplicada
 
 Aplicações, dados, gestão de vulnerabilidades e exposição, operações e resiliência.
 
-| ID | Módulo | Aulas | Carga | Fase | Status |
+| Módulo | Título | Aulas | Carga | Fase | Status |
 |:---|:---|:---|:---|:---|:---|
-| `M12` | Application Security Architecture | 8 | 9 h | 3 | <span class="saa-status saa-status--planned">Planned</span> |
-| `M13` | Data Security Architecture | 7 | 8 h | 3 | <span class="saa-status saa-status--planned">Planned</span> |
-| `M14` | Vulnerability & Exposure Management Architecture | 8 | 9 h | 3 | <span class="saa-status saa-status--planned">Planned</span> |
-| `M15` | Security Operations & Resilience Architecture | 7 | 8 h | 3 | <span class="saa-status saa-status--planned">Planned</span> |
+| Módulo 12<br><small>`M12`</small> | Application Security Architecture | 8 | 9 h | 3 | <span class="saa-status saa-status--planned">Planned</span> |
+| Módulo 13<br><small>`M13`</small> | Data Security Architecture | 7 | 8 h | 3 | <span class="saa-status saa-status--planned">Planned</span> |
+| Módulo 14<br><small>`M14`</small> | Vulnerability & Exposure Management Architecture | 8 | 9 h | 3 | <span class="saa-status saa-status--planned">Planned</span> |
+| Módulo 15<br><small>`M15`</small> | Security Operations & Resilience Architecture | 7 | 8 h | 3 | <span class="saa-status saa-status--planned">Planned</span> |
 
-??? abstract "M12 — Application Security Architecture"
+??? abstract "Módulo 12 — Application Security Architecture"
 
-    **Domínios:** Application Security · **Pré-requisitos:** `M04`, `M06`
-
-    | Aula | Título | Profundidade | Tempo | Status |
-    |:---|:---|:---|:---|:---|
-    | `M12-L01` | Secure SDLC e DevSecOps | Fundamental | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M12-L02` | OWASP ASVS como especificação de requisitos | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M12-L03` | Arquitetura de API Security | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M12-L04` | Autenticação e autorização distribuídas | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M12-L05` | API Gateway, service mesh e mTLS | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M12-L06` | Segurança de microsserviços e containers | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M12-L07` | CI/CD, IaC e software supply chain | Architect | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M12-L08` | SAST, DAST, SCA, secrets scanning e SBOM na arquitetura | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-
-??? abstract "M13 — Data Security Architecture"
-
-    **Domínios:** Data Security · **Pré-requisitos:** `M01`, `M03`
+    **ID técnico:** `M12` · **Domínios:** Application Security · **Pré-requisitos:** Módulo 4, Módulo 6
 
     | Aula | Título | Profundidade | Tempo | Status |
     |:---|:---|:---|:---|:---|
-    | `M13-L01` | Classificação e ciclo de vida de dados | Fundamental | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M13-L02` | Criptografia at rest, in transit e in use | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M13-L03` | Tokenização, hashing e mascaramento | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M13-L04` | KMS, HSM e rotação de chaves | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M13-L05` | Data Loss Prevention e segurança de bancos de dados | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M13-L06` | Governança de dados distribuídos, privacidade, retenção e LGPD | Architect | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M13-L07` | Zero Trust aplicado a dados | Architect | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 01<br><small>`M12-L01`</small> | Secure SDLC e DevSecOps | Fundamental | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 02<br><small>`M12-L02`</small> | OWASP ASVS como especificação de requisitos | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 03<br><small>`M12-L03`</small> | Arquitetura de API Security | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 04<br><small>`M12-L04`</small> | Autenticação e autorização distribuídas | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 05<br><small>`M12-L05`</small> | API Gateway, service mesh e mTLS | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 06<br><small>`M12-L06`</small> | Segurança de microsserviços e containers | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 07<br><small>`M12-L07`</small> | CI/CD, IaC e software supply chain | Architect | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 08<br><small>`M12-L08`</small> | SAST, DAST, SCA, secrets scanning e SBOM na arquitetura | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
 
-??? abstract "M14 — Vulnerability & Exposure Management Architecture"
+??? abstract "Módulo 13 — Data Security Architecture"
 
-    **Domínios:** Vulnerability Management · **Pré-requisitos:** `M03`
-
-    | Aula | Título | Profundidade | Tempo | Status |
-    |:---|:---|:---|:---|:---|
-    | `M14-L01` | Arquitetura de um programa corporativo de gestão de vulnerabilidades | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M14-L02` | Descoberta e cobertura de ativos | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M14-L03` | Cobertura por superfície: infraestrutura, web, APIs, cloud, AD e containers | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M14-L04` | Vulnerability Management versus Exposure Management | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M14-L05` | Priorização: CVSS, EPSS, CISA KEV e contexto de negócio | Architect | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M14-L06` | Ownership, SLA, remediação e exceções | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M14-L07` | Automação, integrações, KPIs, KRIs e dashboards | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M14-L08` | Programa centralizado para múltiplas organizações | Architect | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-
-??? abstract "M15 — Security Operations & Resilience Architecture"
-
-    **Domínios:** Security Operations & Resilience · **Pré-requisitos:** `M05`, `M06`
+    **ID técnico:** `M13` · **Domínios:** Data Security · **Pré-requisitos:** Módulo 1, Módulo 3
 
     | Aula | Título | Profundidade | Tempo | Status |
     |:---|:---|:---|:---|:---|
-    | `M15-L01` | Arquitetura de logging e telemetria | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M15-L02` | SIEM, SOAR, XDR e EDR | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M15-L03` | Detecção em ambientes híbridos | Architect | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M15-L04` | Incident response e gestão de crises | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M15-L05` | Resiliência contra ransomware, backup imutável e disaster recovery | Architect | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M15-L06` | Validação de controles e exercícios tabletop | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M15-L07` | Segurança da cadeia de suprimentos | Architect | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 01<br><small>`M13-L01`</small> | Classificação e ciclo de vida de dados | Fundamental | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 02<br><small>`M13-L02`</small> | Criptografia at rest, in transit e in use | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 03<br><small>`M13-L03`</small> | Tokenização, hashing e mascaramento | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 04<br><small>`M13-L04`</small> | KMS, HSM e rotação de chaves | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 05<br><small>`M13-L05`</small> | Data Loss Prevention e segurança de bancos de dados | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 06<br><small>`M13-L06`</small> | Governança de dados distribuídos, privacidade, retenção e LGPD | Architect | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 07<br><small>`M13-L07`</small> | Zero Trust aplicado a dados | Architect | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+
+??? abstract "Módulo 14 — Vulnerability & Exposure Management Architecture"
+
+    **ID técnico:** `M14` · **Domínios:** Vulnerability Management · **Pré-requisitos:** Módulo 3
+
+    | Aula | Título | Profundidade | Tempo | Status |
+    |:---|:---|:---|:---|:---|
+    | Aula 01<br><small>`M14-L01`</small> | Arquitetura de um programa corporativo de gestão de vulnerabilidades | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 02<br><small>`M14-L02`</small> | Descoberta e cobertura de ativos | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 03<br><small>`M14-L03`</small> | Cobertura por superfície: infraestrutura, web, APIs, cloud, AD e containers | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 04<br><small>`M14-L04`</small> | Vulnerability Management versus Exposure Management | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 05<br><small>`M14-L05`</small> | Priorização: CVSS, EPSS, CISA KEV e contexto de negócio | Architect | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 06<br><small>`M14-L06`</small> | Ownership, SLA, remediação e exceções | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 07<br><small>`M14-L07`</small> | Automação, integrações, KPIs, KRIs e dashboards | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 08<br><small>`M14-L08`</small> | Programa centralizado para múltiplas organizações | Architect | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+
+??? abstract "Módulo 15 — Security Operations & Resilience Architecture"
+
+    **ID técnico:** `M15` · **Domínios:** Security Operations & Resilience · **Pré-requisitos:** Módulo 5, Módulo 6
+
+    | Aula | Título | Profundidade | Tempo | Status |
+    |:---|:---|:---|:---|:---|
+    | Aula 01<br><small>`M15-L01`</small> | Arquitetura de logging e telemetria | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 02<br><small>`M15-L02`</small> | SIEM, SOAR, XDR e EDR | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 03<br><small>`M15-L03`</small> | Detecção em ambientes híbridos | Architect | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 04<br><small>`M15-L04`</small> | Incident response e gestão de crises | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 05<br><small>`M15-L05`</small> | Resiliência contra ransomware, backup imutável e disaster recovery | Architect | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 06<br><small>`M15-L06`</small> | Validação de controles e exercícios tabletop | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 07<br><small>`M15-L07`</small> | Segurança da cadeia de suprimentos | Architect | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
 
 ### Nível 5 — Arquitetura Corporativa Avançada
 
 Arquitetura corporativa, governança entre empresas e projeto final.
 
-| ID | Módulo | Aulas | Carga | Fase | Status |
+| Módulo | Título | Aulas | Carga | Fase | Status |
 |:---|:---|:---|:---|:---|:---|
-| `M16` | Enterprise Security Architecture | 8 | 10 h | 2 | <span class="saa-status saa-status--planned">Planned</span> |
-| `M17` | Estudos de Caso e Projeto Final | 5 | 8 h 30 min | 3 | <span class="saa-status saa-status--planned">Planned</span> |
+| Módulo 16<br><small>`M16`</small> | Enterprise Security Architecture | 8 | 10 h | 2 | <span class="saa-status saa-status--planned">Planned</span> |
+| Módulo 17<br><small>`M17`</small> | Estudos de Caso e Projeto Final | 5 | 8 h 30 min | 3 | <span class="saa-status saa-status--planned">Planned</span> |
 
-??? abstract "M16 — Enterprise Security Architecture"
+??? abstract "Módulo 16 — Enterprise Security Architecture"
 
-    **Domínios:** Enterprise Security Architecture, Governance, Risk & Compliance · **Pré-requisitos:** `M03`, `M11`
-
-    | Aula | Título | Profundidade | Tempo | Status |
-    |:---|:---|:---|:---|:---|
-    | `M16-L01` | Arquitetura orientada ao negócio com SABSA | Architect | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M16-L02` | SABSA e TOGAF integrados | Architect | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M16-L03` | Modelos centralizado, federado e descentralizado | Architect | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M16-L04` | Arquitetura corporativa de referência e shared security services | Architect | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M16-L05` | Governança de segurança entre empresas de um grupo | Architect | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M16-L06` | Architecture Review Boards, padrões, exceções e technical debt | Architect | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M16-L07` | Gestão de stakeholders e negociação de riscos | Architect | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M16-L08` | Estratégia, roadmaps, orçamento, TCO e priorização de investimentos | Architect | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
-
-??? abstract "M17 — Estudos de Caso e Projeto Final"
-
-    **Domínios:** Enterprise Security Architecture, Hybrid & Multicloud Security · **Pré-requisitos:** `M16`
+    **ID técnico:** `M16` · **Domínios:** Enterprise Security Architecture, Governance, Risk & Compliance · **Pré-requisitos:** Módulo 3, Módulo 11
 
     | Aula | Título | Profundidade | Tempo | Status |
     |:---|:---|:---|:---|:---|
-    | `M17-L01` | Avaliação de maturidade e levantamento de requisitos | Architect | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M17-L02` | Arquitetura base, identificação de lacunas e seleção de controles | Architect | 120 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M17-L03` | Desenho da arquitetura híbrida e da governança de segurança | Architect | 120 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M17-L04` | Roadmap de 90 dias, 6 meses e 12 meses | Architect | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | `M17-L05` | Apresentação executiva e documentação para engenharia | Architect | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 01<br><small>`M16-L01`</small> | Arquitetura orientada ao negócio com SABSA | Architect | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 02<br><small>`M16-L02`</small> | SABSA e TOGAF integrados | Architect | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 03<br><small>`M16-L03`</small> | Modelos centralizado, federado e descentralizado | Architect | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 04<br><small>`M16-L04`</small> | Arquitetura corporativa de referência e shared security services | Architect | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 05<br><small>`M16-L05`</small> | Governança de segurança entre empresas de um grupo | Architect | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 06<br><small>`M16-L06`</small> | Architecture Review Boards, padrões, exceções e technical debt | Architect | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 07<br><small>`M16-L07`</small> | Gestão de stakeholders e negociação de riscos | Architect | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 08<br><small>`M16-L08`</small> | Estratégia, roadmaps, orçamento, TCO e priorização de investimentos | Architect | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
+
+??? abstract "Módulo 17 — Estudos de Caso e Projeto Final"
+
+    **ID técnico:** `M17` · **Domínios:** Enterprise Security Architecture, Hybrid & Multicloud Security · **Pré-requisitos:** Módulo 16
+
+    | Aula | Título | Profundidade | Tempo | Status |
+    |:---|:---|:---|:---|:---|
+    | Aula 01<br><small>`M17-L01`</small> | Avaliação de maturidade e levantamento de requisitos | Architect | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 02<br><small>`M17-L02`</small> | Arquitetura base, identificação de lacunas e seleção de controles | Architect | 120 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 03<br><small>`M17-L03`</small> | Desenho da arquitetura híbrida e da governança de segurança | Architect | 120 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 04<br><small>`M17-L04`</small> | Roadmap de 90 dias, 6 meses e 12 meses | Architect | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 05<br><small>`M17-L05`</small> | Apresentação executiva e documentação para engenharia | Architect | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
 
 ### Seção complementar
 
@@ -371,32 +371,32 @@ Arquitetura corporativa, governança entre empresas e projeto final.
 
 | ID | Título | Módulos | Fase | Status |
 |:---|:---|:---|:---|:---|
-| `CS-A` | [Caso A — Datacenter tradicional (Meridiana Distribuidora)](../case-studies/case-a-meridiana/index.md) | `M02`, `M05`, `M06`, `M08` | 1 | <span class="saa-status saa-status--published">Published</span> |
-| `CS-B` | Caso B — Migração para AWS | `M09`, `M11` | 3 | <span class="saa-status saa-status--planned">Planned</span> |
-| `CS-C` | Caso C — Arquitetura híbrida com Azure e AWS | `M10`, `M11` | 2 | <span class="saa-status saa-status--planned">Planned</span> |
-| `CS-D` | Caso D — Grupo empresarial com subsidiárias | `M16` | 2 | <span class="saa-status saa-status--planned">Planned</span> |
-| `CS-E` | Caso E — Programa corporativo de Vulnerability Management | `M14` | 3 | <span class="saa-status saa-status--planned">Planned</span> |
+| `CS-A` | [Caso A — Datacenter tradicional (Meridiana Distribuidora)](../case-studies/case-a-meridiana/index.md) | Módulo 2, Módulo 5, Módulo 6, Módulo 8 | 1 | <span class="saa-status saa-status--published">Published</span> |
+| `CS-B` | Caso B — Migração para AWS | Módulo 9, Módulo 11 | 3 | <span class="saa-status saa-status--planned">Planned</span> |
+| `CS-C` | Caso C — Arquitetura híbrida com Azure e AWS | Módulo 10, Módulo 11 | 2 | <span class="saa-status saa-status--planned">Planned</span> |
+| `CS-D` | Caso D — Grupo empresarial com subsidiárias | Módulo 16 | 2 | <span class="saa-status saa-status--planned">Planned</span> |
+| `CS-E` | Caso E — Programa corporativo de Vulnerability Management | Módulo 14 | 3 | <span class="saa-status saa-status--planned">Planned</span> |
 
 ### Laboratórios
 
 | ID | Título | Módulos | Fase | Status |
 |:---|:---|:---|:---|:---|
-| `LAB-00` | [Laboratório 00 — Plano de endereçamento e segmentação](../labs/lab-00-network-plan.md) · *executado e testado* | `M00` | 1 | <span class="saa-status saa-status--published">Published</span> |
-| `LAB-01` | [Laboratório 01 — Mecanismos de segurança na prática](../labs/lab-01-security-mechanisms.md) · *executado e testado* | `M01` | 1 | <span class="saa-status saa-status--published">Published</span> |
-| `LAB-02` | [Laboratório 02 — Modelagem arquitetural como código](../labs/lab-02-architecture-modeling.md) · *executado e testado* | `M02` | 1 | <span class="saa-status saa-status--published">Published</span> |
+| `LAB-00` | [Laboratório 00 — Plano de endereçamento e segmentação](../labs/lab-00-network-plan.md) · *executado e testado* | Módulo Inicial | 1 | <span class="saa-status saa-status--published">Published</span> |
+| `LAB-01` | [Laboratório 01 — Mecanismos de segurança na prática](../labs/lab-01-security-mechanisms.md) · *executado e testado* | Módulo 1 | 1 | <span class="saa-status saa-status--published">Published</span> |
+| `LAB-02` | [Laboratório 02 — Modelagem arquitetural como código](../labs/lab-02-architecture-modeling.md) · *executado e testado* | Módulo 2 | 1 | <span class="saa-status saa-status--published">Published</span> |
 
 ### Avaliações
 
 | ID | Título | Módulos | Fase | Status |
 |:---|:---|:---|:---|:---|
-| `AS-DIAG` | [Avaliação diagnóstica de fundamentos](../assessments/diagnostic-fundamentals.md) | `M00`, `M01` | 1 | <span class="saa-status saa-status--published">Published</span> |
-| `AS-M00` | [Avaliação do Módulo 00](../assessments/m00-foundations.md) | `M00` | 1 | <span class="saa-status saa-status--published">Published</span> |
-| `AS-M01` | [Avaliação do Módulo 01](../assessments/m01-security-fundamentals.md) | `M01` | 1 | <span class="saa-status saa-status--published">Published</span> |
-| `AS-FUND` | [Avaliação final de Fundamentals (integradora)](../assessments/fundamentals-final.md) | `M00`, `M01`, `M02` | 1 | <span class="saa-status saa-status--published">Published</span> |
-| `AS-M02` | [Avaliação do Módulo 02](../assessments/m02-security-architecture.md) | `M02` | 1 | <span class="saa-status saa-status--published">Published</span> |
-| `AS-MID` | Avaliação intermediária (Níveis 1 e 2) | `M03`, `M04`, `M05`, `M06`, `M07`, `M08` | 2 | <span class="saa-status saa-status--planned">Planned</span> |
-| `AS-FINAL` | Avaliação final | `M09`, `M10`, `M11`, `M12`, `M13`, `M14`, `M15`, `M16` | 3 | <span class="saa-status saa-status--planned">Planned</span> |
-| `AS-ADV-EN` | Advanced assessment (English, CISSP/ISSAP reasoning style) | `M02`, `M03`, `M06`, `M07`, `M11`, `M16` | 3 | <span class="saa-status saa-status--planned">Planned</span> |
+| `AS-DIAG` | [Avaliação diagnóstica de fundamentos](../assessments/diagnostic-fundamentals.md) | Módulo Inicial, Módulo 1 | 1 | <span class="saa-status saa-status--published">Published</span> |
+| `AS-M00` | [Avaliação do Módulo Inicial](../assessments/m00-foundations.md) | Módulo Inicial | 1 | <span class="saa-status saa-status--published">Published</span> |
+| `AS-M01` | [Avaliação do Módulo 1](../assessments/m01-security-fundamentals.md) | Módulo 1 | 1 | <span class="saa-status saa-status--published">Published</span> |
+| `AS-FUND` | [Avaliação final de Fundamentals (integradora)](../assessments/fundamentals-final.md) | Módulo Inicial, Módulo 1, Módulo 2 | 1 | <span class="saa-status saa-status--published">Published</span> |
+| `AS-M02` | [Avaliação do Módulo 2](../assessments/m02-security-architecture.md) | Módulo 2 | 1 | <span class="saa-status saa-status--published">Published</span> |
+| `AS-MID` | Avaliação intermediária (Níveis 1 e 2) | Módulo 3, Módulo 4, Módulo 5, Módulo 6, Módulo 7, Módulo 8 | 2 | <span class="saa-status saa-status--planned">Planned</span> |
+| `AS-FINAL` | Avaliação final | Módulo 9, Módulo 10, Módulo 11, Módulo 12, Módulo 13, Módulo 14, Módulo 15, Módulo 16 | 3 | <span class="saa-status saa-status--planned">Planned</span> |
+| `AS-ADV-EN` | Advanced assessment (English, CISSP/ISSAP reasoning style) | Módulo 2, Módulo 3, Módulo 6, Módulo 7, Módulo 11, Módulo 16 | 3 | <span class="saa-status saa-status--planned">Planned</span> |
 
 ### Modelos de artefatos
 

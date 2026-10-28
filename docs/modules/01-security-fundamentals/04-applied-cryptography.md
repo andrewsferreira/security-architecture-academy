@@ -1,6 +1,7 @@
 ---
 id: M01-L04
-title: "Criptografia aplicada: simétrica, assimétrica, hashing e assinaturas"
+title: "Aula 04 — Criptografia aplicada: simétrica, assimétrica, hashing e assinaturas"
+public_title: "Módulo 1 — Aula 04 — Criptografia aplicada: simétrica, assimétrica, hashing e assinaturas"
 description: O que cada primitiva criptográfica garante — e o que não garante —, como elas se combinam em esquemas híbridos, os erros de uso mais comuns e o que muda com a criptografia pós-quântica.
 domain: security-foundations
 tier: fundamental
@@ -19,12 +20,12 @@ reviewed_by: [Andrews Ferreira]
 module: M01
 ---
 
-# Criptografia aplicada: simétrica, assimétrica, hashing e assinaturas
+# Aula 04 — Criptografia aplicada: simétrica, assimétrica, hashing e assinaturas { #criptografia-aplicada-simetrica-assimetrica-hashing-e-assinaturas }
 
 <div class="saa-lesson-meta" markdown>
-<span class="saa-level">Nível 0 · M01-L04</span>
+<span class="saa-level">Módulo 1 · Nível 0</span>
 <span class="saa-tier saa-tier--fundamental">Fundamental</span>
-<span class="saa-meta">75 min</span>
+<span class="saa-meta">75 min · ID técnico: M01-L04</span>
 </div>
 
 ## Resumo
@@ -58,7 +59,7 @@ Uma conclusão importante da tabela: **cifrar não garante integridade por si s�
 
 ### O princípio de Kerckhoffs
 
-A segurança de um sistema criptográfico deve depender apenas do segredo das **chaves**, não do segredo do algoritmo — a versão criptográfica do princípio de *open design* (L02). Algoritmos públicos e amplamente analisados são mais confiáveis que algoritmos "proprietários". Na prática de arquitetura: **use bibliotecas e algoritmos padronizados; nunca criptografia caseira.**
+A segurança de um sistema criptográfico deve depender apenas do segredo das **chaves**, não do segredo do algoritmo — a versão criptográfica do princípio de *open design* (Aula 02). Algoritmos públicos e amplamente analisados são mais confiáveis que algoritmos "proprietários". Na prática de arquitetura: **use bibliotecas e algoritmos padronizados; nunca criptografia caseira.**
 
 ## Fundamentos técnicos
 
@@ -91,7 +92,7 @@ Senhas não devem ser cifradas (cifra é reversível) nem guardadas com hash rá
 
 ### Chaves e cryptoperiods
 
-A segurança depende de como as chaves são geradas, armazenadas, usadas, trocadas e destruídas. O NIST SP 800-57 Part 1 Rev. 5 trata o gerenciamento de chaves e o conceito de **cryptoperiod** — o tempo durante o qual uma chave pode ser usada. Esse tema é aprofundado na L05 e no M13.
+A segurança depende de como as chaves são geradas, armazenadas, usadas, trocadas e destruídas. O NIST SP 800-57 Part 1 Rev. 5 trata o gerenciamento de chaves e o conceito de **cryptoperiod** — o tempo durante o qual uma chave pode ser usada. Esse tema é aprofundado na Aula 05 e no Módulo 13.
 
 ### Pós-quântica e agilidade criptográfica
 

@@ -1,6 +1,7 @@
 ---
 id: M00-L06
-title: "Cloud computing: modelos de serviço e de implantação"
+title: "Aula 06 — Cloud computing: modelos de serviço e de implantação"
+public_title: "Módulo Inicial — Aula 06 — Cloud computing: modelos de serviço e de implantação"
 description: A definição de cloud computing do NIST — características essenciais, IaaS, PaaS, SaaS e modelos de implantação — e como cada modelo redistribui responsabilidades de segurança entre cliente e provedor.
 domain: cloud-security
 tier: fundamental
@@ -19,12 +20,12 @@ reviewed_by: [Andrews Ferreira]
 module: M00
 ---
 
-# Cloud computing: modelos de serviço e de implantação
+# Aula 06 — Cloud computing: modelos de serviço e de implantação { #cloud-computing-modelos-de-servico-e-de-implantacao }
 
 <div class="saa-lesson-meta" markdown>
-<span class="saa-level">Nível 0 · M00-L06</span>
+<span class="saa-level">Módulo Inicial · Nível 0</span>
 <span class="saa-tier saa-tier--fundamental">Fundamental</span>
-<span class="saa-meta">60 min</span>
+<span class="saa-meta">60 min · ID técnico: M00-L06</span>
 </div>
 
 ## Resumo
@@ -87,7 +88,7 @@ Na prática, os limites são difusos — um banco gerenciado é PaaS, mas o clie
 | **Pública** | O público em geral | Operada por um provedor. |
 | **Híbrida** | Composição de duas ou mais das anteriores | Unidas por tecnologia que permite portabilidade de dados e aplicações. |
 
-O termo **multicloud**, comum hoje, não aparece na definição de 2011: descreve o uso de mais de um provedor público, com ou sem integração entre eles. É tratado no M11.
+O termo **multicloud**, comum hoje, não aparece na definição de 2011: descreve o uso de mais de um provedor público, com ou sem integração entre eles. É tratado no Módulo 11.
 
 ### Responsabilidade compartilhada
 

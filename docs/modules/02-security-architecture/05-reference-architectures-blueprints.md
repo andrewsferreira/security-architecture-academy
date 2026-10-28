@@ -1,6 +1,7 @@
 ---
 id: M02-L05
-title: "Arquiteturas de referência e blueprints"
+title: "Aula 05 — Arquiteturas de referência e blueprints"
+public_title: "Módulo 2 — Aula 05 — Arquiteturas de referência e blueprints"
 description: O que são arquiteturas de referência, blueprints, padrões de desenho e landing zones, como adaptar referências públicas ao contexto da organização e como mantê-las vivas.
 domain: enterprise-architecture
 tier: professional
@@ -19,12 +20,12 @@ reviewed_by: [Andrews Ferreira]
 module: M02
 ---
 
-# Arquiteturas de referência e blueprints
+# Aula 05 — Arquiteturas de referência e blueprints { #arquiteturas-de-referencia-e-blueprints }
 
 <div class="saa-lesson-meta" markdown>
-<span class="saa-level">Nível 1 · M02-L05</span>
+<span class="saa-level">Módulo 2 · Nível 1</span>
 <span class="saa-tier saa-tier--professional">Professional</span>
-<span class="saa-meta">60 min</span>
+<span class="saa-meta">60 min · ID técnico: M02-L05</span>
 </div>
 
 ## Resumo

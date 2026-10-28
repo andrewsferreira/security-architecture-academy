@@ -1,6 +1,7 @@
 ---
 id: M02-L02
-title: "Enterprise, Solution e Security Architecture"
+title: "Aula 02 — Enterprise, Solution e Security Architecture"
+public_title: "Módulo 2 — Aula 02 — Enterprise, Solution e Security Architecture"
 description: Diferença entre arquitetura corporativa, arquitetura de soluções e arquitetura de segurança, como se relacionam, e como a segurança aparece como preocupação transversal nos dois níveis.
 domain: enterprise-architecture
 tier: fundamental
@@ -19,12 +20,12 @@ reviewed_by: [Andrews Ferreira]
 module: M02
 ---
 
-# Enterprise, Solution e Security Architecture
+# Aula 02 — Enterprise, Solution e Security Architecture { #enterprise-solution-e-security-architecture }
 
 <div class="saa-lesson-meta" markdown>
-<span class="saa-level">Nível 1 · M02-L02</span>
+<span class="saa-level">Módulo 2 · Nível 1</span>
 <span class="saa-tier saa-tier--fundamental">Fundamental</span>
-<span class="saa-meta">60 min</span>
+<span class="saa-meta">60 min · ID técnico: M02-L02</span>
 </div>
 
 ## Resumo
@@ -184,7 +185,7 @@ Quando a EA mantém esse catálogo, a arquitetura de uma solução deixa de perg
 | Princípios de segurança dentro dos princípios de arquitetura corporativa | Garantir que decisões de estrutura considerem segurança | TOGAF; guia *Integrating Risk and Security* |
 | Catálogo de serviços de segurança | Reutilizar capacidades e reduzir inconsistência | Guia *Integrating Risk and Security* |
 | Viewpoint de segurança na descrição de arquitetura | Responder às preocupações de segurança dos stakeholders | ISO/IEC/IEEE 42010:2022 |
-| Fórum de arquitetura com papel de segurança | Decidir no nível certo | Detalhado em M16-L06 |
+| Fórum de arquitetura com papel de segurança | Decidir no nível certo | Detalhado em Módulo 16 — Aula 06 |
 | Revisão de conformidade das soluções com a EA | Detectar desvios cedo | Prática de governança de arquitetura |
 
 ## Aplicabilidade: on-premises, cloud e híbrido
@@ -209,7 +210,7 @@ Toda descrição de arquitetura de solução com gatilho de risco deve conter um
 2. **Stakeholders e preocupações de segurança:** quem precisa de que garantias.
 3. **Diagrama de fluxos com trust boundaries:** componentes, fluxos de dados, protocolos e fronteiras de confiança.
 4. **Serviços de segurança consumidos:** quais serviços do catálogo corporativo a solução usa.
-5. **Requisitos de segurança:** derivados do negócio e das ameaças — ver [M02-L07](07-business-driven-requirements.md).
+5. **Requisitos de segurança:** derivados do negócio e das ameaças — ver [Aula 07](07-business-driven-requirements.md).
 6. **Ameaças principais e controles:** resumo do threat model.
 7. **Decisões e desvios:** ADRs e exceções a padrões corporativos.
 8. **Riscos residuais:** o que permanece e quem aceitou.
@@ -316,7 +317,7 @@ Caso contrário, ela pertence à solução e deve ser registrada no ADR do proje
 
     **Risco residual:** a exceção temporária se tornar permanente. Mitigação: prazo explícito, responsável nomeado e revisão no fórum de arquitetura.
 
-    O conceito de CIAM (Customer Identity and Access Management) é aprofundado no M06.
+    O conceito de CIAM (Customer Identity and Access Management) é aprofundado no Módulo 6.
 
 ## Pontos-chave
 

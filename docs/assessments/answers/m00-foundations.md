@@ -1,31 +1,31 @@
 ---
-title: "Gabarito — Avaliação do Módulo 00"
-description: Gabarito comentado da avaliação do Módulo 00, com justificativa das alternativas incorretas, respostas de referência das tarefas e rubrica de correção.
+title: "Gabarito — Avaliação do Módulo Inicial"
+description: Gabarito comentado da avaliação do Módulo Inicial, com justificativa das alternativas incorretas, respostas de referência das tarefas e rubrica de correção.
 status: published
 last_updated: 2026-10-27
 reviewed_by: [Andrews Ferreira]
 ---
 
-# Gabarito — Avaliação do Módulo 00
+# Gabarito — Avaliação do Módulo Inicial { #gabarito-avaliacao-do-modulo-00 }
 
 !!! warning "Responda primeiro"
 
-    Este é o gabarito da [avaliação do Módulo 00](../m00-foundations.md). Faça a avaliação antes de ler.
+    Este é o gabarito da [avaliação do Módulo Inicial](../m00-foundations.md). Faça a avaliação antes de ler.
 
 ## Parte 1 — Respostas comentadas
 
 | Questão | Resposta | Aula |
 |:---|:---|:---|
-| 1 | **c** | M00-L01 |
-| 2 | **a** | M00-L02 |
-| 3 | **d** | M00-L02 |
-| 4 | **b** | M00-L02 |
-| 5 | **c** | M00-L03 |
-| 6 | **a** | M00-L04 |
-| 7 | **d** | M00-L05 |
-| 8 | **b** | M00-L06 |
-| 9 | **a** | M00-L07 |
-| 10 | **c** | M00-L07 |
+| 1 | **c** | Módulo Inicial — Aula 01 |
+| 2 | **a** | Módulo Inicial — Aula 02 |
+| 3 | **d** | Módulo Inicial — Aula 02 |
+| 4 | **b** | Módulo Inicial — Aula 02 |
+| 5 | **c** | Módulo Inicial — Aula 03 |
+| 6 | **a** | Módulo Inicial — Aula 04 |
+| 7 | **d** | Módulo Inicial — Aula 05 |
+| 8 | **b** | Módulo Inicial — Aula 06 |
+| 9 | **a** | Módulo Inicial — Aula 07 |
+| 10 | **c** | Módulo Inicial — Aula 07 |
 
 **1 — (c).** Virtualização isola cargas, mas o hypervisor e quem o administra ficam dentro da fronteira de confiança de todas as VMs que ele hospeda. (a) ignora o hypervisor e sua administração; (b) a VLAN trata da rede, não da camada de virtualização; (d) há impacto de segurança, não só de desempenho.
 
@@ -76,10 +76,10 @@ reviewed_by: [Andrews Ferreira]
 
 | Questões ou tarefa com erro | Revise |
 |:---|:---|
-| 1 | [M00-L01](../../modules/00-foundations/01-computing-os-virtualization.md) |
-| 2, 3, 4, Tarefa 1 | [M00-L02](../../modules/00-foundations/02-tcp-ip-networking.md) e o [Laboratório 00](../../labs/lab-00-network-plan.md) |
-| 5 | [M00-L03](../../modules/00-foundations/03-segmentation-connectivity.md) |
-| 6 | [M00-L04](../../modules/00-foundations/04-datacenter-high-availability.md) |
-| 7 | [M00-L05](../../modules/00-foundations/05-containers-apis-serverless.md) |
-| 8 | [M00-L06](../../modules/00-foundations/06-cloud-computing-models.md) |
-| 9, 10, Tarefa 2 | [M00-L07](../../modules/00-foundations/07-reading-architecture-diagrams.md) |
+| 1 | [Módulo Inicial — Aula 01](../../modules/00-foundations/01-computing-os-virtualization.md) |
+| 2, 3, 4, Tarefa 1 | [Módulo Inicial — Aula 02](../../modules/00-foundations/02-tcp-ip-networking.md) e o [Laboratório 00](../../labs/lab-00-network-plan.md) |
+| 5 | [Módulo Inicial — Aula 03](../../modules/00-foundations/03-segmentation-connectivity.md) |
+| 6 | [Módulo Inicial — Aula 04](../../modules/00-foundations/04-datacenter-high-availability.md) |
+| 7 | [Módulo Inicial — Aula 05](../../modules/00-foundations/05-containers-apis-serverless.md) |
+| 8 | [Módulo Inicial — Aula 06](../../modules/00-foundations/06-cloud-computing-models.md) |
+| 9, 10, Tarefa 2 | [Módulo Inicial — Aula 07](../../modules/00-foundations/07-reading-architecture-diagrams.md) |

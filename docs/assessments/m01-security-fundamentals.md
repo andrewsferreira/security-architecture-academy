@@ -1,16 +1,16 @@
 ---
 id: AS-M01
-title: "Avaliação do Módulo 01 — Fundamentos de Segurança"
-description: Avaliação baseada em competências do Módulo 01 — propriedades de segurança, princípios de design seguro, fronteiras de confiança, criptografia aplicada, PKI e TLS, risco e controles, modelos formais — com duas tarefas de aplicação.
+title: "Avaliação do Módulo 1 — Fundamentos de Segurança"
+description: Avaliação baseada em competências do Módulo 1 — propriedades de segurança, princípios de design seguro, fronteiras de confiança, criptografia aplicada, PKI e TLS, risco e controles, modelos formais — com duas tarefas de aplicação.
 status: published
 last_updated: 2026-10-27
 reviewed_by: [Andrews Ferreira]
 ---
 
-# Avaliação do Módulo 01 — Fundamentos de Segurança
+# Avaliação do Módulo 1 — Fundamentos de Segurança { #avaliacao-do-modulo-01-fundamentos-de-seguranca }
 
 <div class="saa-lesson-meta" markdown>
-<span class="saa-level">Avaliação de módulo · M01</span>
+<span class="saa-level">Avaliação de módulo · Módulo 1</span>
 <span class="saa-tier saa-tier--fundamental">Fundamental</span>
 <span class="saa-meta">60 min · 10 questões + 2 tarefas</span>
 </div>

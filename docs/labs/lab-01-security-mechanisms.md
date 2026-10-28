@@ -1,7 +1,7 @@
 ---
 id: LAB-01
 title: "Laboratório 01 — Mecanismos de segurança na prática"
-description: Laboratório local e gratuito com quatro experimentos curtos — integridade com hashes, autenticidade com HMAC, armazenamento de senhas com e sem sal e autorização por papel e por objeto — que tornam observáveis as propriedades e os mecanismos do Módulo 01.
+description: Laboratório local e gratuito com quatro experimentos curtos — integridade com hashes, autenticidade com HMAC, armazenamento de senhas com e sem sal e autorização por papel e por objeto — que tornam observáveis as propriedades e os mecanismos do Módulo 1.
 domain: security-foundations
 tier: fundamental
 status: published
@@ -39,7 +39,7 @@ reviewed_by: [Andrews Ferreira]
 | Status de teste | **Executado e testado** em 2026-10-23 e novamente em 2026-10-27: os quatro experimentos foram executados em diretório limpo; a ferramenta é verificada por testes automatizados no CI |
 | Arquivos | [`examples/lab-01-security-mechanisms/`](https://github.com/andrewsferreira/security-architecture-academy/tree/main/examples/lab-01-security-mechanisms) |
 
-O Módulo 01 apresentou propriedades — integridade, autenticidade, confidencialidade, autorização — e os mecanismos que as realizam. Aqui você vai **ver** cada mecanismo funcionar e, principalmente, ver **o que ele não garante**. Cada experimento leva 15 a 20 minutos.
+O Módulo 1 apresentou propriedades — integridade, autenticidade, confidencialidade, autorização — e os mecanismos que as realizam. Aqui você vai **ver** cada mecanismo funcionar e, principalmente, ver **o que ele não garante**. Cada experimento leva 15 a 20 minutos.
 
 ## Objetivo
 
@@ -61,12 +61,12 @@ A Meridiana Distribuidora está revisando controles básicos antes de uma audito
 
 ## Arquitetura inicial
 
-| Experimento | Propriedade (M01-L01) | Mecanismo | Aula de apoio |
+| Experimento | Propriedade (Módulo 1 — Aula 01) | Mecanismo | Aula de apoio |
 |:---|:---|:---|:---|
-| `integrity` | Integridade | Hash SHA-256 por arquivo, em um manifesto | [M01-L04](../modules/01-security-fundamentals/04-applied-cryptography.md) |
-| `hmac` | Autenticidade de mensagem | HMAC-SHA256 com chave secreta | M01-L04 |
-| `passwords` | Confidencialidade de credenciais | scrypt com sal versus SHA-256 sem sal | M01-L04 |
-| `authz` | Autorização e separação de funções | Decisão por papel, atributos do objeto e criador | [M01-L01](../modules/01-security-fundamentals/01-security-properties.md) e [M01-L02](../modules/01-security-fundamentals/02-secure-design-principles.md) |
+| `integrity` | Integridade | Hash SHA-256 por arquivo, em um manifesto | [Módulo 1 — Aula 04](../modules/01-security-fundamentals/04-applied-cryptography.md) |
+| `hmac` | Autenticidade de mensagem | HMAC-SHA256 com chave secreta | Módulo 1 — Aula 04 |
+| `passwords` | Confidencialidade de credenciais | scrypt com sal versus SHA-256 sem sal | Módulo 1 — Aula 04 |
+| `authz` | Autorização e separação de funções | Decisão por papel, atributos do objeto e criador | [Módulo 1 — Aula 01](../modules/01-security-fundamentals/01-security-properties.md) e [Módulo 1 — Aula 02](../modules/01-security-fundamentals/02-secure-design-principles.md) |
 
 ## Passo a passo
 
@@ -142,10 +142,10 @@ python3 seclab.py authz demo
 
 ## Perguntas arquiteturais
 
-1. Em que tipo de sistema um manifesto de hashes é suficiente, e em que tipo você precisaria de assinatura digital (M01-L05)?
+1. Em que tipo de sistema um manifesto de hashes é suficiente, e em que tipo você precisaria de assinatura digital (Módulo 1 — Aula 05)?
 2. O parceiro e a Meridiana compartilham a chave do HMAC. O HMAC oferece **não repúdio**? Por quê?
 3. O sistema legado não pode ser alterado nos próximos seis meses. Que controles compensatórios você propõe para a base de senhas sem sal?
-4. A regra "quem cria não aprova" é um exemplo de qual princípio de design seguro (M01-L02)?
+4. A regra "quem cria não aprova" é um exemplo de qual princípio de design seguro (Módulo 1 — Aula 02)?
 5. Onde, em uma arquitetura real, deveria ficar a decisão de autorização por objeto — no front-end, na API ou no banco? Justifique.
 
 ## Explicação do resultado

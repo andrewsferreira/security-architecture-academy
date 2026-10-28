@@ -39,7 +39,7 @@ reviewed_by: [Andrews Ferreira]
 | Status de teste | **Executado e testado** em 2026-10-23 e novamente em 2026-10-27: passos executados em diretório limpo; ferramenta e planos verificados por testes automatizados no CI |
 | Arquivos | [`examples/lab-00-network-plan/`](https://github.com/andrewsferreira/security-architecture-academy/tree/main/examples/lab-00-network-plan) |
 
-Você vai revisar o **plano de rede** da Meridiana — os blocos de endereços de cada ambiente, as zonas e os fluxos permitidos entre elas — com uma pequena ferramenta que aplica regras de revisão. Depois, vai reescrever o plano até eliminar os problemas graves. O objetivo é praticar o que o Módulo 00 ensinou: **endereçamento é decisão de arquitetura**, segmentação separa funções e cada fluxo entre zonas precisa ter porta e finalidade.
+Você vai revisar o **plano de rede** da Meridiana — os blocos de endereços de cada ambiente, as zonas e os fluxos permitidos entre elas — com uma pequena ferramenta que aplica regras de revisão. Depois, vai reescrever o plano até eliminar os problemas graves. O objetivo é praticar o que o Módulo Inicial ensinou: **endereçamento é decisão de arquitetura**, segmentação separa funções e cada fluxo entre zonas precisa ter porta e finalidade.
 
 ## Objetivo
 
@@ -85,11 +85,11 @@ As regras da ferramenta, em resumo:
 
 | Regra | O que verifica | Aula relacionada |
 |:---|:---|:---|
-| AD-01 | Blocos de ambientes diferentes não podem se sobrepor | [M00-L02](../modules/00-foundations/02-tcp-ip-networking.md) |
-| AD-02, AD-03 | Zonas dentro do bloco do ambiente e sem sobreposição entre si | M00-L02 |
-| AD-04 | Faixas internas privadas (RFC 1918) | M00-L02 |
-| SG-01, SG-02 | Zonas grandes demais e mistura de usuários, servidores e gestão | [M00-L03](../modules/00-foundations/03-segmentation-connectivity.md) |
-| FL-01 a FL-04 | Fluxos com qualquer porta, origem não confiável em zona interna, fluxo sem finalidade e administração fora da zona de gestão | M00-L03 e [M00-L07](../modules/00-foundations/07-reading-architecture-diagrams.md) |
+| AD-01 | Blocos de ambientes diferentes não podem se sobrepor | [Módulo Inicial — Aula 02](../modules/00-foundations/02-tcp-ip-networking.md) |
+| AD-02, AD-03 | Zonas dentro do bloco do ambiente e sem sobreposição entre si | Módulo Inicial — Aula 02 |
+| AD-04 | Faixas internas privadas (RFC 1918) | Módulo Inicial — Aula 02 |
+| SG-01, SG-02 | Zonas grandes demais e mistura de usuários, servidores e gestão | [Módulo Inicial — Aula 03](../modules/00-foundations/03-segmentation-connectivity.md) |
+| FL-01 a FL-04 | Fluxos com qualquer porta, origem não confiável em zona interna, fluxo sem finalidade e administração fora da zona de gestão | Módulo Inicial — Aula 03 e [Módulo Inicial — Aula 07](../modules/00-foundations/07-reading-architecture-diagrams.md) |
 
 ## Passo a passo
 
@@ -183,7 +183,7 @@ python3 netplan.py solutions/meridiana-to-be.json
 
     **Endereçamento é decisão de arquitetura.** A sobreposição `10.0.0.0/16` entre datacenter e nuvem parece inofensiva até a primeira integração: a partir daí, ou se renumera um dos lados, ou se usa NAT entre ambientes — e cada endereço passa a significar coisas diferentes conforme a origem, dificultando regras e investigações.
 
-    **Rede plana é ausência de fronteira.** Uma zona com usuários, servidores e gestão permite que qualquer estação comprometida alcance tudo. Separar por função cria as fronteiras onde os controles do M00-L03 podem atuar.
+    **Rede plana é ausência de fronteira.** Uma zona com usuários, servidores e gestão permite que qualquer estação comprometida alcance tudo. Separar por função cria as fronteiras onde os controles do Módulo Inicial — Aula 03 podem atuar.
 
     **Fluxo "any" é uma decisão adiada.** Quase sempre alguém sabe quais portas são necessárias; o trabalho do arquiteto é obter essa informação e registrar a finalidade, para que o fluxo possa ser revisado depois.
 

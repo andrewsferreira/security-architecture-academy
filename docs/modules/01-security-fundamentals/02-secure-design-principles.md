@@ -1,6 +1,7 @@
 ---
 id: M01-L02
-title: "Princípios de design seguro"
+title: "Aula 02 — Princípios de design seguro"
+public_title: "Módulo 1 — Aula 02 — Princípios de design seguro"
 description: Os princípios que orientam decisões de arquitetura — least privilege, defense in depth, fail-safe defaults, complete mediation, separation of duties, economy of mechanism, open design e minimal trusted elements — e como aplicá-los sem transformá-los em slogans.
 domain: security-foundations
 tier: fundamental
@@ -19,12 +20,12 @@ reviewed_by: [Andrews Ferreira]
 module: M01
 ---
 
-# Princípios de design seguro
+# Aula 02 — Princípios de design seguro { #principios-de-design-seguro }
 
 <div class="saa-lesson-meta" markdown>
-<span class="saa-level">Nível 0 · M01-L02</span>
+<span class="saa-level">Módulo 1 · Nível 0</span>
 <span class="saa-tier saa-tier--fundamental">Fundamental</span>
-<span class="saa-meta">75 min</span>
+<span class="saa-meta">75 min · ID técnico: M01-L02</span>
 </div>
 
 ## Resumo
@@ -52,7 +53,7 @@ A referência normativa atual mais completa é o **Apêndice E** da NIST SP 800-
 
 ### O que é — e o que não é — um princípio
 
-Um princípio **orienta uma escolha** quando há mais de um caminho. Ele não é verificável diretamente: verifica-se se as decisões o respeitam (tema da [M02-L04](../02-security-architecture/04-principles-standards-baselines-exceptions.md)). "Segurança em primeiro lugar" não é um princípio — não ajuda a escolher nada. "Negar por padrão" é: diante de uma regra de firewall ou de uma permissão nova, diz qual é o ponto de partida.
+Um princípio **orienta uma escolha** quando há mais de um caminho. Ele não é verificável diretamente: verifica-se se as decisões o respeitam (tema da [Aula 04 do Módulo 2](../02-security-architecture/04-principles-standards-baselines-exceptions.md)). "Segurança em primeiro lugar" não é um princípio — não ajuda a escolher nada. "Negar por padrão" é: diante de uma regra de firewall ou de uma permissão nova, diz qual é o ponto de partida.
 
 ## Fundamentos técnicos
 
@@ -135,7 +136,7 @@ Os princípios são independentes de ambiente. Em cloud, ganham mecanismos poder
 
 - **Antipadrão — princípio-slogan:** citado sem consequência prática.
 - **Antipadrão — camadas dependentes chamadas de defense in depth.**
-- **Limitação:** princípios não dizem quanto investir — isso vem do risco (L06) e do negócio.
+- **Limitação:** princípios não dizem quanto investir — isso vem do risco (Aula 06) e do negócio.
 
 ## Como validar
 

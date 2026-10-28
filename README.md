@@ -32,7 +32,7 @@
 </div>
 
 > [!NOTE]
-> **Publicação progressiva por nível.** A Academy é lançada em três releases cumulativas — **Fundamentals** (M00–M02), **Professional** (M03–M15) e **Architect** (M16, M17 e complemento de IA). Cada release só entra no portal depois de concluída, validada e revisada pelo mantenedor. O estado de cada uma está no [ROADMAP.md](ROADMAP.md) e no [portal](https://andrewsferreira.github.io/security-architecture-academy/); o currículo completo, em [CURRICULUM.md](CURRICULUM.md).
+> **Publicação progressiva por nível.** A Academy é lançada em três releases cumulativas — **Fundamentals** (Módulo Inicial ao Módulo 2), **Professional** (Módulos 3 a 15) e **Architect** (Módulos 16 e 17 e complemento de IA). Cada release só entra no portal depois de concluída, validada e revisada pelo mantenedor. O estado de cada uma está no [ROADMAP.md](ROADMAP.md) e no [portal](https://andrewsferreira.github.io/security-architecture-academy/); o currículo completo, em [CURRICULUM.md](CURRICULUM.md).
 
 ---
 
@@ -63,12 +63,12 @@ flowchart LR
   accTitle: Jornada de aprendizagem em seis níveis
   accDescr: A formação evolui do Nível 0, fundamentos de tecnologia e segurança, ao Nível 1, fundamentos de arquitetura, passando pelos Níveis 2 e 3, arquiteturas de infraestrutura, cloud e híbridas, e pelo Nível 4, segurança aplicada, até o Nível 5, arquitetura corporativa avançada e projeto final.
 
-  N0["Nível 0<br/><small>Fundamentos de tecnologia e segurança<br/>M00–M01</small>"]
-  N1["Nível 1<br/><small>Fundamentos de arquitetura<br/>M02–M04</small>"]
-  N2["Nível 2<br/><small>Arquiteturas de infraestrutura<br/>M05–M08</small>"]
-  N3["Nível 3<br/><small>Cloud e híbrido<br/>M09–M11</small>"]
-  N4["Nível 4<br/><small>Segurança aplicada<br/>M12–M15</small>"]
-  N5["Nível 5<br/><small>Arquitetura corporativa<br/>M16–M17</small>"]
+  N0["Nível 0<br/><small>Fundamentos de tecnologia e segurança<br/>Módulo Inicial e Módulo 1</small>"]
+  N1["Nível 1<br/><small>Fundamentos de arquitetura<br/>Módulos 2 a 4</small>"]
+  N2["Nível 2<br/><small>Arquiteturas de infraestrutura<br/>Módulos 5 a 8</small>"]
+  N3["Nível 3<br/><small>Cloud e híbrido<br/>Módulos 9 a 11</small>"]
+  N4["Nível 4<br/><small>Segurança aplicada<br/>Módulos 12 a 15</small>"]
+  N5["Nível 5<br/><small>Arquitetura corporativa<br/>Módulos 16 e 17</small>"]
   N0 --> N1 --> N2 --> N3 --> N4 --> N5
 
   classDef identity stroke:#2f74e8,stroke-width:2px
@@ -79,24 +79,24 @@ flowchart LR
 
 | Release | Módulos | Pergunta central | Entregável típico |
 |:---|:---|:---|:---|
-| **1 — Fundamentals** | M00–M02 | *O que proteger, por quê e como raciocinar como arquiteto?* | Diagramas comentados, requisitos e análise de riscos |
-| **2 — Professional** | M03–M15 | *Como proteger este domínio em on-premises, cloud e híbrido?* | Threat model, desenho de controles e ADRs |
-| **3 — Architect** | M16, M17, C01 | *Como proteger a organização de forma coerente?* | Reference architecture, roadmap e defesa executiva |
+| **1 — Fundamentals** | Módulo Inicial ao Módulo 2 | *O que proteger, por quê e como raciocinar como arquiteto?* | Diagramas comentados, requisitos e análise de riscos |
+| **2 — Professional** | Módulos 3 a 15 | *Como proteger este domínio em on-premises, cloud e híbrido?* | Threat model, desenho de controles e ADRs |
+| **3 — Architect** | Módulos 16 e 17, C01 | *Como proteger a organização de forma coerente?* | Reference architecture, roadmap e defesa executiva |
 
 As trilhas transversais por profundidade (Fundamental, Professional, Architect) continuam valendo para cada aula — ver [Learning Paths](docs/learning-paths/index.md).
 
 ## Curriculum Overview
 
-**18 módulos (M00–M17), 135 aulas e um complemento**, organizados em seis níveis. A estrutura completa — aulas, pré-requisitos, laboratórios, estudos de caso e avaliações — está em [CURRICULUM.md](CURRICULUM.md), gerado a partir de [`curriculum/manifest.yml`](curriculum/manifest.yml).
+**18 módulos (Módulo Inicial ao Módulo 17), 135 aulas e um complemento**, organizados em seis níveis. A estrutura completa — aulas, pré-requisitos, laboratórios, estudos de caso e avaliações — está em [CURRICULUM.md](CURRICULUM.md), gerado a partir de [`curriculum/manifest.yml`](curriculum/manifest.yml).
 
 | Nível | Módulos |
 |:---|:---|
-| **0 — Fundamentos de tecnologia e segurança** | M00 Fundamentos de Infraestrutura e Computação · M01 Fundamentos de Segurança |
-| **1 — Fundamentos de arquitetura** | M02 Introdução à Arquitetura de Segurança · M03 Governança, Riscos e Controles · M04 Métodos de Design e Threat Modeling |
-| **2 — Arquiteturas de infraestrutura** | M05 Network Security Architecture · M06 Identity & Access Management · M07 Zero Trust Architecture · M08 On-Premises e Sistemas Legados |
-| **3 — Cloud e híbrido** | M09 AWS Security Architecture · M10 Azure e Google Cloud · M11 Hybrid & Multicloud Security Architecture |
-| **4 — Segurança aplicada** | M12 Application Security Architecture · M13 Data Security Architecture · M14 Vulnerability & Exposure Management Architecture · M15 Security Operations & Resilience Architecture |
-| **5 — Arquitetura corporativa** | M16 Enterprise Security Architecture · M17 Estudos de Caso e Projeto Final |
+| **0 — Fundamentos de tecnologia e segurança** | Módulo Inicial — Fundamentos de Infraestrutura e Computação · Módulo 1 — Fundamentos de Segurança |
+| **1 — Fundamentos de arquitetura** | Módulo 2 — Introdução à Arquitetura de Segurança · Módulo 3 — Governança, Riscos e Controles · Módulo 4 — Métodos de Design e Threat Modeling |
+| **2 — Arquiteturas de infraestrutura** | Módulo 5 — Network Security Architecture · Módulo 6 — Identity & Access Management · Módulo 7 — Zero Trust Architecture · Módulo 8 — On-Premises e Sistemas Legados |
+| **3 — Cloud e híbrido** | Módulo 9 — AWS Security Architecture · Módulo 10 — Azure e Google Cloud · Módulo 11 — Hybrid & Multicloud Security Architecture |
+| **4 — Segurança aplicada** | Módulo 12 — Application Security Architecture · Módulo 13 — Data Security Architecture · Módulo 14 — Vulnerability & Exposure Management Architecture · Módulo 15 — Security Operations & Resilience Architecture |
+| **5 — Arquitetura corporativa** | Módulo 16 — Enterprise Security Architecture · Módulo 17 — Estudos de Caso e Projeto Final |
 | **Complemento** | C01 Segurança de IA/LLM e identidades não humanas |
 
 ## Architecture Domains
@@ -135,16 +135,16 @@ O portal é publicado no GitHub Pages:
 
 **<https://andrewsferreira.github.io/security-architecture-academy/>**
 
-Ele oferece busca, modo claro e escuro, navegação por níveis e domínios e o [Handbook](https://andrewsferreira.github.io/security-architecture-academy/internal/) com o Design System, o guia editorial e o modelo de conteúdo.
+Ele oferece busca, modo claro e escuro e navegação por níveis e domínios.
 
 ## Learning Roadmap
 
 | Release | Escopo | Versão |
 |:---|:---|:---|
 | Fundação da plataforma | Portal, design system, CI/CD, Research Library | — |
-| 1 — Fundamentals | M00–M02, Laboratórios 00–02, Caso A, avaliações de módulo e avaliação final integradora | v0.1.0 |
-| 2 — Professional | M03–M15, Casos B, C e E, avaliação intermediária | v0.2.0 |
-| 3 — Architect | M16, M17, complemento de IA, Caso D, avaliações final e avançada | v0.3.0 |
+| 1 — Fundamentals | Módulo Inicial ao Módulo 2, Laboratórios 00–02, Caso A, avaliações de módulo e avaliação final integradora | v0.1.0 |
+| 2 — Professional | Módulos 3 a 15, Casos B, C e E, avaliação intermediária | v0.2.0 |
+| 3 — Architect | Módulos 16 e 17, complemento de IA, Caso D, avaliações final e avançada | v0.3.0 |
 
 O estado de cada release e o que vem a seguir estão no [ROADMAP.md](ROADMAP.md); as mudanças publicadas, no [CHANGELOG.md](CHANGELOG.md).
 
@@ -158,13 +158,10 @@ security-architecture-academy/
 │   ├── labs/             # Enunciados dos laboratórios
 │   ├── assessments/      # Avaliações e gabaritos (answers/)
 │   ├── artifacts/        # Modelos para o estudante (ADR, requisitos, revisão)
-│   ├── internal/         # Handbook: Design System, guia editorial, modelo de conteúdo
 │   └── assets/           # CSS, fontes auto-hospedadas, imagens e cópia da marca
 ├── curriculum/
 │   └── manifest.yml      # Fonte única do currículo e dos status editoriais
 ├── research/             # Research Library: bibliografia, mapa de conhecimento, notas de leitura
-├── private-research/     # Cópias locais de obras de terceiros (ignorada pelo git)
-├── authoring/            # Templates de autoria (não publicados)
 ├── examples/             # Código dos laboratórios, com testes
 ├── assets/
 │   ├── branding/         # Marca (fonte)
@@ -175,7 +172,6 @@ security-architecture-academy/
 ├── tests/                # Testes dos scripts
 ├── GETTING-STARTED.md    # Como estudar com a Academy
 ├── CURRICULUM.md         # Currículo completo (gerado)
-├── PROJECT-STANDARDS.md  # Padrões editoriais, técnicos e de publicação
 └── zensical.toml         # Configuração do portal
 ```
 
@@ -193,15 +189,15 @@ make serve       # http://localhost:8000/security-architecture-academy/
 make validate    # estrutura, manifesto, assets, contraste, build e links
 ```
 
-Sem `make`, veja os comandos equivalentes em [Desenvolvimento local](docs/getting-started/local-development.md).
+Sem `make`: `python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements-dev.txt` e depois `python -m zensical serve`.
 
 ## Contributing
 
 Contribuições são bem-vindas — correções, sugestões de conteúdo, melhorias de diagramas e revisões técnicas.
 
 1. Abra uma [issue](https://github.com/andrewsferreira/security-architecture-academy/issues/new/choose) usando um dos formulários.
-2. Siga o [CONTRIBUTING.md](CONTRIBUTING.md), o [Guia editorial](docs/internal/style-guide.md) e o [Design System](docs/internal/design-system.md).
-3. Abra um Pull Request — o CI valida estrutura, links, diagramas e acessibilidade automaticamente.
+2. Siga o [CONTRIBUTING.md](CONTRIBUTING.md): as propostas são incorporadas no repositório de desenvolvimento e publicadas na versão seguinte.
+3. O CI valida estrutura, links, diagramas e a integridade de cada arquivo publicado.
 
 Este projeto adota um [Código de Conduta](CODE_OF_CONDUCT.md). Para reportar vulnerabilidades, veja a [política de segurança](SECURITY.md).
 

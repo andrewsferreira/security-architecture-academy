@@ -318,6 +318,71 @@ class Validator:
                         self.err(f"{where}: {iid} não está 'published' no manifesto")
             elif rel.get("published_on") or rel.get("url") or rel.get("public_commit"):
                 self.err(f"{where}: published_on, url e public_commit só podem ser preenchidos após a publicação")
+            self.check_patches(where, rel)
+
+    def check_patches(self, where: str, rel: dict[str, Any]) -> None:
+        """Versões de correção (``patches``) de uma release já publicada.
+
+        Cada correção tem versão própria (mesmo MAJOR.MINOR, PATCH crescente), aprovação e commit
+        próprios — o commit aprovado não pode repetir o de uma publicação anterior — e só a última
+        pode estar em preparo. A primeira publicação, nos campos da release, permanece como histórico.
+        """
+        patches = rel.get("patches")
+        if patches is None:
+            return
+        if not isinstance(patches, list) or not patches:
+            self.err(f"{where}: patches deve ser uma lista não vazia")
+            return
+        if rel.get("status") != "published":
+            self.err(f"{where}: versões de correção exigem a release publicada")
+        base = str(rel.get("version", ""))
+        major_minor, last_patch = base.rsplit(".", 1)[0], int(base.rsplit(".", 1)[1]) if re.fullmatch(r"\d+\.\d+\.\d+", base) else -1
+        commits = {str(rel.get("approved_source_commit"))}
+        last_date = rel.get("published_on")
+        for index, patch in enumerate(patches):
+            pwhere = f"{where} v{patch.get('version')}"
+            version = str(patch.get("version", ""))
+            if not re.fullmatch(r"\d+\.\d+\.\d+", version) or version.rsplit(".", 1)[0] != major_minor:
+                self.err(f"{pwhere}: versão de correção deve ser {major_minor}.N")
+                continue
+            number = int(version.rsplit(".", 1)[1])
+            if number <= last_patch:
+                self.err(f"{pwhere}: versão deve ser maior que a anterior ({major_minor}.{last_patch})")
+            last_patch = number
+            candidate = patch.get("candidate")
+            if candidate and not str(candidate).startswith(f"v{version}-"):
+                self.err(f"{pwhere}: candidate deve ser uma pré-versão de v{version}")
+            status = patch.get("status")
+            if status not in {"in-development", "in-review", "approved", "published"}:
+                self.err(f"{pwhere}: status inválido {status!r}")
+            if status != "published" and index != len(patches) - 1:
+                self.err(f"{pwhere}: só a última versão de correção pode estar em preparo")
+            source = patch.get("approved_source_commit")
+            if source and not re.fullmatch(r"[0-9a-f]{40}", str(source)):
+                self.err(f"{pwhere}: approved_source_commit deve ser o SHA completo do commit aprovado")
+            if status in {"approved", "published"}:
+                if not source:
+                    self.err(f"{pwhere}: status '{status}' exige approved_source_commit próprio")
+                elif str(source) in commits:
+                    self.err(f"{pwhere}: approved_source_commit repete o de uma publicação anterior")
+                if not patch.get("approved_by"):
+                    self.err(f"{pwhere}: status '{status}' exige approved_by (registrado pelo mantenedor)")
+                if not isinstance(patch.get("approved_on"), dt.date):
+                    self.err(f"{pwhere}: status '{status}' exige approved_on (AAAA-MM-DD)")
+            elif source or patch.get("approved_by") or patch.get("approved_on"):
+                self.err(f"{pwhere}: aprovação só pode ser registrada com status 'approved'")
+            commits.add(str(source))
+            if status == "published":
+                if not isinstance(patch.get("published_on"), dt.date):
+                    self.err(f"{pwhere}: versão publicada exige published_on (AAAA-MM-DD)")
+                elif isinstance(last_date, dt.date) and patch["published_on"] < last_date:
+                    self.err(f"{pwhere}: published_on anterior à publicação precedente")
+                else:
+                    last_date = patch["published_on"]
+                if not re.fullmatch(r"[0-9a-f]{40}", str(patch.get("public_commit") or "")):
+                    self.err(f"{pwhere}: versão publicada exige public_commit (SHA completo)")
+            elif patch.get("published_on") or patch.get("public_commit"):
+                self.err(f"{pwhere}: published_on e public_commit só podem ser preenchidos após a publicação")
 
     def run(self) -> Report:
         self.check_header()

@@ -43,7 +43,7 @@ hide:
 
 !!! success "Disponível agora"
 
-    A Academy é disponibilizada progressivamente, por nível. Publicado: **v0.1.0 — Fundamentals**. Os níveis seguintes entram no portal somente depois de concluídos e revisados.
+    A Academy é disponibilizada progressivamente, por nível. Publicado: **v0.1.1 — Fundamentals**. Os níveis seguintes entram no portal somente depois de concluídos e revisados.
 
 [Começar pelos Fundamentals](modules/00-foundations/01-computing-os-virtualization.md){ .md-button .md-button--primary }
 [Ver o currículo](curriculum/index.md){ .md-button }
@@ -54,9 +54,9 @@ hide:
 
 ### Fundamentals
 
-**Módulos 00 a 02.** Infraestrutura, fundamentos de segurança e introdução à arquitetura de segurança, com laboratórios, estudo de caso e avaliação final integradora.
+**Módulo Inicial, Módulo 1 e Módulo 2.** Infraestrutura, fundamentos de segurança e introdução à arquitetura de segurança, com laboratórios, estudo de caso e avaliação final integradora.
 
-<span class="saa-status saa-status--published">Disponível</span> <span class="saa-meta">v0.1.0</span>
+<span class="saa-status saa-status--published">Disponível</span> <span class="saa-meta">v0.1.1</span>
 
 </div>
 
@@ -64,7 +64,7 @@ hide:
 
 ### Professional
 
-**Módulos 03 a 15.** Governança, threat modeling, rede, identidade, Zero Trust, legados, AWS, Azure, Google Cloud, híbrido, aplicações, dados, vulnerabilidades e operações.
+**Módulos 3 a 15.** Governança, threat modeling, rede, identidade, Zero Trust, legados, AWS, Azure, Google Cloud, híbrido, aplicações, dados, vulnerabilidades e operações.
 
 <span class="saa-status saa-status--draft">Em desenvolvimento</span> <span class="saa-meta">v0.2.0</span>
 
@@ -240,8 +240,8 @@ Estudos de caso, ADRs e uma reference architecture como projeto final.
 
     Propósito, princípios e o que esperar da formação.
 
--   :lucide-git-pull-request:{ .lg .saa-card-icon } **[Contribuir](internal/workflow.md)**
+-   :lucide-git-pull-request:{ .lg .saa-card-icon } **[Contribuir](https://github.com/andrewsferreira/security-architecture-academy/blob/main/CONTRIBUTING.md)**
 
-    Fluxo de contribuição, padrões editoriais e Design System.
+    Como propor correções e conteúdo, e como as propostas chegam ao portal.
 
 </div>

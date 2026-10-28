@@ -9,7 +9,7 @@ reviewed_by: [Andrews Ferreira]
 
 # Modelo: Security Requirements Specification
 
-A especificação de requisitos de segurança transforma objetivos de negócio, ameaças e obrigações em requisitos verificáveis. Fundamentos na aula [M02-L07](../modules/02-security-architecture/07-business-driven-requirements.md).
+A especificação de requisitos de segurança transforma objetivos de negócio, ameaças e obrigações em requisitos verificáveis. Fundamentos na [Aula 07 do Módulo 2](../modules/02-security-architecture/07-business-driven-requirements.md).
 
 ## Modelo
 
@@ -87,4 +87,4 @@ A especificação de requisitos de segurança transforma objetivos de negócio, 
 ## Exemplos preenchidos
 
 - [Requisitos de segurança do Caso A — Meridiana](../case-studies/case-a-meridiana/solution.md#requisitos-de-seguranca)
-- [Matriz de rastreabilidade do pagamento por link](../modules/02-security-architecture/07-business-driven-requirements.md#exemplo-empresarial), na aula M02-L07
+- [Matriz de rastreabilidade do pagamento por link](../modules/02-security-architecture/07-business-driven-requirements.md#exemplo-empresarial), na Aula 07 do Módulo 2

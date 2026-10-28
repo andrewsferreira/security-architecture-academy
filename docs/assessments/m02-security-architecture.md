@@ -1,16 +1,16 @@
 ---
 id: AS-M02
-title: "Avaliação do Módulo 02 — Introdução à Arquitetura de Segurança"
-description: Avaliação baseada em competências do Módulo 02 — questões situacionais, análise de diagrama, classificação de níveis, reescrita de requisitos e defesa de decisão sob restrição de orçamento.
+title: "Avaliação do Módulo 2 — Introdução à Arquitetura de Segurança"
+description: Avaliação baseada em competências do Módulo 2 — questões situacionais, análise de diagrama, classificação de níveis, reescrita de requisitos e defesa de decisão sob restrição de orçamento.
 status: published
 last_updated: 2026-10-27
 reviewed_by: [Andrews Ferreira]
 ---
 
-# Avaliação do Módulo 02 — Introdução à Arquitetura de Segurança
+# Avaliação do Módulo 2 — Introdução à Arquitetura de Segurança { #avaliacao-do-modulo-02-introducao-a-arquitetura-de-seguranca }
 
 <div class="saa-lesson-meta" markdown>
-<span class="saa-level">Avaliação de módulo · M02</span>
+<span class="saa-level">Avaliação de módulo · Módulo 2</span>
 <span class="saa-tier saa-tier--professional">Professional → Architect</span>
 <span class="saa-meta">90 min · 10 questões + 4 tarefas</span>
 </div>
@@ -106,7 +106,7 @@ A equipe de uma varejista propõe a arquitetura abaixo para um novo serviço de 
 --8<-- "assets/diagrams/assessment-m02-task1.mmd"
 ```
 
-<figcaption>Figura 1 — Arquitetura proposta para análise na avaliação do Módulo 02.</figcaption>
+<figcaption>Figura 1 — Arquitetura proposta para análise na avaliação do Módulo 2.</figcaption>
 </figure>
 
 Identifique **quatro problemas de arquitetura de segurança**. Para cada um, indique a fronteira ou o componente afetado, o risco em linguagem de negócio e uma recomendação **no nível lógico**.

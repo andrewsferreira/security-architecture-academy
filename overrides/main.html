@@ -2,6 +2,8 @@
   Security Architecture Academy — extensão mínima do tema.
   Apenas acrescenta metadados de compartilhamento (Open Graph / Twitter Card)
   e o ícone para dispositivos Apple. Nenhum bloco visual do tema é substituído.
+  Aulas têm `public_title` (gerado por scripts/render_curriculum.py): o título completo,
+  com o módulo, vai para a janela do navegador e para o compartilhamento.
 -#}
 {% extends "base.html" %}
 
@@ -9,6 +11,8 @@
 {% block htmltitle %}
   {% if page.url == "" %}
     <title>{{ config.site_name }} — Enterprise, Cloud &amp; Hybrid Security Architecture</title>
+  {% elif page.meta and page.meta.public_title %}
+    <title>{{ page.meta.public_title }} - {{ config.site_name }}</title>
   {% else %}
     {{ super() }}
   {% endif %}
@@ -17,6 +21,8 @@
 {% block extrahead %}
   {% if page.url == "" %}
     {% set og_title = config.site_name %}
+  {% elif page.meta and page.meta.public_title %}
+    {% set og_title = page.meta.public_title ~ " · " ~ config.site_name %}
   {% elif page.meta and page.meta.title %}
     {% set og_title = page.meta.title ~ " · " ~ config.site_name %}
   {% elif page.title %}

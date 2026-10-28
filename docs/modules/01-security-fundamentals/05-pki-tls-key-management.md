@@ -1,6 +1,7 @@
 ---
 id: M01-L05
-title: "PKI, certificados, TLS e gerenciamento de chaves"
+title: "Aula 05 — PKI, certificados, TLS e gerenciamento de chaves"
+public_title: "Módulo 1 — Aula 05 — PKI, certificados, TLS e gerenciamento de chaves"
 description: Como a infraestrutura de chaves públicas estabelece confiança, como o TLS a usa, por que certificados de validade cada vez mais curta exigem automação e como gerenciar o ciclo de vida de chaves e certificados em escala.
 domain: security-foundations
 tier: fundamental
@@ -19,12 +20,12 @@ reviewed_by: [Andrews Ferreira]
 module: M01
 ---
 
-# PKI, certificados, TLS e gerenciamento de chaves
+# Aula 05 — PKI, certificados, TLS e gerenciamento de chaves { #pki-certificados-tls-e-gerenciamento-de-chaves }
 
 <div class="saa-lesson-meta" markdown>
-<span class="saa-level">Nível 0 · M01-L05</span>
+<span class="saa-level">Módulo 1 · Nível 0</span>
 <span class="saa-tier saa-tier--fundamental">Fundamental</span>
-<span class="saa-meta">75 min</span>
+<span class="saa-meta">75 min · ID técnico: M01-L05</span>
 </div>
 
 ## Resumo
@@ -222,7 +223,7 @@ O NIST SP 800-57 Part 1 Rev. 5 orienta o gerenciamento de chaves ao longo do cic
     - **B** autentica os dois lados sem segredo compartilhado e protege o canal; exige PKI interna e automação.
     - **C** traz autorização com escopo (o token diz o que o serviço pode fazer) e integra com a identidade corporativa; exige que o serviço de pagamentos valide tokens.
 
-    Em arquiteturas maduras, **B e C se combinam**: mTLS autentica o canal e a identidade do workload; o token carrega a autorização. A escolha inicial depende da infraestrutura já disponível — o tema volta no M06 e no M12.
+    Em arquiteturas maduras, **B e C se combinam**: mTLS autentica o canal e a identidade do workload; o token carrega a autorização. A escolha inicial depende da infraestrutura já disponível — o tema volta no Módulo 6 e no Módulo 12.
 
 ## Pontos-chave
 

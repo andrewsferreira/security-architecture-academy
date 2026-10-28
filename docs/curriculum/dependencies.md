@@ -16,39 +16,39 @@ flowchart TB
 
   subgraph N0["Nível 0 — Fundamentos de Tecnologia e Segurança"]
     direction LR
-    M00["M00 · Fundamentos de Infraestrutura e Computação"]
-    M01["M01 · Fundamentos de Segurança"]
+    M00["Módulo Inicial · Fundamentos de Infraestrutura e Computação"]
+    M01["Módulo 1 · Fundamentos de Segurança"]
   end
   subgraph N1["Nível 1 — Fundamentos de Arquitetura"]
     direction LR
-    M02["M02 · Introdução à Arquitetura de Segurança"]
-    M03["M03 · Governança, Riscos e Controles"]
-    M04["M04 · Métodos de Design e Threat Modeling"]
+    M02["Módulo 2 · Introdução à Arquitetura de Segurança"]
+    M03["Módulo 3 · Governança, Riscos e Controles"]
+    M04["Módulo 4 · Métodos de Design e Threat Modeling"]
   end
   subgraph N2["Nível 2 — Arquiteturas de Infraestrutura"]
     direction LR
-    M05["M05 · Network Security Architecture"]
-    M06["M06 · Identity & Access Management"]
-    M07["M07 · Zero Trust Architecture"]
-    M08["M08 · On-Premises e Sistemas Legados"]
+    M05["Módulo 5 · Network Security Architecture"]
+    M06["Módulo 6 · Identity & Access Management"]
+    M07["Módulo 7 · Zero Trust Architecture"]
+    M08["Módulo 8 · On-Premises e Sistemas Legados"]
   end
   subgraph N3["Nível 3 — Arquitetura Cloud e Híbrida"]
     direction LR
-    M09["M09 · AWS Security Architecture"]
-    M10["M10 · Azure e Google Cloud"]
-    M11["M11 · Hybrid & Multicloud Security Architecture"]
+    M09["Módulo 9 · AWS Security Architecture"]
+    M10["Módulo 10 · Azure e Google Cloud"]
+    M11["Módulo 11 · Hybrid & Multicloud Security Architecture"]
   end
   subgraph N4["Nível 4 — Arquitetura de Segurança Aplicada"]
     direction LR
-    M12["M12 · Application Security Architecture"]
-    M13["M13 · Data Security Architecture"]
-    M14["M14 · Vulnerability & Exposure Management Architecture"]
-    M15["M15 · Security Operations & Resilience Architecture"]
+    M12["Módulo 12 · Application Security Architecture"]
+    M13["Módulo 13 · Data Security Architecture"]
+    M14["Módulo 14 · Vulnerability & Exposure Management Architecture"]
+    M15["Módulo 15 · Security Operations & Resilience Architecture"]
   end
   subgraph N5["Nível 5 — Arquitetura Corporativa Avançada"]
     direction LR
-    M16["M16 · Enterprise Security Architecture"]
-    M17["M17 · Estudos de Caso e Projeto Final"]
+    M16["Módulo 16 · Enterprise Security Architecture"]
+    M17["Módulo 17 · Estudos de Caso e Projeto Final"]
   end
   C01["C01 · Segurança de IA/LLM e identidades não humanas"]
 
@@ -95,16 +95,16 @@ flowchart TB
 ## Como usar o grafo
 
 - **Ordem mínima:** antes de iniciar um módulo, conclua os módulos que apontam para ele.
-- **Revisão de fundamentos:** módulos dos Níveis 2 a 5 retomam conceitos de M00 e M01 sempre que necessário; quem já domina esses fundamentos pode validar o conhecimento na [avaliação diagnóstica](../assessments/diagnostic-fundamentals.md) e avançar.
-- **Ordem de produção ≠ ordem de estudo:** o Módulo 02 foi produzido primeiro por ser a referência de qualidade do curso. A ordem recomendada de estudo está no [plano de estudo](../learning-paths/study-plan.md).
+- **Revisão de fundamentos:** módulos dos Níveis 2 a 5 retomam conceitos do Módulo Inicial e do Módulo 1 sempre que necessário; quem já domina esses fundamentos pode validar o conhecimento na [avaliação diagnóstica](../assessments/diagnostic-fundamentals.md) e avançar.
+- **Ordem de produção ≠ ordem de estudo:** o Módulo 2 foi produzido primeiro por ser a referência de qualidade do curso. A ordem recomendada de estudo está no [plano de estudo](../learning-paths/study-plan.md).
 
 ## Justificativa das principais dependências
 
 | Módulo | Depende de | Por quê |
 |:---|:---|:---|
-| M02 Introdução à Arquitetura | M00, M01 | Ler diagramas e conhecer princípios de segurança é condição para discutir arquitetura. |
-| M03 Governança, Riscos e Controles | M02 | Seleção de controles e arquitetura baseada em risco pressupõem o vocabulário de princípios, padrões e requisitos. |
-| M07 Zero Trust | M05, M06 | Zero Trust combina decisões de identidade com pontos de aplicação na rede e nos workloads. |
-| M11 Hybrid & Multicloud | M06, M07 | A integração híbrida depende de identidade federada e de decisões de acesso independentes de localização. |
-| M16 Enterprise Security Architecture | M03, M11 | Governança corporativa entre empresas exige gestão de riscos e domínio de ambientes heterogêneos. |
-| M17 Projeto Final | M16 | O projeto integra todas as competências em uma proposta corporativa completa. |
+| Módulo 2 Introdução à Arquitetura | Módulo Inicial e Módulo 1 | Ler diagramas e conhecer princípios de segurança é condição para discutir arquitetura. |
+| Módulo 3 — Governança, Riscos e Controles | Módulo 2 | Seleção de controles e arquitetura baseada em risco pressupõem o vocabulário de princípios, padrões e requisitos. |
+| Módulo 7 Zero Trust | Módulos 5 e 6 | Zero Trust combina decisões de identidade com pontos de aplicação na rede e nos workloads. |
+| Módulo 11 Hybrid & Multicloud | Módulos 6 e 7 | A integração híbrida depende de identidade federada e de decisões de acesso independentes de localização. |
+| Módulo 16 — Enterprise Security Architecture | Módulos 3 e 11 | Governança corporativa entre empresas exige gestão de riscos e domínio de ambientes heterogêneos. |
+| Módulo 17 Projeto Final | Módulo 16 | O projeto integra todas as competências em uma proposta corporativa completa. |

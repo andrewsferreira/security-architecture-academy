@@ -1,6 +1,7 @@
 ---
 id: M00-L07
-title: "Lendo diagramas arquiteturais: componentes, fluxos e fronteiras"
+title: "Aula 07 — Lendo diagramas arquiteturais: componentes, fluxos e fronteiras"
+public_title: "Módulo Inicial — Aula 07 — Lendo diagramas arquiteturais: componentes, fluxos e fronteiras"
 description: Como ler e questionar um diagrama de arquitetura — componentes, fluxos rotulados, dados, zonas e fronteiras de confiança — e como identificar o que um diagrama omite.
 domain: infrastructure-foundations
 tier: fundamental
@@ -19,19 +20,19 @@ reviewed_by: [Andrews Ferreira]
 module: M00
 ---
 
-# Lendo diagramas arquiteturais: componentes, fluxos e fronteiras
+# Aula 07 — Lendo diagramas arquiteturais: componentes, fluxos e fronteiras { #lendo-diagramas-arquiteturais-componentes-fluxos-e-fronteiras }
 
 <div class="saa-lesson-meta" markdown>
-<span class="saa-level">Nível 0 · M00-L07</span>
+<span class="saa-level">Módulo Inicial · Nível 0</span>
 <span class="saa-tier saa-tier--fundamental">Fundamental</span>
-<span class="saa-meta">60 min</span>
+<span class="saa-meta">60 min · ID técnico: M00-L07</span>
 </div>
 
 ## Resumo
 
 !!! abstract "Nesta aula"
 
-    Diagramas são a principal forma de comunicação entre arquitetos, engenheiros e auditores. Um bom diagrama responde rapidamente a perguntas de segurança; um diagrama ruim esconde exatamente o que importa. Esta aula ensina um método de leitura — componentes, fluxos, dados, fronteiras — e um conjunto de perguntas para encontrar o que falta. É a habilidade que conecta todo o Módulo 00 com o resto da formação.
+    Diagramas são a principal forma de comunicação entre arquitetos, engenheiros e auditores. Um bom diagrama responde rapidamente a perguntas de segurança; um diagrama ruim esconde exatamente o que importa. Esta aula ensina um método de leitura — componentes, fluxos, dados, fronteiras — e um conjunto de perguntas para encontrar o que falta. É a habilidade que conecta todo o Módulo Inicial com o resto da formação.
 
 **Pré-requisitos:** [Segmentação e conectividade](03-segmentation-connectivity.md) e [Cloud computing](06-cloud-computing-models.md).
 
@@ -221,6 +222,21 @@ Essas omissões não são detalhes: o acesso administrativo e as dependências c
 - Fluxos que atravessam fronteiras são os que mais exigem controles.
 - Administração, logs, backup, dependências compartilhadas e terceiros são as omissões mais comuns — e as mais perigosas.
 
+<!-- next-steps:start -->
+
+!!! tip "Próximos passos"
+
+    Você concluiu a última aula do **Módulo Inicial** — [voltar ao módulo](index.md).
+
+    Pratique e avalie o módulo:
+
+    - [Laboratório 00 — Plano de endereçamento e segmentação](../../labs/lab-00-network-plan.md)
+    - [Avaliação do Módulo Inicial](../../assessments/m00-foundations.md)
+
+    Em seguida: [Módulo 1 — Fundamentos de Segurança](../../modules/01-security-fundamentals/index.md).
+
+<!-- next-steps:end -->
+
 ## Referências
 
 ### Fundamentação principal
@@ -236,7 +252,7 @@ Essas omissões não são detalhes: o acesso administrativo e as dependências c
 ### Aplicação prática
 
 - O [Laboratório 02](../../labs/lab-02-architecture-modeling.md) gera diagramas a partir de um modelo com zonas e fluxos rotulados — o mesmo método desta aula, automatizado.
-- O M04 transforma este método em **Data Flow Diagrams** para threat modeling.
+- O Módulo 4 transforma este método em **Data Flow Diagrams** para threat modeling.
 
 ## Revisão
 

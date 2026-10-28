@@ -1,6 +1,7 @@
 ---
 id: M02-L06
-title: "Frameworks, padrões e certificações: NIST, SABSA, TOGAF, CISSP e ISSAP"
+title: "Aula 06 — Frameworks, padrões e certificações: NIST, SABSA, TOGAF, CISSP e ISSAP"
+public_title: "Módulo 2 — Aula 06 — Frameworks, padrões e certificações: NIST, SABSA, TOGAF, CISSP e ISSAP"
 description: A diferença entre framework, método, padrão, arquitetura de referência e certificação; o propósito de NIST CSF, RMF, SP 800-53, SABSA e TOGAF; o que as certificações CISSP e ISSAP representam; e por que conformidade não é sinônimo de segurança efetiva.
 domain: enterprise-architecture
 tier: professional
@@ -19,12 +20,12 @@ reviewed_by: [Andrews Ferreira]
 module: M02
 ---
 
-# Frameworks, padrões e certificações: NIST, SABSA, TOGAF, CISSP e ISSAP
+# Aula 06 — Frameworks, padrões e certificações: NIST, SABSA, TOGAF, CISSP e ISSAP { #frameworks-padroes-e-certificacoes-nist-sabsa-togaf-cissp-e-issap }
 
 <div class="saa-lesson-meta" markdown>
-<span class="saa-level">Nível 1 · M02-L06</span>
+<span class="saa-level">Módulo 2 · Nível 1</span>
 <span class="saa-tier saa-tier--professional">Professional</span>
-<span class="saa-meta">90 min</span>
+<span class="saa-meta">90 min · ID técnico: M02-L06</span>
 </div>
 
 ## Resumo
@@ -55,7 +56,7 @@ Um framework é uma **estrutura reutilizável** que organiza conhecimento, decis
 | **Catálogo de controles** | *Que controles existem para escolher?* | NIST SP 800-53, CIS Controls |
 | **Método de arquitetura** | *Como ir do negócio ao mecanismo com rastreabilidade?* | SABSA, TOGAF |
 | **Engenharia de sistemas** | *Como incorporar segurança ao ciclo de engenharia?* | NIST SP 800-160 |
-| **Sistema de gestão** | *Como gerir a segurança de forma contínua e auditável?* | ISO/IEC 27001 (detalhado no M03) |
+| **Sistema de gestão** | *Como gerir a segurança de forma contínua e auditável?* | ISO/IEC 27001 (detalhado no Módulo 3) |
 | **Mapa de competências** | *O que um profissional deve saber?* | Outlines de CISSP e ISSAP |
 
 ### Framework, método, padrão, referência e certificação
@@ -132,7 +133,7 @@ Trata a segurança como disciplina de **engenharia de sistemas**: a segurança �
 
 **Para o arquiteto:** fundamenta a integração da arquitetura ao ciclo de vida (visto na [aula 01](01-security-architect-role.md)).
 
-**Limite:** descreve processos e princípios de engenharia de sistemas, não um método de arquitetura corporativa nem um catálogo de controles; aplicá-lo exige adaptação ao porte e ao ciclo de vida da organização. Os princípios de design do seu Apêndice E são a referência de nomenclatura usada na [aula M01-L02](../01-security-fundamentals/02-secure-design-principles.md).
+**Limite:** descreve processos e princípios de engenharia de sistemas, não um método de arquitetura corporativa nem um catálogo de controles; aplicá-lo exige adaptação ao porte e ao ciclo de vida da organização. Os princípios de design do seu Apêndice E são a referência de nomenclatura usada na [Aula 02 do Módulo 1](../01-security-fundamentals/02-secure-design-principles.md).
 
 ### SABSA
 
@@ -149,7 +150,7 @@ O SABSA é um método de **arquitetura de segurança orientada ao negócio**. Su
 
 !!! note "Fontes sobre o SABSA"
 
-    O SABSA é mantido pelo SABSA Institute, que disponibiliza white papers introdutórios. A descrição das camadas, das perguntas e do Business Attributes Profile nesta aula foi conferida no texto do *SABSA White Paper* (W100, © 1995–2009 SABSA Limited), pp. 8–20 — lido em uma cópia hospedada fora do site do instituto, já que o catálogo oficial não expõe o link direto ao ambiente de verificação. O tema é aprofundado no M16.
+    O SABSA é mantido pelo SABSA Institute, que disponibiliza white papers introdutórios. A descrição das camadas, das perguntas e do Business Attributes Profile nesta aula foi conferida no texto do *SABSA White Paper* (W100, © 1995–2009 SABSA Limited), pp. 8–20 — lido em uma cópia hospedada fora do site do instituto, já que o catálogo oficial não expõe o link direto ao ambiente de verificação. O tema é aprofundado no Módulo 16.
 
 ### TOGAF
 

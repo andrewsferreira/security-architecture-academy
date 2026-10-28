@@ -23,7 +23,7 @@ reviewed_by: [Andrews Ferreira]
 
 Você é o primeiro arquiteto de segurança contratado pela Meridiana Distribuidora. A empresa opera com um datacenter tradicional, uma rede plana e acesso remoto protegido apenas por senha. A seguradora condicionou a renovação da apólice a melhorias de segurança, e um grande cliente exige uma avaliação de fornecedores. Sua tarefa é analisar o ambiente, propor uma arquitetura-alvo viável e defender a proposta para a diretoria.
 
-**Pré-requisitos:** Módulo 02 completo. O caso antecipa temas de rede, identidade e ambientes legados que serão aprofundados nos Módulos 05, 06 e 08 — o nível de detalhe esperado aqui é **arquitetural**, não de configuração.
+**Pré-requisitos:** Módulo 2 completo. O caso antecipa temas de rede, identidade e ambientes legados que serão aprofundados nos Módulos 05, 06 e 08 — o nível de detalhe esperado aqui é **arquitetural**, não de configuração.
 
 **Como fazer este caso:**
 
@@ -101,16 +101,16 @@ Produza os entregáveis abaixo. Tempo total sugerido: 4 a 6 horas.
 
 | # | Entregável | Competências | Referência |
 |:---|:---|:---|:---|
-| 1 | **Análise do As-Is** usando o [Architecture Review Checklist](../../artifacts/architecture-review-checklist.md), com os cinco achados mais graves | C3 | M02-L03, M02-L04 |
-| 2 | **Cinco riscos principais em linguagem de negócio**, com probabilidade e impacto qualitativos | C4 | M02-L07 |
-| 3 | **Requisitos de segurança** — ao menos dez, classificados e rastreáveis — usando a [Security Requirements Specification](../../artifacts/security-requirements-specification.md) | C2 | M02-L07 |
-| 4 | **Alternativas** para três decisões: acesso remoto, segmentação interna e centralização de logs — com matriz de decisão para cada uma | C5 | M02-L01 a L08 |
-| 5 | **Arquitetura To-Be** nas visões conceitual e lógica | C6 | M02-L03 |
-| 6 | **Três ADRs**, um para cada decisão do item 4 | C8 | M02-L08 |
-| 7 | **Controles recomendados** por camada, com referência a frameworks | C7 | M02-L04, M02-L06 |
+| 1 | **Análise do As-Is** usando o [Architecture Review Checklist](../../artifacts/architecture-review-checklist.md), com os cinco achados mais graves | C3 | Módulo 2 — Aulas 03 e 04 |
+| 2 | **Cinco riscos principais em linguagem de negócio**, com probabilidade e impacto qualitativos | C4 | Módulo 2 — Aula 07 |
+| 3 | **Requisitos de segurança** — ao menos dez, classificados e rastreáveis — usando a [Security Requirements Specification](../../artifacts/security-requirements-specification.md) | C2 | Módulo 2 — Aula 07 |
+| 4 | **Alternativas** para três decisões: acesso remoto, segmentação interna e centralização de logs — com matriz de decisão para cada uma | C5 | Módulo 2 — Aulas 01 a 08 |
+| 5 | **Arquitetura To-Be** nas visões conceitual e lógica | C6 | Módulo 2 — Aula 03 |
+| 6 | **Três ADRs**, um para cada decisão do item 4 | C8 | Módulo 2 — Aula 08 |
+| 7 | **Controles recomendados** por camada, com referência a frameworks | C7 | Módulo 2 — Aulas 04 e 06 |
 | 8 | **Plano de implementação** em 90 dias, 6 meses e 12 meses, respeitando as restrições | C9 | — |
-| 9 | **Indicadores de sucesso** e **riscos residuais** com dono | C8 | M02-L04 |
-| 10 | **Resumo executivo** de uma página para a diretoria | C10 | M02-L07 |
+| 9 | **Indicadores de sucesso** e **riscos residuais** com dono | C8 | Módulo 2 — Aula 04 |
+| 10 | **Resumo executivo** de uma página para a diretoria | C10 | Módulo 2 — Aula 07 |
 
 ## Rubrica
 

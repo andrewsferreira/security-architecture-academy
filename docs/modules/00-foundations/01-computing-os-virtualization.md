@@ -1,6 +1,7 @@
 ---
 id: M00-L01
-title: "Computação, sistemas operacionais e virtualização"
+title: "Aula 01 — Computação, sistemas operacionais e virtualização"
+public_title: "Módulo Inicial — Aula 01 — Computação, sistemas operacionais e virtualização"
 description: Como CPU, memória, kernel, processos, máquinas virtuais e containers criam fronteiras de isolamento — e o que cada fronteira protege ou deixa de proteger.
 domain: infrastructure-foundations
 tier: fundamental
@@ -19,12 +20,12 @@ reviewed_by: [Andrews Ferreira]
 module: M00
 ---
 
-# Computação, sistemas operacionais e virtualização
+# Aula 01 — Computação, sistemas operacionais e virtualização { #computacao-sistemas-operacionais-e-virtualizacao }
 
 <div class="saa-lesson-meta" markdown>
-<span class="saa-level">Nível 0 · M00-L01</span>
+<span class="saa-level">Módulo Inicial · Nível 0</span>
 <span class="saa-tier saa-tier--fundamental">Fundamental</span>
-<span class="saa-meta">60 min</span>
+<span class="saa-meta">60 min · ID técnico: M00-L01</span>
 </div>
 
 ## Resumo
@@ -253,7 +254,7 @@ Requisitos de isolamento devem ser **verificáveis**. Exemplos:
 
 ### Leitura complementar
 
-- NIST. *SP 800-190 — Application Container Security Guide*. 2017. <https://csrc.nist.gov/pubs/sp/800/190/final> — riscos específicos de containers, imagens e orquestradores; retomado na L05.
+- NIST. *SP 800-190 — Application Container Security Guide*. 2017. <https://csrc.nist.gov/pubs/sp/800/190/final> — riscos específicos de containers, imagens e orquestradores; retomado na Aula 05.
 - Kubernetes. *Overview of Cloud Native Security*. <https://kubernetes.io/docs/concepts/security/overview/> — segurança em camadas para workloads em containers.
 
 ### Aplicação prática

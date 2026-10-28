@@ -13,6 +13,11 @@ Saídas (blocos entre marcadores <!-- nome:start --> / <!-- nome:end -->):
     docs/index.md                           → bloco "release-status" (disponibilidade por nível)
     CURRICULUM.md                           → arquivo inteiro (visão para o GitHub)
 
+Nomenclatura pública (regras em scripts/naming.py), aplicada a partir do manifesto:
+    páginas de aula      → title, public_title, H1, metadados e bloco "next-steps" na última aula
+    índices de módulo    → title, H1 e bloco "lessons" (lista numerada de aulas)
+    zensical.toml        → rótulos dos grupos de módulos na navegação
+
 Uso:
     python scripts/render_curriculum.py           # atualiza os arquivos
     python scripts/render_curriculum.py --check   # falha se algum estiver desatualizado (CI)
@@ -21,14 +26,18 @@ Uso:
 from __future__ import annotations
 
 import argparse
+import json
+import re
 import sys
+import unicodedata
 from collections import OrderedDict
 from pathlib import Path
 from typing import Any
 
 import yaml
 
-from _common import DOCS, ROOT, load_manifest
+from _common import DOCS, ROOT, current_version, load_manifest
+from naming import Naming, module_name, modules_phrase
 
 BIBLIOGRAPHY = ROOT / "research" / "bibliography.yml"
 KNOWLEDGE_MAP = ROOT / "research" / "knowledge-map.yml"
@@ -103,30 +112,31 @@ def render_curriculum(m: dict[str, Any]) -> str:
         "Status das aulas: " + " · ".join(f"{LABELS[s]} **{n}**" for s, n in counts.items() if n) + ".",
         "",
     ]
+    naming = Naming(m)
     for stage in m["stages"]:
         items = [mod for mod in modules if mod["stage"] == stage["id"]]
         out += [f"### {stage['title']}", "", stage["summary"], "",
-                "| ID | Módulo | Aulas | Carga | Fase | Status |", "|:---|:---|:---|:---|:---|:---|"]
+                "| Módulo | Título | Aulas | Carga | Fase | Status |", "|:---|:---|:---|:---|:---|:---|"]
         for mod in items:
             title = mod["title"]
             if mod.get("path") and mod["status"] != "planned":
                 title = f"[{title}](../{mod['path']})"
             minutes = sum(lesson["minutes"] for lesson in mod["lessons"])
-            out.append(f"| `{mod['id']}` | {title} | {len(mod['lessons'])} | {hours(minutes)} | "
-                       f"{mod['phase']} | {badge(mod['status'])} |")
+            out.append(f"| {module_name(mod['id'])}<br><small>`{mod['id']}`</small> | {title} | {len(mod['lessons'])} | "
+                       f"{hours(minutes)} | {mod['phase']} | {badge(mod['status'])} |")
         out.append("")
         for mod in items:
             doms = ", ".join(domains[d] for d in mod["domains"])
-            prereq = ", ".join(f"`{p}`" for p in mod["prerequisites"]) or "nenhum"
-            out += [f'??? abstract "{mod["id"]} — {mod["title"]}"', "",
-                    f"    **Domínios:** {doms} · **Pré-requisitos:** {prereq}", "",
+            prereq = ", ".join(module_name(p) for p in mod["prerequisites"]) or "nenhum"
+            out += [f'??? abstract "{naming.module_title(mod["id"])}"', "",
+                    f"    **ID técnico:** `{mod['id']}` · **Domínios:** {doms} · **Pré-requisitos:** {prereq}", "",
                     "    | Aula | Título | Profundidade | Tempo | Status |", "    |:---|:---|:---|:---|:---|"]
             for lesson in mod["lessons"]:
                 ltitle = lesson["title"]
                 if lesson.get("file") and lesson["status"] != "planned":
                     ltitle = f"[{ltitle}](../{unit_base(mod)}/{lesson['file']})"
-                out.append(f"    | `{lesson['id']}` | {ltitle} | {tiers[lesson['tier']]} | "
-                           f"{lesson['minutes']} min | {badge(lesson['status'])} |")
+                out.append(f"    | {naming.lesson(lesson['id']).label}<br><small>`{lesson['id']}`</small> | {ltitle} | "
+                           f"{tiers[lesson['tier']]} | {lesson['minutes']} min | {badge(lesson['status'])} |")
             out.append("")
     for comp in m.get("complements") or []:
         out += ["### Seção complementar", "",
@@ -152,7 +162,7 @@ def render_activities(m: dict[str, Any]) -> str:
                 title = f"[{title}](../{item['path']})"
             if item.get("tested"):
                 title += " · *executado e testado*"
-            mods = ", ".join(f"`{x}`" for x in item.get("modules") or []) or "—"
+            mods = ", ".join(module_name(x) for x in item.get("modules") or []) or "—"
             out.append(f"| `{item['id']}` | {title} | {mods} | {item['phase']} | {badge(item['status'])} |")
         out.append("")
     return "\n".join(out)
@@ -170,7 +180,7 @@ def render_dependencies(m: dict[str, Any]) -> str:
         out.append(f'  subgraph {sid}["{stage["title"]}"]')
         out.append("    direction LR")
         for mod in (x for x in m["modules"] if x["stage"] == stage["id"]):
-            out.append(f'    {mod["id"]}["{mod["id"]} · {mod["title"]}"]')
+            out.append(f'    {mod["id"]}["{module_name(mod["id"])} · {mod["title"]}"]')
         out.append("  end")
     for comp in m.get("complements") or []:
         out.append(f'  {comp["id"]}["{comp["id"]} · {comp["title"].replace("Complemento: ", "")}"]')
@@ -342,13 +352,21 @@ def render_coverage(bib: dict[str, Any], kmap: dict[str, Any], m: dict[str, Any]
 
 # -------------------------------------------------------- disponibilidade por nível (homepage)
 LEVEL_TEXT = {
-    "R1": "**Módulos 00 a 02.** Infraestrutura, fundamentos de segurança e introdução à arquitetura de segurança, "
+    "R1": "Infraestrutura, fundamentos de segurança e introdução à arquitetura de segurança, "
           "com laboratórios, estudo de caso e avaliação final integradora.",
-    "R2": "**Módulos 03 a 15.** Governança, threat modeling, rede, identidade, Zero Trust, legados, AWS, Azure, "
+    "R2": "Governança, threat modeling, rede, identidade, Zero Trust, legados, AWS, Azure, "
           "Google Cloud, híbrido, aplicações, dados, vulnerabilidades e operações.",
-    "R3": "**Módulos 16 e 17 e complemento de IA.** Arquitetura corporativa, governança entre unidades, "
+    "R3": "Arquitetura corporativa, governança entre unidades, "
           "estudos de caso integradores e projeto final.",
 }
+
+
+def level_text(rel: dict[str, Any]) -> str:
+    """Resumo de uma release na homepage: módulos (nomes públicos) e foco."""
+    scope = modules_phrase(list(rel.get("modules") or []))
+    if rel.get("complements"):
+        scope += " e complemento de IA"
+    return f"**{scope}.** {LEVEL_TEXT.get(rel['id'], '')}".rstrip()
 
 
 def release_availability(m: dict[str, Any], rel: dict[str, Any]) -> tuple[str, str]:
@@ -372,7 +390,7 @@ def render_release_status(m: dict[str, Any]) -> str:
     if available:
         first = mods[available[0]["modules"][0]]
         lesson = next(x for x in first["lessons"] if x.get("file"))
-        versions = ", ".join(f"v{r['version']} — {r['title'].split(' — ')[-1]}" for r in available)
+        versions = ", ".join(f"v{current_version(r)} — {r['title'].split(' — ')[-1]}" for r in available)
         out += ['!!! success "Disponível agora"', "",
                 f"    A Academy é disponibilizada progressivamente, por nível. Publicado: **{versions}**. "
                 "Os níveis seguintes entram no portal somente depois de concluídos e revisados.", "",
@@ -388,8 +406,8 @@ def render_release_status(m: dict[str, Any]) -> str:
         cls, label = release_availability(m, rel)
         name = rel["title"].split(" — ")[-1]
         out += ['<div class="saa-journey__step" markdown>', "", f"### {name}", "",
-                LEVEL_TEXT.get(rel["id"], ""), "",
-                f'<span class="saa-status saa-status--{cls}">{label}</span> <span class="saa-meta">v{rel["version"]}</span>', "",
+                level_text(rel), "",
+                f'<span class="saa-status saa-status--{cls}">{label}</span> <span class="saa-meta">v{current_version(rel)}</span>', "",
                 "</div>", ""]
     out += ["</div>"]
     return "\n".join(out)
@@ -397,6 +415,7 @@ def render_release_status(m: dict[str, Any]) -> str:
 # -------------------------------------------------------- CURRICULUM.md
 def render_root(m: dict[str, Any]) -> str:
     tiers = {t["id"]: t["title"] for t in m["tiers"]}
+    naming = Naming(m)
     lines = [
         "# Currículo",
         "",
@@ -418,15 +437,16 @@ def render_root(m: dict[str, Any]) -> str:
     for stage in m["stages"]:
         lines += [f"## {stage['title']}", "", stage["summary"], ""]
         for mod in (x for x in m["modules"] if x["stage"] == stage["id"]):
-            prereq = ", ".join(mod["prerequisites"]) or "nenhum"
-            lines += [f"### {mod['id']} — {mod['title']}", "",
-                      f"Status: **{LABELS[mod['status']]}** · Fase {mod['phase']} · Pré-requisitos: {prereq}", ""]
+            prereq = ", ".join(module_name(p) for p in mod["prerequisites"]) or "nenhum"
+            lines += [f"### {naming.module_title(mod['id'])}", "",
+                      f"ID técnico: `{mod['id']}` · Status: **{LABELS[mod['status']]}** · Fase {mod['phase']} · "
+                      f"Pré-requisitos: {prereq}", ""]
             for lesson in mod["lessons"]:
                 title = lesson["title"]
                 if lesson.get("file") and lesson["status"] != "planned":
                     title = f"[{title}](docs/{unit_base(mod)}/{lesson['file']})"
-                lines.append(f"- `{lesson['id']}` {title} — {tiers[lesson['tier']]}, "
-                             f"{lesson['minutes']} min — {LABELS[lesson['status']]}")
+                lines.append(f"- **{naming.lesson(lesson['id']).label}** — {title} — `{lesson['id']}` · "
+                             f"{tiers[lesson['tier']]}, {lesson['minutes']} min — {LABELS[lesson['status']]}")
             lines.append("")
     for comp in m.get("complements") or []:
         lines += [f"## {comp['title']}", "", f"Status: **{LABELS[comp['status']]}** · Fase {comp['phase']}", ""]
@@ -443,6 +463,148 @@ def render_root(m: dict[str, Any]) -> str:
             lines.append(f"- `{item['id']}` {title} — {LABELS[item['status']]}")
         lines.append("")
     return "\n".join(lines).rstrip() + "\n"
+
+
+# -------------------------------------------------- Nomenclatura nas páginas
+FM_TITLE_RE = re.compile(r"^title: .*$", re.MULTILINE)
+FM_PUBLIC_TITLE_RE = re.compile(r"^public_title: .*\n", re.MULTILINE)
+H1_RE = re.compile(r"^# .+$", re.MULTILINE)
+LEVEL_SPAN_RE = re.compile(r'<span class="saa-level">[^<]*</span>')
+LESSON_META_RE = re.compile(r'(<span class="saa-meta">\d+ min)(?: · ID técnico: [^<]*)?(</span>)')
+NAV_GROUP_RE = '(\\{{ ")[^"]+(" = \\[\\n\\s*"{path}")'
+
+
+def _yaml_str(value: str) -> str:
+    return json.dumps(value, ensure_ascii=False)
+
+
+def _set_front_matter(text: str, title: str, public_title: str | None) -> str:
+    if not text.startswith("---\n"):
+        raise SystemExit("página sem front matter")
+    end = text.index("\n---", 4)
+    head, body = text[:end], text[end:]
+    if not FM_TITLE_RE.search(head):
+        raise SystemExit("front matter sem title")
+    head = FM_PUBLIC_TITLE_RE.sub("", head)
+    line = f"title: {_yaml_str(title)}"
+    if public_title:
+        line += f"\npublic_title: {_yaml_str(public_title)}"
+    head = FM_TITLE_RE.sub(lambda _: line, head, count=1)
+    return head + body
+
+
+def slugify(value: str) -> str:
+    """Mesmo algoritmo do slug padrão do Markdown (toc), usado nas âncoras dos títulos."""
+    value = unicodedata.normalize("NFKD", value).encode("ascii", "ignore").decode("ascii")
+    value = re.sub(r"[^\w\s-]", "", value).strip().lower()
+    return re.sub(r"[-\s]+", "-", value)
+
+
+def _set_h1(text: str, heading: str, anchor: str | None = None) -> str:
+    """Define o H1; ``anchor`` preserva a âncora publicada antes da mudança de título."""
+    end = text.index("\n---", 4) + 4
+    head, body = text[:end], text[end:]
+    if not H1_RE.search(body):
+        raise SystemExit("página sem título H1")
+    line = f"# {heading}" + (f" {{ #{anchor} }}" if anchor else "")
+    return head + H1_RE.sub(lambda _: line, body, count=1)
+
+
+def _stage_label(m: dict[str, Any], stage_id: str) -> str:
+    title = next(s["title"] for s in m["stages"] if s["id"] == stage_id)
+    return title.split(" — ")[0]  # "Nível 0"
+
+
+def _active(item: dict[str, Any]) -> bool:
+    return item.get("status") not in (None, "planned")
+
+
+def render_next_steps(m: dict[str, Any], naming: Naming, mod: dict[str, Any]) -> str:
+    """Bloco ao fim da última aula de um módulo: atividades do módulo e continuidade."""
+    rel = "../../"  # das páginas de aula até docs/
+    name = naming.module_name(mod["id"])
+    practice, integrative = [], []
+    for lab in m.get("labs") or []:
+        if mod["id"] in (lab.get("modules") or []) and lab.get("path") and _active(lab):
+            practice.append(f"[{lab['title']}]({rel}{lab['path']})")
+    for exam in m.get("assessments") or []:
+        mods = exam.get("modules") or []
+        if not (exam.get("path") and _active(exam)):
+            continue
+        if exam.get("kind") == "module" and mods == [mod["id"]]:
+            practice.append(f"[Avaliação do {name}]({rel}{exam['path']})")
+    for case in m.get("case_studies") or []:
+        if (case.get("modules") or [None])[0] == mod["id"] and case.get("path") and _active(case):
+            integrative.append(f"[{case['title']}]({rel}{case['path']})")
+    for exam in m.get("assessments") or []:
+        mods = exam.get("modules") or []
+        if exam.get("kind") == "final" and mods and mods[-1] == mod["id"] and exam.get("path") and _active(exam):
+            integrative.append(f"[{exam['title']}]({rel}{exam['path']})")
+    modules = m["modules"]
+    index = next(i for i, x in enumerate(modules) if x["id"] == mod["id"])
+    following = modules[index + 1] if index + 1 < len(modules) else None
+    lines = ['!!! tip "Próximos passos"', "",
+             f"    Você concluiu a última aula do **{name}** — [voltar ao módulo]({mod['path'].rsplit('/', 1)[-1]})."]
+    if practice:
+        lines += ["", "    Pratique e avalie o módulo:", ""] + [f"    - {item}" for item in practice]
+    if integrative:
+        lines += ["", "    Atividades integradoras:", ""] + [f"    - {item}" for item in integrative]
+    if following and following.get("path") and _active(following):
+        lines += ["", f"    Em seguida: [{naming.module_title(following['id'])}]({rel}{following['path']})."]
+    return "\n".join(lines)
+
+
+def render_module_lessons(m: dict[str, Any], naming: Naming, mod: dict[str, Any]) -> str:
+    tiers = {t["id"]: t["title"] for t in m["tiers"]}
+    out = ["| Aula | Tema | Profundidade | Duração |", "|:---|:---|:---|:---|"]
+    for lesson in mod["lessons"]:
+        info = naming.lesson(lesson["id"])
+        label = info.label
+        if lesson.get("file") and _active(lesson):
+            label = f"[{label}]({lesson['file']})"
+        out.append(f"| {label} | {lesson['title']} | {tiers.get(lesson['tier'], lesson['tier'])} | {lesson['minutes']} min |")
+    return "\n".join(out)
+
+
+def naming_targets(m: dict[str, Any], config_text: str) -> tuple[list[tuple[Path, str]], str]:
+    """Páginas de módulo e de aula com a nomenclatura pública, e o zensical.toml atualizado."""
+    naming = Naming(m)
+    results: list[tuple[Path, str]] = []
+    for mod in m["modules"]:
+        if not (mod.get("path") and _active(mod)):
+            continue
+        page = DOCS / mod["path"]
+        title = naming.module_title(mod["id"])
+        text = page.read_text(encoding="utf-8")
+        # Âncora do H1 da v0.1.0 ("Módulo 00 — …"), preservada para links já compartilhados.
+        legacy = slugify(f"Módulo {mod['id'][1:]} — {mod['title']}")
+        text = _set_h1(_set_front_matter(text, title, None), title, legacy)
+        if mod["status"] != "draft":  # rascunhos ficam fora da navegação e sem lista de aulas
+            text = splice(text, "lessons", render_module_lessons(m, naming, mod))
+            pattern = re.compile(NAV_GROUP_RE.format(path=re.escape(mod["path"])))
+            config_text, found = pattern.subn(lambda g: f"{g.group(1)}{title}{g.group(2)}", config_text)
+            if found != 1:
+                raise SystemExit(f"zensical.toml: grupo de navegação de {mod['id']} não encontrado")
+        results.append((page, text))
+        level = f"{naming.module_name(mod['id'])} · {_stage_label(m, mod['stage'])}"
+        with_files = [x for x in mod["lessons"] if x.get("file") and _active(x)]
+        last = mod["lessons"][-1] if mod["lessons"] else None
+        for lesson in with_files:
+            info = naming.lesson(lesson["id"])
+            page = DOCS / unit_base(mod) / lesson["file"]
+            text = page.read_text(encoding="utf-8")
+            text = _set_h1(_set_front_matter(text, info.short_title, info.full_title), info.short_title,
+                           slugify(info.title))
+            text, n = LEVEL_SPAN_RE.subn(f'<span class="saa-level">{level}</span>', text, count=1)
+            if not n:
+                raise SystemExit(f"{lesson['id']}: bloco saa-lesson-meta sem saa-level")
+            text, n = LESSON_META_RE.subn(lambda g: f"{g.group(1)} · ID técnico: {lesson['id']}{g.group(2)}", text, count=1)
+            if not n:
+                raise SystemExit(f"{lesson['id']}: bloco saa-lesson-meta sem duração")
+            if lesson is last:
+                text = splice(text, "next-steps", render_next_steps(m, naming, mod))
+            results.append((page, text))
+    return results, config_text
 
 
 # -------------------------------------------------------- execução
@@ -484,6 +646,11 @@ def targets() -> list[tuple[Path, str]]:
     results.append((page, splice(page.read_text(encoding="utf-8"), "release-status", render_release_status(m))))
 
     results.append((ROOT / "CURRICULUM.md", render_root(m)))
+
+    config_path = ROOT / "zensical.toml"
+    pages, config_text = naming_targets(m, config_path.read_text(encoding="utf-8"))
+    results += pages
+    results.append((config_path, config_text))
     return results
 
 

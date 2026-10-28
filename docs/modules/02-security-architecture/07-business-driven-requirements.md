@@ -1,6 +1,7 @@
 ---
 id: M02-L07
-title: "Business-driven Security Architecture: de requisitos de negócio a requisitos de segurança"
+title: "Aula 07 — Business-driven Security Architecture: de requisitos de negócio a requisitos de segurança"
+public_title: "Módulo 2 — Aula 07 — Business-driven Security Architecture: de requisitos de negócio a requisitos de segurança"
 description: Como partir de objetivos de negócio para chegar a requisitos de segurança verificáveis e rastreáveis, traduzindo riscos técnicos em riscos de negócio e conciliando segurança com experiência e custo.
 domain: enterprise-architecture
 tier: architect
@@ -20,12 +21,12 @@ reviewed_by: [Andrews Ferreira]
 module: M02
 ---
 
-# Business-driven Security Architecture: de requisitos de negócio a requisitos de segurança
+# Aula 07 — Business-driven Security Architecture: de requisitos de negócio a requisitos de segurança { #business-driven-security-architecture-de-requisitos-de-negocio-a-requisitos-de-seguranca }
 
 <div class="saa-lesson-meta" markdown>
-<span class="saa-level">Nível 1 · M02-L07</span>
+<span class="saa-level">Módulo 2 · Nível 1</span>
 <span class="saa-tier saa-tier--architect">Architect</span>
-<span class="saa-meta">90 min</span>
+<span class="saa-meta">90 min · ID técnico: M02-L07</span>
 </div>
 
 ## Resumo
@@ -34,7 +35,7 @@ module: M02
 
     O momento mais importante de uma arquitetura de segurança acontece antes de qualquer diagrama: quando alguém transforma "queremos vender mais para pequenos lojistas" em requisitos que a engenharia consegue implementar e a auditoria consegue verificar. Esta aula ensina esse caminho — e a fazer o caminho inverso, explicando ao negócio por que cada controle existe.
 
-**Pré-requisitos:** [Princípios, padrões, baselines e exceções](04-principles-standards-baselines-exceptions.md), [Frameworks](06-frameworks.md) e os conceitos de risco (M01-L06).
+**Pré-requisitos:** [Princípios, padrões, baselines e exceções](04-principles-standards-baselines-exceptions.md), [Frameworks](06-frameworks.md) e os conceitos de risco (Módulo 1 — Aula 06).
 
 **Objetivos de aprendizagem** — ao final, você será capaz de:
 
@@ -133,7 +134,7 @@ Note o último atributo: **orientar ao negócio também significa proteger a exp
 
 Requisitos não nascem só dos atributos. Eles também vêm de:
 
-- **Ameaças** identificadas por threat modeling (aprofundado no M04).
+- **Ameaças** identificadas por threat modeling (aprofundado no Módulo 4).
 - **Obrigações** legais, contratuais e normativas — que geram, em geral, restrições.
 - **Padrões corporativos** já existentes, que a solução herda.
 
@@ -221,7 +222,7 @@ Requisitos bem escritos são **independentes de ambiente**. O ambiente aparece e
 
 1. **Conduza uma sessão de contexto** com produto, negócio e jurídico: objetivo, ativos, restrições e apetite a risco.
 2. **Monte o perfil de atributos** com métricas — inclusive atributos de experiência e custo.
-3. **Identifique ameaças** sobre o fluxo conceitual (threat modeling simplificado; completo no M04).
+3. **Identifique ameaças** sobre o fluxo conceitual (threat modeling simplificado; completo no Módulo 4).
 4. **Escreva os requisitos** com IDs estáveis e categoria (funcional, qualidade, restrição).
 5. **Monte a matriz de rastreabilidade:** origem → requisito → controle → verificação.
 6. **Valide com os stakeholders:** o negócio confirma os atributos e o apetite; a engenharia confirma a viabilidade.

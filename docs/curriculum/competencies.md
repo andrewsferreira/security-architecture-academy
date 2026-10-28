@@ -45,16 +45,16 @@ As colunas indicam os níveis do currículo; as células, os módulos em que a c
 
 | # | Nível 0 | Nível 1 | Nível 2 | Nível 3 | Nível 4 | Nível 5 |
 |:---|:---|:---|:---|:---|:---|:---|
-| C1 | — | M02 | — | M11 | M14 | M16, M17 |
-| C2 | — | M02, M03, M04 | M06, M07 | M11 | M12, M13 | M16, M17 |
-| C3 | M00 | M02, M04 | M05, M08 | M09, M10, M11 | M14 | M17 |
-| C4 | M01 | M03, M04 | M05, M07, M08 | M11 | M12, M13, M14, M15 | M16, M17 |
-| C5 | — | M02 | M05, M06, M07 | M09, M10, M11 | M12, M15 | M16, M17 |
-| C6 | — | M02, M04 | M05, M06, M07, M08 | M09, M10, M11 | M12, M13 | M16, M17 |
-| C7 | M01 | M03 | M05, M06, M07, M08 | M09, M10, M11 | M12, M13, M14, M15 | M16 |
-| C8 | — | M02 | M07 | M11 | M14 | M16, M17 |
-| C9 | — | — | M07, M08 | M11 | M14 | M16, M17 |
-| C10 | — | M02 | — | M11 | M14 | M16, M17 |
+| C1 | — | Módulo 2 | — | Módulo 11 | Módulo 14 | Módulos 16 e 17 |
+| C2 | — | Módulos 2 a 4 | Módulos 6 e 7 | Módulo 11 | Módulos 12 e 13 | Módulos 16 e 17 |
+| C3 | Módulo Inicial | Módulos 2 e 4 | Módulos 5 e 8 | Módulos 9 a 11 | Módulo 14 | Módulo 17 |
+| C4 | Módulo 1 | Módulos 3 e 4 | Módulos 5, 7 e 8 | Módulo 11 | Módulos 12 a 15 | Módulos 16 e 17 |
+| C5 | — | Módulo 2 | Módulos 5 a 7 | Módulos 9 a 11 | Módulos 12 e 15 | Módulos 16 e 17 |
+| C6 | — | Módulos 2 e 4 | Módulos 5 a 8 | Módulos 9 a 11 | Módulos 12 e 13 | Módulos 16 e 17 |
+| C7 | Módulo 1 | Módulo 3 | Módulos 5 a 8 | Módulos 9 a 11 | Módulos 12 a 15 | Módulo 16 |
+| C8 | — | Módulo 2 | Módulo 7 | Módulo 11 | Módulo 14 | Módulos 16 e 17 |
+| C9 | — | — | Módulos 7 e 8 | Módulo 11 | Módulo 14 | Módulos 16 e 17 |
+| C10 | — | Módulo 2 | — | Módulo 11 | Módulo 14 | Módulos 16 e 17 |
 
 ## Como as competências são verificadas
 
@@ -65,4 +65,4 @@ As colunas indicam os níveis do currículo; as células, os módulos em que a c
 | Avaliações de módulo, intermediária e final | Todas, com desafios baseados em competência | [Avaliações](../assessments/index.md) |
 | Estudos de caso com rubrica | C1–C10 | [Estudos de caso](../case-studies/index.md) |
 | Laboratórios | C3, C4, C6, C7 | [Laboratórios](../labs/index.md) |
-| Projeto final | C1–C10 na profundidade Architect | M17 |
+| Projeto final | C1–C10 na profundidade Architect | Módulo 17 |

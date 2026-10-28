@@ -1,6 +1,7 @@
 ---
 id: M00-L03
-title: "Segmentação e conectividade: VLAN, roteamento, VPN, TLS e firewalls"
+title: "Aula 03 — Segmentação e conectividade: VLAN, roteamento, VPN, TLS e firewalls"
+public_title: "Módulo Inicial — Aula 03 — Segmentação e conectividade: VLAN, roteamento, VPN, TLS e firewalls"
 description: Como redes são divididas em zonas e como a comunicação entre zonas e entre locais é controlada — VLANs, roteamento entre zonas, firewalls stateful, VPN e TLS.
 domain: infrastructure-foundations
 tier: fundamental
@@ -19,12 +20,12 @@ reviewed_by: [Andrews Ferreira]
 module: M00
 ---
 
-# Segmentação e conectividade: VLAN, roteamento, VPN, TLS e firewalls
+# Aula 03 — Segmentação e conectividade: VLAN, roteamento, VPN, TLS e firewalls { #segmentacao-e-conectividade-vlan-roteamento-vpn-tls-e-firewalls }
 
 <div class="saa-lesson-meta" markdown>
-<span class="saa-level">Nível 0 · M00-L03</span>
+<span class="saa-level">Módulo Inicial · Nível 0</span>
 <span class="saa-tier saa-tier--fundamental">Fundamental</span>
-<span class="saa-meta">75 min</span>
+<span class="saa-meta">75 min · ID técnico: M00-L03</span>
 </div>
 
 ## Resumo
@@ -91,7 +92,7 @@ Uma **VPN** cria um túnel cifrado sobre uma rede não confiável.
 | **Site-to-site** | Duas redes (matriz e filial, datacenter e cloud) | Interconexão permanente | O túnel conecta redes inteiras; a política de quais fluxos atravessam continua necessária. |
 | **Acesso remoto** | Um usuário a uma rede | Trabalho remoto, fornecedores | Coloca o dispositivo do usuário "dentro" da rede; sem MFA e restrição de destinos, vira porta de entrada para invasões. |
 
-A VPN protege o **trânsito**. Ela não diz nada sobre a confiabilidade do dispositivo na outra ponta — é por isso que abordagens como ZTNA, tratadas na M05-L04 e no M07, restringem o acesso a aplicações específicas em vez de redes inteiras.
+A VPN protege o **trânsito**. Ela não diz nada sobre a confiabilidade do dispositivo na outra ponta — é por isso que abordagens como ZTNA, tratadas na Aula 04 do Módulo 5 e no Módulo 7, restringem o acesso a aplicações específicas em vez de redes inteiras.
 
 ### TLS
 

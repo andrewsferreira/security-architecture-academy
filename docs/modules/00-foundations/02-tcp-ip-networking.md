@@ -1,6 +1,7 @@
 ---
 id: M00-L02
-title: "Redes TCP/IP: modelo OSI, endereçamento, DNS, DHCP e NAT"
+title: "Aula 02 — Redes TCP/IP: modelo OSI, endereçamento, DNS, DHCP e NAT"
+public_title: "Módulo Inicial — Aula 02 — Redes TCP/IP: modelo OSI, endereçamento, DNS, DHCP e NAT"
 description: Como uma requisição atravessa a rede — camadas, endereçamento IP, portas, DNS, DHCP, roteamento e NAT — e onde cada etapa cria oportunidades de controle e de ataque.
 domain: infrastructure-foundations
 tier: fundamental
@@ -19,12 +20,12 @@ reviewed_by: [Andrews Ferreira]
 module: M00
 ---
 
-# Redes TCP/IP: modelo OSI, endereçamento, DNS, DHCP e NAT
+# Aula 02 — Redes TCP/IP: modelo OSI, endereçamento, DNS, DHCP e NAT { #redes-tcpip-modelo-osi-enderecamento-dns-dhcp-e-nat }
 
 <div class="saa-lesson-meta" markdown>
-<span class="saa-level">Nível 0 · M00-L02</span>
+<span class="saa-level">Módulo Inicial · Nível 0</span>
 <span class="saa-tier saa-tier--fundamental">Fundamental</span>
-<span class="saa-meta">75 min</span>
+<span class="saa-meta">75 min · ID técnico: M00-L02</span>
 </div>
 
 ## Resumo
@@ -126,7 +127,7 @@ Repare que o NAT permite, por padrão, apenas conexões **iniciadas de dentro** 
 
     Três semanas depois, o servidor registrava milhares de tentativas de login por hora vindas de vários países. O endereço privado não importava: **o serviço estava alcançável pela internet** por meio da tradução.
 
-    A correção arquitetural não foi trocar a porta, e sim mudar o padrão: acesso de terceiros passa a ocorrer por um canal autenticado com MFA e restrito às aplicações necessárias (tema da M05-L04), e nenhuma regra de encaminhamento para protocolos administrativos é permitida na borda.
+    A correção arquitetural não foi trocar a porta, e sim mudar o padrão: acesso de terceiros passa a ocorrer por um canal autenticado com MFA e restrito às aplicações necessárias (tema da Aula 04 do Módulo 5), e nenhuma regra de encaminhamento para protocolos administrativos é permitida na borda.
 
 ## Arquitetura tradicional versus recomendada
 
@@ -144,7 +145,7 @@ Repare que o NAT permite, por padrão, apenas conexões **iniciadas de dentro** 
 |:---|:---|
 | **On-premises** | A organização opera switches, roteadores, DHCP, DNS e NAT. |
 | **Cloud** | Redes virtuais (VPC, VNet) têm endereçamento escolhido pelo cliente; DHCP e roteamento básico são fornecidos pelo provedor; gateways de NAT e resolvedores DNS são serviços gerenciados. |
-| **Híbrido** | O plano de endereçamento e a resolução de nomes precisam ser **unificados**: sobreposição de faixas e DNS que não resolve nomes do outro ambiente são as falhas mais comuns de integração (tema da M11-L02). |
+| **Híbrido** | O plano de endereçamento e a resolução de nomes precisam ser **unificados**: sobreposição de faixas e DNS que não resolve nomes do outro ambiente são as falhas mais comuns de integração (tema da Aula 02 do Módulo 11). |
 
 ## Como especificar e implementar
 

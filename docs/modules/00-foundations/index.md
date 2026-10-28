@@ -1,6 +1,6 @@
 ---
 id: M00
-title: "Módulo 00 — Fundamentos de Infraestrutura e Computação"
+title: "Módulo Inicial — Fundamentos de Infraestrutura e Computação"
 description: A base técnica para ler e discutir qualquer arquitetura — computação e virtualização, redes TCP/IP, segmentação, datacenter e alta disponibilidade, plataformas modernas, cloud e leitura de diagramas.
 stage: n0
 status: published
@@ -9,7 +9,7 @@ last_updated: 2026-10-23
 reviewed_by: [Andrews Ferreira]
 ---
 
-# Módulo 00 — Fundamentos de Infraestrutura e Computação
+# Módulo Inicial — Fundamentos de Infraestrutura e Computação { #modulo-00-fundamentos-de-infraestrutura-e-computacao }
 
 <div class="saa-lesson-meta" markdown>
 <span class="saa-level">Nível 0 — Fundamentos de Tecnologia e Segurança</span>
@@ -38,19 +38,23 @@ Ao concluir o módulo, você será capaz de:
 | Perfil | Como usar o módulo |
 |:---|:---|
 | Vindo de segurança (GRC, SOC, AppSec) sem formação em infraestrutura | Estude todas as aulas na ordem. |
-| Vindo de infraestrutura ou desenvolvimento | Faça a [avaliação diagnóstica](../../assessments/diagnostic-fundamentals.md); estude as aulas indicadas nas questões em que errar, e a [L07](07-reading-architecture-diagrams.md), que é o elo com o resto da formação. |
+| Vindo de infraestrutura ou desenvolvimento | Faça a [avaliação diagnóstica](../../assessments/diagnostic-fundamentals.md); estude as aulas indicadas nas questões em que errar, e a [Aula 07](07-reading-architecture-diagrams.md), que é o elo com o resto da formação. |
 
 ## Aulas
 
-| Aula | Tema | Duração |
-|:---|:---|:---|
-| [L01](01-computing-os-virtualization.md) | Computação, sistemas operacionais e virtualização | 60 min |
-| [L02](02-tcp-ip-networking.md) | Redes TCP/IP: modelo OSI, endereçamento, DNS, DHCP e NAT | 75 min |
-| [L03](03-segmentation-connectivity.md) | Segmentação e conectividade: VLAN, roteamento, VPN, TLS e firewalls | 75 min |
-| [L04](04-datacenter-high-availability.md) | Datacenters, armazenamento, clusters e alta disponibilidade | 60 min |
-| [L05](05-containers-apis-serverless.md) | Containers, Kubernetes, APIs, microsserviços e serverless | 75 min |
-| [L06](06-cloud-computing-models.md) | Cloud computing: modelos de serviço e de implantação | 60 min |
-| [L07](07-reading-architecture-diagrams.md) | Lendo diagramas arquiteturais: componentes, fluxos e fronteiras | 60 min |
+<!-- lessons:start -->
+
+| Aula | Tema | Profundidade | Duração |
+|:---|:---|:---|:---|
+| [Aula 01](01-computing-os-virtualization.md) | Computação, sistemas operacionais e virtualização | Fundamental | 60 min |
+| [Aula 02](02-tcp-ip-networking.md) | Redes TCP/IP: modelo OSI, endereçamento, DNS, DHCP e NAT | Fundamental | 75 min |
+| [Aula 03](03-segmentation-connectivity.md) | Segmentação e conectividade: VLAN, roteamento, VPN, TLS e firewalls | Fundamental | 75 min |
+| [Aula 04](04-datacenter-high-availability.md) | Datacenters, armazenamento, clusters e alta disponibilidade | Fundamental | 60 min |
+| [Aula 05](05-containers-apis-serverless.md) | Containers, Kubernetes, APIs, microsserviços e serverless | Fundamental | 75 min |
+| [Aula 06](06-cloud-computing-models.md) | Cloud computing: modelos de serviço e de implantação | Fundamental | 60 min |
+| [Aula 07](07-reading-architecture-diagrams.md) | Lendo diagramas arquiteturais: componentes, fluxos e fronteiras | Fundamental | 60 min |
+
+<!-- lessons:end -->
 
 ## Mapa do módulo
 
@@ -60,7 +64,7 @@ Ao concluir o módulo, você será capaz de:
 --8<-- "assets/diagrams/m00-module-map.mmd"
 ```
 
-<figcaption>Figura 1 — Mapa do Módulo 00.</figcaption>
+<figcaption>Figura 1 — Mapa do Módulo Inicial.</figcaption>
 </figure>
 
 ## Fio condutor
@@ -71,7 +75,7 @@ Todas as aulas voltam à mesma pergunta: **onde está a fronteira, e o que acont
 
 - [Avaliação diagnóstica de fundamentos](../../assessments/diagnostic-fundamentals.md) — Seção A cobre este módulo; faça antes de começar, para identificar lacunas.
 - [Laboratório 00 — Plano de endereçamento e segmentação](../../labs/lab-00-network-plan.md) — revisão de um plano de rede com sobreposição de endereços, rede plana e fluxos amplos (1 h 30 min a 2 h, sem custo).
-- [Avaliação do Módulo 00](../../assessments/m00-foundations.md) — dez questões situacionais e duas tarefas de análise, com gabarito comentado.
+- [Avaliação do Módulo Inicial](../../assessments/m00-foundations.md) — dez questões situacionais e duas tarefas de análise, com gabarito comentado.
 - Exercícios de decisão ao final de cada aula, com resolução de referência.
 
 ## Organizações fictícias usadas no módulo

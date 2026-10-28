@@ -16,8 +16,8 @@ Os laboratórios demonstram **aplicação arquitetural**, e não apenas a admini
 
 | Laboratório | Módulo | Ambiente | Custo | Status |
 |:---|:---|:---|:---|:---|
-| [Laboratório 00 — Plano de endereçamento e segmentação](lab-00-network-plan.md) | M00 | Local (Python, biblioteca padrão) | Sem custo | <span class="saa-status saa-status--published">Published</span> · executado e testado |
-| [Laboratório 01 — Mecanismos de segurança na prática](lab-01-security-mechanisms.md) | M01 | Local (Python, biblioteca padrão) | Sem custo | <span class="saa-status saa-status--published">Published</span> · executado e testado |
-| [Laboratório 02 — Modelagem arquitetural como código](lab-02-architecture-modeling.md) | M02 | Local (Python) | Sem custo | <span class="saa-status saa-status--published">Published</span> · executado e testado |
+| [Laboratório 00 — Plano de endereçamento e segmentação](lab-00-network-plan.md) | Módulo Inicial | Local (Python, biblioteca padrão) | Sem custo | <span class="saa-status saa-status--published">Published</span> · executado e testado |
+| [Laboratório 01 — Mecanismos de segurança na prática](lab-01-security-mechanisms.md) | Módulo 1 | Local (Python, biblioteca padrão) | Sem custo | <span class="saa-status saa-status--published">Published</span> · executado e testado |
+| [Laboratório 02 — Modelagem arquitetural como código](lab-02-architecture-modeling.md) | Módulo 2 | Local (Python) | Sem custo | <span class="saa-status saa-status--published">Published</span> · executado e testado |
 
 Novos laboratórios são produzidos com seus módulos — ver o [Curriculum Roadmap](../curriculum/index.md#atividades-e-artefatos).

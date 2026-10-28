@@ -13,11 +13,11 @@ Os estudos de caso colocam o estudante no papel de arquiteto diante de uma deman
 
 | Caso | Cenário | Módulos | Status |
 |:---|:---|:---|:---|
-| [**A — Datacenter tradicional**](case-a-meridiana/index.md) | Meridiana Distribuidora: Active Directory, rede plana, VPN sem MFA, risco de ransomware e renovação do seguro | M02, M05, M06, M08 | <span class="saa-status saa-status--published">Published</span> |
-| **B — Migração para AWS** | Empresa em transformação digital modernizando aplicações, com landing zone, IAM, rede e logging | M09, M11 | <span class="saa-status saa-status--planned">Planned</span> |
-| **C — Arquitetura híbrida** | Identidade on-premises, aplicações legadas, serviços em Azure e AWS e políticas corporativas comuns | M10, M11 | <span class="saa-status saa-status--planned">Planned</span> |
-| **D — Grupo empresarial** | Holding com subsidiárias independentes, tecnologias heterogêneas e governança transversal | M16 | <span class="saa-status saa-status--planned">Planned</span> |
-| **E — Programa de Vulnerability Management** | Múltiplos ambientes, baixa cobertura de ativos, responsáveis difusos e priorização insuficiente | M14 | <span class="saa-status saa-status--planned">Planned</span> |
+| [**A — Datacenter tradicional**](case-a-meridiana/index.md) | Meridiana Distribuidora: Active Directory, rede plana, VPN sem MFA, risco de ransomware e renovação do seguro | Módulos 2, 5, 6 e 8 | <span class="saa-status saa-status--published">Published</span> |
+| **B — Migração para AWS** | Empresa em transformação digital modernizando aplicações, com landing zone, IAM, rede e logging | Módulos 9 e 11 | <span class="saa-status saa-status--planned">Planned</span> |
+| **C — Arquitetura híbrida** | Identidade on-premises, aplicações legadas, serviços em Azure e AWS e políticas corporativas comuns | Módulos 10 e 11 | <span class="saa-status saa-status--planned">Planned</span> |
+| **D — Grupo empresarial** | Holding com subsidiárias independentes, tecnologias heterogêneas e governança transversal | Módulo 16 | <span class="saa-status saa-status--planned">Planned</span> |
+| **E — Programa de Vulnerability Management** | Múltiplos ambientes, baixa cobertura de ativos, responsáveis difusos e priorização insuficiente | Módulo 14 | <span class="saa-status saa-status--planned">Planned</span> |
 
 ## Estrutura de cada caso
 

@@ -9,7 +9,7 @@ reviewed_by: [Andrews Ferreira]
 
 # Modelo: Architecture Decision Record
 
-Baseado no formato de Michael Nygard (título, contexto, decisão, status e consequências), com extensões para decisões de segurança. Fundamentos e exemplos comentados na aula [M02-L08](../modules/02-security-architecture/08-architecture-decision-records.md).
+Baseado no formato de Michael Nygard (título, contexto, decisão, status e consequências), com extensões para decisões de segurança. Fundamentos e exemplos comentados na [Aula 08 do Módulo 2](../modules/02-security-architecture/08-architecture-decision-records.md).
 
 ## Modelo
 
@@ -95,4 +95,4 @@ regras de política, revisões.>
 - [ADR-001 — Acesso remoto da Meridiana Distribuidora](../case-studies/case-a-meridiana/adr-001-remote-access.md)
 - [ADR-002 — Segmentação do datacenter da Meridiana](../case-studies/case-a-meridiana/adr-002-segmentation.md)
 - [ADR-003 — Centralização de logs da Meridiana](../case-studies/case-a-meridiana/adr-003-logging.md)
-- [ADR-012 da Aurora Pagamentos](../modules/02-security-architecture/08-architecture-decision-records.md#exemplo-empresarial), na aula M02-L08
+- [ADR-012 da Aurora Pagamentos](../modules/02-security-architecture/08-architecture-decision-records.md#exemplo-empresarial), na Aula 08 do Módulo 2

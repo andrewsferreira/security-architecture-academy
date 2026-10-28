@@ -1,16 +1,16 @@
 ---
 id: AS-M00
-title: "Avaliação do Módulo 00 — Fundamentos de Infraestrutura e Computação"
-description: Avaliação baseada em competências do Módulo 00 — questões situacionais sobre virtualização, redes, segmentação, alta disponibilidade, plataformas modernas, modelos de nuvem e leitura de diagramas, e duas tarefas de análise.
+title: "Avaliação do Módulo Inicial — Fundamentos de Infraestrutura e Computação"
+description: Avaliação baseada em competências do Módulo Inicial — questões situacionais sobre virtualização, redes, segmentação, alta disponibilidade, plataformas modernas, modelos de nuvem e leitura de diagramas, e duas tarefas de análise.
 status: published
 last_updated: 2026-10-27
 reviewed_by: [Andrews Ferreira]
 ---
 
-# Avaliação do Módulo 00 — Fundamentos de Infraestrutura e Computação
+# Avaliação do Módulo Inicial — Fundamentos de Infraestrutura e Computação { #avaliacao-do-modulo-00-fundamentos-de-infraestrutura-e-computacao }
 
 <div class="saa-lesson-meta" markdown>
-<span class="saa-level">Avaliação de módulo · M00</span>
+<span class="saa-level">Avaliação de módulo · Módulo Inicial</span>
 <span class="saa-tier saa-tier--fundamental">Fundamental</span>
 <span class="saa-meta">60 min · 10 questões + 2 tarefas</span>
 </div>
@@ -98,7 +98,7 @@ reviewed_by: [Andrews Ferreira]
 
 **Tarefa 1 — Plano de endereçamento (20 pontos).** A Meridiana usa `10.0.0.0/16` no datacenter e criou a VPC do portal B2B também em `10.0.0.0/16`. Agora quer integrar o portal ao ERP. Explique o problema, as opções (renumerar, NAT entre ambientes) com uma vantagem e uma desvantagem de cada, e proponha uma regra de endereçamento para evitar o problema no futuro.
 
-**Tarefa 2 — Leitura de diagrama (20 pontos).** Descreva, em até dez linhas, como você aplicaria o método de quatro passagens (componentes, fluxos, dados, fronteiras) do M00-L07 a um diagrama que mostra: usuários na internet, um balanceador, dois servidores de aplicação, um banco de dados e um provedor de pagamentos externo. Liste pelo menos três perguntas que faria aos autores.
+**Tarefa 2 — Leitura de diagrama (20 pontos).** Descreva, em até dez linhas, como você aplicaria o método de quatro passagens (componentes, fluxos, dados, fronteiras) do Módulo Inicial — Aula 07 a um diagrama que mostra: usuários na internet, um balanceador, dois servidores de aplicação, um banco de dados e um provedor de pagamentos externo. Liste pelo menos três perguntas que faria aos autores.
 
 ## Depois da avaliação
 

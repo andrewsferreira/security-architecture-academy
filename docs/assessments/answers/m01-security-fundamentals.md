@@ -1,31 +1,31 @@
 ---
-title: "Gabarito — Avaliação do Módulo 01"
-description: Gabarito comentado da avaliação do Módulo 01, com justificativa das alternativas incorretas, respostas de referência das tarefas e rubrica de correção.
+title: "Gabarito — Avaliação do Módulo 1"
+description: Gabarito comentado da avaliação do Módulo 1, com justificativa das alternativas incorretas, respostas de referência das tarefas e rubrica de correção.
 status: published
 last_updated: 2026-10-27
 reviewed_by: [Andrews Ferreira]
 ---
 
-# Gabarito — Avaliação do Módulo 01
+# Gabarito — Avaliação do Módulo 1 { #gabarito-avaliacao-do-modulo-01 }
 
 !!! warning "Responda primeiro"
 
-    Este é o gabarito da [avaliação do Módulo 01](../m01-security-fundamentals.md). Faça a avaliação antes de ler.
+    Este é o gabarito da [avaliação do Módulo 1](../m01-security-fundamentals.md). Faça a avaliação antes de ler.
 
 ## Parte 1 — Respostas comentadas
 
 | Questão | Resposta | Aula |
 |:---|:---|:---|
-| 1 | **b** | M01-L01 |
-| 2 | **d** | M01-L01 |
-| 3 | **a** | M01-L02 |
-| 4 | **c** | M01-L02 |
-| 5 | **d** | M01-L03 |
-| 6 | **b** | M01-L04 |
-| 7 | **a** | M01-L04 |
-| 8 | **c** | M01-L05 |
-| 9 | **b** | M01-L06 |
-| 10 | **d** | M01-L07 |
+| 1 | **b** | Módulo 1 — Aula 01 |
+| 2 | **d** | Módulo 1 — Aula 01 |
+| 3 | **a** | Módulo 1 — Aula 02 |
+| 4 | **c** | Módulo 1 — Aula 02 |
+| 5 | **d** | Módulo 1 — Aula 03 |
+| 6 | **b** | Módulo 1 — Aula 04 |
+| 7 | **a** | Módulo 1 — Aula 04 |
+| 8 | **c** | Módulo 1 — Aula 05 |
+| 9 | **b** | Módulo 1 — Aula 06 |
+| 10 | **d** | Módulo 1 — Aula 07 |
 
 **1 — (b).** Autenticação não é autorização: saber quem é o usuário não diz se ele pode acessar aquele pedido. É uma das falhas mais comuns em APIs. (a), (c) e (d) não descrevem a falha.
 
@@ -78,10 +78,10 @@ reviewed_by: [Andrews Ferreira]
 
 | Questões ou tarefa com erro | Revise |
 |:---|:---|
-| 1, 2, Tarefa 1 | [M01-L01](../../modules/01-security-fundamentals/01-security-properties.md) |
-| 3, 4 | [M01-L02](../../modules/01-security-fundamentals/02-secure-design-principles.md) |
-| 5 | [M01-L03](../../modules/01-security-fundamentals/03-trust-boundaries-attack-surface.md) |
-| 6, 7 | [M01-L04](../../modules/01-security-fundamentals/04-applied-cryptography.md) e o [Laboratório 01](../../labs/lab-01-security-mechanisms.md) |
-| 8 | [M01-L05](../../modules/01-security-fundamentals/05-pki-tls-key-management.md) |
-| 9, Tarefa 2 | [M01-L06](../../modules/01-security-fundamentals/06-threat-vulnerability-risk.md) |
-| 10 | [M01-L07](../../modules/01-security-fundamentals/07-formal-security-models.md) |
+| 1, 2, Tarefa 1 | [Módulo 1 — Aula 01](../../modules/01-security-fundamentals/01-security-properties.md) |
+| 3, 4 | [Módulo 1 — Aula 02](../../modules/01-security-fundamentals/02-secure-design-principles.md) |
+| 5 | [Módulo 1 — Aula 03](../../modules/01-security-fundamentals/03-trust-boundaries-attack-surface.md) |
+| 6, 7 | [Módulo 1 — Aula 04](../../modules/01-security-fundamentals/04-applied-cryptography.md) e o [Laboratório 01](../../labs/lab-01-security-mechanisms.md) |
+| 8 | [Módulo 1 — Aula 05](../../modules/01-security-fundamentals/05-pki-tls-key-management.md) |
+| 9, Tarefa 2 | [Módulo 1 — Aula 06](../../modules/01-security-fundamentals/06-threat-vulnerability-risk.md) |
+| 10 | [Módulo 1 — Aula 07](../../modules/01-security-fundamentals/07-formal-security-models.md) |

@@ -1,45 +1,50 @@
 # Contribuindo com a Security Architecture Academy
 
-Obrigado pelo interesse em contribuir. Este guia resume o essencial; os detalhes estão no [Fluxo de contribuição](docs/internal/workflow.md) do Handbook.
+Obrigado pelo interesse em contribuir. Este guia resume como as contribuições chegam ao portal.
+
+## Como o projeto é publicado
+
+O conteúdo é produzido e revisado em um repositório de desenvolvimento. Este repositório recebe **somente** as versões publicadas, exportadas e verificadas (cada arquivo tem o SHA-256 registrado em `RELEASE-MANIFEST.yml`). Por isso, nenhuma alteração entra diretamente na `main` daqui: as propostas são incorporadas pelo mantenedor no desenvolvimento, revisadas e publicadas na versão seguinte — por exemplo, uma versão de correção `v0.1.x`.
 
 ## Formas de contribuir
 
 | Contribuição | Como começar |
 |:---|:---|
-| Corrigir um erro técnico ou de digitação | Pull Request direto, ou issue *Report a documentation error* |
+| Corrigir um erro técnico ou de digitação | Issue *Report a documentation error* — ou um Pull Request como proposta, que será incorporada pelo mantenedor |
 | Sugerir conteúdo | Issue *Suggest new learning content* |
 | Reportar link ou recurso quebrado | Issue *Report a broken resource* |
 | Melhorar diagramas, padrões ou arquiteturas | Issue *Propose architecture improvements* |
 | Reportar problema no site, build ou CI | Issue *Report technical problems* |
-| Revisão técnica de módulos | Comente nos Pull Requests marcados com `type: content` |
+| Revisão técnica de módulos | Comente na issue ou no Pull Request do tema |
 
 ## Antes de escrever
 
-Leia, nesta ordem:
+- **Idioma:** português do Brasil; termos técnicos consolidados ficam em inglês, com explicação em português na primeira ocorrência da página.
+- **Exemplos:** empresas, pessoas, endereços e números fictícios; domínios `example.com` e faixas de documentação (RFC 5737).
+- **Fontes:** afirmações normativas com a fonte primária, a versão e a data de verificação.
+- **Aulas:** cite outras aulas pelo nome público ("Módulo 1 — Aula 02"); os IDs técnicos (`M01-L02`) ficam nos metadados.
+- **Diagramas:** Mermaid com `accTitle` e `accDescr`, legíveis nos modos claro e escuro.
 
-1. [Guia editorial](docs/internal/style-guide.md) — idioma, terminologia, exemplos e referências.
-2. [Modelo de conteúdo](docs/internal/content-model.md) — templates, front matter, status e critérios de publicação.
-3. [Design System](docs/internal/design-system.md) e [Padrões de diagramas](docs/internal/diagrams.md).
+O guia editorial completo, o modelo de conteúdo, o Design System e os padrões de diagramas são mantidos no repositório de desenvolvimento e aplicados na revisão.
 
-## Fluxo
+## Validação local
 
-```text
-Issue → Branch → Pull Request → Validação automática → Review → Merge → Publicação
+```bash
+make install
+make validate   # estrutura, manifesto, assets, contraste, build e links
+make test       # testes dos scripts e dos laboratórios
 ```
 
-1. **Branch** no formato `<tipo>/<descrição>`: `content/`, `fix/`, `design/`, `ci/`, `docs/`.
-2. **Commits** no padrão [Conventional Commits](https://www.conventionalcommits.org/pt-br/v1.0.0/): `feat(m05): adicionar aula sobre federação`.
-3. **Valide localmente:**
+## Fluxo de uma mudança
 
-    ```bash
-    make install
-    make validate   # estrutura, manifesto, assets, contraste, build e links
-    make test       # testes dos scripts
-    ```
+```text
+Issue → Proposta → Incorporação no desenvolvimento → Validação automática → Revisão → Release → Publicação manual
+```
 
-4. **Pull Request** com o template preenchido. Um tema por PR.
-5. **Review:** comentários indicam se são bloqueantes ou sugestões.
-6. **Merge** por squash; a publicação no GitHub Pages é automática.
+1. **Commits** no padrão [Conventional Commits](https://www.conventionalcommits.org/pt-br/v1.0.0/): `fix(m01): corrigir exemplo de TLS`.
+2. **Um tema por proposta**, com o template de Pull Request preenchido.
+3. **Revisão:** comentários indicam se são bloqueantes ou sugestões.
+4. **Publicação:** manual, por release aprovada pelo mantenedor; o deploy do GitHub Pages nunca é disparado por um merge.
 
 ## Regras inegociáveis
 

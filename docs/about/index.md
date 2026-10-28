@@ -50,4 +50,4 @@ A formação **não emite certificados** e não substitui programas oficiais de 
 
 Mantido por **Andrews Ferreira** — [GitHub](https://github.com/andrewsferreira) · [LinkedIn](https://www.linkedin.com/in/andrewslferreira).
 
-Para contribuir, veja o [Fluxo de contribuição](../internal/workflow.md). Para reportar uma vulnerabilidade no repositório ou no site, siga a [política de segurança](https://github.com/andrewsferreira/security-architecture-academy/blob/main/SECURITY.md).
+Para contribuir, veja o [guia de contribuição](https://github.com/andrewsferreira/security-architecture-academy/blob/main/CONTRIBUTING.md). Para reportar uma vulnerabilidade no repositório ou no site, siga a [política de segurança](https://github.com/andrewsferreira/security-architecture-academy/blob/main/SECURITY.md).

@@ -54,7 +54,7 @@ phases:
   title: Fase 0 — Planejamento acadêmico e técnico
   status: in-review
 - id: 1
-  title: Fase 1 — MVP educacional (Módulo 02)
+  title: Fase 1 — MVP educacional (Módulo 2)
   status: in-review
 - id: 2
   title: Fase 2 — Formação profissional prioritária
@@ -101,6 +101,9 @@ modules:
   - infrastructure-foundations
   prerequisites: []
   status: published
+  published_on: 2026-10-27
+  reviewed_by:
+  - Andrews Ferreira
   path: modules/00-foundations/index.md
   lessons:
   - id: M00-L01
@@ -108,60 +111,64 @@ modules:
     tier: fundamental
     minutes: 60
     status: published
-    file: 01-computing-os-virtualization.md
-    published_on: &id001 2026-10-27
-    reviewed_by: &id002
+    published_on: 2026-10-27
+    reviewed_by:
     - Andrews Ferreira
+    file: 01-computing-os-virtualization.md
   - id: M00-L02
     title: 'Redes TCP/IP: modelo OSI, endereçamento, DNS, DHCP e NAT'
     tier: fundamental
     minutes: 75
     status: published
+    published_on: 2026-10-27
+    reviewed_by:
+    - Andrews Ferreira
     file: 02-tcp-ip-networking.md
-    published_on: *id001
-    reviewed_by: *id002
   - id: M00-L03
     title: 'Segmentação e conectividade: VLAN, roteamento, VPN, TLS e firewalls'
     tier: fundamental
     minutes: 75
     status: published
+    published_on: 2026-10-27
+    reviewed_by:
+    - Andrews Ferreira
     file: 03-segmentation-connectivity.md
-    published_on: *id001
-    reviewed_by: *id002
   - id: M00-L04
     title: Datacenters, armazenamento, clusters e alta disponibilidade
     tier: fundamental
     minutes: 60
     status: published
+    published_on: 2026-10-27
+    reviewed_by:
+    - Andrews Ferreira
     file: 04-datacenter-high-availability.md
-    published_on: *id001
-    reviewed_by: *id002
   - id: M00-L05
     title: Containers, Kubernetes, APIs, microsserviços e serverless
     tier: fundamental
     minutes: 75
     status: published
+    published_on: 2026-10-27
+    reviewed_by:
+    - Andrews Ferreira
     file: 05-containers-apis-serverless.md
-    published_on: *id001
-    reviewed_by: *id002
   - id: M00-L06
     title: 'Cloud computing: modelos de serviço e de implantação'
     tier: fundamental
     minutes: 60
     status: published
+    published_on: 2026-10-27
+    reviewed_by:
+    - Andrews Ferreira
     file: 06-cloud-computing-models.md
-    published_on: *id001
-    reviewed_by: *id002
   - id: M00-L07
     title: 'Lendo diagramas arquiteturais: componentes, fluxos e fronteiras'
     tier: fundamental
     minutes: 60
     status: published
+    published_on: 2026-10-27
+    reviewed_by:
+    - Andrews Ferreira
     file: 07-reading-architecture-diagrams.md
-    published_on: *id001
-    reviewed_by: *id002
-  published_on: *id001
-  reviewed_by: *id002
 - id: M01
   slug: security-fundamentals
   title: Fundamentos de Segurança
@@ -172,6 +179,9 @@ modules:
   prerequisites:
   - M00
   status: published
+  published_on: 2026-10-27
+  reviewed_by:
+  - Andrews Ferreira
   path: modules/01-security-fundamentals/index.md
   lessons:
   - id: M01-L01
@@ -179,59 +189,64 @@ modules:
     tier: fundamental
     minutes: 60
     status: published
+    published_on: 2026-10-27
+    reviewed_by:
+    - Andrews Ferreira
     file: 01-security-properties.md
-    published_on: *id001
-    reviewed_by: *id002
   - id: M01-L02
     title: Princípios de design seguro
     tier: fundamental
     minutes: 75
     status: published
+    published_on: 2026-10-27
+    reviewed_by:
+    - Andrews Ferreira
     file: 02-secure-design-principles.md
-    published_on: *id001
-    reviewed_by: *id002
   - id: M01-L03
     title: Trust boundaries, attack surface e responsabilidade compartilhada
     tier: fundamental
     minutes: 60
     status: published
+    published_on: 2026-10-27
+    reviewed_by:
+    - Andrews Ferreira
     file: 03-trust-boundaries-attack-surface.md
-    published_on: *id001
-    reviewed_by: *id002
   - id: M01-L04
     title: 'Criptografia aplicada: simétrica, assimétrica, hashing e assinaturas'
     tier: fundamental
     minutes: 75
     status: published
+    published_on: 2026-10-27
+    reviewed_by:
+    - Andrews Ferreira
     file: 04-applied-cryptography.md
-    published_on: *id001
-    reviewed_by: *id002
   - id: M01-L05
     title: PKI, certificados, TLS e gerenciamento de chaves
     tier: fundamental
     minutes: 75
     status: published
+    published_on: 2026-10-27
+    reviewed_by:
+    - Andrews Ferreira
     file: 05-pki-tls-key-management.md
-    published_on: *id001
-    reviewed_by: *id002
   - id: M01-L06
     title: Ameaça, vulnerabilidade, risco, exposição e controle
     tier: fundamental
     minutes: 60
     status: published
+    published_on: 2026-10-27
+    reviewed_by:
+    - Andrews Ferreira
     file: 06-threat-vulnerability-risk.md
-    published_on: *id001
-    reviewed_by: *id002
   - id: M01-L07
     title: 'Modelos formais: Bell-LaPadula, Biba, Clark-Wilson e Brewer-Nash'
     tier: professional
     minutes: 60
     status: published
+    published_on: 2026-10-27
+    reviewed_by:
+    - Andrews Ferreira
     file: 07-formal-security-models.md
-    published_on: *id001
-    reviewed_by: *id002
-  published_on: *id001
-  reviewed_by: *id002
 - id: M02
   slug: security-architecture
   title: Introdução à Arquitetura de Segurança
@@ -244,6 +259,9 @@ modules:
   - M00
   - M01
   status: published
+  published_on: 2026-10-27
+  reviewed_by:
+  - Andrews Ferreira
   path: modules/02-security-architecture/index.md
   lessons:
   - id: M02-L01
@@ -251,67 +269,73 @@ modules:
     tier: fundamental
     minutes: 60
     status: published
+    published_on: 2026-10-27
+    reviewed_by:
+    - Andrews Ferreira
     file: 01-security-architect-role.md
-    published_on: *id001
-    reviewed_by: *id002
   - id: M02-L02
     title: Enterprise, Solution e Security Architecture
     tier: fundamental
     minutes: 60
     status: published
+    published_on: 2026-10-27
+    reviewed_by:
+    - Andrews Ferreira
     file: 02-enterprise-solution-security-architecture.md
-    published_on: *id001
-    reviewed_by: *id002
   - id: M02-L03
     title: Arquitetura conceitual, lógica e física
     tier: professional
     minutes: 75
     status: published
+    published_on: 2026-10-27
+    reviewed_by:
+    - Andrews Ferreira
     file: 03-conceptual-logical-physical.md
-    published_on: *id001
-    reviewed_by: *id002
   - id: M02-L04
     title: Princípios, padrões, baselines e exceções
     tier: professional
     minutes: 75
     status: published
+    published_on: 2026-10-27
+    reviewed_by:
+    - Andrews Ferreira
     file: 04-principles-standards-baselines-exceptions.md
-    published_on: *id001
-    reviewed_by: *id002
   - id: M02-L05
     title: Arquiteturas de referência e blueprints
     tier: professional
     minutes: 60
     status: published
+    published_on: 2026-10-27
+    reviewed_by:
+    - Andrews Ferreira
     file: 05-reference-architectures-blueprints.md
-    published_on: *id001
-    reviewed_by: *id002
   - id: M02-L06
     title: 'Frameworks, padrões e certificações: NIST, SABSA, TOGAF, CISSP e ISSAP'
     tier: professional
     minutes: 90
     status: published
+    published_on: 2026-10-27
+    reviewed_by:
+    - Andrews Ferreira
     file: 06-frameworks.md
-    published_on: *id001
-    reviewed_by: *id002
   - id: M02-L07
     title: 'Business-driven Security Architecture: de requisitos de negócio a requisitos de segurança'
     tier: architect
     minutes: 90
     status: published
+    published_on: 2026-10-27
+    reviewed_by:
+    - Andrews Ferreira
     file: 07-business-driven-requirements.md
-    published_on: *id001
-    reviewed_by: *id002
   - id: M02-L08
     title: Architecture Decision Records
     tier: architect
     minutes: 75
     status: published
+    published_on: 2026-10-27
+    reviewed_by:
+    - Andrews Ferreira
     file: 08-architecture-decision-records.md
-    published_on: *id001
-    reviewed_by: *id002
-  published_on: *id001
-  reviewed_by: *id002
 - id: M03
   slug: governance-risk
   title: Governança, Riscos e Controles
@@ -1101,7 +1125,7 @@ releases:
 - id: R1
   version: 0.1.0
   title: Release 1 — Fundamentals
-  status: approved
+  status: published
   candidate: v0.1.0-fundamentals-rc1
   modules:
   - M00
@@ -1127,9 +1151,20 @@ releases:
   - Andrews Ferreira
   approved_on: 2026-10-27
   approved_source_commit: 94c6cb4d67519737760ba63912a921cb6681e8bb
-  public_commit: null
-  published_on: null
-  url: null
+  public_commit: 7bc0237e90c4a0e742fdb0429864765491cb9511
+  published_on: 2026-10-27
+  url: https://andrewsferreira.github.io/security-architecture-academy/
+  patches:
+  - version: 0.1.1
+    title: Release 1 — Fundamentals (estabilização)
+    candidate: v0.1.1-rc1
+    status: approved
+    approved_by:
+    - Andrews Ferreira
+    approved_on: 2026-10-27
+    approved_source_commit: f4053915933fa63d5c99ff07b694961d3663ebe7
+    public_commit: null
+    published_on: null
 - id: R2
   version: 0.2.0
   title: Release 2 — Professional
@@ -1204,9 +1239,10 @@ case_studies:
   - M08
   phase: 1
   status: published
+  published_on: 2026-10-27
+  reviewed_by:
+  - Andrews Ferreira
   path: case-studies/case-a-meridiana/index.md
-  published_on: *id001
-  reviewed_by: *id002
 - id: CS-B
   title: Caso B — Migração para AWS
   modules:
@@ -1240,30 +1276,33 @@ labs:
   - M00
   phase: 1
   status: published
+  published_on: 2026-10-27
+  reviewed_by:
+  - Andrews Ferreira
   tested: true
   path: labs/lab-00-network-plan.md
-  published_on: *id001
-  reviewed_by: *id002
 - id: LAB-01
   title: Laboratório 01 — Mecanismos de segurança na prática
   modules:
   - M01
   phase: 1
   status: published
+  published_on: 2026-10-27
+  reviewed_by:
+  - Andrews Ferreira
   tested: true
   path: labs/lab-01-security-mechanisms.md
-  published_on: *id001
-  reviewed_by: *id002
 - id: LAB-02
   title: Laboratório 02 — Modelagem arquitetural como código
   modules:
   - M02
   phase: 1
   status: published
+  published_on: 2026-10-27
+  reviewed_by:
+  - Andrews Ferreira
   tested: true
   path: labs/lab-02-architecture-modeling.md
-  published_on: *id001
-  reviewed_by: *id002
 assessments:
 - id: AS-DIAG
   title: Avaliação diagnóstica de fundamentos
@@ -1273,32 +1312,35 @@ assessments:
   - M01
   phase: 1
   status: published
+  published_on: 2026-10-27
+  reviewed_by:
+  - Andrews Ferreira
   path: assessments/diagnostic-fundamentals.md
   answers: assessments/answers/diagnostic-fundamentals.md
-  published_on: *id001
-  reviewed_by: *id002
 - id: AS-M00
-  title: Avaliação do Módulo 00
+  title: Avaliação do Módulo Inicial
   kind: module
   modules:
   - M00
   phase: 1
   status: published
+  published_on: 2026-10-27
+  reviewed_by:
+  - Andrews Ferreira
   path: assessments/m00-foundations.md
   answers: assessments/answers/m00-foundations.md
-  published_on: *id001
-  reviewed_by: *id002
 - id: AS-M01
-  title: Avaliação do Módulo 01
+  title: Avaliação do Módulo 1
   kind: module
   modules:
   - M01
   phase: 1
   status: published
+  published_on: 2026-10-27
+  reviewed_by:
+  - Andrews Ferreira
   path: assessments/m01-security-fundamentals.md
   answers: assessments/answers/m01-security-fundamentals.md
-  published_on: *id001
-  reviewed_by: *id002
 - id: AS-FUND
   title: Avaliação final de Fundamentals (integradora)
   kind: final
@@ -1308,21 +1350,23 @@ assessments:
   - M02
   phase: 1
   status: published
+  published_on: 2026-10-27
+  reviewed_by:
+  - Andrews Ferreira
   path: assessments/fundamentals-final.md
   answers: assessments/answers/fundamentals-final.md
-  published_on: *id001
-  reviewed_by: *id002
 - id: AS-M02
-  title: Avaliação do Módulo 02
+  title: Avaliação do Módulo 2
   kind: module
   modules:
   - M02
   phase: 1
   status: published
+  published_on: 2026-10-27
+  reviewed_by:
+  - Andrews Ferreira
   path: assessments/m02-security-architecture.md
   answers: assessments/answers/m02-security-architecture.md
-  published_on: *id001
-  reviewed_by: *id002
 - id: AS-MID
   title: Avaliação intermediária (Níveis 1 e 2)
   kind: intermediate
@@ -1366,23 +1410,26 @@ artifacts:
   title: Architecture Decision Record
   phase: 1
   status: published
+  published_on: 2026-10-27
+  reviewed_by:
+  - Andrews Ferreira
   path: artifacts/architecture-decision-record.md
-  published_on: *id001
-  reviewed_by: *id002
 - id: ART-SRS
   title: Security Requirements Specification
   phase: 1
   status: published
+  published_on: 2026-10-27
+  reviewed_by:
+  - Andrews Ferreira
   path: artifacts/security-requirements-specification.md
-  published_on: *id001
-  reviewed_by: *id002
 - id: ART-ARC
   title: Architecture Review Checklist
   phase: 1
   status: published
+  published_on: 2026-10-27
+  reviewed_by:
+  - Andrews Ferreira
   path: artifacts/architecture-review-checklist.md
-  published_on: *id001
-  reviewed_by: *id002
 - id: ART-SAA
   title: Security Architecture Assessment
   phase: 2

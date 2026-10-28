@@ -1,6 +1,7 @@
 ---
 id: M01-L01
-title: "Propriedades de segurança: CIA, autenticidade, autorização e não repúdio"
+title: "Aula 01 — Propriedades de segurança: CIA, autenticidade, autorização e não repúdio"
+public_title: "Módulo 1 — Aula 01 — Propriedades de segurança: CIA, autenticidade, autorização e não repúdio"
 description: O que significa proteger informação — confidencialidade, integridade, disponibilidade, autenticidade, autorização, não repúdio e responsabilização — e como expressar requisitos de segurança em termos dessas propriedades.
 domain: security-foundations
 tier: fundamental
@@ -19,12 +20,12 @@ reviewed_by: [Andrews Ferreira]
 module: M01
 ---
 
-# Propriedades de segurança: CIA, autenticidade, autorização e não repúdio
+# Aula 01 — Propriedades de segurança: CIA, autenticidade, autorização e não repúdio { #propriedades-de-seguranca-cia-autenticidade-autorizacao-e-nao-repudio }
 
 <div class="saa-lesson-meta" markdown>
-<span class="saa-level">Nível 0 · M01-L01</span>
+<span class="saa-level">Módulo 1 · Nível 0</span>
 <span class="saa-tier saa-tier--fundamental">Fundamental</span>
-<span class="saa-meta">60 min</span>
+<span class="saa-meta">60 min · ID técnico: M01-L01</span>
 </div>
 
 ## Resumo
@@ -58,7 +59,7 @@ A tríade é útil, mas incompleta. Muitos incidentes graves não se encaixam be
 
 ### Confidencialidade, sigilo e privacidade
 
-Anderson faz uma distinção útil (*Security Engineering*, Cap. 1, §1.7, p. 11): **sigilo** é um conceito técnico de mecanismo — restringir o acesso a uma informação; **confidencialidade** é a obrigação de proteger segredos de outras pessoas, que você conhece por causa de uma relação (o banco e o cliente, o hospital e o paciente); **privacidade** é o direito de um indivíduo de controlar informações sobre si mesmo. A diferença importa para arquitetos porque leis de proteção de dados, como a LGPD, tratam de privacidade — e exigem mais do que cifrar: exigem finalidade, minimização e direitos do titular, temas do M13.
+Anderson faz uma distinção útil (*Security Engineering*, Cap. 1, §1.7, p. 11): **sigilo** é um conceito técnico de mecanismo — restringir o acesso a uma informação; **confidencialidade** é a obrigação de proteger segredos de outras pessoas, que você conhece por causa de uma relação (o banco e o cliente, o hospital e o paciente); **privacidade** é o direito de um indivíduo de controlar informações sobre si mesmo. A diferença importa para arquitetos porque leis de proteção de dados, como a LGPD, tratam de privacidade — e exigem mais do que cifrar: exigem finalidade, minimização e direitos do titular, temas do Módulo 13.
 
 ### Além da tríade
 
@@ -106,7 +107,7 @@ As propriedades de autenticidade, autorização e responsabilização aparecem e
 <figcaption>Figura 2 — A Maria é identificada e autenticada pelo provedor de identidade, mas a política de autorização nega a aprovação acima do seu limite; a tentativa fica registrada.</figcaption>
 </figure>
 
-Repare que o provedor de identidade não sabe nada sobre limites de aprovação: ele responde **quem é**. A decisão **pode ou não pode** está em outro componente, alimentado por regras de negócio. Os módulos M06 (identidade e acesso) e M07 (Zero Trust) aprofundam cada etapa.
+Repare que o provedor de identidade não sabe nada sobre limites de aprovação: ele responde **quem é**. A decisão **pode ou não pode** está em outro componente, alimentado por regras de negócio. Os módulos Módulo 6 (identidade e acesso) e Módulo 7 (Zero Trust) aprofundam cada etapa.
 
 ### Propriedades conflitam
 
@@ -168,7 +169,7 @@ As propriedades são as mesmas em qualquer ambiente; mudam os mecanismos e quem 
 
 - **Antipadrão — "cifrar resolve":** cifragem protege confidencialidade em repouso, mas não impede um usuário autorizado de alterar um dado indevidamente.
 - **Antipadrão — confundir autenticação com autorização.**
-- **Limitação:** propriedades descrevem objetivos, não ameaças — combinam-se com a análise de ameaças (M04).
+- **Limitação:** propriedades descrevem objetivos, não ameaças — combinam-se com a análise de ameaças (Módulo 4).
 
 ## Como validar
 
@@ -254,7 +255,7 @@ As propriedades são as mesmas em qualquer ambiente; mudam os mecanismos e quem 
 
 ### Aplicação prática
 
-- Use a tabela "pedido vago → requisito com propriedade" na revisão de qualquer documento de requisitos; ela é retomada na [M02-L07](../02-security-architecture/07-business-driven-requirements.md).
+- Use a tabela "pedido vago → requisito com propriedade" na revisão de qualquer documento de requisitos; ela é retomada na [Aula 07 do Módulo 2](../02-security-architecture/07-business-driven-requirements.md).
 - O experimento `authz` do [Laboratório 01](../../labs/lab-01-security-mechanisms.md) reproduz o exemplo da Maria: autenticada, com o papel certo, e ainda assim sem autorização para aquele pagamento.
 
 ## Revisão

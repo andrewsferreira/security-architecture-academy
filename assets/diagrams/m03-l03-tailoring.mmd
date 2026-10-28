@@ -1,0 +1,21 @@
+flowchart TB
+  accTitle: Do catálogo de controles ao conjunto de controles do sistema
+  accDescr: O catálogo SP 800-53 contém mais controles do que qualquer sistema precisa. A categorização de impacto indica uma baseline da SP 800-53B, baixa, moderada ou alta, e a baseline de privacidade quando há dados pessoais. Overlays acrescentam ou ajustam controles para uma comunidade ou tecnologia. O tailoring do próprio sistema define escopo, parâmetros, controles compensatórios e controles adicionais justificados pelo risco. Parte dos controles é herdada de provedores comuns, como a plataforma de cloud ou o serviço de identidade corporativo. O resultado é o conjunto de controles do sistema, com a justificativa de cada decisão registrada. CIS Controls oferece um caminho alternativo, priorizado por Implementation Groups.
+
+  CAT[("Catálogo SP 800-53 Rev. 5<br/><small>famílias de controles</small>")]
+  CATG["Categorização de impacto<br/><small>baixo · moderado · alto</small>"]
+  BL["Baseline SP 800-53B<br/><small>+ baseline de privacidade</small>"]
+  OV["Overlays<br/><small>comunidade, tecnologia<br/>ou ambiente</small>"]
+  TL["Tailoring do sistema<br/><small>escopo · parâmetros ·<br/>compensatórios · adicionais</small>"]
+  INH["Controles comuns herdados<br/><small>plataforma cloud,<br/>identidade corporativa</small>"]
+  SET[["Conjunto de controles<br/>do sistema<br/><small>com justificativas</small>"]]
+  CIS["CIS Controls v8.1<br/><small>IG1 → IG2 → IG3</small>"]
+
+  CAT --> BL
+  CATG --> BL
+  BL --> OV --> TL --> SET
+  INH --> SET
+  CIS -. "alternativa priorizada<br/>ou complemento" .-> TL
+
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  class SET control

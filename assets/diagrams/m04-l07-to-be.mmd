@@ -1,0 +1,38 @@
+flowchart TB
+  accTitle: Estado-alvo da integração de parceiros da Aurora Pagamentos
+  accDescr: Estado-alvo. Cada parceiro tem identidade própria e se autentica com TLS mútuo em um gateway de integração na zona de borda, que aplica limites de taxa e registra cada envio. Os arquivos vão para uma área de quarentena, onde um serviço de validação verifica assinatura, formato e duplicidade antes de liberar para o processamento em lote, na zona de aplicação. Só o processamento acessa o banco de transações, na zona de dados. A administração passa por um acesso privilegiado com MFA, separado do caminho dos parceiros, e todos os eventos vão para o SIEM.
+
+  P(["Parceiros<br/><small>identidade por parceiro</small>"])
+  subgraph EDGE["Borda"]
+    GW["Gateway de integração<br/><small>mTLS · limites · registro</small>"]
+  end
+  subgraph APPZ["Zona de aplicação"]
+    QUA[("Quarentena")]
+    VAL["Validação<br/><small>assinatura · formato ·<br/>duplicidade</small>"]
+    BAT["Processamento<br/>em lote"]
+  end
+  subgraph DATA["Zona de dados"]
+    DB[("Banco de<br/>transações")]
+  end
+  PAM["Acesso privilegiado<br/><small>MFA · sessão gravada</small>"]
+  SIEM["SIEM"]
+  OPS(["Operadores"])
+
+  P -- "mTLS" --> GW
+  GW --> QUA
+  QUA --> VAL
+  VAL -- "aprovado" --> BAT
+  BAT --> DB
+  OPS --> PAM
+  PAM -. "administração" .-> APPZ
+  GW -. "eventos" .-> SIEM
+  VAL -. "rejeições" .-> SIEM
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef identity stroke:#2f74e8,stroke-width:2px
+  classDef actor stroke:#64748b,stroke-width:2px
+  class EDGE,APPZ,DATA zone
+  class GW,VAL,SIEM control
+  class PAM identity
+  class P,OPS actor

@@ -1,0 +1,25 @@
+flowchart TB
+  accTitle: Árvore de ataque para desviar um pagamento a fornecedor na Meridiana
+  accDescr: O objetivo na raiz é desviar um pagamento a fornecedor. Há três alternativas, ligadas por um nó OU. A primeira é alterar os dados bancários do fornecedor no ERP, o que exige, em um nó E, obter acesso ao ERP com perfil de cadastro e passar pela aprovação da alteração; o acesso pode vir de phishing de um analista ou de uma conta compartilhada. A segunda é enganar o analista com um e-mail falso do fornecedor pedindo a troca de conta. A terceira é alterar o arquivo de remessa bancária entre o ERP e o banco. As folhas mais baratas indicam onde os controles rendem mais: o e-mail falso e a conta compartilhada.
+
+  ROOT{{"Desviar pagamento a fornecedor"}}
+  OR1(("OU"))
+  A["Alterar dados bancários<br/>no ERP"]
+  AND1(("E"))
+  A1["Obter acesso com<br/>perfil de cadastro"]
+  OR2(("OU"))
+  A11["Phishing de analista<br/><small>custo baixo</small>"]
+  A12["Usar conta compartilhada<br/><small>custo muito baixo</small>"]
+  A2["Superar a aprovação<br/>da alteração<br/><small>hoje: inexistente</small>"]
+  B["E-mail falso do fornecedor<br/>pedindo troca de conta<br/><small>custo muito baixo</small>"]
+  C["Alterar arquivo de remessa<br/>entre ERP e banco<br/><small>custo médio</small>"]
+
+  ROOT --> OR1
+  OR1 --> A & B & C
+  A --> AND1
+  AND1 --> A1 & A2
+  A1 --> OR2
+  OR2 --> A11 & A12
+
+  classDef untrusted stroke:#dc2626,stroke-width:2px,stroke-dasharray:5 3
+  class B,A12 untrusted

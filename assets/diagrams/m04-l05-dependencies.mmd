@@ -1,0 +1,28 @@
+flowchart TB
+  accTitle: Mapa de dependências da expedição da Meridiana com pontos únicos de falha
+  accDescr: O processo de expedição depende do WMS e da impressão de etiquetas. O WMS tem duas instâncias e depende do banco de dados replicado, do Active Directory e do DNS interno. A impressão de etiquetas depende de um único servidor de etiquetas, que também depende do Active Directory. O Active Directory tem dois controladores no mesmo datacenter e depende do mesmo link de energia; o DNS é servido pelos próprios controladores. São pontos únicos de falha o servidor de etiquetas, o datacenter único que hospeda os controladores e o link de internet único dos centros de distribuição. A redundância do WMS não protege o processo enquanto esses pontos existirem.
+
+  EXP(["Processo de expedição"])
+  WMS["WMS<br/><small>2 instâncias</small>"]
+  ETQ["Servidor de etiquetas<br/><small>instância única</small>"]
+  DB[("Banco do WMS<br/><small>replicado</small>")]
+  AD["Active Directory<br/><small>2 DCs no mesmo datacenter</small>"]
+  DNS["DNS interno<br/><small>nos próprios DCs</small>"]
+  DC{{"Datacenter único"}}
+  LINK{{"Link de internet<br/>único dos CDs"}}
+
+  EXP --> WMS
+  EXP --> ETQ
+  WMS --> DB
+  WMS --> AD
+  WMS --> DNS
+  ETQ --> AD
+  AD --> DC
+  DNS --> AD
+  DB --> DC
+  EXP --> LINK
+
+  classDef untrusted stroke:#dc2626,stroke-width:2px,stroke-dasharray:5 3
+  classDef identity stroke:#2f74e8,stroke-width:2px
+  class ETQ,DC,LINK untrusted
+  class AD identity

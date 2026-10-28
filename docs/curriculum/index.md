@@ -10,7 +10,7 @@ A formação está organizada em **seis níveis progressivos** (Nível 0 a Níve
 !!! note "Como ler esta página"
 
     - Tudo abaixo é gerado de [`curriculum/manifest.yml`](https://github.com/andrewsferreira/security-architecture-academy/blob/main/curriculum/manifest.yml) e verificado no CI.
-    - **Fase** indica a ordem histórica de produção. A publicação segue releases por nível — Fundamentals (Módulo Inicial ao Módulo 2), Professional (Módulos 3 a 15) e Architect (Módulos 16 e 17 e C01) —, descritas no [roadmap](../about/roadmap.md).
+    - **Fase** indica a ordem histórica de produção. A publicação segue releases cumulativas por nível — Fundamentals, com os Níveis 0 e 1 (Módulo Inicial ao Módulo 4, nas Releases 1 e 2), e uma release para cada um dos Níveis 2 a 5 (Módulos 5 a 17 e C01) —, descritas no [roadmap](../about/roadmap.md).
     - **Profundidade** indica o nível de exigência de cada aula: *Fundamental* (compreender), *Professional* (aplicar) e *Architect* (decidir e justificar).
     - Títulos de aulas com status **Planned** são provisórios até a produção do módulo.
 
@@ -30,7 +30,7 @@ Só conteúdo *Published* aparece no portal; a publicação acontece por release
 
 <!-- curriculum:start -->
 
-**18 módulos · 135 aulas · cerca de 162 horas de aulas** (sem laboratórios, estudos de caso e avaliações). Status das aulas: Planned **113** · Published **22**.
+**18 módulos · 135 aulas · cerca de 162 horas de aulas** (sem laboratórios, estudos de caso e avaliações). Status das aulas: Planned **98** · Published **37**.
 
 ### Nível 0 — Fundamentos de Tecnologia e Segurança
 
@@ -76,8 +76,8 @@ O ofício do arquiteto, governança e riscos, e métodos de design e threat mode
 | Módulo | Título | Aulas | Carga | Fase | Status |
 |:---|:---|:---|:---|:---|:---|
 | Módulo 2<br><small>`M02`</small> | [Introdução à Arquitetura de Segurança](../modules/02-security-architecture/index.md) | 8 | 9 h 45 min | 1 | <span class="saa-status saa-status--published">Published</span> |
-| Módulo 3<br><small>`M03`</small> | Governança, Riscos e Controles | 8 | 10 h | 2 | <span class="saa-status saa-status--planned">Planned</span> |
-| Módulo 4<br><small>`M04`</small> | Métodos de Design e Threat Modeling | 7 | 8 h | 3 | <span class="saa-status saa-status--planned">Planned</span> |
+| Módulo 3<br><small>`M03`</small> | [Governança, Riscos e Controles](../modules/03-governance-risk/index.md) | 8 | 10 h | 2 | <span class="saa-status saa-status--published">Published</span> |
+| Módulo 4<br><small>`M04`</small> | [Métodos de Design e Threat Modeling](../modules/04-threat-modeling/index.md) | 7 | 8 h | 3 | <span class="saa-status saa-status--published">Published</span> |
 
 ??? abstract "Módulo 2 — Introdução à Arquitetura de Segurança"
 
@@ -100,14 +100,14 @@ O ofício do arquiteto, governança e riscos, e métodos de design e threat mode
 
     | Aula | Título | Profundidade | Tempo | Status |
     |:---|:---|:---|:---|:---|
-    | Aula 01<br><small>`M03-L01`</small> | Governança de segurança e o NIST CSF 2.0 | Fundamental | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | Aula 02<br><small>`M03-L02`</small> | NIST Risk Management Framework (SP 800-37) | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | Aula 03<br><small>`M03-L03`</small> | Seleção e tailoring de controles: SP 800-53 e CIS Controls | Professional | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | Aula 04<br><small>`M03-L04`</small> | ISO/IEC 27001/27002, LGPD e PCI DSS: propósito e escopo | Fundamental | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | Aula 05<br><small>`M03-L05`</small> | Business Impact Analysis, RTO e RPO | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | Aula 06<br><small>`M03-L06`</small> | Risk assessment, risk register e tratamento de riscos | Professional | 90 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | Aula 07<br><small>`M03-L07`</small> | Catálogo de controles e arquitetura baseada em risco | Architect | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | Aula 08<br><small>`M03-L08`</small> | Indicadores, maturidade e reporte à governança | Architect | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 01<br><small>`M03-L01`</small> | [Governança de segurança e o NIST CSF 2.0](../modules/03-governance-risk/01-governance-csf.md) | Fundamental | 75 min | <span class="saa-status saa-status--published">Published</span> |
+    | Aula 02<br><small>`M03-L02`</small> | [NIST Risk Management Framework (SP 800-37)](../modules/03-governance-risk/02-nist-rmf.md) | Professional | 75 min | <span class="saa-status saa-status--published">Published</span> |
+    | Aula 03<br><small>`M03-L03`</small> | [Seleção e tailoring de controles: SP 800-53 e CIS Controls](../modules/03-governance-risk/03-control-selection-tailoring.md) | Professional | 90 min | <span class="saa-status saa-status--published">Published</span> |
+    | Aula 04<br><small>`M03-L04`</small> | [ISO/IEC 27001/27002, LGPD e PCI DSS: propósito e escopo](../modules/03-governance-risk/04-iso-lgpd-pci.md) | Fundamental | 75 min | <span class="saa-status saa-status--published">Published</span> |
+    | Aula 05<br><small>`M03-L05`</small> | [Business Impact Analysis, RTO e RPO](../modules/03-governance-risk/05-bia-rto-rpo.md) | Professional | 60 min | <span class="saa-status saa-status--published">Published</span> |
+    | Aula 06<br><small>`M03-L06`</small> | [Risk assessment, risk register e tratamento de riscos](../modules/03-governance-risk/06-risk-assessment-register.md) | Professional | 90 min | <span class="saa-status saa-status--published">Published</span> |
+    | Aula 07<br><small>`M03-L07`</small> | [Catálogo de controles e arquitetura baseada em risco](../modules/03-governance-risk/07-control-catalog-risk-architecture.md) | Architect | 75 min | <span class="saa-status saa-status--published">Published</span> |
+    | Aula 08<br><small>`M03-L08`</small> | [Indicadores, maturidade e reporte à governança](../modules/03-governance-risk/08-metrics-maturity-reporting.md) | Architect | 60 min | <span class="saa-status saa-status--published">Published</span> |
 
 ??? abstract "Módulo 4 — Métodos de Design e Threat Modeling"
 
@@ -115,13 +115,13 @@ O ofício do arquiteto, governança e riscos, e métodos de design e threat mode
 
     | Aula | Título | Profundidade | Tempo | Status |
     |:---|:---|:---|:---|:---|
-    | Aula 01<br><small>`M04-L01`</small> | Data Flow Diagrams e fluxos de confiança | Fundamental | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | Aula 02<br><small>`M04-L02`</small> | STRIDE aplicado à arquitetura | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | Aula 03<br><small>`M04-L03`</small> | Attack trees e abuse cases | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | Aula 04<br><small>`M04-L04`</small> | MITRE ATT&CK para cenários de ataque | Professional | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | Aula 05<br><small>`M04-L05`</small> | Pontos únicos de falha e análise de dependências | Professional | 60 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | Aula 06<br><small>`M04-L06`</small> | De ameaças a requisitos de segurança | Architect | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
-    | Aula 07<br><small>`M04-L07`</small> | Revisão arquitetural, As-Is/To-Be e validação de controles | Architect | 75 min | <span class="saa-status saa-status--planned">Planned</span> |
+    | Aula 01<br><small>`M04-L01`</small> | [Data Flow Diagrams e fluxos de confiança](../modules/04-threat-modeling/01-data-flow-diagrams.md) | Fundamental | 60 min | <span class="saa-status saa-status--published">Published</span> |
+    | Aula 02<br><small>`M04-L02`</small> | [STRIDE aplicado à arquitetura](../modules/04-threat-modeling/02-stride.md) | Professional | 75 min | <span class="saa-status saa-status--published">Published</span> |
+    | Aula 03<br><small>`M04-L03`</small> | [Attack trees e abuse cases](../modules/04-threat-modeling/03-attack-trees-abuse-cases.md) | Professional | 60 min | <span class="saa-status saa-status--published">Published</span> |
+    | Aula 04<br><small>`M04-L04`</small> | [MITRE ATT&CK para cenários de ataque](../modules/04-threat-modeling/04-mitre-attack-scenarios.md) | Professional | 75 min | <span class="saa-status saa-status--published">Published</span> |
+    | Aula 05<br><small>`M04-L05`</small> | [Pontos únicos de falha e análise de dependências](../modules/04-threat-modeling/05-single-points-of-failure.md) | Professional | 60 min | <span class="saa-status saa-status--published">Published</span> |
+    | Aula 06<br><small>`M04-L06`</small> | [De ameaças a requisitos de segurança](../modules/04-threat-modeling/06-threats-to-requirements.md) | Architect | 75 min | <span class="saa-status saa-status--published">Published</span> |
+    | Aula 07<br><small>`M04-L07`</small> | [Revisão arquitetural, As-Is/To-Be e validação de controles](../modules/04-threat-modeling/07-architecture-review-validation.md) | Architect | 75 min | <span class="saa-status saa-status--published">Published</span> |
 
 ### Nível 2 — Arquiteturas de Infraestrutura
 
@@ -392,8 +392,9 @@ Arquitetura corporativa, governança entre empresas e projeto final.
 | `AS-DIAG` | [Avaliação diagnóstica de fundamentos](../assessments/diagnostic-fundamentals.md) | Módulo Inicial, Módulo 1 | 1 | <span class="saa-status saa-status--published">Published</span> |
 | `AS-M00` | [Avaliação do Módulo Inicial](../assessments/m00-foundations.md) | Módulo Inicial | 1 | <span class="saa-status saa-status--published">Published</span> |
 | `AS-M01` | [Avaliação do Módulo 1](../assessments/m01-security-fundamentals.md) | Módulo 1 | 1 | <span class="saa-status saa-status--published">Published</span> |
-| `AS-FUND` | [Avaliação final de Fundamentals (integradora)](../assessments/fundamentals-final.md) | Módulo Inicial, Módulo 1, Módulo 2 | 1 | <span class="saa-status saa-status--published">Published</span> |
+| `AS-FUND` | [Avaliação integradora do Módulo Inicial ao Módulo 2](../assessments/fundamentals-final.md) | Módulo Inicial, Módulo 1, Módulo 2 | 1 | <span class="saa-status saa-status--published">Published</span> |
 | `AS-M02` | [Avaliação do Módulo 2](../assessments/m02-security-architecture.md) | Módulo 2 | 1 | <span class="saa-status saa-status--published">Published</span> |
+| `AS-N1` | [Avaliação integradora do Nível 1](../assessments/level-1-integrative.md) | Módulo 2, Módulo 3, Módulo 4 | 2 | <span class="saa-status saa-status--published">Published</span> |
 | `AS-MID` | Avaliação intermediária (Níveis 1 e 2) | Módulo 3, Módulo 4, Módulo 5, Módulo 6, Módulo 7, Módulo 8 | 2 | <span class="saa-status saa-status--planned">Planned</span> |
 | `AS-FINAL` | Avaliação final | Módulo 9, Módulo 10, Módulo 11, Módulo 12, Módulo 13, Módulo 14, Módulo 15, Módulo 16 | 3 | <span class="saa-status saa-status--planned">Planned</span> |
 | `AS-ADV-EN` | Advanced assessment (English, CISSP/ISSAP reasoning style) | Módulo 2, Módulo 3, Módulo 6, Módulo 7, Módulo 11, Módulo 16 | 3 | <span class="saa-status saa-status--planned">Planned</span> |

@@ -6,7 +6,30 @@ O formato segue o [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e 
 
 ## [Unreleased]
 
-Estabilização da Release 1 — Fundamentals (v0.1.1, em preparação; não publicada).
+Release 2 — Fundamentals: conclusão do Nível 1 (v0.2.0, em revisão; não publicada).
+
+### Added
+
+- **Módulo 3 — Governança, Riscos e Controles** (8 aulas) e **Módulo 4 — Métodos de Design e Threat Modeling** (7 aulas): com a Release 1, o portal passa a reunir os Níveis 0 e 1 completos — 37 aulas.
+- **Avaliação integradora do Nível 1** (`AS-N1`), com cenário fictício, rubrica, resultados de aprendizagem do Nível 1 e gabarito comentado separado. A avaliação final de Fundamentals (`AS-FUND`) não muda.
+- Matriz de decisão ponderada nos exercícios das 15 aulas dos Módulos 3 e 4, com testes que conferem a aritmética.
+
+### Changed
+
+- Publicação progressiva por nível: a R1 continua com o Módulo Inicial e os Módulos 1 e 2 (v0.1.0 e v0.1.1); a R2 completa o Nível 1; as Releases 3 a 6 trazem os Níveis 2 a 5. A página inicial, o ROADMAP e as trilhas mostram o estado de cada release a partir do manifesto.
+- Mapas dos módulos já publicados (Módulo Inicial, Módulos 1 e 2) com os nomes públicos dos módulos no título e nos rótulos; páginas e endereços não mudam.
+- Avaliação final de Fundamentals (`AS-FUND`, publicada na R1) renomeada para **Avaliação integradora do Módulo Inicial ao Módulo 2**, porque Fundamentals passa a abranger os Níveis 0 e 1; a abertura e o encerramento indicam que ela conclui a etapa do Módulo Inicial ao Módulo 2 e que a avaliação integradora do Nível 1 conclui Fundamentals. ID, endereço e âncoras não mudam.
+- Introdução do Curriculum Roadmap atualizada para as releases por nível.
+- Como usar a Academy, plano de estudos e trilhas: disponibilidade gerada do manifesto e percursos até a avaliação integradora do Nível 1.
+- Research Library: registros de verificação de MITRE ATT&CK v20, Resolução CD/ANPD nº 15/2024, LGPD, PCI DSS v4.0.1, NIST SP 800-53 Release 5.2.0, CIS Controls v8.1 e OWASP ASVS 5.0.0 atualizados.
+
+### Fixed
+
+- Rubrica da avaliação integradora do Módulo Inicial ao Módulo 2 (`AS-FUND`): *Adequado* nas tarefas de 15 pontos passa de 10 para 11 (70% arredondado para cima, como na rubrica padrão); quem é *Adequado* em todas as tarefas soma 71 e é aprovado. Teste de regressão das rubricas.
+
+## [0.1.1] — 2026-10-27
+
+Estabilização da Release 1 — Fundamentals, publicada no GitHub Pages.
 
 ### Changed
 

@@ -319,6 +319,30 @@ class Validator:
             elif rel.get("published_on") or rel.get("url") or rel.get("public_commit"):
                 self.err(f"{where}: published_on, url e public_commit só podem ser preenchidos após a publicação")
             self.check_patches(where, rel)
+        self.check_release_order(releases)
+
+    def check_release_order(self, releases: list[dict[str, Any]]) -> None:
+        """Publicação progressiva por nível: o escopo acumulado de cada release segue a ordem do currículo.
+
+        Os módulos de R1, R1+R2, R1+R2+R3… formam sempre um prefixo da lista de módulos do manifesto —
+        nenhuma release publica um módulo antes dos anteriores — e as versões crescem com as releases.
+        """
+        order = [str(m.get("id")) for m in self.m.get("modules") or []]
+        covered: list[str] = []
+        previous = (-1, -1, -1)
+        for rel in releases:
+            covered += [str(i) for i in rel.get("modules") or [] if str(i) in order]
+            expected = order[: len(covered)]
+            if sorted(covered, key=lambda i: order.index(i)) != expected:
+                missing = [i for i in expected if i not in covered]
+                self.err(f"release {rel.get('id')}: escopo acumulado fora da ordem do currículo "
+                         f"(faltam {', '.join(missing)} antes de publicar os módulos seguintes)")
+            version = str(rel.get("version", ""))
+            if re.fullmatch(r"\d+\.\d+\.\d+", version):
+                current = tuple(int(x) for x in version.split("."))
+                if current <= previous:
+                    self.err(f"release {rel.get('id')}: version {version} deve ser maior que a da release anterior")
+                previous = current
 
     def check_patches(self, where: str, rel: dict[str, Any]) -> None:
         """Versões de correção (``patches``) de uma release já publicada.

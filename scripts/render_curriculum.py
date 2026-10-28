@@ -36,7 +36,7 @@ from typing import Any
 
 import yaml
 
-from _common import DOCS, ROOT, current_version, load_manifest
+from _common import DOCS, ROOT, current_version, load_manifest, release_publications
 from naming import Naming, module_name, modules_phrase
 
 BIBLIOGRAPHY = ROOT / "research" / "bibliography.yml"
@@ -291,6 +291,12 @@ def render_books(bib: dict[str, Any]) -> str:
     return "\n".join(out).rstrip()
 
 
+# Âncoras de versões publicadas que mudaram com a correção do título da fonte (não podem quebrar).
+LEGACY_REF_ANCHORS = {
+    "ANPD-RES-15-2024": ["resolucao-cdanpd-no-15-de-abril-de-2024-regulamento-de-comunicacao-de-incidente-de-seguranca"],
+}
+
+
 def render_category_pages(bib: dict[str, Any], categories: tuple[str, ...]) -> str:
     out: list[str] = []
     for key in categories:
@@ -299,6 +305,8 @@ def render_category_pages(bib: dict[str, Any], categories: tuple[str, ...]) -> s
             continue
         out += [f"## {bib['categories'][key]}", ""]
         for ref in refs:
+            for anchor in LEGACY_REF_ANCHORS.get(ref["id"], []):
+                out += [f'<a id="{anchor}"></a>', ""]
             out += [f"### {ref['title']}", "",
                     f"`{ref['id']}` · {ref['publisher']}" + (f" · {ref['edition']}" if ref.get("edition") else "") +
                     f" · {AVAILABILITY_PT[ref['availability']]} · redistribuição: {REDISTRIBUTION_PT[ref['redistribution']].lower()} · "
@@ -353,11 +361,13 @@ def render_coverage(bib: dict[str, Any], kmap: dict[str, Any], m: dict[str, Any]
 # -------------------------------------------------------- disponibilidade por nível (homepage)
 LEVEL_TEXT = {
     "R1": "Infraestrutura, fundamentos de segurança e introdução à arquitetura de segurança, "
-          "com laboratórios, estudo de caso e avaliação final integradora.",
-    "R2": "Governança, threat modeling, rede, identidade, Zero Trust, legados, AWS, Azure, "
-          "Google Cloud, híbrido, aplicações, dados, vulnerabilidades e operações.",
-    "R3": "Arquitetura corporativa, governança entre unidades, "
-          "estudos de caso integradores e projeto final.",
+          "com laboratórios, estudo de caso e avaliação integradora.",
+    "R2": "Governança, riscos e controles; métodos de design e threat modeling; "
+          "avaliação integradora do Nível 1.",
+    "R3": "Rede, identidade, Zero Trust e ambientes on-premises e legados.",
+    "R4": "AWS, Azure, Google Cloud e a integração segura entre ambientes.",
+    "R5": "Aplicações, dados, gestão de vulnerabilidades e exposição, operações e resiliência.",
+    "R6": "Arquitetura corporativa, governança entre unidades, estudos de caso integradores e projeto final.",
 }
 
 
@@ -382,6 +392,11 @@ def release_availability(m: dict[str, Any], rel: dict[str, Any]) -> tuple[str, s
     return "planned", "Planejado"
 
 
+# Âncoras dos cartões da página inicial publicados na v0.1.x (Fundamentals, Professional e Architect),
+# mantidas nos cartões que hoje correspondem a cada etapa.
+JOURNEY_ANCHORS = {"R1": "fundamentals", "R3": "professional", "R6": "architect"}
+
+
 def render_release_status(m: dict[str, Any]) -> str:
     releases = m.get("releases") or []
     mods = {u["id"]: u for u in m["modules"]}
@@ -398,19 +413,182 @@ def render_release_status(m: dict[str, Any]) -> str:
                 "[Ver o currículo](curriculum/index.md){ .md-button }", ""]
     else:
         out += ['!!! info "Publicação progressiva por nível"', "",
-                "    A Academy será disponibilizada por níveis — Fundamentals, Professional e Architect. "
+                "    A Academy será disponibilizada por níveis, do Nível 0 ao Nível 5. "
                 "Nenhum nível está publicado ainda: a Release 1 (Fundamentals) está em revisão. "
                 "O [currículo](curriculum/index.md) mostra o estado real de cada módulo.", ""]
     out += ['<div class="saa-journey" markdown>', ""]
     for rel in releases:
         cls, label = release_availability(m, rel)
         name = rel["title"].split(" — ")[-1]
-        out += ['<div class="saa-journey__step" markdown>', "", f"### {name}", "",
+        anchor = f" {{ #{JOURNEY_ANCHORS[rel['id']]} }}" if rel["id"] in JOURNEY_ANCHORS else ""
+        out += ['<div class="saa-journey__step" markdown>', "", f"### {name}{anchor}", "",
                 level_text(rel), "",
                 f'<span class="saa-status saa-status--{cls}">{label}</span> <span class="saa-meta">v{current_version(rel)}</span>', "",
                 "</div>", ""]
     out += ["</div>"]
     return "\n".join(out)
+
+# -------------------------------------------------------- disponibilidade (Como usar, plano de estudo, trilhas)
+MODULE_CARDS = {
+    "M00": ("server", "Infraestrutura e Computação",
+            "Sete aulas: computação e virtualização, TCP/IP, segmentação, datacenter e alta disponibilidade, "
+            "containers e APIs, cloud e leitura de diagramas."),
+    "M01": ("shield-check", "Fundamentos de Segurança",
+            "Sete aulas: propriedades de segurança, princípios de design, fronteiras de confiança, criptografia, "
+            "PKI e TLS, risco e modelos formais."),
+    "M02": ("route", "Introdução à Arquitetura de Segurança",
+            "Oito aulas sobre o papel do arquiteto, níveis de arquitetura, padrões e exceções, referências, "
+            "frameworks, requisitos e ADRs."),
+    "M03": ("scale", "Governança, Riscos e Controles",
+            "Oito aulas: NIST CSF 2.0 e RMF, seleção de controles, ISO/IEC 27001, LGPD e PCI DSS, BIA, "
+            "risk register, catálogo de controles e indicadores."),
+    "M04": ("crosshair", "Métodos de Design e Threat Modeling",
+            "Sete aulas: DFDs, STRIDE, árvores de ataque e abuse cases, MITRE ATT&CK, dependências, "
+            "requisitos derivados de ameaças e revisão As-Is/To-Be."),
+}
+CASE_CARDS = {
+    "CS-A": ("Caso A — Meridiana",
+             "Uma distribuidora com rede plana, VPN só com senha e pressão da seguradora. As-Is, To-Be e ADRs."),
+}
+
+
+def published_modules(m: dict[str, Any]) -> list[dict[str, Any]]:
+    return [u for u in m["modules"] if u["status"] == "published"]
+
+
+def levels_phrase(m: dict[str, Any]) -> str:
+    """Níveis disponíveis: completos ("Nível 0 e Nível 1 completos") ou parciais, a partir do estado real."""
+    pub = {u["id"] for u in published_modules(m)}
+    complete, partial = [], []
+    for stage in m["stages"]:
+        ids = [u["id"] for u in m["modules"] if u["stage"] == stage["id"]]
+        name = stage["title"].split(" — ")[0]
+        if ids and set(ids) <= pub:
+            complete.append(name)
+        elif pub & set(ids):
+            partial.append(f"o {modules_phrase([i for i in ids if i in pub])} do {name}")
+    text = ""
+    if complete:
+        text = " e ".join(complete) + (" completos" if len(complete) > 1 else " completo")
+    if partial:
+        text += (" e " if text else "") + " e ".join(partial)
+    return text
+
+
+def availability_summary(m: dict[str, Any]) -> str:
+    mods = published_modules(m)
+    lessons = sum(len(u["lessons"]) for u in mods)
+    releases = [r for r in m.get("releases") or [] if release_availability(m, r)[0] == "published"]
+    versions = ", ".join(f"v{current_version(r)}" for r in releases)
+    return (f"**{levels_phrase(m)}** — {modules_phrase([u['id'] for u in mods])}, {lessons} aulas"
+            + (f" ({versions})" if versions else ""))
+
+
+def render_available(m: dict[str, Any]) -> str:
+    """Bloco "O que está disponível" de Como usar a Academy, a partir dos itens publicados."""
+    mods = published_modules(m)
+    if not mods:
+        return ("Nenhum nível está publicado ainda. O [currículo](../curriculum/index.md) mostra o estado real "
+                "de cada módulo.")
+    out = [f"O portal traz {availability_summary(m)}, com laboratórios, estudo de caso, avaliações e modelos.",
+           "", '<div class="grid cards" markdown>', ""]
+    for u in mods:
+        icon, short, text = MODULE_CARDS.get(u["id"], ("book-open", u["title"], u.get("summary", "")))
+        out += [f"-   :lucide-{icon}:{{ .lg .saa-card-icon }} **[{module_name(u['id'])} — {short}](../{unit_base(u)}/index.md)**",
+                "", "    ---", "", f"    {text}", ""]
+    labs = [x for x in m.get("labs") or [] if x["status"] == "published"]
+    if labs:
+        nums = [x["id"].split("-")[1] for x in labs]
+        out += ["-   :lucide-flask-conical:{ .lg .saa-card-icon } **[Laboratórios "
+                + (", ".join(nums[:-1]) + " e " + nums[-1] if len(nums) > 1 else nums[0]) + "](../labs/index.md)**",
+                "", "    ---", "",
+                "    Plano de rede, mecanismos de segurança e arquitetura como código — locais, sem custo e com "
+                "dados fictícios.", ""]
+    cases = [x for x in m.get("case_studies") or [] if x["status"] == "published"]
+    for c in cases:
+        name, text = CASE_CARDS.get(c["id"], (c["title"].split(" (")[0], "Estudo de caso com As-Is, To-Be e ADRs."))
+        out += [f"-   :lucide-building-2:{{ .lg .saa-card-icon }} **[{name}](../{c['path']})**",
+                "", "    ---", "", f"    {text}", ""]
+    assess = [x for x in m.get("assessments") or [] if x["status"] == "published"]
+    if assess:
+        finals = [x for x in assess if x.get("kind") == "final"]
+        ids = {x["id"] for x in finals}
+        if {"AS-FUND", "AS-N1"} <= ids:
+            tail = "a avaliação integradora do Módulo Inicial ao Módulo 2 e a avaliação integradora do Nível 1"
+        elif finals:
+            tail = "a avaliação integradora do Módulo Inicial ao Módulo 2"
+        else:
+            tail = ""
+        joiner = ", " if " e a avaliação" in tail else " e "
+        text = "Diagnóstica, uma por módulo" + (f"{joiner}{tail}" if tail else "") + ", com gabaritos comentados."
+        out += ["-   :lucide-clipboard-check:{ .lg .saa-card-icon } **[Avaliações](../assessments/index.md)**",
+                "", "    ---", "", f"    {text}", ""]
+    out += ["</div>", "",
+            "Os níveis seguintes estão no [currículo](../curriculum/index.md) e no [roadmap](../about/roadmap.md) "
+            "e entram no portal depois de concluídos e revisados."]
+    return "\n".join(out)
+
+
+def render_study_availability(m: dict[str, Any]) -> str:
+    mods = published_modules(m)
+    if not mods:
+        return ('!!! info "Disponibilidade do conteúdo"\n\n    O plano descreve o percurso completo; '
+                "nenhum nível está publicado ainda.")
+    return ('!!! info "Disponibilidade do conteúdo"\n\n'
+            f"    O plano descreve o percurso completo. Hoje o portal traz {availability_summary(m)}, "
+            "com as atividades associadas. As demais semanas passam a valer à medida que os níveis seguintes "
+            "forem publicados.")
+
+
+def render_release_table(m: dict[str, Any]) -> str:
+    """Tabela de releases das trilhas: escopo por nível e estado real."""
+    stages = {s["id"]: s["title"] for s in m["stages"]}
+    mods = {u["id"]: u for u in m["modules"]}
+    out = ["| Release | Níveis | Módulos | Estado |", "|:---|:---|:---|:---|"]
+    for rel in m.get("releases") or []:
+        levels = sorted({mods[i]["stage"] for i in rel.get("modules") or []})
+        scope = modules_phrase(list(rel.get("modules") or []))
+        if rel.get("complements"):
+            scope += " e complemento de IA"
+        _, label = release_availability(m, rel)
+        out.append(f"| **{rel['id'][1:]} — {rel['title'].split(' — ', 1)[-1]}** | "
+                   f"{'; '.join(stages[s].split(' — ')[0] for s in levels)} | {scope} | {label} (v{current_version(rel)}) |")
+    return "\n".join(out)
+
+
+ROADMAP_STATE = {
+    "published": "✅ disponível",
+    "in-review": "🔄 em revisão",
+    "draft": "🔄 em desenvolvimento",
+    "planned": "⏳ planejada",
+}
+
+
+def render_roadmap_releases(m: dict[str, Any]) -> str:
+    """Tabela de releases do ROADMAP: escopo, versão e estado derivados do manifesto.
+
+    O estado vem dos itens do escopo (``release_availability``), não de texto escrito à mão — na árvore
+    publicada, a mesma tabela passa a indicar a release como disponível.
+    """
+    stages = {s["id"]: s["title"] for s in m["stages"]}
+    mods = {u["id"]: u for u in m["modules"]}
+    out = ["| Release | Níveis | Escopo | Versão | Estado |", "|:---|:---|:---|:---|:---|"]
+    for rel in m.get("releases") or []:
+        levels = sorted({mods[i]["stage"] for i in rel.get("modules") or []})
+        level_names = "; ".join(stages[s].split(" — ")[0] for s in levels)
+        cls, _ = release_availability(m, rel)
+        state = ROADMAP_STATE[cls]
+        versions = [r for r in release_publications(rel) if r.get("status") in {"approved", "published"}]
+        if cls == "published" and versions:
+            dated = [f"v{r['version']} ({r['published_on']})" if r.get("published_on") else f"v{r['version']}"
+                     for r in versions]
+            version = ", ".join(dated)
+        else:
+            version = f"v{rel['version']}"
+        name = rel["title"].split(" — ", 1)[-1]
+        out.append(f"| **{rel['id'][1:]} — {name}** | {level_names} | {level_text(rel)} | {version} | {state} |")
+    return "\n".join(out)
+
 
 # -------------------------------------------------------- CURRICULUM.md
 def render_root(m: dict[str, Any]) -> str:
@@ -646,6 +824,14 @@ def targets() -> list[tuple[Path, str]]:
     results.append((page, splice(page.read_text(encoding="utf-8"), "release-status", render_release_status(m))))
 
     results.append((ROOT / "CURRICULUM.md", render_root(m)))
+    page = ROOT / "ROADMAP.md"
+    results.append((page, splice(page.read_text(encoding="utf-8"), "roadmap-releases", render_roadmap_releases(m))))
+    page = DOCS / "getting-started" / "index.md"
+    results.append((page, splice(page.read_text(encoding="utf-8"), "available", render_available(m))))
+    page = DOCS / "learning-paths" / "study-plan.md"
+    results.append((page, splice(page.read_text(encoding="utf-8"), "availability", render_study_availability(m))))
+    page = DOCS / "learning-paths" / "index.md"
+    results.append((page, splice(page.read_text(encoding="utf-8"), "release-table", render_release_table(m))))
 
     config_path = ROOT / "zensical.toml"
     pages, config_text = naming_targets(m, config_path.read_text(encoding="utf-8"))

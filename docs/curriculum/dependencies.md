@@ -87,7 +87,7 @@ flowchart TB
   classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
   classDef active stroke:#0e9fb8,stroke-width:3px
   class N0,N1,N2,N3,N4,N5 zone
-  class M00,M01,M02 active
+  class M00,M01,M02,M03,M04 active
 ```
 
 <!-- dependencies:end -->

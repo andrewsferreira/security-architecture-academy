@@ -1,0 +1,31 @@
+flowchart TB
+  accTitle: NIST CSF 2.0 — Functions, Profiles e Tiers
+  accDescr: A função GOVERN orienta as outras cinco funções do CSF 2.0, que são Identify, Protect, Detect, Respond e Recover. A organização descreve seu perfil atual e seu perfil-alvo usando os resultados do CSF Core, analisa a diferença entre eles e transforma a diferença em um plano de ação priorizado. Os Tiers caracterizam o rigor das práticas de governança e gestão de riscos e ajudam a escolher o perfil-alvo, mas não são uma nota de maturidade do perfil.
+
+  subgraph CORE["CSF Core — resultados, não métodos"]
+    direction TB
+    GV["GOVERN<br/><small>contexto, estratégia de risco, papéis,<br/>políticas, supervisão, cadeia de suprimentos</small>"]
+    FN["IDENTIFY · PROTECT · DETECT<br/>RESPOND · RECOVER"]
+    GV -- "orienta" --> FN
+  end
+
+  CUR["Perfil atual<br/><small>resultados alcançados hoje</small>"]
+  TGT["Perfil-alvo<br/><small>resultados desejados<br/>e prioridades</small>"]
+  GAP["Análise de lacunas"]
+  PLAN["Plano de ação<br/><small>priorizado, com custo e dono</small>"]
+  TIER["Tiers 1–4<br/><small>Partial · Risk Informed ·<br/>Repeatable · Adaptive</small>"]
+
+  CORE -. "vocabulário" .-> CUR
+  CORE -. "vocabulário" .-> TGT
+  CUR --> GAP
+  TGT --> GAP
+  GAP --> PLAN
+  TIER -. "orienta a escolha" .-> TGT
+  PLAN -- "implementação e nova medição" --> CUR
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef identity stroke:#2f74e8,stroke-width:2px
+  class CORE,FN zone
+  class GV identity
+  class PLAN control

@@ -1,0 +1,23 @@
+flowchart TB
+  accTitle: Estado atual da integração de parceiros da Aurora Pagamentos
+  accDescr: Estado atual. Doze parceiros enviam arquivos de liquidação por SFTP a um servidor exposto na internet, usando uma única conta compartilhada com senha. O servidor SFTP fica na mesma rede do processamento em lote e do banco de transações. O processamento lê os arquivos diretamente do servidor sem validar origem nem integridade, e o servidor SFTP também é usado pelos operadores para acesso administrativo. Não há registro de qual parceiro enviou qual arquivo.
+
+  P(["12 parceiros"])
+  subgraph NET["Rede interna plana"]
+    SFTP["Servidor SFTP<br/><small>conta compartilhada;<br/>exposto à internet</small>"]
+    BAT["Processamento<br/>em lote"]
+    DB[("Banco de<br/>transações")]
+    OPS["Operadores<br/><small>administração via SFTP</small>"]
+  end
+
+  P -- "arquivos · senha única" --> SFTP
+  SFTP -- "leitura direta, sem validação" --> BAT
+  BAT --> DB
+  OPS --> SFTP
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef untrusted stroke:#dc2626,stroke-width:2px,stroke-dasharray:5 3
+  classDef actor stroke:#64748b,stroke-width:2px
+  class NET zone
+  class SFTP untrusted
+  class P,OPS actor

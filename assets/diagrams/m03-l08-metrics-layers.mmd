@@ -1,0 +1,23 @@
+flowchart BT
+  accTitle: Camadas de medição, do dado operacional ao reporte à governança
+  accDescr: Na base estão dados operacionais coletados e validados, como inventário, configurações, eventos e chamados. Deles se calculam quatro tipos de medida descritos na SP 800-55 Volume 1. Implementação mostra o progresso de controles, como a porcentagem de contas privilegiadas com MFA. Eficácia mostra se os controles alcançam o resultado, como a taxa de phishing simulado que resulta em credencial capturada. Eficiência mostra a rapidez, como o tempo para corrigir vulnerabilidade crítica exposta. Impacto mostra o efeito na missão, como horas de parada de processo crítico. Uma seleção pequena dessas medidas, comparada a metas e à tolerância aprovada, forma as métricas e indicadores. O reporte à governança apresenta tendências, desvios e decisões necessárias.
+
+  DATA[("Dados operacionais validados<br/><small>inventário, configurações,<br/>eventos, chamados</small>")]
+  IMP["Implementação<br/><small>ex.: % de contas<br/>privilegiadas com MFA</small>"]
+  EFF["Eficácia<br/><small>ex.: % de phishing simulado<br/>com credencial capturada</small>"]
+  EFI["Eficiência<br/><small>ex.: tempo para corrigir<br/>crítica exposta</small>"]
+  IMPACT["Impacto<br/><small>ex.: horas de parada<br/>de processo crítico</small>"]
+  KRI{{"Métricas e indicadores<br/><small>medidas comparadas a<br/>metas e à tolerância</small>"}}
+  GOV(["Reporte à governança<br/><small>tendência · desvios ·<br/>decisões pedidas</small>"])
+
+  DATA --> IMP & EFF & EFI & IMPACT
+  IMP --> KRI
+  EFF --> KRI
+  EFI --> KRI
+  IMPACT --> KRI
+  KRI --> GOV
+
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef identity stroke:#2f74e8,stroke-width:2px
+  class KRI control
+  class GOV identity

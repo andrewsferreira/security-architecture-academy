@@ -32,7 +32,7 @@
 </div>
 
 > [!NOTE]
-> **Publicação progressiva por nível.** A Academy é lançada em três releases cumulativas — **Fundamentals** (Módulo Inicial ao Módulo 2), **Professional** (Módulos 3 a 15) e **Architect** (Módulos 16 e 17 e complemento de IA). Cada release só entra no portal depois de concluída, validada e revisada pelo mantenedor. O estado de cada uma está no [ROADMAP.md](ROADMAP.md) e no [portal](https://andrewsferreira.github.io/security-architecture-academy/); o currículo completo, em [CURRICULUM.md](CURRICULUM.md).
+> **Publicação progressiva por nível.** A Academy é lançada em releases cumulativas, uma por nível: a **Release 1** trouxe o Nível 0 e o Módulo 2; a **Release 2** completa o Nível 1 (Módulos 3 e 4); as Releases 3 a 6 trazem os Níveis 2 a 5. Cada release só entra no portal depois de concluída, validada e revisada pelo mantenedor. O estado de cada uma está no [ROADMAP.md](ROADMAP.md) e no [portal](https://andrewsferreira.github.io/security-architecture-academy/); o currículo completo, em [CURRICULUM.md](CURRICULUM.md).
 
 ---
 
@@ -77,11 +77,11 @@ flowchart LR
   class N5 control
 ```
 
-| Release | Módulos | Pergunta central | Entregável típico |
+| Etapa da formação | Módulos | Pergunta central | Entregável típico |
 |:---|:---|:---|:---|
-| **1 — Fundamentals** | Módulo Inicial ao Módulo 2 | *O que proteger, por quê e como raciocinar como arquiteto?* | Diagramas comentados, requisitos e análise de riscos |
-| **2 — Professional** | Módulos 3 a 15 | *Como proteger este domínio em on-premises, cloud e híbrido?* | Threat model, desenho de controles e ADRs |
-| **3 — Architect** | Módulos 16 e 17, C01 | *Como proteger a organização de forma coerente?* | Reference architecture, roadmap e defesa executiva |
+| **Fundamentos (Níveis 0 e 1)** | Módulo Inicial ao Módulo 4 | *O que proteger, por quê e como raciocinar como arquiteto?* | Diagramas comentados, requisitos, risk register e threat model |
+| **Profissional (Níveis 2 a 4)** | Módulos 5 a 15 | *Como proteger este domínio em on-premises, cloud e híbrido?* | Desenho de controles, arquiteturas de referência e ADRs |
+| **Arquiteto (Nível 5)** | Módulos 16 e 17, C01 | *Como proteger a organização de forma coerente?* | Reference architecture, roadmap e defesa executiva |
 
 As trilhas transversais por profundidade (Fundamental, Professional, Architect) continuam valendo para cada aula — ver [Learning Paths](docs/learning-paths/index.md).
 
@@ -142,9 +142,12 @@ Ele oferece busca, modo claro e escuro e navegação por níveis e domínios.
 | Release | Escopo | Versão |
 |:---|:---|:---|
 | Fundação da plataforma | Portal, design system, CI/CD, Research Library | — |
-| 1 — Fundamentals | Módulo Inicial ao Módulo 2, Laboratórios 00–02, Caso A, avaliações de módulo e avaliação final integradora | v0.1.0 |
-| 2 — Professional | Módulos 3 a 15, Casos B, C e E, avaliação intermediária | v0.2.0 |
-| 3 — Architect | Módulos 16 e 17, complemento de IA, Caso D, avaliações final e avançada | v0.3.0 |
+| 1 — Fundamentals Base | Módulo Inicial ao Módulo 2, Laboratórios 00–02, Caso A, avaliações de módulo e avaliação integradora do Módulo Inicial ao Módulo 2 | v0.1.0, v0.1.1 |
+| 2 — Conclusão do Nível 1 | Módulos 3 e 4 e avaliação integradora do Nível 1 | v0.2.0 |
+| 3 — Nível 2 | Módulos 5 a 8 e avaliação intermediária | v0.3.0 |
+| 4 — Nível 3 | Módulos 9 a 11, Casos B e C | v0.4.0 |
+| 5 — Nível 4 | Módulos 12 a 15, Caso E | v0.5.0 |
+| 6 — Nível 5 | Módulos 16 e 17, complemento de IA, Caso D, avaliações final e avançada | v0.6.0 |
 
 O estado de cada release e o que vem a seguir estão no [ROADMAP.md](ROADMAP.md); as mudanças publicadas, no [CHANGELOG.md](CHANGELOG.md).
 

@@ -15,7 +15,8 @@ As avaliações verificam **competências**, não memorização. Elas pedem que 
 | [Avaliação do Módulo Inicial](m00-foundations.md) | Fim do Módulo Inicial | Infraestrutura, redes, segmentação e leitura de diagramas | <span class="saa-status saa-status--published">Published</span> |
 | [Avaliação do Módulo 1](m01-security-fundamentals.md) | Fim do Módulo 1 | Propriedades, princípios, criptografia, risco e modelos | <span class="saa-status saa-status--published">Published</span> |
 | [Avaliação do Módulo 2](m02-security-architecture.md) | Fim do Módulo 2 | Verificar o raciocínio arquitetural básico | <span class="saa-status saa-status--published">Published</span> |
-| [Avaliação final de Fundamentals](fundamentals-final.md) | Fim da trilha Fundamentals | Integrar Módulo Inicial, Módulo 1 e Módulo 2 em um cenário empresarial | <span class="saa-status saa-status--published">Published</span> |
+| [Avaliação integradora do Módulo Inicial ao Módulo 2](fundamentals-final.md) | Ao fim do Módulo 2 | Integrar Módulo Inicial, Módulo 1 e Módulo 2 em um cenário empresarial | <span class="saa-status saa-status--published">Published</span> |
+| [Avaliação integradora do Nível 1](level-1-integrative.md) | Fim do Módulo 4 | Integrar governança, riscos, controles e threat modeling (Módulos 2, 3 e 4) em um cenário empresarial | <span class="saa-status saa-status--published">Published</span> |
 | Avaliações dos demais módulos | Fim de cada módulo | Verificar o módulo na profundidade de suas aulas | <span class="saa-status saa-status--planned">Planned</span> |
 | Intermediária | Após os Níveis 1 e 2 | Integrar governança, identidade, rede e Zero Trust | <span class="saa-status saa-status--planned">Planned</span> |
 | Final | Após o Nível 5 | Integrar o currículo em cenários executivos | <span class="saa-status saa-status--planned">Planned</span> |

@@ -291,9 +291,9 @@ Módulos: M07, M09, M12 · Leitura: Consulta (prioridade 2).
 
 ### CIS Critical Security Controls v8.1
 
-`CIS-CONTROLS-V8-1` · Center for Internet Security · v8.1 · Leitura online gratuita · redistribuição: não verificada · Verificada em 2026-10-23 · [abrir fonte oficial](https://www.cisecurity.org/controls/v8-1)
+`CIS-CONTROLS-V8-1` · Center for Internet Security · v8.1 · Leitura online gratuita · redistribuição: não verificada · Verificada em 2026-10-28 · [abrir fonte oficial](https://www.cisecurity.org/controls/v8-1)
 
-Página oficial conferida: v8.1 descrita como atualização iterativa da v8, com mapeamentos realinhados ao CSF 2.0, inclusão da função Govern, glossário ampliado e classes de ativos revisadas. Página de Implementation Groups: 153 safeguards nas versões 8 e 8.1; IG1 é 'essential cyber hygiene' e todo ambiente deveria começar por ele; IG3 inclui todos os safeguards. Contagem por IG não conferida (está em imagem). Licença não exibida — redistribuição não verificada.
+Página oficial conferida: v8.1 descrita como atualização iterativa da v8, com mapeamentos realinhados ao CSF 2.0, inclusão da função Govern, glossário ampliado e classes de ativos revisadas. Página de Implementation Groups: 153 safeguards nas versões 8 e 8.1; IG1 é 'essential cyber hygiene' e todo ambiente deveria começar por ele; IG3 inclui todos os safeguards. Contagem por IG não conferida (está em imagem). Licença não exibida — redistribuição não verificada. Reconferido em 2026-10-28: página de Implementation Groups — IG1 como essential cyber hygiene, recomendação de que toda organização comece pelo IG1, IG3 composto por todos os Controls e Safeguards, total de 153 Safeguards na v8 e na v8.1.
 
 Módulos: M02, M03, M08 · Leitura: Consulta (prioridade 3).
 
@@ -335,7 +335,7 @@ Módulos: M03, M16 · Leitura: Consulta (prioridade 3).
 
 ### The NIST Cybersecurity Framework (CSF) 2.0 — NIST CSWP 29
 
-`NIST-CSF-2` · NIST · 2.0 (CSWP 29, 26/02/2024) · Download gratuito · redistribuição: não verificada · Verificada em 2026-10-23 · [abrir fonte oficial](https://csrc.nist.gov/pubs/cswp/29/the-nist-cybersecurity-framework-csf-20/final)
+`NIST-CSF-2` · NIST · 2.0 (CSWP 29, 26/02/2024) · Download gratuito · redistribuição: não verificada · Verificada em 2026-10-28 · [abrir fonte oficial](https://csrc.nist.gov/pubs/cswp/29/the-nist-cybersecurity-framework-csf-20/final)
 
 **Conceitos:** Functions: Govern, Identify, Protect, Detect, Respond, Recover; Organizational Profiles (atual e alvo); Tiers.
 
@@ -346,7 +346,7 @@ Módulos: M03, M16 · Leitura: Consulta (prioridade 3).
 | Sec. 3.2 e App. B (p. 7–8, 24–26) | Tiers — Partial, Risk Informed, Repeatable, Adaptive | M03 | **Lido** |
 | App. A — GOVERN (p. 16–18) | Categorias GV.OC, GV.RM, GV.RR, GV.PO, GV.OV, GV.SC | M03, M16 | **Lido** |
 
-Publicado em 26/02/2024. DOI 10.6028/NIST.CSWP.29. PDF lido em 2026-10-23 (Sec. 1–3 e Apêndices A–B): o CSF descreve resultados e declara que não prescreve como alcançá-los (Sec. 1, p. 1).
+Publicado em 26/02/2024. DOI 10.6028/NIST.CSWP.29. PDF lido em 2026-10-23 (Sec. 1–3 e Apêndices A–B): o CSF descreve resultados e declara que não prescreve como alcançá-los (Sec. 1, p. 1). Página oficial reconferida em 2026-10-28: publicação em 26/02/2024, DOI e a declaração de que o CSF não prescreve como os resultados devem ser alcançados.
 
 Módulos: M02, M03, M16 · Leitura: Essencial (prioridade 1).
 
@@ -386,7 +386,7 @@ Módulos: M02, M03 · Leitura: Consulta (prioridade 3).
 
 ### SP 800-30 Rev. 1 — Guide for Conducting Risk Assessments
 
-`NIST-SP800-30-R1` · NIST · Rev. 1, final (17/09/2012) · Download gratuito · redistribuição: não verificada · Verificada em 2026-10-23 · [abrir fonte oficial](https://csrc.nist.gov/pubs/sp/800/30/r1/final)
+`NIST-SP800-30-R1` · NIST · Rev. 1, final (17/09/2012) · Download gratuito · redistribuição: não verificada · Verificada em 2026-10-28 · [abrir fonte oficial](https://csrc.nist.gov/pubs/sp/800/30/r1/final)
 
 | Localização | Título | Módulos | Situação |
 |:---|:---|:---|:---|
@@ -396,13 +396,13 @@ Módulos: M02, M03 · Leitura: Consulta (prioridade 3).
 | Sec. 2.4 (p. 17) | Três níveis de gestão de riscos: organização, processo de negócio, sistema (Figura 4) | M03 | **Lido** |
 | Cap. 3 (p. 23–38) | Processo de avaliação: preparar, conduzir, comunicar, manter | M03 | Localizado |
 
-Página oficial conferida; sem revisão mais nova. PDF lido em 2026-10-23 até a Sec. 2.4 (Cap. 2); do Cap. 3 só o sumário foi conferido (etapas preparar, conduzir, comunicar e manter).
+Página oficial conferida; sem revisão mais nova. PDF lido em 2026-10-23 até a Sec. 2.4 (Cap. 2); do Cap. 3 só o sumário foi conferido (etapas preparar, conduzir, comunicar e manter). Página oficial reconferida em 2026-10-28: sem revisão nova nem rascunho de Rev. 2.
 
 Módulos: M01, M03, M14 · Leitura: Essencial (prioridade 1).
 
 ### SP 800-37 Rev. 2 — Risk Management Framework for Information Systems and Organizations: A System Life Cycle Approach for Security and Privacy
 
-`NIST-SP800-37-R2` · NIST · Rev. 2, final (20/12/2018) · Download gratuito · redistribuição: não verificada · Verificada em 2026-10-23 · [abrir fonte oficial](https://csrc.nist.gov/pubs/sp/800/37/r2/final)
+`NIST-SP800-37-R2` · NIST · Rev. 2, final (20/12/2018) · Download gratuito · redistribuição: não verificada · Verificada em 2026-10-28 · [abrir fonte oficial](https://csrc.nist.gov/pubs/sp/800/37/r2/final)
 
 | Localização | Título | Módulos | Situação |
 |:---|:---|:---|:---|
@@ -410,17 +410,17 @@ Módulos: M01, M03, M14 · Leitura: Essencial (prioridade 1).
 | Sec. 3.1 (Tabela 1) (p. 12–13) | Prepare — tarefas no nível da organização (P-1 a P-7) | M03 | **Lido** |
 | Apêndice F | Decisões de autorização | M03 | Localizado |
 
-Página oficial conferida: final de 20/12/2018, substitui a Rev. 1 (2014); nenhuma Rev. 3 mencionada. O resumo cita categorização, seleção, implementação e avaliação de controles, autorização e monitoramento contínuo, além das atividades de preparação. As sete etapas (Prepare, Categorize, Select, Implement, Assess, Authorize, Monitor) foram conferidas na página do projeto RMF (NIST-RMF). PDF lido em 2026-10-23 até a Sec. 3.1: autorização para operar ou para usar, autorização de controles comuns para herança, fronteira de autorização (nota 36, p. 16) e prioridade para a autorização contínua (Sumário Executivo, p. viii). Tarefas do nível de sistema e Apêndice F não lidos.
+Página oficial conferida: final de 20/12/2018, substitui a Rev. 1 (2014); nenhuma Rev. 3 mencionada. O resumo cita categorização, seleção, implementação e avaliação de controles, autorização e monitoramento contínuo, além das atividades de preparação. As sete etapas (Prepare, Categorize, Select, Implement, Assess, Authorize, Monitor) foram conferidas na página do projeto RMF (NIST-RMF). PDF lido em 2026-10-23 até a Sec. 3.1: autorização para operar ou para usar, autorização de controles comuns para herança, fronteira de autorização (nota 36, p. 16) e prioridade para a autorização contínua (Sumário Executivo, p. viii). Tarefas do nível de sistema e Apêndice F não lidos. Página oficial reconferida em 2026-10-28: Rev. 2 final de dezembro de 2018, sem menção a Rev. 3 ou a revisão em andamento.
 
 Módulos: M03, M16 · Leitura: Essencial (prioridade 1).
 
 ### SP 800-53 Rev. 5 — Security and Privacy Controls for Information Systems and Organizations
 
-`NIST-SP800-53` · NIST · Rev. 5 (atualização de 10/12/2020); Release 5.2.0 de 27/08/2025 · Download gratuito · redistribuição: não verificada · Verificada em 2026-10-23 · [abrir fonte oficial](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final)
+`NIST-SP800-53` · NIST · Rev. 5 (atualização de 10/12/2020); Release 5.2.0 de 27/08/2025 · Download gratuito · redistribuição: não verificada · Verificada em 2026-10-28 · [abrir fonte oficial](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final)
 
 **Conceitos:** Control families; Control enhancements; Catálogo versus baseline; OSCAL.
 
-Página oficial conferida: Release 5.2.0 em 27/08/2025; materiais suplementares em OSCAL (JSON, XML, YAML), planilhas e crosswalk ISO/IEC 27001:2022. Partes: SP 800-53A Rev. 5 e SP 800-53B. Catálogo — não é uma lista de obrigações para toda organização. A página lista 20 famílias de controles, inclusive Supply Chain Risk Management. Texto do controle AC-5 (Separation of Duties) conferido em réplica do catálogo (stigviewer.com, 2026-10-23): identificar e documentar deveres que exigem separação e definir autorizações de acesso que a suportem; discussão inclui dividir funções de negócio e de suporte entre pessoas diferentes e evitar que quem administra controle de acesso também administre funções de auditoria; baselines moderada e alta. Texto do controle SA-22 (Unsupported System Components) conferido em réplica (stigviewer.com): substituir componentes sem suporte do fornecedor ou prover fontes alternativas de suporte; discussão admite isolamento como redução de risco; baselines baixa, moderada e alta.
+Página oficial conferida: Release 5.2.0 em 27/08/2025; materiais suplementares em OSCAL (JSON, XML, YAML), planilhas e crosswalk ISO/IEC 27001:2022. Partes: SP 800-53A Rev. 5 e SP 800-53B. Catálogo — não é uma lista de obrigações para toda organização. A página lista 20 famílias de controles, inclusive Supply Chain Risk Management. Texto do controle AC-5 (Separation of Duties) conferido em réplica do catálogo (stigviewer.com, 2026-10-23): identificar e documentar deveres que exigem separação e definir autorizações de acesso que a suportem; discussão inclui dividir funções de negócio e de suporte entre pessoas diferentes e evitar que quem administra controle de acesso também administre funções de auditoria; baselines moderada e alta. Texto do controle SA-22 (Unsupported System Components) conferido em réplica (stigviewer.com): substituir componentes sem suporte do fornecedor ou prover fontes alternativas de suporte; discussão admite isolamento como redução de risco; baselines baixa, moderada e alta. Reconferido em 2026-10-28: Release 5.2.0 (27/08/2025) com novos controles e melhorias SA-15(13), SA-24 e SI-02(07) e revisão de SI-07(12); 20 famílias.
 
 Módulos: M01, M02, M03, M05, M06, M08, M14, M15 · Leitura: Consulta (prioridade 2).
 
@@ -436,11 +436,11 @@ Módulos: M03, M04 · Leitura: Consulta (prioridade 2).
 
 ### SP 800-53B — Control Baselines for Information Systems and Organizations
 
-`NIST-SP800-53B` · NIST · Final (10/12/2020); Release 5.2.0 de 27/08/2025, sem mudanças nas baselines · Download gratuito · redistribuição: não verificada · Verificada em 2026-10-23 · [abrir fonte oficial](https://csrc.nist.gov/pubs/sp/800/53/b/upd1/final)
+`NIST-SP800-53B` · NIST · Final (10/12/2020); Release 5.2.0 de 27/08/2025, sem mudanças nas baselines · Download gratuito · redistribuição: não verificada · Verificada em 2026-10-28 · [abrir fonte oficial](https://csrc.nist.gov/pubs/sp/800/53/b/upd1/final)
 
 **Conceitos:** Baselines low, moderate e high; Baseline de privacidade; Tailoring; Overlays.
 
-Página oficial conferida: baselines por nível de impacto, baseline de privacidade independente do nível, orientação de tailoring e de overlays. A Release 5.2.0 não alterou as baselines.
+Página oficial conferida: baselines por nível de impacto, baseline de privacidade independente do nível, orientação de tailoring e de overlays. A Release 5.2.0 não alterou as baselines. Reconferido em 2026-10-28: Release 5.2.0 da SP 800-53B (27/08/2025) sem mudanças nas baselines, só para manter a numeração consistente com a SP 800-53 e a SP 800-53A.
 
 Módulos: M03 · Leitura: Consulta (prioridade 2).
 
@@ -470,9 +470,9 @@ Módulos: M02, M16 · Leitura: Consulta (prioridade 3).
 
 ### PCI DSS v4.0.1 — Payment Card Industry Data Security Standard
 
-`PCI-DSS-401` · PCI Security Standards Council · v4.0.1 (11/06/2024); substituiu a v4.0 em 31/12/2024 · Gratuito com cadastro · redistribuição: restrita · Parcialmente verificada em 2026-10-23 · [abrir fonte oficial](https://www.pcisecuritystandards.org/document_library/)
+`PCI-DSS-401` · PCI Security Standards Council · v4.0.1 (11/06/2024); substituiu a v4.0 em 31/12/2024 · Gratuito com cadastro · redistribuição: restrita · Parcialmente verificada em 2026-10-28 · [abrir fonte oficial](https://www.pcisecuritystandards.org/document_library/)
 
-Data e natureza da revisão (menor, sem requisitos novos) conferidas em fonte secundária (usd.de); a biblioteca oficial não foi aberta. O download oficial exige aceite de licença do PCI SSC (conhecimento geral, não conferido). Estrutura de 12 requisitos em 6 objetivos e aplicação a quem armazena, processa ou transmite dados de portadores de cartão conferidas em fonte secundária (opensecurityarchitecture.org).
+Anúncio oficial do PCI SSC conferido em 2026-10-28 (blog.pcisecuritystandards.org/just-published-pci-dss-v4-0-1): publicação em 11/06/2024, sem requisitos adicionados ou removidos, v4.0 retirada em 31/12/2024 e data de vigência dos requisitos futuros (31/03/2025) mantida. Página oficial do padrão conferida (pcisecuritystandards.org/standards/pci-dss/): aplica-se a entidades que armazenam, processam ou transmitem dados de portadores de cartão ou dados sensíveis de autenticação e às que podem afetar a segurança do CDE; a exigência de conformidade fica a critério de organizações que mantêm programas de conformidade, como bandeiras e adquirentes. Estrutura de 12 requisitos em 6 objetivos conferida apenas em fonte secundária (opensecurityarchitecture.org); o documento oficial exige aceite de licença e não foi lido.
 
 Módulos: M03, M13 · Leitura: Consulta (prioridade 2).
 
@@ -811,9 +811,9 @@ Módulos: M04 · Leitura: Aprofundada (prioridade 3).
 
 ### OWASP Application Security Verification Standard (ASVS) 5.0.0
 
-`OWASP-ASVS-5` · OWASP Foundation · 5.0.0 (estável; maio de 2025) · Download gratuito · redistribuição: permitida pela licença · Verificada em 2026-10-23 · [abrir fonte oficial](https://owasp.org/www-project-ASVS/)
+`OWASP-ASVS-5` · OWASP Foundation · 5.0.0 (estável; maio de 2025) · Download gratuito · redistribuição: permitida pela licença · Verificada em 2026-10-28 · [abrir fonte oficial](https://owasp.org/www-project-ASVS/)
 
-Página do projeto conferida: versão 5.0.0 estável; licença Creative Commons Attribution-ShareAlike 4.0 International; fonte oficial no GitHub OWASP/ASVS e site asvs.owasp.org. Data de lançamento não exibida. Estrutura conferida em fonte secundária (quality.arc42.org, 2026-10-23): 17 capítulos (V1 Encoding and Sanitization a V17 WebRTC, incluindo V2 Validation and Business Logic, V6 Authentication, V8 Authorization, V15 Secure Coding and Architecture, V16 Security Logging and Error Handling); níveis cumulativos L1, L2 e L3; identificadores <capítulo>.<seção>.<requisito>, citados com a versão (ex.: v5.0.0-6.2.1); lançamento em maio de 2025.
+Página do projeto conferida: versão 5.0.0 estável; licença Creative Commons Attribution-ShareAlike 4.0 International; fonte oficial no GitHub OWASP/ASVS e site asvs.owasp.org. Data de lançamento não exibida na página do projeto (confirmada depois no site asvs.owasp.org, ver abaixo). Estrutura conferida em fonte secundária (quality.arc42.org, 2026-10-23): 17 capítulos (V1 Encoding and Sanitization a V17 WebRTC, incluindo V2 Validation and Business Logic, V6 Authentication, V8 Authorization, V15 Secure Coding and Architecture, V16 Security Logging and Error Handling); níveis cumulativos L1, L2 e L3; identificadores <capítulo>.<seção>.<requisito>, citados com a versão (ex.: v5.0.0-6.2.1); lançamento em maio de 2025. Reconferido em 2026-10-28 no site oficial asvs.owasp.org: versão estável 5.0.0 publicada em 30/05/2025, licença CC BY-SA 4.0 e formato de identificador v<versão>-<capítulo>.<seção>.<requisito>. Capítulos e descrição dos níveis continuam conferidos só em fonte secundária (o repositório no GitHub não pôde ser lido pela ferramenta).
 
 Módulos: M04, M12 · Leitura: Consulta (prioridade 2).
 
@@ -845,13 +845,15 @@ Módulos: M04, M12 · Leitura: Essencial (prioridade 1).
 
 ## Data Security
 
-### Resolução CD/ANPD nº 15, de abril de 2024 — Regulamento de Comunicação de Incidente de Segurança
+<a id="resolucao-cdanpd-no-15-de-abril-de-2024-regulamento-de-comunicacao-de-incidente-de-seguranca"></a>
 
-`ANPD-RES-15-2024` · ANPD · Abril de 2024 · Leitura online gratuita · redistribuição: não verificada · Parcialmente verificada em 2026-10-23 · [abrir fonte oficial](https://www.mattosfilho.com.br/unico/regulamento-incidente-seguranca/)
+### Resolução CD/ANPD nº 15, de 24 de abril de 2024 — Regulamento de Comunicação de Incidente de Segurança
+
+`ANPD-RES-15-2024` · ANPD · 24/04/2024; DOU de 26/04/2024, Seção 1, p. 114–115 · Leitura online gratuita · redistribuição: não verificada · Verificada em 2026-10-28 · [abrir fonte oficial](https://bibliotecadigital.mj.gov.br/bitstream/1/12879/2/RES_ANPD_2024_15.html)
 
 **Conceitos:** Comunicação à ANPD e ao titular em três dias úteis; Critérios de risco ou dano relevante; Registro de incidentes por no mínimo cinco anos.
 
-Conteúdo conferido em resumo de escritório de advocacia (Mattos Filho), não no texto oficial: três dias úteis para comunicar a ANPD e os titulares, contados do conhecimento de que o incidente afetou dados pessoais; complementação em até 20 dias úteis; prazos em dobro para agentes de pequeno porte; critérios cumulativos de relevância; registro de todos os incidentes por pelo menos cinco anos. Conferir no texto oficial antes de citar literalmente.
+Texto integral conferido em 2026-10-28 na Biblioteca Digital do Ministério da Justiça (cópia oficial, que declara não substituir o original publicado no DOU), com ementa "Aprova o Regulamento de Comunicação de Incidente de Segurança" e assinatura do Diretor-Presidente: art. 5º, caput e incisos I a VI (risco ou dano relevante quando puder afetar significativamente interesses e direitos fundamentais e, cumulativamente, envolver ao menos um critério — dados sensíveis; de crianças, adolescentes ou idosos; financeiros; de autenticação em sistemas; protegidos por sigilo legal, judicial ou profissional; em larga escala); art. 6º, caput (três dias úteis para comunicar a ANPD, ressalvado prazo previsto em legislação específica), § 1º (contagem a partir do conhecimento pelo controlador de que o incidente afetou dados pessoais), § 3º (complementação fundamentada em vinte dias úteis), § 5º (comunicação pelo controlador, por meio do encarregado) e § 8º (prazos do caput e do § 3º em dobro para agentes de pequeno porte); art. 9º, caput (três dias úteis para comunicar o titular, contados do mesmo conhecimento) e § 6º (em dobro para agentes de pequeno porte); art. 10, caput (registro do incidente, inclusive do não comunicado, por no mínimo cinco anos a partir do registro). O art. 2º da resolução altera o regulamento de agentes de pequeno porte (Resolução CD/ANPD nº 2/2022). A cópia integral não mostra a data de publicação; o registro do mesmo item na Biblioteca Digital do Ministério da Justiça (<https://bibliotecadigital.mj.gov.br/handle/1/12879>, conferido em 2026-10-28) informa a fonte "Diário Oficial da União, Seção 1, p. 114-115" e a data 2024-04-26. A página do próprio Diário Oficial não foi lida. Orientação oficial da ANPD sobre comunicação de incidente de segurança conferida no mesmo dia (gov.br/anpd, página publicada em 23/12/2022 e modificada em 26/08/2026): três dias úteis para a ANPD e os titulares (arts. 6º e 9º), complementação em vinte dias úteis a contar da comunicação, comunicação pelo encarregado ou representante legal por peticionamento eletrônico no SEI!ANPD; a página não trata dos prazos em dobro nem do registro interno. Em 2026-10-28, antes desta conferência, o mesmo texto tinha sido conferido em reprodução integral (Normas Brasil), porque o portal da ANPD estava indisponível.
 
 Módulos: M03, M13, M15 · Leitura: Consulta (prioridade 2).
 
@@ -921,7 +923,7 @@ Módulos: M10, M13 · Leitura: Consulta (prioridade 3).
 
 ### Lei nº 13.709, de 14 de agosto de 2018 — Lei Geral de Proteção de Dados Pessoais (LGPD), texto compilado
 
-`LGPD-L13709` · Presidência da República (Planalto) · Texto compilado com alterações até a Lei nº 15.352, de 2026 · Leitura online gratuita · redistribuição: permitida pela licença · Verificada em 2026-10-23 · [abrir fonte oficial](https://planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm)
+`LGPD-L13709` · Presidência da República (Planalto) · Texto compilado com alterações até a Lei nº 15.352, de 2026 · Leitura online gratuita · redistribuição: permitida pela licença · Verificada em 2026-10-28 · [abrir fonte oficial](https://planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm)
 
 | Localização | Título | Módulos | Situação |
 |:---|:---|:---|:---|
@@ -932,7 +934,7 @@ Módulos: M10, M13 · Leitura: Consulta (prioridade 3).
 | Art. 48 | Comunicação de incidente de segurança à ANPD e ao titular | M03, M13, M15 | **Lido** |
 | Art. 50 | Boas práticas e programa de governança em privacidade | M03, M13 | **Lido** |
 
-Texto oficial do Planalto conferido. Sem licença aplicável: a Lei nº 9.610/1998, art. 8º, IV (texto do Planalto conferido em 2026-10-23), exclui da proteção autoral 'os textos de tratados ou convenções, leis, decretos, regulamentos, decisões judiciais e demais atos oficiais'.
+Texto oficial do Planalto conferido. Sem licença aplicável: a Lei nº 9.610/1998, art. 8º, IV (texto do Planalto conferido em 2026-10-23), exclui da proteção autoral 'os textos de tratados ou convenções, leis, decretos, regulamentos, decisões judiciais e demais atos oficiais'. Reconferido em 2026-10-28 no Planalto: arts. 5º, II; 11, caput; 37, caput; 46, caput e § 2º (desde a fase de concepção); 48, caput; 49.
 
 Módulos: M03, M13, M16 · Leitura: Essencial (prioridade 1).
 
@@ -1008,9 +1010,9 @@ Módulos: M08, M15 · Leitura: Essencial (prioridade 1).
 
 ### MITRE ATT&CK
 
-`MITRE-ATTACK` · MITRE · v20 (outubro de 2026) · Leitura online gratuita · redistribuição: não verificada · Verificada em 2026-10-23 · [abrir fonte oficial](https://attack.mitre.org/)
+`MITRE-ATTACK` · MITRE · v20 (outubro de 2026) · Leitura online gratuita · redistribuição: não verificada · Verificada em 2026-10-28 · [abrir fonte oficial](https://attack.mitre.org/)
 
-Página de atualizações conferida: versão atual v20, de 13/10/2026. Página de táticas Enterprise lida em 2026-10-23 (conteúdo v20.0): 15 táticas — Reconnaissance, Resource Development, Initial Access, Execution, Persistence, Privilege Escalation, Stealth (TA0005), Defense Impairment (TA0112), Credential Access, Discovery, Lateral Movement, Collection, Command and Control, Exfiltration, Impact. Termos de uso (página Legal & Branding) não verificados. Técnicas conferidas nas páginas da v20: T1133 External Remote Services (Persistence, Initial Access), T1078 Valid Accounts (Stealth, Persistence, Privilege Escalation, Initial Access), T1003 OS Credential Dumping, T1087 Account Discovery, T1021 Remote Services, T1685 Disable or Modify Tools (Defense Impairment, 18 técnicas), T1490 Inhibit System Recovery e T1486 Data Encrypted for Impact (Impact). T1558 Steal or Forge Kerberos Tickets (Credential Access) conferida, com subtécnicas .001 Golden Ticket, .002 Silver Ticket, .003 Kerberoasting, .004 AS-REP Roasting e .005 Ccache Files.
+Página de atualizações conferida: versão atual v20, de 13/10/2026. Página de táticas Enterprise lida em 2026-10-23 (conteúdo v20.0): 15 táticas — Reconnaissance, Resource Development, Initial Access, Execution, Persistence, Privilege Escalation, Stealth (TA0005), Defense Impairment (TA0112), Credential Access, Discovery, Lateral Movement, Collection, Command and Control, Exfiltration, Impact. Termos de uso (página Legal & Branding) não verificados. Técnicas conferidas nas páginas da v20: T1133 External Remote Services (Persistence, Initial Access), T1078 Valid Accounts (Stealth, Persistence, Privilege Escalation, Initial Access), T1003 OS Credential Dumping, T1087 Account Discovery, T1021 Remote Services, T1685 Disable or Modify Tools (Defense Impairment, 18 técnicas), T1490 Inhibit System Recovery e T1486 Data Encrypted for Impact (Impact). T1558 Steal or Forge Kerberos Tickets (Credential Access) conferida, com subtécnicas .001 Golden Ticket, .002 Silver Ticket, .003 Kerberoasting, .004 AS-REP Roasting e .005 Ccache Files. Reconferido em 2026-10-28: página de versões (v20.0 desde 13/10/2026; v19.2 de 28/04/2026 a 12/10/2026; v18.1 de 28/10/2025 a 27/04/2026); lista de 15 táticas Enterprise; T1078 (Stealth, Persistence, Privilege Escalation, Initial Access), T1133 (Persistence, Initial Access) e T1490 (Impact); página da TA0112 Defense Impairment criada em 14/04/2026 (anterior à v20), com 18 técnicas. As páginas de versões anteriores (/versions/v19, /versions/v18) não puderam ser lidas (robots), então a versão exata em que a tática foi introduzida não foi confirmada. Também em 2026-10-28: T1003 (Credential Access), T1685 (Defense Impairment), T1070 Indicator Removal (Stealth; subtécnicas .003 a .010), T1566 Phishing (Initial Access), T1213 e T1530 (Collection), T1567 (Exfiltration) e T1598 Phishing for Information (Reconnaissance; objetivo de obter dados da vítima, frequentemente credenciais, em vez de executar código).
 
 Módulos: M03, M04, M06, M14, M15 · Leitura: Consulta (prioridade 3).
 
@@ -1044,7 +1046,7 @@ Módulos: M08, M14 · Leitura: Consulta (prioridade 2).
 
 ### SP 800-34 Rev. 1 — Contingency Planning Guide for Federal Information Systems
 
-`NIST-SP800-34-R1` · NIST · Rev. 1, maio de 2010, atualizada em 11/11/2010 · Download gratuito · redistribuição: não verificada · Verificada em 2026-10-23 · [abrir fonte oficial](https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final)
+`NIST-SP800-34-R1` · NIST · Rev. 1, maio de 2010, atualizada em 11/11/2010 · Download gratuito · redistribuição: não verificada · Verificada em 2026-10-28 · [abrir fonte oficial](https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final)
 
 | Localização | Título | Módulos | Situação |
 |:---|:---|:---|:---|
@@ -1052,7 +1054,7 @@ Módulos: M08, M14 · Leitura: Consulta (prioridade 2).
 | Sec. 3.2 (p. 15–19) | Business Impact Analysis — processos e criticidade, requisitos de recursos, prioridades de recuperação; definições de MTD, RTO e RPO | M03, M12 | **Lido** |
 | Sec. 2.2 (p. 8–11) | Tipos de plano (BCP, COOP, comunicação de crise, CIP, resposta a incidentes, DRP, ISCP, OEP) | M03, M12, M15 | **Lido** |
 
-Página oficial conferida; nenhuma revisão mais nova mencionada. Escrito para sistemas federais dos EUA; conceitos de BIA, RTO e RPO são amplamente reutilizados. PDF lido em 2026-10-23 (Cap. 2–3): o RTO normalmente precisa ser menor que o MTD, e o RPO não faz parte do MTD (Sec. 3.2.1, p. 17).
+Página oficial conferida; nenhuma revisão mais nova mencionada. Escrito para sistemas federais dos EUA; conceitos de BIA, RTO e RPO são amplamente reutilizados. PDF lido em 2026-10-23 (Cap. 2–3): o RTO normalmente precisa ser menor que o MTD, e o RPO não faz parte do MTD (Sec. 3.2.1, p. 17). Página oficial reconferida em 2026-10-28: Rev. 1 (maio de 2010, atualizada em 11/11/2010), sem revisão nova; o PDF não pôde ser lido pela ferramenta nesta data — as seções citadas seguem a leitura de 2026-10-23.
 
 Módulos: M00, M03, M08, M15 · Leitura: Consulta (prioridade 2).
 

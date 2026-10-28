@@ -45,13 +45,20 @@ def test_no_stale_unpublished_statements():
     assert not found, "\n".join(found)
 
 
-@pytest.mark.skipif(not R1_PUBLISHED, reason="Release 1 ainda não publicada")
-def test_roadmap_shows_release_1_published():
+def test_roadmap_release_table_follows_manifest():
+    """O estado das releases no ROADMAP é gerado do manifesto; o texto à mão não declara estado."""
     text = (ROOT / "ROADMAP.md").read_text(encoding="utf-8")
-    section = text.split("## Release 1", 1)[1].split("\n## ", 1)[0]
-    assert "Published" in section and "publicada" in section
-    assert "em revisão" not in section and "aguardando" not in section
-    assert "## Release 2 — Professional 🔄" in text and "## Release 3 — Architect ⏳" in text
+    block = text.split("<!-- roadmap-releases:start -->", 1)[1].split("<!-- roadmap-releases:end -->", 1)[0]
+    assert block.strip() == rc.render_roadmap_releases(MANIFEST).strip()
+    rows = {line.split("|")[1].strip(): line for line in block.splitlines() if line.startswith("| **")}
+    assert len(rows) == len(MANIFEST["releases"])
+    for rel in MANIFEST["releases"]:
+        row = next(v for k, v in rows.items() if k.startswith(f"**{rel['id'][1:]} — "))
+        published = rc.release_availability(MANIFEST, rel)[0] == "published"
+        assert ("✅ disponível" in row) == published, rel["id"]
+    hand_written = text.replace(block, "")
+    for claim in ("✅ disponível", "em revisão", "aguardando", "não publicada"):
+        assert claim not in hand_written, claim
 
 
 @pytest.mark.skipif(not R1_PUBLISHED, reason="Release 1 ainda não publicada")
@@ -60,7 +67,8 @@ def test_getting_started_starts_at_initial_module():
     available = text.split("## O que está disponível", 1)[1].split("\n## ", 1)[0]
     first = re.search(r"\]\(\.\./modules/([\w-]+)/index\.md\)", available).group(1)
     assert first == "00-foundations"
-    assert "Release 1 — Fundamentals" in available
+    assert rc.render_available(MANIFEST).strip() in available
+    assert "Nível 0" in available
 
 
 def test_homepage_availability_follows_manifest():

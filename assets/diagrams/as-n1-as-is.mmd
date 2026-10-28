@@ -1,0 +1,51 @@
+flowchart TB
+  accTitle: Rede Jacarandá Farmácias — arquitetura atual (cenário da avaliação integradora do Nível 1)
+  accDescr: Clientes usam o app e a loja virtual, hospedados em uma única conta de nuvem, sem separação entre produção e testes; a equipe de desenvolvimento tem acesso administrativo à conta. O app grava as fotos de receitas em um armazenamento de objetos acessível por link público e consulta a base do programa de fidelidade, com histórico de compras de medicamentos. Os farmacêuticos validam receitas em um painel na nuvem, com conta do diretório corporativo e só senha, e o painel consulta livremente os históricos de compra da base de fidelidade. O parceiro de entregas chama a API de pedidos com uma chave única para todas as lojas. O pagamento online usa a página hospedada do provedor de pagamentos. No datacenter próprio ficam o ERP, o diretório corporativo e o backup em NAS montado no domínio; um serviço de sincronização roda em uma VM do datacenter com credencial administrativa do banco do ERP. As 38 lojas têm PDV e se ligam ao datacenter por VPN site-to-site; o diretório é único para lojas e datacenter.
+
+  CLI(["Clientes<br/><small>app e loja virtual</small>"])
+  ENT(["Parceiro de entregas"])
+  PAG(["Provedor de pagamentos<br/><small>página hospedada</small>"])
+  FAR(["Farmacêuticos"])
+
+  subgraph CLOUD["Nuvem — conta única, produção e testes juntos"]
+    APP["App e loja virtual"]
+    API["API de pedidos<br/><small>chave única para todas as lojas</small>"]
+    REC[("Fotos de receitas<br/><small>link público</small>")]
+    FID[("Base de fidelidade<br/><small>600 mil clientes · histórico</small>")]
+    PAI["Painel de validação<br/><small>conta do AD · só senha</small>"]
+  end
+
+  subgraph DC["Datacenter próprio"]
+    SYNC["Sincronização<br/><small>credencial admin do ERP</small>"]
+    ERP[("ERP e estoque")]
+    AD["Diretório corporativo<br/><small>único para lojas e DC</small>"]
+    NAS[("Backup em NAS<br/><small>montado no domínio</small>")]
+  end
+
+  subgraph LOJAS["38 lojas"]
+    PDV["PDV"]
+  end
+
+  CLI --> APP
+  APP --> REC
+  APP --> FID
+  APP -. "redireciona" .-> PAG
+  ENT -- "chave única" --> API
+  API --> FID
+  FAR --> PAI
+  PAI --> REC
+  PAI -- "consulta históricos" --> FID
+  PAI -. "autenticação" .-> AD
+  SYNC -- "pedidos e estoque" --> API
+  SYNC --> ERP
+  PDV -- "VPN site-to-site" --> ERP
+  ERP --> NAS
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef untrusted stroke:#dc2626,stroke-width:2px,stroke-dasharray:5 3
+  classDef identity stroke:#2f74e8,stroke-width:2px
+  classDef actor stroke:#64748b,stroke-width:2px
+  class CLOUD,DC,LOJAS zone
+  class REC,API,NAS untrusted
+  class AD identity
+  class CLI,ENT,PAG,FAR actor

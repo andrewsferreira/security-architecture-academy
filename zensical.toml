@@ -63,6 +63,27 @@ nav = [
         "modules/02-security-architecture/07-business-driven-requirements.md",
         "modules/02-security-architecture/08-architecture-decision-records.md",
       ] },
+      { "Módulo 3 — Governança, Riscos e Controles" = [
+        "modules/03-governance-risk/index.md",
+        "modules/03-governance-risk/01-governance-csf.md",
+        "modules/03-governance-risk/02-nist-rmf.md",
+        "modules/03-governance-risk/03-control-selection-tailoring.md",
+        "modules/03-governance-risk/04-iso-lgpd-pci.md",
+        "modules/03-governance-risk/05-bia-rto-rpo.md",
+        "modules/03-governance-risk/06-risk-assessment-register.md",
+        "modules/03-governance-risk/07-control-catalog-risk-architecture.md",
+        "modules/03-governance-risk/08-metrics-maturity-reporting.md",
+      ] },
+      { "Módulo 4 — Métodos de Design e Threat Modeling" = [
+        "modules/04-threat-modeling/index.md",
+        "modules/04-threat-modeling/01-data-flow-diagrams.md",
+        "modules/04-threat-modeling/02-stride.md",
+        "modules/04-threat-modeling/03-attack-trees-abuse-cases.md",
+        "modules/04-threat-modeling/04-mitre-attack-scenarios.md",
+        "modules/04-threat-modeling/05-single-points-of-failure.md",
+        "modules/04-threat-modeling/06-threats-to-requirements.md",
+        "modules/04-threat-modeling/07-architecture-review-validation.md",
+      ] },
     ] },
   ] },
   { "Prática" = [
@@ -88,6 +109,7 @@ nav = [
       "assessments/m01-security-fundamentals.md",
       "assessments/m02-security-architecture.md",
       "assessments/fundamentals-final.md",
+      "assessments/level-1-integrative.md",
       "assessments/rubrics.md",
       { "Gabaritos" = [
         "assessments/answers/diagnostic-fundamentals.md",
@@ -95,6 +117,7 @@ nav = [
         "assessments/answers/m01-security-fundamentals.md",
         "assessments/answers/m02-security-architecture.md",
         "assessments/answers/fundamentals-final.md",
+        "assessments/answers/level-1-integrative.md",
       ] },
     ] },
     { "Modelos" = [

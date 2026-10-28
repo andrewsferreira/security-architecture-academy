@@ -2995,7 +2995,7 @@ references:
   availability: Free Online Reading
   redistribution: Not Verified
   verification: Verified
-  verified_on: '2026-10-23'
+  verified_on: '2026-10-28'
   modules:
   - M02
   - M03
@@ -3005,7 +3005,7 @@ references:
   subject: Controles priorizados e grupos de implementação IG1–IG3
   billing_risk: Nenhum
   prerequisites: —
-  notes: 'Página oficial conferida: v8.1 descrita como atualização iterativa da v8, com mapeamentos realinhados ao CSF 2.0, inclusão da função Govern, glossário ampliado e classes de ativos revisadas. Página de Implementation Groups: 153 safeguards nas versões 8 e 8.1; IG1 é ''essential cyber hygiene'' e todo ambiente deveria começar por ele; IG3 inclui todos os safeguards. Contagem por IG não conferida (está em imagem). Licença não exibida — redistribuição não verificada.'
+  notes: 'Página oficial conferida: v8.1 descrita como atualização iterativa da v8, com mapeamentos realinhados ao CSF 2.0, inclusão da função Govern, glossário ampliado e classes de ativos revisadas. Página de Implementation Groups: 153 safeguards nas versões 8 e 8.1; IG1 é ''essential cyber hygiene'' e todo ambiente deveria começar por ele; IG3 inclui todos os safeguards. Contagem por IG não conferida (está em imagem). Licença não exibida — redistribuição não verificada. Reconferido em 2026-10-28: página de Implementation Groups — IG1 como essential cyber hygiene, recomendação de que toda organização comece pelo IG1, IG3 composto por todos os Controls e Safeguards, total de 153 Safeguards na v8 e na v8.1.'
 - id: CISA-BOD-23-01
   title: 'BOD 23-01: Improving Asset Visibility and Vulnerability Detection on Federal Networks'
   publisher: CISA
@@ -3118,7 +3118,7 @@ references:
   availability: Free Download
   redistribution: Not Verified
   verification: Verified
-  verified_on: '2026-10-23'
+  verified_on: '2026-10-28'
   modules:
   - M02
   - M03
@@ -3135,7 +3135,7 @@ references:
   - Construir perfis atual e alvo por unidade de negócio
   billing_risk: Nenhum
   prerequisites: —
-  notes: 'Publicado em 26/02/2024. DOI 10.6028/NIST.CSWP.29. PDF lido em 2026-10-23 (Sec. 1–3 e Apêndices A–B): o CSF descreve resultados e declara que não prescreve como alcançá-los (Sec. 1, p. 1).'
+  notes: 'Publicado em 26/02/2024. DOI 10.6028/NIST.CSWP.29. PDF lido em 2026-10-23 (Sec. 1–3 e Apêndices A–B): o CSF descreve resultados e declara que não prescreve como alcançá-los (Sec. 1, p. 1). Página oficial reconferida em 2026-10-28: publicação em 26/02/2024, DOI e a declaração de que o CSF não prescreve como os resultados devem ser alcançados.'
   chapters:
   - locator: Sec. 2
     title: CSF Core — seis Functions (GOVERN, IDENTIFY, PROTECT, DETECT, RESPOND, RECOVER)
@@ -3275,7 +3275,7 @@ references:
   availability: Free Download
   redistribution: Not Verified
   verification: Verified
-  verified_on: '2026-10-23'
+  verified_on: '2026-10-28'
   modules:
   - M01
   - M03
@@ -3285,7 +3285,7 @@ references:
   subject: 'Avaliação de riscos: ameaças, vulnerabilidades, probabilidade e impacto'
   billing_risk: Nenhum
   prerequisites: —
-  notes: Página oficial conferida; sem revisão mais nova. PDF lido em 2026-10-23 até a Sec. 2.4 (Cap. 2); do Cap. 3 só o sumário foi conferido (etapas preparar, conduzir, comunicar e manter).
+  notes: 'Página oficial conferida; sem revisão mais nova. PDF lido em 2026-10-23 até a Sec. 2.4 (Cap. 2); do Cap. 3 só o sumário foi conferido (etapas preparar, conduzir, comunicar e manter). Página oficial reconferida em 2026-10-28: sem revisão nova nem rascunho de Rev. 2.'
   chapters:
   - locator: Sec. 2.1
     title: 'Componentes da gestão de riscos: frame, assess, respond, monitor (Figura 1)'
@@ -3334,7 +3334,7 @@ references:
   availability: Free Download
   redistribution: Not Verified
   verification: Verified
-  verified_on: '2026-10-23'
+  verified_on: '2026-10-28'
   modules:
   - M03
   - M16
@@ -3343,7 +3343,7 @@ references:
   subject: 'Risk Management Framework: preparação, categorização, seleção, implementação, avaliação, autorização e monitoramento contínuo'
   billing_risk: Nenhum
   prerequisites: —
-  notes: 'Página oficial conferida: final de 20/12/2018, substitui a Rev. 1 (2014); nenhuma Rev. 3 mencionada. O resumo cita categorização, seleção, implementação e avaliação de controles, autorização e monitoramento contínuo, além das atividades de preparação. As sete etapas (Prepare, Categorize, Select, Implement, Assess, Authorize, Monitor) foram conferidas na página do projeto RMF (NIST-RMF). PDF lido em 2026-10-23 até a Sec. 3.1: autorização para operar ou para usar, autorização de controles comuns para herança, fronteira de autorização (nota 36, p. 16) e prioridade para a autorização contínua (Sumário Executivo, p. viii). Tarefas do nível de sistema e Apêndice F não lidos.'
+  notes: 'Página oficial conferida: final de 20/12/2018, substitui a Rev. 1 (2014); nenhuma Rev. 3 mencionada. O resumo cita categorização, seleção, implementação e avaliação de controles, autorização e monitoramento contínuo, além das atividades de preparação. As sete etapas (Prepare, Categorize, Select, Implement, Assess, Authorize, Monitor) foram conferidas na página do projeto RMF (NIST-RMF). PDF lido em 2026-10-23 até a Sec. 3.1: autorização para operar ou para usar, autorização de controles comuns para herança, fronteira de autorização (nota 36, p. 16) e prioridade para a autorização contínua (Sumário Executivo, p. viii). Tarefas do nível de sistema e Apêndice F não lidos. Página oficial reconferida em 2026-10-28: Rev. 2 final de dezembro de 2018, sem menção a Rev. 3 ou a revisão em andamento.'
   authors:
   - Joint Task Force
   year: 2018
@@ -3385,7 +3385,7 @@ references:
   availability: Free Download
   redistribution: Not Verified
   verification: Verified
-  verified_on: '2026-10-23'
+  verified_on: '2026-10-28'
   modules:
   - M01
   - M02
@@ -3408,8 +3408,7 @@ references:
   - Diferenciar catálogo, baseline (SP 800-53B) e obrigação regulatória
   billing_risk: Nenhum
   prerequisites: M03
-  notes: 'Página oficial conferida: Release 5.2.0 em 27/08/2025; materiais suplementares em OSCAL (JSON, XML, YAML), planilhas e crosswalk ISO/IEC 27001:2022. Partes: SP 800-53A Rev. 5 e SP 800-53B. Catálogo — não é uma lista de obrigações para toda organização. A página lista 20 famílias de controles, inclusive Supply Chain Risk Management. Texto do controle AC-5 (Separation of Duties) conferido em réplica do catálogo (stigviewer.com, 2026-10-23): identificar e documentar deveres que exigem separação e definir autorizações de acesso que a suportem; discussão inclui dividir funções de negócio e de suporte entre pessoas diferentes e evitar que quem administra controle de acesso também administre funções de auditoria; baselines moderada e alta. Texto do controle SA-22 (Unsupported System Components) conferido em réplica (stigviewer.com): substituir componentes sem suporte do fornecedor ou prover fontes alternativas de suporte; discussão admite isolamento como redução de risco; baselines baixa,
-    moderada e alta.'
+  notes: 'Página oficial conferida: Release 5.2.0 em 27/08/2025; materiais suplementares em OSCAL (JSON, XML, YAML), planilhas e crosswalk ISO/IEC 27001:2022. Partes: SP 800-53A Rev. 5 e SP 800-53B. Catálogo — não é uma lista de obrigações para toda organização. A página lista 20 famílias de controles, inclusive Supply Chain Risk Management. Texto do controle AC-5 (Separation of Duties) conferido em réplica do catálogo (stigviewer.com, 2026-10-23): identificar e documentar deveres que exigem separação e definir autorizações de acesso que a suportem; discussão inclui dividir funções de negócio e de suporte entre pessoas diferentes e evitar que quem administra controle de acesso também administre funções de auditoria; baselines moderada e alta. Texto do controle SA-22 (Unsupported System Components) conferido em réplica (stigviewer.com): substituir componentes sem suporte do fornecedor ou prover fontes alternativas de suporte; discussão admite isolamento como redução de risco; baselines baixa, moderada e alta. Reconferido em 2026-10-28: Release 5.2.0 (27/08/2025) com novos controles e melhorias SA-15(13), SA-24 e SI-02(07) e revisão de SI-07(12); 20 famílias.'
 - id: NIST-SP800-53A-R5
   title: SP 800-53A Rev. 5 — Assessing Security and Privacy Controls in Information Systems and Organizations
   authors:
@@ -3452,7 +3451,7 @@ references:
   availability: Free Download
   redistribution: Not Verified
   verification: Verified
-  verified_on: '2026-10-23'
+  verified_on: '2026-10-28'
   modules:
   - M03
   reading_role: reference
@@ -3465,7 +3464,7 @@ references:
   - Overlays
   billing_risk: Nenhum
   prerequisites: —
-  notes: 'Página oficial conferida: baselines por nível de impacto, baseline de privacidade independente do nível, orientação de tailoring e de overlays. A Release 5.2.0 não alterou as baselines.'
+  notes: 'Página oficial conferida: baselines por nível de impacto, baseline de privacidade independente do nível, orientação de tailoring e de overlays. A Release 5.2.0 não alterou as baselines. Reconferido em 2026-10-28: Release 5.2.0 da SP 800-53B (27/08/2025) sem mudanças nas baselines, só para manter a numeração consistente com a SP 800-53 e a SP 800-53A.'
 - id: NIST-SP800-55-V1
   title: 'SP 800-55 Vol. 1 — Measurement Guide for Information Security: Identifying and Selecting Measures'
   authors:
@@ -3568,7 +3567,7 @@ references:
   availability: Free With Registration
   redistribution: Restricted
   verification: Partially Verified
-  verified_on: '2026-10-23'
+  verified_on: '2026-10-28'
   modules:
   - M03
   - M13
@@ -3577,7 +3576,7 @@ references:
   subject: Requisitos de segurança para ambientes de dados de cartão
   billing_risk: Nenhum
   prerequisites: —
-  notes: Data e natureza da revisão (menor, sem requisitos novos) conferidas em fonte secundária (usd.de); a biblioteca oficial não foi aberta. O download oficial exige aceite de licença do PCI SSC (conhecimento geral, não conferido). Estrutura de 12 requisitos em 6 objetivos e aplicação a quem armazena, processa ou transmite dados de portadores de cartão conferidas em fonte secundária (opensecurityarchitecture.org).
+  notes: 'Anúncio oficial do PCI SSC conferido em 2026-10-28 (blog.pcisecuritystandards.org/just-published-pci-dss-v4-0-1): publicação em 11/06/2024, sem requisitos adicionados ou removidos, v4.0 retirada em 31/12/2024 e data de vigência dos requisitos futuros (31/03/2025) mantida. Página oficial do padrão conferida (pcisecuritystandards.org/standards/pci-dss/): aplica-se a entidades que armazenam, processam ou transmitem dados de portadores de cartão ou dados sensíveis de autenticação e às que podem afetar a segurança do CDE; a exigência de conformidade fica a critério de organizações que mantêm programas de conformidade, como bandeiras e adquirentes. Estrutura de 12 requisitos em 6 objetivos conferida apenas em fonte secundária (opensecurityarchitecture.org); o documento oficial exige aceite de licença e não foi lido.'
 - id: SABSA-CATALOG
   title: SABSA — White Paper Requests (catálogo de white papers)
   publisher: The SABSA Institute
@@ -4563,7 +4562,7 @@ references:
   availability: Free Download
   redistribution: Explicitly Permitted
   verification: Verified
-  verified_on: '2026-10-23'
+  verified_on: '2026-10-28'
   modules:
   - M04
   - M12
@@ -4572,7 +4571,7 @@ references:
   subject: Requisitos verificáveis de segurança de aplicações
   billing_risk: Nenhum
   prerequisites: M04
-  notes: 'Página do projeto conferida: versão 5.0.0 estável; licença Creative Commons Attribution-ShareAlike 4.0 International; fonte oficial no GitHub OWASP/ASVS e site asvs.owasp.org. Data de lançamento não exibida. Estrutura conferida em fonte secundária (quality.arc42.org, 2026-10-23): 17 capítulos (V1 Encoding and Sanitization a V17 WebRTC, incluindo V2 Validation and Business Logic, V6 Authentication, V8 Authorization, V15 Secure Coding and Architecture, V16 Security Logging and Error Handling); níveis cumulativos L1, L2 e L3; identificadores <capítulo>.<seção>.<requisito>, citados com a versão (ex.: v5.0.0-6.2.1); lançamento em maio de 2025.'
+  notes: 'Página do projeto conferida: versão 5.0.0 estável; licença Creative Commons Attribution-ShareAlike 4.0 International; fonte oficial no GitHub OWASP/ASVS e site asvs.owasp.org. Data de lançamento não exibida na página do projeto (confirmada depois no site asvs.owasp.org, ver abaixo). Estrutura conferida em fonte secundária (quality.arc42.org, 2026-10-23): 17 capítulos (V1 Encoding and Sanitization a V17 WebRTC, incluindo V2 Validation and Business Logic, V6 Authentication, V8 Authorization, V15 Secure Coding and Architecture, V16 Security Logging and Error Handling); níveis cumulativos L1, L2 e L3; identificadores <capítulo>.<seção>.<requisito>, citados com a versão (ex.: v5.0.0-6.2.1); lançamento em maio de 2025. Reconferido em 2026-10-28 no site oficial asvs.owasp.org: versão estável 5.0.0 publicada em 30/05/2025, licença CC BY-SA 4.0 e formato de identificador v<versão>-<capítulo>.<seção>.<requisito>. Capítulos e descrição dos níveis continuam conferidos só em fonte secundária (o repositório no GitHub não pôde ser lido pela ferramenta).'
   year: 2025
 - id: OWASP-TM-PROJECT
   title: OWASP Developer Guide — Threat Modeling Project
@@ -4664,19 +4663,19 @@ references:
   prerequisites: —
   notes: 'Página lida em 2026-10-23. Licença declarada: Creative Commons Attribution 4.0 International (CC BY 4.0).'
 - id: ANPD-RES-15-2024
-  title: Resolução CD/ANPD nº 15, de abril de 2024 — Regulamento de Comunicação de Incidente de Segurança
+  title: Resolução CD/ANPD nº 15, de 24 de abril de 2024 — Regulamento de Comunicação de Incidente de Segurança
   publisher: ANPD
   year: 2024
-  edition: Abril de 2024
-  url: https://www.mattosfilho.com.br/unico/regulamento-incidente-seguranca/
+  edition: 24/04/2024; DOU de 26/04/2024, Seção 1, p. 114–115
+  url: https://bibliotecadigital.mj.gov.br/bitstream/1/12879/2/RES_ANPD_2024_15.html
   type: Regulation
   language: pt
   level: professional
   category: data-security
   availability: Free Online Reading
   redistribution: Not Verified
-  verification: Partially Verified
-  verified_on: '2026-10-23'
+  verification: Verified
+  verified_on: '2026-10-28'
   modules:
   - M03
   - M13
@@ -4690,7 +4689,7 @@ references:
   - Registro de incidentes por no mínimo cinco anos
   billing_risk: Nenhum
   prerequisites: —
-  notes: 'Conteúdo conferido em resumo de escritório de advocacia (Mattos Filho), não no texto oficial: três dias úteis para comunicar a ANPD e os titulares, contados do conhecimento de que o incidente afetou dados pessoais; complementação em até 20 dias úteis; prazos em dobro para agentes de pequeno porte; critérios cumulativos de relevância; registro de todos os incidentes por pelo menos cinco anos. Conferir no texto oficial antes de citar literalmente.'
+  notes: 'Texto integral conferido em 2026-10-28 na Biblioteca Digital do Ministério da Justiça (cópia oficial, que declara não substituir o original publicado no DOU), com ementa "Aprova o Regulamento de Comunicação de Incidente de Segurança" e assinatura do Diretor-Presidente: art. 5º, caput e incisos I a VI (risco ou dano relevante quando puder afetar significativamente interesses e direitos fundamentais e, cumulativamente, envolver ao menos um critério — dados sensíveis; de crianças, adolescentes ou idosos; financeiros; de autenticação em sistemas; protegidos por sigilo legal, judicial ou profissional; em larga escala); art. 6º, caput (três dias úteis para comunicar a ANPD, ressalvado prazo previsto em legislação específica), § 1º (contagem a partir do conhecimento pelo controlador de que o incidente afetou dados pessoais), § 3º (complementação fundamentada em vinte dias úteis), § 5º (comunicação pelo controlador, por meio do encarregado) e § 8º (prazos do caput e do § 3º em dobro para agentes de pequeno porte); art. 9º, caput (três dias úteis para comunicar o titular, contados do mesmo conhecimento) e § 6º (em dobro para agentes de pequeno porte); art. 10, caput (registro do incidente, inclusive do não comunicado, por no mínimo cinco anos a partir do registro). O art. 2º da resolução altera o regulamento de agentes de pequeno porte (Resolução CD/ANPD nº 2/2022). A cópia integral não mostra a data de publicação; o registro do mesmo item na Biblioteca Digital do Ministério da Justiça (<https://bibliotecadigital.mj.gov.br/handle/1/12879>, conferido em 2026-10-28) informa a fonte "Diário Oficial da União, Seção 1, p. 114-115" e a data 2024-04-26. A página do próprio Diário Oficial não foi lida. Orientação oficial da ANPD sobre comunicação de incidente de segurança conferida no mesmo dia (gov.br/anpd, página publicada em 23/12/2022 e modificada em 26/08/2026): três dias úteis para a ANPD e os titulares (arts. 6º e 9º), complementação em vinte dias úteis a contar da comunicação, comunicação pelo encarregado ou representante legal por peticionamento eletrônico no SEI!ANPD; a página não trata dos prazos em dobro nem do registro interno. Em 2026-10-28, antes desta conferência, o mesmo texto tinha sido conferido em reprodução integral (Normas Brasil), porque o portal da ANPD estava indisponível.'
 - id: ANPD-RES-19-2024
   title: Resolução CD/ANPD nº 19, de 23 de agosto de 2024 — Regulamento de Transferência Internacional de Dados
   publisher: ANPD
@@ -4890,7 +4889,7 @@ references:
   availability: Free Online Reading
   redistribution: Explicitly Permitted
   verification: Verified
-  verified_on: '2026-10-23'
+  verified_on: '2026-10-28'
   modules:
   - M03
   - M13
@@ -4936,7 +4935,7 @@ references:
     - M13
   billing_risk: Nenhum
   prerequisites: —
-  notes: 'Texto oficial do Planalto conferido. Sem licença aplicável: a Lei nº 9.610/1998, art. 8º, IV (texto do Planalto conferido em 2026-10-23), exclui da proteção autoral ''os textos de tratados ou convenções, leis, decretos, regulamentos, decisões judiciais e demais atos oficiais''.'
+  notes: 'Texto oficial do Planalto conferido. Sem licença aplicável: a Lei nº 9.610/1998, art. 8º, IV (texto do Planalto conferido em 2026-10-23), exclui da proteção autoral ''os textos de tratados ou convenções, leis, decretos, regulamentos, decisões judiciais e demais atos oficiais''. Reconferido em 2026-10-28 no Planalto: arts. 5º, II; 11, caput; 37, caput; 46, caput e § 2º (desde a fase de concepção); 48, caput; 49.'
 - id: MS-WHAT-IS-DSPM
   title: What is data security posture management (DSPM)?
   publisher: Microsoft
@@ -5329,7 +5328,7 @@ references:
   availability: Free Online Reading
   redistribution: Not Verified
   verification: Verified
-  verified_on: '2026-10-23'
+  verified_on: '2026-10-28'
   modules:
   - M03
   - M04
@@ -5341,8 +5340,7 @@ references:
   subject: Táticas e técnicas de adversários
   billing_risk: Nenhum
   prerequisites: M01
-  notes: 'Página de atualizações conferida: versão atual v20, de 13/10/2026. Página de táticas Enterprise lida em 2026-10-23 (conteúdo v20.0): 15 táticas — Reconnaissance, Resource Development, Initial Access, Execution, Persistence, Privilege Escalation, Stealth (TA0005), Defense Impairment (TA0112), Credential Access, Discovery, Lateral Movement, Collection, Command and Control, Exfiltration, Impact. Termos de uso (página Legal & Branding) não verificados. Técnicas conferidas nas páginas da v20: T1133 External Remote Services (Persistence, Initial Access), T1078 Valid Accounts (Stealth, Persistence, Privilege Escalation, Initial Access), T1003 OS Credential Dumping, T1087 Account Discovery, T1021 Remote Services, T1685 Disable or Modify Tools (Defense Impairment, 18 técnicas), T1490 Inhibit System Recovery e T1486 Data Encrypted for Impact (Impact). T1558 Steal or Forge Kerberos Tickets (Credential Access) conferida, com subtécnicas .001 Golden Ticket, .002 Silver Ticket, .003 Kerberoasting,
-    .004 AS-REP Roasting e .005 Ccache Files.'
+  notes: 'Página de atualizações conferida: versão atual v20, de 13/10/2026. Página de táticas Enterprise lida em 2026-10-23 (conteúdo v20.0): 15 táticas — Reconnaissance, Resource Development, Initial Access, Execution, Persistence, Privilege Escalation, Stealth (TA0005), Defense Impairment (TA0112), Credential Access, Discovery, Lateral Movement, Collection, Command and Control, Exfiltration, Impact. Termos de uso (página Legal & Branding) não verificados. Técnicas conferidas nas páginas da v20: T1133 External Remote Services (Persistence, Initial Access), T1078 Valid Accounts (Stealth, Persistence, Privilege Escalation, Initial Access), T1003 OS Credential Dumping, T1087 Account Discovery, T1021 Remote Services, T1685 Disable or Modify Tools (Defense Impairment, 18 técnicas), T1490 Inhibit System Recovery e T1486 Data Encrypted for Impact (Impact). T1558 Steal or Forge Kerberos Tickets (Credential Access) conferida, com subtécnicas .001 Golden Ticket, .002 Silver Ticket, .003 Kerberoasting, .004 AS-REP Roasting e .005 Ccache Files. Reconferido em 2026-10-28: página de versões (v20.0 desde 13/10/2026; v19.2 de 28/04/2026 a 12/10/2026; v18.1 de 28/10/2025 a 27/04/2026); lista de 15 táticas Enterprise; T1078 (Stealth, Persistence, Privilege Escalation, Initial Access), T1133 (Persistence, Initial Access) e T1490 (Impact); página da TA0112 Defense Impairment criada em 14/04/2026 (anterior à v20), com 18 técnicas. As páginas de versões anteriores (/versions/v19, /versions/v18) não puderam ser lidas (robots), então a versão exata em que a tática foi introduzida não foi confirmada. Também em 2026-10-28: T1003 (Credential Access), T1685 (Defense Impairment), T1070 Indicator Removal (Stealth; subtécnicas .003 a .010), T1566 Phishing (Initial Access), T1213 e T1530 (Collection), T1567 (Exfiltration) e T1598 Phishing for Information (Reconnaissance; objetivo de obter dados da vítima, frequentemente credenciais, em vez de executar código).'
 - id: NIST-IR-8374-R1
   title: 'NIST IR 8374 Rev. 1 — Ransomware Risk Management: A Cybersecurity Framework 2.0 Community Profile'
   authors:
@@ -5452,7 +5450,7 @@ references:
   availability: Free Download
   redistribution: Not Verified
   verification: Verified
-  verified_on: '2026-10-23'
+  verified_on: '2026-10-28'
   modules:
   - M00
   - M03
@@ -5463,7 +5461,7 @@ references:
   subject: Planejamento de contingência, Business Impact Analysis, estratégias de recuperação
   billing_risk: Nenhum
   prerequisites: —
-  notes: 'Página oficial conferida; nenhuma revisão mais nova mencionada. Escrito para sistemas federais dos EUA; conceitos de BIA, RTO e RPO são amplamente reutilizados. PDF lido em 2026-10-23 (Cap. 2–3): o RTO normalmente precisa ser menor que o MTD, e o RPO não faz parte do MTD (Sec. 3.2.1, p. 17).'
+  notes: 'Página oficial conferida; nenhuma revisão mais nova mencionada. Escrito para sistemas federais dos EUA; conceitos de BIA, RTO e RPO são amplamente reutilizados. PDF lido em 2026-10-23 (Cap. 2–3): o RTO normalmente precisa ser menor que o MTD, e o RPO não faz parte do MTD (Sec. 3.2.1, p. 17). Página oficial reconferida em 2026-10-28: Rev. 1 (maio de 2010, atualizada em 11/11/2010), sem revisão nova; o PDF não pôde ser lido pela ferramenta nesta data — as seções citadas seguem a leitura de 2026-10-23.'
   chapters:
   - locator: Cap. 3
     title: Processo de planejamento de contingência em sete etapas

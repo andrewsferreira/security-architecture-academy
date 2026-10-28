@@ -483,7 +483,7 @@ def run_validations(out: Path, mode: str, python: str) -> list[tuple[str, int]]:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--release", required=True, help="id da release (R1, R2, R3)")
+    parser.add_argument("--release", required=True, help="id da release (R1 a R6)")
     parser.add_argument("--mode", choices=["candidate", "final"], default="candidate")
     parser.add_argument("--out", required=True, type=Path, help="diretório de saída (novo ou vazio)")
     parser.add_argument("--no-validate", action="store_true", help="não executa as validações na árvore gerada")

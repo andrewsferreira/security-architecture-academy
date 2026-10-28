@@ -197,11 +197,15 @@ def test_patch_preserves_original_publication(manifest):
     """Itens publicados na v0.1.0 mantêm data e revisores; só itens novos recebem os da correção."""
     data, r1 = _r1_with_patch(manifest, status="approved", approved_by=["Mantenedor"],
                               approved_on=dt.date(2026, 11, 2), approved_source_commit="b" * 40)
-    original = {m["id"]: (m.get("published_on"), m.get("reviewed_by")) for m in data["modules"] if m["status"] == "published"}
+    scope = ex.cumulative_scope(data, "R1")
+    # Só os módulos do escopo da R1: em árvores de releases posteriores há módulos publicados fora dele.
+    original = {m["id"]: (m.get("published_on"), m.get("reviewed_by")) for m in data["modules"]
+                if m["status"] == "published" and m["id"] in scope["modules"]}
+    assert original, "a R1 precisa ter módulos publicados"
     lab = next(x for x in data["labs"] if x["id"] == "LAB-00")
     lab.update(status="in-review", reviewed_by=[])
     lab.pop("published_on", None)
-    out = ex.transform_manifest(data, ex.cumulative_scope(data, "R1"), "final", r1)
+    out = ex.transform_manifest(data, scope, "final", r1)
     mods = {m["id"]: m for m in out["modules"]}
     for mid, (published_on, reviewers) in original.items():
         assert (mods[mid]["published_on"], mods[mid]["reviewed_by"]) == (published_on, reviewers), mid

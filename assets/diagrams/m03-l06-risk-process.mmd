@@ -1,0 +1,30 @@
+flowchart TB
+  accTitle: Gestão de riscos e o ciclo de vida de um item do risk register
+  accDescr: A gestão de riscos tem quatro componentes, segundo a SP 800-30 Rev. 1. Enquadrar define contexto, apetite e tolerância. Avaliar identifica cenários com fontes de ameaça, vulnerabilidades e condições predisponentes e estima probabilidade e impacto. Responder escolhe mitigar, transferir, evitar ou aceitar. Monitorar acompanha a eficácia das respostas e as mudanças. Cada cenário avaliado vira um item do risk register com dono, tratamento, prazo e risco residual. Se o residual estiver acima da tolerância, o item volta à resposta; se estiver dentro, é aceito formalmente pelo dono e revisto periodicamente.
+
+  subgraph RM["Gestão de riscos — SP 800-30 Rev. 1"]
+    FR["Enquadrar<br/><small>contexto, apetite,<br/>tolerância</small>"]
+    AS["Avaliar<br/><small>cenários, probabilidade,<br/>impacto</small>"]
+    RE["Responder<br/><small>mitigar · transferir ·<br/>evitar · aceitar</small>"]
+    MO["Monitorar<br/><small>eficácia e mudanças</small>"]
+    FR --> AS --> RE --> MO
+    MO -.-> AS
+  end
+
+  REG[("Item do risk register<br/><small>cenário · dono · tratamento ·<br/>prazo · residual</small>")]
+  TOL{"Residual dentro<br/>da tolerância?"}
+  ACC["Aceite formal<br/>pelo dono do risco"]
+
+  AS --> REG
+  RE --> REG
+  REG --> TOL
+  TOL -- "não" --> RE
+  TOL -- "sim" --> ACC
+  ACC -- "revisão periódica" --> MO
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef identity stroke:#2f74e8,stroke-width:2px
+  class RM zone
+  class REG control
+  class ACC identity

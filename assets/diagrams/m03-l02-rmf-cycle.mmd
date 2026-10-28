@@ -1,0 +1,25 @@
+flowchart TB
+  accTitle: Etapas do NIST Risk Management Framework
+  accDescr: O RMF começa com a etapa Prepare, nos níveis da organização e do sistema. Em seguida, o sistema é categorizado pelo impacto, os controles são selecionados e ajustados, implementados, avaliados por um avaliador independente da equipe que os implementou e, com base nas evidências, um authorizing official decide se o risco residual é aceitável. A etapa Monitor acompanha controles, mudanças e riscos continuamente e realimenta as etapas anteriores quando o contexto muda.
+
+  P(["Prepare<br/><small>papéis, estratégia de risco,<br/>controles comuns, fronteira</small>"])
+  C["Categorize<br/><small>impacto da perda de C, I, D</small>"]
+  S["Select<br/><small>baseline + tailoring</small>"]
+  I["Implement<br/><small>controles e documentação</small>"]
+  A["Assess<br/><small>implementados corretamente<br/>e produzindo o resultado?</small>"]
+  AU{{"Authorize<br/><small>authorizing official<br/>aceita o risco residual?</small>"}}
+  M["Monitor<br/><small>controles, mudanças,<br/>riscos e postura</small>"]
+  POAM["Plano de ação e marcos<br/><small>deficiências com prazo</small>"]
+
+  P --> C --> S --> I --> A --> AU
+  AU -- "autorizado" --> M
+  AU -- "negado" --> S
+  A -. "deficiências" .-> POAM
+  POAM -.-> AU
+  M -- "mudança relevante" --> C
+  M -- "autorização contínua" --> AU
+
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef identity stroke:#2f74e8,stroke-width:2px
+  class AU identity
+  class A,M control

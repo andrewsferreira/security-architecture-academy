@@ -1,0 +1,58 @@
+flowchart TB
+  accTitle: Rede Jacarandá — DFD de referência do envio e da validação de receitas
+  accDescr: DFD de nível 1 da solução de referência. O cliente, fora do controle da Jacarandá, usa o app, que obtém um token no provedor de identidade de clientes (fluxo 2) e envia a foto da receita ao gateway de API na borda (fluxo 1). O gateway encaminha ao serviço de receitas (fluxo 3), na zona de aplicação, que grava a imagem no armazenamento de receitas (fluxo 4) e registra o pedido na base de pedidos (fluxo 5). O farmacêutico se autentica no provedor de identidade corporativo com MFA (fluxo 6) e acessa o painel de validação pelo gateway (fluxos 12 e 13); o painel aceita só a sessão emitida pelo provedor corporativo (fluxo 14). O serviço entrega ao painel um link temporário (fluxo 7), pelo qual o painel lê a imagem no armazenamento (fluxo 11). O painel consulta o histórico de compras só do cliente da receita em validação, na base de fidelidade (fluxo 15). O parceiro de entregas consulta pedidos pelo gateway (fluxo 8), que encaminha a chamada autorizada à API de pedidos (fluxo 17); a API lê na base de pedidos só nome, endereço e itens liberados (fluxo 16). O serviço de sincronização, no datacenter, troca pedidos e estoque com a API de pedidos (fluxo 9) e grava no ERP (fluxo 10). As linhas tracejadas que separam internet, borda, aplicação, dados e datacenter são fronteiras de confiança.
+
+  CLI(["Cliente"])
+  FAR(["Farmacêutico"])
+  ENT(["Parceiro de entregas"])
+
+  subgraph INET["Internet — não confiável"]
+    APP["App"]
+  end
+  subgraph EDGE["Borda"]
+    GW["Gateway de API"]
+    IDC["IdP de clientes"]
+    IDF["IdP corporativo"]
+  end
+  subgraph APPZ["Zona de aplicação"]
+    SRV["Serviço de receitas"]
+    PAI["Painel de validação"]
+    PED["API de pedidos"]
+  end
+  subgraph DATA["Zona de dados"]
+    REC[("Armazenamento<br/>de receitas")]
+    BPD[("Base de pedidos")]
+    HIS[("Base de fidelidade<br/>e históricos")]
+  end
+  subgraph DC["Datacenter"]
+    SYNC["Sincronização"]
+    ERP[("ERP")]
+  end
+
+  CLI --> APP
+  APP -- "1 · foto da receita + token" --> GW
+  APP -- "2 · login" --> IDC
+  GW -- "3 · chamada autorizada" --> SRV
+  SRV -- "4 · gravação da imagem" --> REC
+  SRV -- "5 · pedido" --> BPD
+  FAR -- "6 · login com MFA" --> IDF
+  FAR -- "12 · uso do painel" --> GW
+  GW -- "13 · chamada autorizada do painel" --> PAI
+  IDF -. "14 · sessão validada" .-> PAI
+  SRV -- "7 · link temporário" --> PAI
+  REC -- "11 · imagem lida pelo link" --> PAI
+  HIS -- "15 · histórico do cliente da receita" --> PAI
+  ENT -- "8 · consulta de pedidos" --> GW
+  GW -- "17 · consulta autorizada" --> PED
+  BPD -- "16 · nome, endereço e itens" --> PED
+  SYNC -- "9 · pedidos e estoque" --> PED
+  SYNC -- "10 · gravação" --> ERP
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef untrusted stroke:#dc2626,stroke-width:2px,stroke-dasharray:5 3
+  classDef identity stroke:#2f74e8,stroke-width:2px
+  classDef actor stroke:#64748b,stroke-width:2px
+  class INET,EDGE,APPZ,DATA,DC zone
+  class APP untrusted
+  class IDC,IDF identity
+  class CLI,FAR,ENT actor

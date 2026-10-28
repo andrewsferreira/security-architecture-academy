@@ -356,7 +356,9 @@ ADRs no repositório têm uma vantagem prática: **mudam junto com o código** q
     Atividades integradoras:
 
     - [Caso A — Datacenter tradicional (Meridiana Distribuidora)](../../case-studies/case-a-meridiana/index.md)
-    - [Avaliação final de Fundamentals (integradora)](../../assessments/fundamentals-final.md)
+    - [Avaliação integradora do Módulo Inicial ao Módulo 2](../../assessments/fundamentals-final.md)
+
+    Em seguida: [Módulo 3 — Governança, Riscos e Controles](../../modules/03-governance-risk/index.md).
 
 <!-- next-steps:end -->
 

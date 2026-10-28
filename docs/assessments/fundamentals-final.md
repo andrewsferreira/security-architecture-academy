@@ -1,13 +1,13 @@
 ---
 id: AS-FUND
-title: "Avaliação final de Fundamentals — Livraria Ipê"
-description: Avaliação integradora da trilha Fundamentals (Módulo Inicial, Módulo 1 e Módulo 2) — o estudante analisa a arquitetura de uma pequena empresa fictícia, identifica fronteiras e riscos, seleciona controles, escreve requisitos rastreáveis, propõe uma arquitetura-alvo com ADR e a explica em linguagem executiva, com critérios objetivos de correção.
+title: "Avaliação integradora do Módulo Inicial ao Módulo 2 — Livraria Ipê"
+description: Avaliação integradora do Módulo Inicial, do Módulo 1 e do Módulo 2 (Nível 0 e primeiro módulo do Nível 1) — o estudante analisa a arquitetura de uma pequena empresa fictícia, identifica fronteiras e riscos, seleciona controles, escreve requisitos rastreáveis, propõe uma arquitetura-alvo com ADR e a explica em linguagem executiva, com critérios objetivos de correção.
 status: published
-last_updated: 2026-10-23
+last_updated: 2026-10-28
 reviewed_by: [Andrews Ferreira]
 ---
 
-# Avaliação final de Fundamentals — Livraria Ipê
+# Avaliação integradora do Módulo Inicial ao Módulo 2 — Livraria Ipê { #avaliacao-final-de-fundamentals-livraria-ipe }
 
 <div class="saa-lesson-meta" markdown>
 <span class="saa-level">Avaliação integradora · Módulo Inicial · Módulo 1 · Módulo 2</span>
@@ -17,7 +17,7 @@ reviewed_by: [Andrews Ferreira]
 
 ## Instruções
 
-- Esta avaliação encerra a trilha **Fundamentals**. Ela verifica se você consegue **usar** o que estudou: ler uma arquitetura, encontrar riscos, escolher controles e defender uma proposta.
+- Esta avaliação encerra a etapa do **Módulo Inicial ao Módulo 2**. O Nível 1 — e, com ele, Fundamentals — é concluído pela [avaliação integradora do Nível 1](level-1-integrative.md), depois dos Módulos 3 e 4. Esta avaliação verifica se você consegue **usar** o que estudou: ler uma arquitetura, encontrar riscos, escolher controles e defender uma proposta.
 - Faça as seis tarefas em um documento próprio. Diagramas podem ser desenhados à mão, em Mermaid ou em qualquer ferramenta.
 - **Aprovação:** 70 pontos ou mais **e** nenhuma tarefa avaliada como *Insuficiente*.
 - A correção usa os **critérios objetivos** de cada tarefa. Confira o [gabarito comentado](answers/fundamentals-final.md) somente ao final.
@@ -88,16 +88,16 @@ Em **no máximo 150 palavras**, explique à diretoria o que muda, por que e em q
 
 | Tarefa | Pontos | Excelente | Adequado | Insuficiente |
 |:---|:---|:---|:---|:---|
-| 1 | 15 | 15 | 10 | 4 |
+| 1 | 15 | 15 | 11 | 4 |
 | 2 | 20 | 20 | 14 | 6 |
 | 3 | 20 | 20 | 14 | 6 |
-| 4 | 15 | 15 | 10 | 4 |
+| 4 | 15 | 15 | 11 | 4 |
 | 5 | 20 | 20 | 14 | 6 |
 | 6 | 10 | 10 | 7 | 3 |
 
-**Excelente:** atende a todos os critérios objetivos da tarefa e declara trade-offs. **Adequado:** atende à maioria dos critérios, sem trade-offs ou com uma lacuna menor. **Insuficiente:** não atende a metade dos critérios, é genérico ou ignora o cenário. A [rubrica padrão](rubrics.md) detalha os níveis.
+**Excelente:** atende a todos os critérios objetivos da tarefa e declara trade-offs. **Adequado:** atende à maioria dos critérios, sem trade-offs ou com uma lacuna menor. **Insuficiente:** não atende a metade dos critérios, é genérico ou ignora o cenário. Como na rubrica padrão, *Adequado* vale ao menos 70% dos pontos de cada tarefa: quem obtém *Adequado* em todas as tarefas soma 71 pontos e é aprovado. A [rubrica padrão](rubrics.md) detalha os níveis.
 
 ## Depois da avaliação
 
 - Confira o [gabarito comentado](answers/fundamentals-final.md), que traz uma solução de referência — não a única possível.
-- Concluída a trilha Fundamentals, os próximos passos são o Módulo 3 (governança e riscos) e o Módulo 4 (threat modeling), que aprofundam as Tarefas 2 e 4.
+- Concluída esta etapa, siga para o Módulo 3 (governança e riscos) e o Módulo 4 (threat modeling), que aprofundam as Tarefas 2 e 4 e terminam na [avaliação integradora do Nível 1](level-1-integrative.md), que conclui Fundamentals.

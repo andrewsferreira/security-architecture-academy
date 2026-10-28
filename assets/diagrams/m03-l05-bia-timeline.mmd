@@ -1,0 +1,20 @@
+flowchart TB
+  accTitle: Relação entre RPO, RTO e MTD
+  accDescr: Linha do tempo de um incidente. Antes do incidente está o último ponto de recuperação, o backup ou réplica mais recente; a distância entre esse ponto e o incidente é a perda de dados, que não pode ser maior que o RPO. Depois do incidente vem a recuperação do recurso de TI, que precisa terminar dentro do RTO, e a verificação e a retomada do processo de negócio. O tempo total de interrupção do processo não pode ultrapassar o MTD, por isso o RTO precisa ser menor que o MTD.
+
+  RP(["Último ponto<br/>de recuperação"])
+  INC{{"Incidente"}}
+  REC["Recuperação do<br/>recurso de TI"]
+  VER["Verificação de dados<br/>e retomada do processo"]
+  OK(["Processo de negócio<br/>operando"])
+
+  RP -- "perda de dados ≤ RPO" --> INC
+  INC -- "recuperação ≤ RTO" --> REC
+  REC -- "verificação" --> VER
+  VER --> OK
+  INC -. "interrupção total ≤ MTD" .-> OK
+
+  classDef untrusted stroke:#dc2626,stroke-width:2px,stroke-dasharray:5 3
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  class INC untrusted
+  class RP,OK control

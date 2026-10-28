@@ -1,0 +1,23 @@
+flowchart TB
+  accTitle: Da ameaça ao requisito verificável
+  accDescr: Uma ameaça identificada no threat model, como falsificação da identidade do laboratório parceiro, é avaliada quanto ao risco e recebe uma decisão de tratamento. A decisão de mitigar gera um requisito de segurança escrito como resultado verificável, por exemplo, autenticar o laboratório com credencial de workload de curta duração e restringir a escrita ao seu prefixo. O requisito referencia um padrão externo, como o OWASP ASVS, é implementado por um controle do catálogo e verificado por um teste automatizado ou manual. O resultado do teste realimenta o threat model, fechando a pergunta: fizemos um bom trabalho?
+
+  TH["Ameaça<br/><small>TM-07 · S: falsificar<br/>o laboratório</small>"]
+  RK{"Risco e<br/>tratamento"}
+  RQ["Requisito verificável<br/><small>SR-14 · credencial de workload<br/>de curta duração;<br/>escrita só no próprio prefixo</small>"]
+  STD["Referência externa<br/><small>OWASP ASVS 5.0</small>"]
+  CTL[["Controle do catálogo<br/><small>CTL-IAM-08</small>"]]
+  TST["Teste<br/><small>credencial expirada e<br/>prefixo alheio rejeitados</small>"]
+  ACC["Aceite registrado<br/><small>dono e prazo</small>"]
+
+  TH --> RK
+  RK -- "mitigar" --> RQ
+  RK -- "aceitar" --> ACC
+  RQ -. "referencia" .-> STD
+  RQ --> CTL --> TST
+  TST -. "evidência" .-> TH
+
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef untrusted stroke:#dc2626,stroke-width:2px,stroke-dasharray:5 3
+  class TH untrusted
+  class CTL,TST control

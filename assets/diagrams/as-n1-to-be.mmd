@@ -1,0 +1,54 @@
+flowchart TB
+  accTitle: Rede Jacarandá — arquitetura-alvo de referência
+  accDescr: Arquitetura-alvo da solução de referência. Clientes e parceiro de entregas entram por um gateway de API; o parceiro usa credencial própria por loja, com escopo limitado aos pedidos liberados. As fotos de receitas ficam em armazenamento privado e cifrado, acessível só por links temporários emitidos pelo serviço de receitas depois da autorização; a retenção segue a regra definida com o jurídico e o farmacêutico responsável. Produção e testes ficam em contas separadas, e os testes usam dados sintéticos. Os farmacêuticos acessam o painel por um provedor de identidade corporativo com MFA resistente a phishing, e o acesso a receitas e históricos gera eventos de auditoria enviados ao SIEM; o painel consulta o histórico de compras só do cliente da receita em validação. No datacenter, a sincronização usa conta de serviço com privilégio mínimo no ERP, e o backup é copiado para um repositório imutável com identidade própria, fora do domínio. As lojas continuam ligadas por VPN, em segmento separado dos servidores.
+
+  CLI(["Clientes"])
+  ENT(["Parceiro de entregas<br/><small>credencial por loja</small>"])
+  FAR(["Farmacêuticos"])
+
+  subgraph CORP["Serviços corporativos"]
+    IDF["IdP corporativo<br/><small>MFA resistente a phishing</small>"]
+    SIEM["SIEM<br/><small>acessos a dados de saúde</small>"]
+  end
+
+  subgraph PROD["Conta de produção — testes em conta separada, com dados sintéticos"]
+    GW["Gateway de API<br/><small>autenticação · limites · registro</small>"]
+    SRV["Serviço de receitas<br/><small>emite links temporários</small>"]
+    PAI["Painel de validação"]
+    REC[("Receitas<br/><small>privado · cifrado · retenção definida</small>")]
+    FID[("Fidelidade e pedidos<br/><small>minimização</small>")]
+  end
+
+  subgraph DC["Datacenter"]
+    SYNC["Sincronização<br/><small>conta de serviço mínima</small>"]
+    ERP[("ERP")]
+    IMU[("Cópia imutável<br/><small>identidade própria</small>")]
+  end
+  subgraph LOJAS["Lojas — segmento próprio"]
+    PDV["PDV"]
+  end
+
+  CLI --> GW
+  ENT --> GW
+  FAR --> IDF
+  IDF --> PAI
+  GW --> SRV
+  GW --> FID
+  SRV --> REC
+  PAI -- "link temporário" --> REC
+  PAI -- "histórico só da receita em validação" --> FID
+  PAI -. "eventos" .-> SIEM
+  GW -. "eventos" .-> SIEM
+  FID -- "pedidos e estoque" --- SYNC
+  SYNC --> ERP
+  ERP -. "cópia" .-> IMU
+  ERP -- "VPN" --- PDV
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef identity stroke:#2f74e8,stroke-width:2px
+  classDef actor stroke:#64748b,stroke-width:2px
+  class CORP,PROD,DC,LOJAS zone
+  class GW,SRV,SIEM,IMU control
+  class IDF identity
+  class CLI,ENT,FAR actor

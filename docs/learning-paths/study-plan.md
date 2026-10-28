@@ -7,9 +7,13 @@ description: Plano de 16 semanas da trilha essencial e roteiro da formação com
 
 Dois horizontes, conforme o objetivo: a **trilha essencial** de 16 semanas para desenvolvimento profissional acelerado e a **formação completa**, sem prazo rígido. Ambos seguem as [dependências entre módulos](../curriculum/dependencies.md).
 
+<!-- availability:start -->
+
 !!! info "Disponibilidade do conteúdo"
 
-    O plano descreve o percurso completo. Hoje estão publicados os Módulos 00, 01 e 02, com laboratórios, o Caso A e as avaliações — o material das **semanas 1 a 4**. As demais semanas passam a valer à medida que os módulos forem publicados.
+    O plano descreve o percurso completo. Hoje o portal traz **Nível 0 e Nível 1 completos** — Módulo Inicial, Módulo 1, Módulo 2, Módulo 3 e Módulo 4, 37 aulas (v0.1.1, v0.2.0), com as atividades associadas. As demais semanas passam a valer à medida que os níveis seguintes forem publicados.
+
+<!-- availability:end -->
 
 ## Rotina semanal recomendada
 

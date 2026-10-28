@@ -1,4 +1,4 @@
-# Mapa de conhecimento público gerado por scripts/export_release.py — escopo até R1.
+# Mapa de conhecimento público gerado por scripts/export_release.py — escopo até R2.
 schema_version: 1
 updated: 2026-10-23
 concepts:
@@ -780,6 +780,7 @@ concepts:
   - M14
   lessons:
   - M01-L06
+  - M03-L06
   diagrams:
   - m01-l06-risk-model
   tier: fundamental
@@ -850,3 +851,398 @@ concepts:
   application: Regras de acesso com estado para conflitos de interesse.
   limitations: Vulnerável a canais encobertos e a períodos curtos de resfriamento.
   examples: Consultoria da Aurora atendendo varejistas concorrentes.
+- id: KC-M03-01
+  concept: GOVERN e as seis Functions do CSF 2.0
+  ref: NIST-CSF-2
+  locator: Sec. 2 (pp. 3–4) e Apêndice A — GOVERN (pp. 16–18)
+  consulted: true
+  modules:
+  - M03
+  - M16
+  lessons:
+  - M03-L01
+  diagrams:
+  - m03-l01-csf-profiles
+  tier: fundamental
+  learning_type: framework
+  application: Descrever resultados de segurança em linguagem comum e definir o que a governança precisa produzir (contexto, estratégia de risco, papéis, política, supervisão, cadeia de suprimentos).
+  limitations: Descreve resultados, não prescreve como alcançá-los; voluntário fora do governo federal dos EUA.
+  examples: Perfil da Aurora Pagamentos para o ambiente de transações.
+- id: KC-M03-02
+  concept: Organizational Profiles — atual, alvo, lacunas e plano de ação
+  ref: NIST-CSF-2
+  locator: Sec. 3.1 (pp. 6–7)
+  consulted: true
+  modules:
+  - M03
+  - M16
+  lessons:
+  - M03-L01
+  diagrams:
+  - m03-l01-csf-profiles
+  tier: fundamental
+  learning_type: método
+  application: Escopo declarado, prioridades e evidências transformam o framework em plano de ação.
+  limitations: A qualidade depende das evidências; perfis sem escopo escondem ambientes críticos.
+  examples: Escopo do primeiro perfil da Meridiana.
+- id: KC-M03-03
+  concept: Tiers do CSF 2.0
+  ref: NIST-CSF-2
+  locator: Sec. 3.2 (p. 7) e Apêndice B (pp. 24–26)
+  consulted: true
+  modules:
+  - M03
+  lessons:
+  - M03-L01
+  - M03-L08
+  tier: professional
+  learning_type: framework
+  application: Caracterizar o rigor das práticas de governança e gestão de riscos e orientar a escolha do perfil-alvo.
+  limitations: Não são meta automática; subir de Tier tem custo e só se justifica pelo risco.
+  examples: Objetivo "Tier 4 em tudo" questionado na questão de compreensão da M03-L01.
+- id: KC-M03-04
+  concept: Etapas do RMF e separação entre implementar, avaliar e autorizar
+  ref: NIST-SP800-37-R2
+  locator: Sec. 2.2 (pp. 9–10)
+  consulted: true
+  modules:
+  - M03
+  lessons:
+  - M03-L02
+  diagrams:
+  - m03-l02-rmf-cycle
+  tier: professional
+  learning_type: framework
+  application: Categorizar por impacto, selecionar controles proporcionais, avaliar com independência e registrar a aceitação do risco residual pelo dono.
+  limitations: Escrito para o governo federal dos EUA; precisa de adaptação proporcional para não virar burocracia.
+  examples: RMF leve da Lumen para o portal do paciente.
+- id: KC-M03-05
+  concept: Controles comuns herdáveis e fronteira de autorização
+  ref: NIST-SP800-37-R2
+  locator: Sec. 3.1, Tabela 1, P-5 (pp. 12–13); nota 36 (p. 16)
+  consulted: true
+  modules:
+  - M03
+  - M09
+  - M10
+  lessons:
+  - M03-L02
+  - M03-L03
+  tier: professional
+  learning_type: conceito
+  application: Declarar formalmente controles de plataforma herdados (identidade, logging, landing zone) e definir a fronteira de cada sistema, inclusive conectores híbridos.
+  limitations: Herança só vale com provedor identificado e evidência vigente.
+  examples: Conector de sincronização de identidade da Meridiana.
+- id: KC-M03-06
+  concept: Baselines, overlays e tailoring
+  ref: NIST-SP800-53B
+  locator: Página oficial (resumo)
+  consulted: false
+  modules:
+  - M03
+  lessons:
+  - M03-L03
+  diagrams:
+  - m03-l03-tailoring
+  tier: professional
+  learning_type: método
+  application: Partir da baseline do nível de impacto, ajustar por escopo, parâmetros, herança, compensatórios e adicionais, com justificativa.
+  limitations: Conteúdo interno da SP 800-53B não lido; baselines refletem riscos genéricos.
+  examples: Tailoring do serviço de antifraude da Aurora.
+- id: KC-M03-07
+  concept: Implementation Groups dos CIS Controls (IG1 como higiene essencial)
+  ref: CIS-CONTROLS-V8-1
+  locator: Página de Implementation Groups
+  consulted: false
+  modules:
+  - M03
+  lessons:
+  - M03-L03
+  tier: fundamental
+  learning_type: framework
+  application: Usar o IG1 como piso técnico corporativo e priorizar a adoção de salvaguardas conforme recursos e risco.
+  limitations: Menor cobertura de governança e privacidade; contagem de salvaguardas por IG não conferida.
+  examples: Estratégia IG1 + SP 800-53 nos sistemas críticos da Meridiana.
+- id: KC-M03-08
+  concept: Natureza das obrigações — lei (LGPD), contrato (PCI DSS) e adoção voluntária (ISO, NIST, CIS)
+  ref: LGPD-L13709
+  locator: Arts. 5º, 6º, 7º, 46, 48 e 50
+  consulted: true
+  modules:
+  - M03
+  - M13
+  lessons:
+  - M03-L04
+  diagrams:
+  - m03-l04-obligation-types
+  tier: fundamental
+  learning_type: conceito
+  application: Registrar a origem de cada requisito de segurança e derivar da LGPD requisitos de inventário, minimização, segurança e capacidade de resposta a incidentes.
+  limitations: Não substitui interpretação jurídica do caso concreto.
+  examples: Programa único da Aurora para PCI DSS, LGPD e ISO/IEC 27001.
+- id: KC-M03-09
+  concept: Declaração de Aplicabilidade como ligação entre riscos e controles na ISO/IEC 27001
+  ref: ISACA-ISO27001-TRANSITION-2024
+  locator: Artigo (seções sobre transição e Statement of Applicability)
+  consulted: true
+  modules:
+  - M03
+  lessons:
+  - M03-L04
+  tier: fundamental
+  learning_type: conceito
+  application: Tratar a Declaração de Aplicabilidade como o tailoring da ISO, com cada controle rastreável a risco e tratamento.
+  limitations: Fonte secundária; a norma é paga e não foi lida.
+  examples: Declaração de Aplicabilidade gerada a partir do catálogo interno.
+- id: KC-M03-10
+  concept: BIA em três etapas e a relação entre MTD, RTO e RPO
+  ref: NIST-SP800-34-R1
+  locator: Sec. 3.2 e 3.2.1 (pp. 15–19)
+  consulted: true
+  modules:
+  - M03
+  - M12
+  lessons:
+  - M03-L05
+  diagrams:
+  - m03-l05-bia-timeline
+  tier: professional
+  learning_type: método
+  application: Partir dos processos de negócio, mapear dependências e derivar RTO menor que o MTD e RPO por processo.
+  limitations: Escrito para sistemas federais dos EUA; não trata especificamente de ransomware.
+  examples: RTO da expedição da Meridiana invalidado pela recuperação do Active Directory.
+- id: KC-M03-11
+  concept: Estratégias de recuperação em cloud e limites da replicação contra corrupção de dados
+  ref: AWS-DR-WHITEPAPER
+  locator: Seção Disaster recovery options in the cloud
+  consulted: true
+  modules:
+  - M03
+  - M09
+  - M12
+  lessons:
+  - M03-L05
+  tier: professional
+  learning_type: padrão
+  application: Escolher entre backup e restauração, pilot light, warm standby e ativo-ativo pelos objetivos de recuperação, sempre com cópias pontuais contra corrupção.
+  limitations: Exemplos específicos da AWS; o raciocínio é transferível a outros provedores.
+  examples: Estratégia de recuperação do agendamento da Lumen.
+- id: KC-M03-12
+  concept: Componentes da gestão de riscos, abordagens de avaliação e orientações de análise
+  ref: NIST-SP800-30-R1
+  locator: Sec. 2.1 (p. 4), 2.3.2–2.3.3 (pp. 14–16) e 2.4 (p. 17)
+  consulted: true
+  modules:
+  - M03
+  lessons:
+  - M03-L06
+  diagrams:
+  - m03-l06-risk-process
+  tier: professional
+  learning_type: método
+  application: Enquadrar, avaliar, responder e monitorar; escolher abordagem quantitativa, qualitativa ou semiquantitativa e combinar orientações de análise.
+  limitations: O processo de avaliação detalhado (Cap. 3) não foi lido nesta revisão.
+  examples: Consolidação do register da Aurora em 34 cenários.
+- id: KC-M03-13
+  concept: Catálogo interno de controles rastreável do risco à evidência
+  ref: NIST-CSF-INFORMATIVE-REFS
+  locator: Página oficial (mapeamentos e alerta sobre mapeamentos de terceiros)
+  consulted: false
+  modules:
+  - M03
+  - M16
+  lessons:
+  - M03-L07
+  diagrams:
+  - m03-l07-risk-to-architecture
+  tier: architect
+  learning_type: padrão
+  application: Definir controles pelo objetivo interno e usar frameworks externos apenas como mapeamento, ligando cada controle a cenários, building blocks, evidências e indicadores.
+  limitations: Mapeamentos não são equivalências; o padrão de catálogo é prática de mercado, não prescrição de uma fonte.
+  examples: Catálogo de 86 controles da Aurora.
+- id: KC-M03-14
+  concept: Tipos de medida — implementação, eficácia, eficiência e impacto
+  ref: NIST-SP800-55-V1
+  locator: Sec. 3.3 (pp. 17–18)
+  consulted: true
+  modules:
+  - M03
+  - M14
+  - M16
+  lessons:
+  - M03-L08
+  diagrams:
+  - m03-l08-metrics-layers
+  tier: architect
+  learning_type: método
+  application: Documentar medidas com fórmula, fonte, meta e dono e garantir medidas de eficácia ou impacto para cada cenário crítico.
+  limitations: Avaliações qualitativas e semiquantitativas, como notas de maturidade, não são tratadas como medição.
+  examples: Reporte de uma página da Meridiana.
+- id: KC-M04-01
+  concept: Threat modeling e as quatro perguntas
+  ref: TM-MANIFESTO
+  locator: Página do manifesto (definição, perguntas, valores e princípios)
+  consulted: true
+  modules:
+  - M04
+  - M12
+  lessons:
+  - M04-L01
+  - M04-L06
+  - M04-L07
+  tier: fundamental
+  learning_type: método
+  application: Organizar a análise em o que estamos construindo, o que pode dar errado, o que faremos e se fizemos um bom trabalho, cedo e em iterações.
+  limitations: O manifesto define valores e princípios, não um método passo a passo.
+  examples: Threat model encadeado da integração de laudos da Lumen.
+- id: KC-M04-02
+  concept: Elementos de DFD e fronteiras de confiança
+  ref: OSTERMAN-STRIDE-PER-ELEMENT-2007
+  locator: Texto do artigo
+  consulted: true
+  modules:
+  - M04
+  lessons:
+  - M04-L01
+  - M04-L02
+  diagrams:
+  - m04-l01-dfd
+  tier: fundamental
+  learning_type: método
+  application: Representar entidades externas, processos, armazenamentos, fluxos e fronteiras, priorizando fluxos que atravessam fronteiras.
+  limitations: A tabela por elemento está em imagem não legível; mapeamento completo apresentado como usual.
+  examples: DFD do agendamento da Lumen.
+- id: KC-M04-03
+  concept: Categorias STRIDE e STRIDE por elemento
+  ref: MS-TMT-STRIDE
+  locator: Página Threats — Microsoft Threat Modeling Tool
+  consulted: true
+  modules:
+  - M04
+  lessons:
+  - M04-L02
+  diagrams:
+  - m04-l02-stride-flow
+  tier: professional
+  learning_type: método
+  application: Cobrir sistematicamente ameaças a componentes técnicos e ligá-las às propriedades de segurança.
+  limitations: Encontra menos abuso de lógica de negócio, cadeias de ataque e falhas por dependências.
+  examples: Seis ameaças na integração de laudos da Lumen.
+- id: KC-M04-04
+  concept: Árvores de ataque com nós OU e E e propagação de custos
+  ref: SCHNEIER-ATTACK-TREES-1999
+  locator: Artigo completo
+  consulted: true
+  modules:
+  - M04
+  lessons:
+  - M04-L03
+  diagrams:
+  - m04-l03-attack-tree
+  tier: professional
+  learning_type: método
+  application: Comparar caminhos para um objetivo do adversário e escolher controles pelo efeito nos caminhos mais baratos.
+  limitations: Só contém os caminhos que a equipe imaginou; valores são estimativas.
+  examples: Desvio de pagamento a fornecedor na Meridiana.
+- id: KC-M04-05
+  concept: Abuse cases com ator malicioso, recursos, habilidades, dano e faixa de privilégio
+  ref: MCDERMOTT-FOX-ABUSE-1999
+  locator: Artigo completo
+  consulted: true
+  modules:
+  - M04
+  - M12
+  lessons:
+  - M04-L03
+  - M04-L06
+  tier: professional
+  learning_type: método
+  application: Discutir fraude e abuso de funcionalidades com o negócio e derivar casos de teste.
+  limitations: Depende de conhecimento do domínio de negócio; não cobre ameaças técnicas sistematicamente.
+  examples: AC-03 — troca de dados bancários por e-mail falso.
+- id: KC-M04-06
+  concept: Táticas e técnicas do ATT&CK v20 (15 táticas Enterprise, Stealth e Defense Impairment)
+  ref: MITRE-ATTACK
+  locator: Página de táticas Enterprise e páginas de técnicas (v20)
+  consulted: true
+  modules:
+  - M04
+  - M14
+  - M15
+  lessons:
+  - M04-L04
+  diagrams:
+  - m04-l04-attack-flow
+  tier: professional
+  learning_type: framework
+  application: Descrever cenários do register como sequências de técnicas e verificar onde a arquitetura os interrompe.
+  limitations: Comportamentos observados; não cobre fraude de negócio; cobertura não é eficácia.
+  examples: Cenário RSK-007 de ransomware da Meridiana.
+- id: KC-M04-07
+  concept: Raio de impacto, domínios de falha e compartimentalização
+  ref: BOOK-GOOGLE-BSRS
+  locator: Cap. 8, Design for Resilience
+  consulted: true
+  modules:
+  - M04
+  - M05
+  - M12
+  lessons:
+  - M04-L05
+  diagrams:
+  - m04-l05-dependencies
+  tier: professional
+  learning_type: princípio
+  application: Colocar redundâncias em domínios de falha independentes e compartimentalizar por função, localização e tempo.
+  limitations: Exemplos de escala do Google; exige adaptação a ambientes menores.
+  examples: SPOFs da expedição da Meridiana.
+- id: KC-M04-08
+  concept: Métodos e motivações de adversários
+  ref: BOOK-GOOGLE-BSRS
+  locator: Cap. 2, Understanding Adversaries
+  consulted: true
+  modules:
+  - M04
+  lessons:
+  - M04-L03
+  - M04-L04
+  tier: professional
+  learning_type: conceito
+  application: Focar em métodos antes de identidades; priorizar os caminhos mais simples que funcionam.
+  limitations: Perfis genéricos; não substitui inteligência de ameaças do setor.
+  examples: Folhas mais baratas da árvore de fraude da Meridiana.
+- id: KC-M04-09
+  concept: Requisitos verificáveis apoiados no ASVS 5.0 e níveis L1–L3
+  ref: OWASP-ASVS-5
+  locator: Página do projeto; estrutura em fonte secundária
+  consulted: false
+  modules:
+  - M04
+  - M12
+  lessons:
+  - M04-L06
+  diagrams:
+  - m04-l06-threat-to-requirement
+  tier: architect
+  learning_type: padrão
+  application: Usar o ASVS como base no nível adequado, acrescentar requisitos do threat model e citar identificadores com a versão.
+  limitations: Texto do ASVS não lido diretamente nesta revisão; cobre aplicações, não toda a arquitetura.
+  examples: 19 requisitos da API de antecipação da Aurora.
+- id: KC-M04-10
+  concept: Métodos de avaliação de controles — examinar, entrevistar, testar
+  ref: NIST-SP800-53A-R5
+  locator: Página oficial e glossário do CSRC
+  consulted: true
+  modules:
+  - M03
+  - M04
+  lessons:
+  - M04-L07
+  diagrams:
+  - m04-l07-as-is
+  - m04-l07-to-be
+  tier: architect
+  learning_type: método
+  application: Escolher o método conforme a criticidade do controle; testar controles críticos.
+  limitations: Procedimentos detalhados da SP 800-53A não lidos nesta revisão.
+  examples: Bloqueante encontrado por teste no gateway de integração da Aurora.

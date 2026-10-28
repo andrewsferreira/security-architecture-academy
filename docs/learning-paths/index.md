@@ -70,12 +70,19 @@ As trilhas atravessam os módulos agrupando aulas pela profundidade. Elas permit
 
 ## Disponibilidade
 
-O conteúdo chega ao portal em releases cumulativas por nível:
+O conteúdo chega ao portal em releases cumulativas, uma por nível — a Release 1 publicou o Nível 0 e o Módulo 2; a Release 2 completa o Nível 1:
 
-| Release | Módulos | O que significa para as trilhas |
-|:---|:---|:---|
-| **1 — Fundamentals** | Módulo Inicial, Módulo 1 e Módulo 2 | Base de toda a formação: infraestrutura, fundamentos de segurança e introdução à arquitetura, com laboratórios e avaliação final integradora. |
-| **2 — Professional** | Módulos 3 a 15 | Completa as aulas de profundidade *Professional* e as aulas *Fundamental* que abrem esses módulos (por exemplo, Módulo 3 — Aula 01 e Módulo 7 — Aula 01). |
-| **3 — Architect** | Módulos 16 e 17, C01 | Completa a trilha Advanced e o projeto final. |
+<!-- release-table:start -->
 
-A trilha transversal **Fundamentals** (aulas de profundidade *Fundamental* de todos os módulos) e a **Release 1 — Fundamentals** não são a mesma coisa: a release publica módulos inteiros, para preservar a sequência e os pré-requisitos de cada um; as aulas de profundidade *Fundamental* dos módulos 03 a 13 chegam com a Release 2. O estado real de cada módulo está no [Curriculum Roadmap](../curriculum/index.md).
+| Release | Níveis | Módulos | Estado |
+|:---|:---|:---|:---|
+| **1 — Fundamentals Base** | Nível 0; Nível 1 | Módulo Inicial, Módulo 1 e Módulo 2 | Disponível (v0.1.1) |
+| **2 — Fundamentals: conclusão do Nível 1** | Nível 1 | Módulos 3 e 4 | Disponível (v0.2.0) |
+| **3 — Nível 2: Arquiteturas de Infraestrutura** | Nível 2 | Módulos 5 a 8 | Em desenvolvimento (v0.3.0) |
+| **4 — Nível 3: Arquitetura Cloud e Híbrida** | Nível 3 | Módulos 9 a 11 | Em desenvolvimento (v0.4.0) |
+| **5 — Nível 4: Arquitetura de Segurança Aplicada** | Nível 4 | Módulos 12 a 15 | Planejado (v0.5.0) |
+| **6 — Nível 5: Arquitetura Corporativa Avançada** | Nível 5 | Módulos 16 e 17 e complemento de IA | Planejado (v0.6.0) |
+
+<!-- release-table:end -->
+
+A trilha transversal **Fundamentals** (aulas de profundidade *Fundamental* de todos os módulos) e as releases não são a mesma coisa: cada release publica módulos inteiros, para preservar a sequência e os pré-requisitos de cada um; as aulas de profundidade *Fundamental* dos módulos dos Níveis 2 a 5 chegam com a release do respectivo nível. O estado real de cada módulo está no [Curriculum Roadmap](../curriculum/index.md).

@@ -9,7 +9,7 @@ Esta matriz garante que **cada tópico obrigatório do currículo tenha uma aula
 
 !!! info "Estado da matriz"
 
-    As aulas de **Módulo Inicial, Módulo 1 e Módulo 2** estão publicadas (Release 1 — Fundamentals). Para os demais módulos, os IDs de aula são **planejados** e podem ser ajustados quando o módulo for produzido; qualquer ajuste atualiza esta matriz no mesmo Pull Request.
+    O estado de publicação de cada módulo está no [Curriculum Roadmap](index.md). Para módulos ainda não publicados, os IDs de aula são **planejados** e podem ser ajustados quando o módulo for produzido; qualquer ajuste atualiza esta matriz no mesmo Pull Request.
 
 ## Distinções conceituais obrigatórias
 

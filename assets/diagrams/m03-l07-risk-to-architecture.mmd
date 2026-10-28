@@ -1,0 +1,20 @@
+flowchart TB
+  accTitle: Rastreabilidade do risco à evidência no catálogo de controles
+  accDescr: Um cenário de risco do register gera um ou mais objetivos de controle. Cada objetivo é atendido por controles do catálogo corporativo, que referenciam frameworks externos apenas como mapeamento. Cada controle é implementado por building blocks de arquitetura, como um serviço de identidade, um ponto de aplicação de política ou a plataforma de backup imutável, e produz evidências verificáveis, como relatórios, configurações e testes. As evidências alimentam indicadores, que mostram se o risco residual está onde a organização aceitou.
+
+  RISK["Cenário de risco<br/><small>RSK-007 · ransomware<br/>a partir de acesso remoto</small>"]
+  OBJ["Objetivos de controle<br/><small>acesso remoto só com MFA;<br/>backup recuperável</small>"]
+  CTL[["Controles do catálogo<br/><small>CTL-IAM-03 · CTL-BKP-02</small>"]]
+  MAP["Mapeamentos externos<br/><small>CSF 2.0 · SP 800-53 ·<br/>ISO 27001 Anexo A · CIS</small>"]
+  ABB["Building blocks<br/><small>IdP com MFA · gateway<br/>de acesso · cofre de backup</small>"]
+  EVD[("Evidências<br/><small>configurações, relatórios,<br/>testes de restauração</small>")]
+  KRI["Indicadores<br/><small>cobertura de MFA,<br/>restaurações bem-sucedidas</small>"]
+
+  RISK --> OBJ --> CTL --> ABB --> EVD --> KRI
+  CTL -. "referencia" .-> MAP
+  KRI -. "residual dentro da tolerância?" .-> RISK
+
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef identity stroke:#2f74e8,stroke-width:2px
+  class CTL control
+  class ABB identity

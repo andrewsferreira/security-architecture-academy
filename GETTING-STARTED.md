@@ -3,7 +3,7 @@
 Como estudar com a Security Architecture Academy. A versão navegável está no portal: [Como usar a Academy](https://andrewsferreira.github.io/security-architecture-academy/getting-started/).
 
 > [!NOTE]
-> A formação é publicada em releases cumulativas por nível. A **Release 1 — Fundamentals** reúne os Módulos 00, 01 e 02, os Laboratórios 00, 01 e 02, o Caso A, as avaliações e os modelos para o estudante; as releases Professional e Architect vêm depois. A disponibilidade de cada uma está na página inicial do portal e no [ROADMAP.md](ROADMAP.md).
+> A formação é publicada em releases cumulativas, uma por nível. A **Release 1** reúne o Módulo Inicial e os Módulos 1 e 2, os Laboratórios 00, 01 e 02, o Caso A, as avaliações e os modelos; a **Release 2** completa o Nível 1 com os Módulos 3 e 4 e a avaliação integradora do Nível 1; os Níveis 2 a 5 vêm depois. A disponibilidade de cada release está na página inicial do portal e no [ROADMAP.md](ROADMAP.md).
 
 ## 1. Escolha o ponto de partida
 
@@ -11,7 +11,7 @@ Como estudar com a Security Architecture Academy. A versão navegável está no 
 |:---|:---|
 | Iniciando na área ou vindo de desenvolvimento ou suporte | [Avaliação diagnóstica](docs/assessments/diagnostic-fundamentals.md) → [Módulo Inicial](docs/modules/00-foundations/index.md) → [Módulo 1](docs/modules/01-security-fundamentals/index.md) → Módulo 2 |
 | Vindo de infraestrutura | Diagnóstico → [Módulo 1](docs/modules/01-security-fundamentals/index.md), consultando o Módulo Inicial nos temas indicados → Módulo 2 |
-| Analista de segurança migrando para arquitetura | Diagnóstico → revisar no Módulo 1 os temas indicados → [Módulo 2](docs/modules/02-security-architecture/index.md) → [Caso A](docs/case-studies/case-a-meridiana/index.md) → [Laboratório 02](docs/labs/lab-02-architecture-modeling.md) → [avaliação do módulo](docs/assessments/m02-security-architecture.md) → [avaliação final de Fundamentals](docs/assessments/fundamentals-final.md) |
+| Analista de segurança migrando para arquitetura | Diagnóstico → revisar no Módulo 1 os temas indicados → [Módulo 2](docs/modules/02-security-architecture/index.md) → [Caso A](docs/case-studies/case-a-meridiana/index.md) → [Laboratório 02](docs/labs/lab-02-architecture-modeling.md) → [avaliação do módulo](docs/assessments/m02-security-architecture.md) → [avaliação integradora do Módulo Inicial ao Módulo 2](docs/assessments/fundamentals-final.md) → [Módulo 3](docs/modules/03-governance-risk/index.md) → [Módulo 4](docs/modules/04-threat-modeling/index.md) → [avaliação integradora do Nível 1](docs/assessments/level-1-integrative.md) |
 | Já atua como arquiteto | [Mapa de competências](docs/curriculum/competencies.md) → avaliação do módulo → aulas para as lacunas |
 | Preparando-se para certificações | [Mapeamento de certificações](docs/certification-mapping/index.md), como guia complementar ao material oficial |
 

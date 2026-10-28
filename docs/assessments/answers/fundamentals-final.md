@@ -1,16 +1,16 @@
 ---
-title: "Gabarito — Avaliação final de Fundamentals"
+title: "Gabarito — Avaliação integradora do Módulo Inicial ao Módulo 2"
 description: Solução de referência comentada da avaliação integradora de Fundamentals (Livraria Ipê), com respostas por tarefa, arquitetura-alvo, ADR de exemplo e orientações de correção.
 status: published
-last_updated: 2026-10-23
+last_updated: 2026-10-28
 reviewed_by: [Andrews Ferreira]
 ---
 
-# Gabarito — Avaliação final de Fundamentals
+# Gabarito — Avaliação integradora do Módulo Inicial ao Módulo 2 { #gabarito-avaliacao-final-de-fundamentals }
 
 !!! warning "Responda primeiro"
 
-    Este é o gabarito da [avaliação final de Fundamentals](../fundamentals-final.md). Faça a avaliação antes de ler. A solução abaixo é **uma** resposta de referência; respostas diferentes podem ser corretas se atenderem aos critérios objetivos.
+    Este é o gabarito da [avaliação integradora do Módulo Inicial ao Módulo 2](../fundamentals-final.md). Faça a avaliação antes de ler. A solução abaixo é **uma** resposta de referência; respostas diferentes podem ser corretas se atenderem aos critérios objetivos.
 
 ## Tarefa 1 — Leitura da arquitetura
 

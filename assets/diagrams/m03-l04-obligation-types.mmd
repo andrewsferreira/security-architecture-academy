@@ -1,0 +1,29 @@
+flowchart LR
+  accTitle: Natureza das referências de governança mais citadas no Brasil
+  accDescr: A LGPD é lei e se aplica a qualquer tratamento de dados pessoais dentro do seu escopo; a ANPD a regulamenta por resoluções, como a de comunicação de incidentes. O PCI DSS é um padrão do setor de cartões que se torna obrigatório por contrato com bandeiras e adquirentes, apenas para quem armazena, processa ou transmite dados de cartão. A ISO/IEC 27001 é uma norma voluntária de sistema de gestão, que pode ser certificada e às vezes é exigida por clientes. NIST CSF, SP 800-53 e CIS Controls são referências voluntárias fora do governo federal dos Estados Unidos. Todas convergem para o mesmo programa de segurança da organização, que deve evitar controles duplicados.
+
+  subgraph LEI["Obrigação legal"]
+    LGPD["LGPD — Lei 13.709/2018"]
+    ANPD["Resoluções da ANPD<br/><small>ex.: comunicação de incidentes</small>"]
+    LGPD --> ANPD
+  end
+  subgraph CONTRATO["Obrigação contratual"]
+    PCI["PCI DSS v4.0.1<br/><small>quem armazena, processa<br/>ou transmite dados de cartão</small>"]
+  end
+  subgraph VOL["Adoção voluntária"]
+    ISO["ISO/IEC 27001:2022<br/><small>certificável;<br/>às vezes exigida por clientes</small>"]
+    NIST["NIST CSF 2.0 · SP 800-53<br/><small>voluntários fora do governo<br/>federal dos EUA</small>"]
+    CISC["CIS Controls v8.1"]
+    ISO ~~~ NIST ~~~ CISC
+  end
+
+  PROG[["Programa de segurança<br/>da organização<br/><small>um conjunto de controles,<br/>várias evidências</small>"]]
+
+  LEI --> PROG
+  CONTRATO --> PROG
+  VOL --> PROG
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  class LEI,CONTRATO,VOL zone
+  class PROG control

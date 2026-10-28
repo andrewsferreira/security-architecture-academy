@@ -62,28 +62,28 @@ ID técnico: `M02` · Status: **Published** · Fase 1 · Pré-requisitos: Módul
 
 ### Módulo 3 — Governança, Riscos e Controles
 
-ID técnico: `M03` · Status: **Planned** · Fase 2 · Pré-requisitos: Módulo 2
+ID técnico: `M03` · Status: **Published** · Fase 2 · Pré-requisitos: Módulo 2
 
-- **Aula 01** — Governança de segurança e o NIST CSF 2.0 — `M03-L01` · Fundamental, 75 min — Planned
-- **Aula 02** — NIST Risk Management Framework (SP 800-37) — `M03-L02` · Professional, 75 min — Planned
-- **Aula 03** — Seleção e tailoring de controles: SP 800-53 e CIS Controls — `M03-L03` · Professional, 90 min — Planned
-- **Aula 04** — ISO/IEC 27001/27002, LGPD e PCI DSS: propósito e escopo — `M03-L04` · Fundamental, 75 min — Planned
-- **Aula 05** — Business Impact Analysis, RTO e RPO — `M03-L05` · Professional, 60 min — Planned
-- **Aula 06** — Risk assessment, risk register e tratamento de riscos — `M03-L06` · Professional, 90 min — Planned
-- **Aula 07** — Catálogo de controles e arquitetura baseada em risco — `M03-L07` · Architect, 75 min — Planned
-- **Aula 08** — Indicadores, maturidade e reporte à governança — `M03-L08` · Architect, 60 min — Planned
+- **Aula 01** — [Governança de segurança e o NIST CSF 2.0](docs/modules/03-governance-risk/01-governance-csf.md) — `M03-L01` · Fundamental, 75 min — Published
+- **Aula 02** — [NIST Risk Management Framework (SP 800-37)](docs/modules/03-governance-risk/02-nist-rmf.md) — `M03-L02` · Professional, 75 min — Published
+- **Aula 03** — [Seleção e tailoring de controles: SP 800-53 e CIS Controls](docs/modules/03-governance-risk/03-control-selection-tailoring.md) — `M03-L03` · Professional, 90 min — Published
+- **Aula 04** — [ISO/IEC 27001/27002, LGPD e PCI DSS: propósito e escopo](docs/modules/03-governance-risk/04-iso-lgpd-pci.md) — `M03-L04` · Fundamental, 75 min — Published
+- **Aula 05** — [Business Impact Analysis, RTO e RPO](docs/modules/03-governance-risk/05-bia-rto-rpo.md) — `M03-L05` · Professional, 60 min — Published
+- **Aula 06** — [Risk assessment, risk register e tratamento de riscos](docs/modules/03-governance-risk/06-risk-assessment-register.md) — `M03-L06` · Professional, 90 min — Published
+- **Aula 07** — [Catálogo de controles e arquitetura baseada em risco](docs/modules/03-governance-risk/07-control-catalog-risk-architecture.md) — `M03-L07` · Architect, 75 min — Published
+- **Aula 08** — [Indicadores, maturidade e reporte à governança](docs/modules/03-governance-risk/08-metrics-maturity-reporting.md) — `M03-L08` · Architect, 60 min — Published
 
 ### Módulo 4 — Métodos de Design e Threat Modeling
 
-ID técnico: `M04` · Status: **Planned** · Fase 3 · Pré-requisitos: Módulo 2
+ID técnico: `M04` · Status: **Published** · Fase 3 · Pré-requisitos: Módulo 2
 
-- **Aula 01** — Data Flow Diagrams e fluxos de confiança — `M04-L01` · Fundamental, 60 min — Planned
-- **Aula 02** — STRIDE aplicado à arquitetura — `M04-L02` · Professional, 75 min — Planned
-- **Aula 03** — Attack trees e abuse cases — `M04-L03` · Professional, 60 min — Planned
-- **Aula 04** — MITRE ATT&CK para cenários de ataque — `M04-L04` · Professional, 75 min — Planned
-- **Aula 05** — Pontos únicos de falha e análise de dependências — `M04-L05` · Professional, 60 min — Planned
-- **Aula 06** — De ameaças a requisitos de segurança — `M04-L06` · Architect, 75 min — Planned
-- **Aula 07** — Revisão arquitetural, As-Is/To-Be e validação de controles — `M04-L07` · Architect, 75 min — Planned
+- **Aula 01** — [Data Flow Diagrams e fluxos de confiança](docs/modules/04-threat-modeling/01-data-flow-diagrams.md) — `M04-L01` · Fundamental, 60 min — Published
+- **Aula 02** — [STRIDE aplicado à arquitetura](docs/modules/04-threat-modeling/02-stride.md) — `M04-L02` · Professional, 75 min — Published
+- **Aula 03** — [Attack trees e abuse cases](docs/modules/04-threat-modeling/03-attack-trees-abuse-cases.md) — `M04-L03` · Professional, 60 min — Published
+- **Aula 04** — [MITRE ATT&CK para cenários de ataque](docs/modules/04-threat-modeling/04-mitre-attack-scenarios.md) — `M04-L04` · Professional, 75 min — Published
+- **Aula 05** — [Pontos únicos de falha e análise de dependências](docs/modules/04-threat-modeling/05-single-points-of-failure.md) — `M04-L05` · Professional, 60 min — Published
+- **Aula 06** — [De ameaças a requisitos de segurança](docs/modules/04-threat-modeling/06-threats-to-requirements.md) — `M04-L06` · Architect, 75 min — Published
+- **Aula 07** — [Revisão arquitetural, As-Is/To-Be e validação de controles](docs/modules/04-threat-modeling/07-architecture-review-validation.md) — `M04-L07` · Architect, 75 min — Published
 
 ## Nível 2 — Arquiteturas de Infraestrutura
 
@@ -294,8 +294,9 @@ Status: **Planned** · Fase 3
 - `AS-DIAG` [Avaliação diagnóstica de fundamentos](docs/assessments/diagnostic-fundamentals.md) — Published
 - `AS-M00` [Avaliação do Módulo Inicial](docs/assessments/m00-foundations.md) — Published
 - `AS-M01` [Avaliação do Módulo 1](docs/assessments/m01-security-fundamentals.md) — Published
-- `AS-FUND` [Avaliação final de Fundamentals (integradora)](docs/assessments/fundamentals-final.md) — Published
+- `AS-FUND` [Avaliação integradora do Módulo Inicial ao Módulo 2](docs/assessments/fundamentals-final.md) — Published
 - `AS-M02` [Avaliação do Módulo 2](docs/assessments/m02-security-architecture.md) — Published
+- `AS-N1` [Avaliação integradora do Nível 1](docs/assessments/level-1-integrative.md) — Published
 - `AS-MID` Avaliação intermediária (Níveis 1 e 2) — Planned
 - `AS-FINAL` Avaliação final — Planned
 - `AS-ADV-EN` Advanced assessment (English, CISSP/ISSAP reasoning style) — Planned

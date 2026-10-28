@@ -37,13 +37,13 @@ hide:
 
 ## Learning Paths
 
-<p class="saa-section-intro">Três níveis de formação publicados progressivamente. Cada nível pressupõe o anterior e termina com a capacidade de tomar decisões de arquitetura mais amplas.</p>
+<p class="saa-section-intro">Seis níveis de formação, do Nível 0 ao Nível 5, publicados progressivamente em releases cumulativas. Cada nível pressupõe o anterior e termina com a capacidade de tomar decisões de arquitetura mais amplas.</p>
 
 <!-- release-status:start -->
 
 !!! success "Disponível agora"
 
-    A Academy é disponibilizada progressivamente, por nível. Publicado: **v0.1.1 — Fundamentals**. Os níveis seguintes entram no portal somente depois de concluídos e revisados.
+    A Academy é disponibilizada progressivamente, por nível. Publicado: **v0.1.1 — Fundamentals Base, v0.2.0 — Fundamentals: conclusão do Nível 1**. Os níveis seguintes entram no portal somente depois de concluídos e revisados.
 
 [Começar pelos Fundamentals](modules/00-foundations/01-computing-os-virtualization.md){ .md-button .md-button--primary }
 [Ver o currículo](curriculum/index.md){ .md-button }
@@ -52,9 +52,9 @@ hide:
 
 <div class="saa-journey__step" markdown>
 
-### Fundamentals
+### Fundamentals Base { #fundamentals }
 
-**Módulo Inicial, Módulo 1 e Módulo 2.** Infraestrutura, fundamentos de segurança e introdução à arquitetura de segurança, com laboratórios, estudo de caso e avaliação final integradora.
+**Módulo Inicial, Módulo 1 e Módulo 2.** Infraestrutura, fundamentos de segurança e introdução à arquitetura de segurança, com laboratórios, estudo de caso e avaliação integradora.
 
 <span class="saa-status saa-status--published">Disponível</span> <span class="saa-meta">v0.1.1</span>
 
@@ -62,21 +62,51 @@ hide:
 
 <div class="saa-journey__step" markdown>
 
-### Professional
+### Fundamentals: conclusão do Nível 1
 
-**Módulos 3 a 15.** Governança, threat modeling, rede, identidade, Zero Trust, legados, AWS, Azure, Google Cloud, híbrido, aplicações, dados, vulnerabilidades e operações.
+**Módulos 3 e 4.** Governança, riscos e controles; métodos de design e threat modeling; avaliação integradora do Nível 1.
 
-<span class="saa-status saa-status--draft">Em desenvolvimento</span> <span class="saa-meta">v0.2.0</span>
+<span class="saa-status saa-status--published">Disponível</span> <span class="saa-meta">v0.2.0</span>
 
 </div>
 
 <div class="saa-journey__step" markdown>
 
-### Architect
+### Nível 2: Arquiteturas de Infraestrutura { #professional }
+
+**Módulos 5 a 8.** Rede, identidade, Zero Trust e ambientes on-premises e legados.
+
+<span class="saa-status saa-status--draft">Em desenvolvimento</span> <span class="saa-meta">v0.3.0</span>
+
+</div>
+
+<div class="saa-journey__step" markdown>
+
+### Nível 3: Arquitetura Cloud e Híbrida
+
+**Módulos 9 a 11.** AWS, Azure, Google Cloud e a integração segura entre ambientes.
+
+<span class="saa-status saa-status--draft">Em desenvolvimento</span> <span class="saa-meta">v0.4.0</span>
+
+</div>
+
+<div class="saa-journey__step" markdown>
+
+### Nível 4: Arquitetura de Segurança Aplicada
+
+**Módulos 12 a 15.** Aplicações, dados, gestão de vulnerabilidades e exposição, operações e resiliência.
+
+<span class="saa-status saa-status--planned">Planejado</span> <span class="saa-meta">v0.5.0</span>
+
+</div>
+
+<div class="saa-journey__step" markdown>
+
+### Nível 5: Arquitetura Corporativa Avançada { #architect }
 
 **Módulos 16 e 17 e complemento de IA.** Arquitetura corporativa, governança entre unidades, estudos de caso integradores e projeto final.
 
-<span class="saa-status saa-status--planned">Planejado</span> <span class="saa-meta">v0.3.0</span>
+<span class="saa-status saa-status--planned">Planejado</span> <span class="saa-meta">v0.6.0</span>
 
 </div>
 

@@ -7,7 +7,9 @@ description: Como a Security Architecture Academy está organizada, por onde com
 
 ## O que está disponível
 
-A **Release 1 — Fundamentals** (v0.1.0) está publicada: três módulos completos, com laboratórios, estudo de caso, avaliações e modelos.
+<!-- available:start -->
+
+O portal traz **Nível 0 e Nível 1 completos** — Módulo Inicial, Módulo 1, Módulo 2, Módulo 3 e Módulo 4, 37 aulas (v0.1.1, v0.2.0), com laboratórios, estudo de caso, avaliações e modelos.
 
 <div class="grid cards" markdown>
 
@@ -29,6 +31,18 @@ A **Release 1 — Fundamentals** (v0.1.0) está publicada: três módulos comple
 
     Oito aulas sobre o papel do arquiteto, níveis de arquitetura, padrões e exceções, referências, frameworks, requisitos e ADRs.
 
+-   :lucide-scale:{ .lg .saa-card-icon } **[Módulo 3 — Governança, Riscos e Controles](../modules/03-governance-risk/index.md)**
+
+    ---
+
+    Oito aulas: NIST CSF 2.0 e RMF, seleção de controles, ISO/IEC 27001, LGPD e PCI DSS, BIA, risk register, catálogo de controles e indicadores.
+
+-   :lucide-crosshair:{ .lg .saa-card-icon } **[Módulo 4 — Métodos de Design e Threat Modeling](../modules/04-threat-modeling/index.md)**
+
+    ---
+
+    Sete aulas: DFDs, STRIDE, árvores de ataque e abuse cases, MITRE ATT&CK, dependências, requisitos derivados de ameaças e revisão As-Is/To-Be.
+
 -   :lucide-flask-conical:{ .lg .saa-card-icon } **[Laboratórios 00, 01 e 02](../labs/index.md)**
 
     ---
@@ -45,19 +59,21 @@ A **Release 1 — Fundamentals** (v0.1.0) está publicada: três módulos comple
 
     ---
 
-    Diagnóstica, uma por módulo e a avaliação final integradora de Fundamentals, com gabaritos comentados.
+    Diagnóstica, uma por módulo, a avaliação integradora do Módulo Inicial ao Módulo 2 e a avaliação integradora do Nível 1, com gabaritos comentados.
 
 </div>
 
-Os níveis Professional e Architect estão no [currículo](../curriculum/index.md) e no [roadmap](../about/roadmap.md) e entram no portal depois de concluídos e revisados.
+Os níveis seguintes estão no [currículo](../curriculum/index.md) e no [roadmap](../about/roadmap.md) e entram no portal depois de concluídos e revisados.
+
+<!-- available:end -->
 
 ## Por onde começar
 
 | Seu ponto de partida | Percurso sugerido |
 |:---|:---|
-| **Iniciando na área** | [Módulo Inicial](../modules/00-foundations/index.md) → [Laboratório 00](../labs/lab-00-network-plan.md) → [avaliação do Módulo Inicial](../assessments/m00-foundations.md) → [Módulo 1](../modules/01-security-fundamentals/index.md) → [Laboratório 01](../labs/lab-01-security-mechanisms.md) → [avaliação do Módulo 1](../assessments/m01-security-fundamentals.md) → [Módulo 2](../modules/02-security-architecture/index.md) → [Laboratório 02](../labs/lab-02-architecture-modeling.md) → [Caso A](../case-studies/case-a-meridiana/index.md) → [avaliação do Módulo 2](../assessments/m02-security-architecture.md) → [avaliação final](../assessments/fundamentals-final.md) |
+| **Iniciando na área** | [Módulo Inicial](../modules/00-foundations/index.md) → [Laboratório 00](../labs/lab-00-network-plan.md) → [avaliação do Módulo Inicial](../assessments/m00-foundations.md) → [Módulo 1](../modules/01-security-fundamentals/index.md) → [Laboratório 01](../labs/lab-01-security-mechanisms.md) → [avaliação do Módulo 1](../assessments/m01-security-fundamentals.md) → [Módulo 2](../modules/02-security-architecture/index.md) → [Laboratório 02](../labs/lab-02-architecture-modeling.md) → [Caso A](../case-studies/case-a-meridiana/index.md) → [avaliação do Módulo 2](../assessments/m02-security-architecture.md) → [avaliação integradora do Módulo Inicial ao Módulo 2](../assessments/fundamentals-final.md) → [Módulo 3](../modules/03-governance-risk/index.md) → [Módulo 4](../modules/04-threat-modeling/index.md) → [avaliação integradora do Nível 1](../assessments/level-1-integrative.md) |
 | **Vindo de infraestrutura, desenvolvimento ou suporte** | Faça a [avaliação diagnóstica](../assessments/diagnostic-fundamentals.md). Revise no Módulo Inicial ou 01 os temas das seções abaixo de 5 de 6, depois siga para o Módulo 2, o Caso A e a avaliação final. |
-| **Analista de segurança querendo migrar para arquitetura** | Diagnóstico → revisar no Módulo 1 os temas indicados → Módulo 2 completo → Caso A → Laboratório 02 → avaliação do Módulo 2 → avaliação final. |
+| **Analista de segurança querendo migrar para arquitetura** | Diagnóstico → revisar no Módulo 1 os temas indicados → Módulo 2 completo → Caso A → Laboratório 02 → avaliação do Módulo 2 → Módulos 3 e 4 → avaliação integradora do Nível 1. |
 | **Já atua como arquiteto** | Leia o [mapa de competências](../curriculum/competencies.md), faça direto as [avaliações dos módulos](../assessments/index.md) e use as aulas para preencher lacunas. |
 | **Preparando-se para certificações** | Use o [mapeamento de certificações](../certification-mapping/index.md) como guia complementar — a Academy não substitui o material oficial. |
 

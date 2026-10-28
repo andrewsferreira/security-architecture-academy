@@ -1,0 +1,17 @@
+flowchart LR
+  accTitle: Mapa do Módulo 4
+  accDescr: O módulo começa pela modelagem do sistema com diagramas de fluxo de dados e fronteiras de confiança. Sobre esse modelo aplica STRIDE, árvores de ataque e abuse cases, e o MITRE ATT&CK para cenários de adversários reais. Em paralelo analisa pontos únicos de falha e dependências. Os resultados são convertidos em requisitos de segurança e, por fim, usados em revisões arquiteturais com estado atual e estado-alvo e na validação de controles.
+
+  L01["Aula 01 · DFDs e fluxos<br/>de confiança"] --> L02["Aula 02 · STRIDE"]
+  L01 --> L03["Aula 03 · Attack trees<br/>e abuse cases"]
+  L01 --> L05["Aula 05 · Pontos únicos de falha<br/>e dependências"]
+  L02 --> L04["Aula 04 · MITRE ATT&CK"]
+  L03 --> L04
+  L02 --> L06["Aula 06 · De ameaças<br/>a requisitos"]
+  L04 --> L06
+  L05 --> L06
+  L06 --> L07["Aula 07 · Revisão arquitetural,<br/>As-Is/To-Be e validação"]
+  L07 --> M05(["Módulo 5 — Nível 2"])
+
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  class M05 control

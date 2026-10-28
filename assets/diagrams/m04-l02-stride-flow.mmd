@@ -1,0 +1,21 @@
+flowchart TB
+  accTitle: STRIDE aplicado à integração de laudos da Lumen
+  accDescr: O laboratório parceiro, entidade externa, envia laudos pela internet à integração de laudos, um processo que grava no repositório de laudos e registra a operação no log de auditoria. Para a entidade externa aplicam-se falsificação de identidade e repúdio. Para o fluxo pela internet aplicam-se adulteração, divulgação de informação e negação de serviço. Para o processo de integração aplicam-se as seis categorias. Para o repositório aplicam-se adulteração, divulgação e negação de serviço, e para o log de auditoria também o repúdio, porque é ele que sustenta a prova de quem fez o quê.
+
+  LAB(["Laboratório parceiro<br/><small>S · R</small>"])
+  subgraph TB["Fronteira de confiança da Lumen"]
+    INT["Integração de laudos<br/><small>S · T · R · I · D · E</small>"]
+    LD[("Repositório de laudos<br/><small>T · I · D</small>")]
+    AUD[("Log de auditoria<br/><small>T · R · I · D</small>")]
+  end
+
+  LAB -- "laudo pela internet<br/><small>T · I · D</small>" --> INT
+  INT -- "gravação" --> LD
+  INT -- "evento de auditoria" --> AUD
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef actor stroke:#64748b,stroke-width:2px
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  class TB zone
+  class LAB actor
+  class AUD control

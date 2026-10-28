@@ -1,0 +1,29 @@
+flowchart TB
+  accTitle: Cenário de ransomware da Meridiana mapeado às táticas do MITRE ATT&CK v20
+  accDescr: O cenário começa com acesso inicial pela VPN usando uma conta válida roubada. Em seguida o atacante extrai credenciais do sistema operacional, enumera contas, move-se lateralmente por serviços remotos na rede plana, prejudica as defesas desativando a ferramenta de proteção e, por fim, causa impacto apagando os backups acessíveis pelo domínio e cifrando servidores. Abaixo de cada tática aparece o controle de arquitetura que interrompe ou detecta aquele passo: MFA resistente a phishing na VPN, tiering administrativo, detecção de enumeração, segmentação, proteção contra adulteração e backup imutável fora do domínio.
+
+  T1["Initial Access<br/><small>VPN com conta válida roubada<br/>T1133 · T1078</small>"]
+  T2["Credential Access<br/><small>despejo de credenciais<br/>T1003</small>"]
+  T3["Discovery<br/><small>enumeração de contas<br/>T1087</small>"]
+  T4["Lateral Movement<br/><small>serviços remotos<br/>na rede plana · T1021</small>"]
+  T5["Defense Impairment<br/><small>desativar ferramenta<br/>de proteção · T1685</small>"]
+  T6["Impact<br/><small>apagar backups · T1490<br/>cifrar servidores · T1486</small>"]
+  T1 --> T2 --> T3 --> T4 --> T5 --> T6
+
+  C1["MFA resistente<br/>a phishing"]
+  C2["Tiering<br/>administrativo"]
+  C3["Detecção de<br/>enumeração"]
+  C4["Segmentação"]
+  C5["Proteção contra<br/>adulteração"]
+  C6["Backup imutável<br/>fora do domínio"]
+  C1 -. "bloqueia" .-> T1
+  C2 -. "limita" .-> T2
+  C3 -. "detecta" .-> T3
+  C4 -. "bloqueia" .-> T4
+  C5 -. "impede e alerta" .-> T5
+  C6 -. "resiste e recupera" .-> T6
+
+  classDef untrusted stroke:#dc2626,stroke-width:2px,stroke-dasharray:5 3
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  class T1,T2,T3,T4,T5,T6 untrusted
+  class C1,C2,C3,C4,C5,C6 control

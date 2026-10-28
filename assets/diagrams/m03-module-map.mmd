@@ -1,0 +1,17 @@
+flowchart LR
+  accTitle: Mapa do Módulo 3
+  accDescr: O módulo parte da governança de segurança e do NIST CSF 2.0, passa pelo Risk Management Framework e pela seleção de controles, situa as normas e leis mais citadas no Brasil, trata da análise de impacto no negócio e da avaliação e tratamento de riscos, e termina com a construção de um catálogo de controles ligado à arquitetura e com indicadores para reporte à governança.
+
+  L01["Aula 01 · Governança e<br/>NIST CSF 2.0"] --> L02["Aula 02 · NIST RMF<br/>(SP 800-37)"]
+  L01 --> L04["Aula 04 · ISO 27001/27002,<br/>LGPD e PCI DSS"]
+  L02 --> L03["Aula 03 · Seleção e tailoring<br/>de controles"]
+  L01 --> L05["Aula 05 · BIA, RTO e RPO"]
+  L05 --> L06["Aula 06 · Risk assessment<br/>e risk register"]
+  L04 --> L06
+  L03 --> L07["Aula 07 · Catálogo de controles e<br/>arquitetura baseada em risco"]
+  L06 --> L07
+  L07 --> L08["Aula 08 · Indicadores, maturidade<br/>e reporte"]
+  L08 --> M04(["Módulo 4"])
+
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  class M04 control

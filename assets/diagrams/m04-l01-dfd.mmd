@@ -1,0 +1,46 @@
+flowchart TB
+  accTitle: Diagrama de fluxo de dados do agendamento da Lumen Saúde
+  accDescr: O paciente, entidade externa na internet, usa o aplicativo móvel, que chama o gateway de API na zona de borda. O gateway valida o token emitido pelo provedor de identidade e encaminha as chamadas ao serviço de agendamento, na zona de aplicação. O serviço lê e grava a base de agendamentos, na zona de dados, e publica eventos em uma fila consumida pelo serviço de notificações, que envia mensagens por um provedor externo de SMS. O laboratório parceiro envia resultados por uma integração separada que grava no repositório de laudos. Cada linha tracejada que separa as zonas é uma fronteira de confiança, e cada fluxo que atravessa uma fronteira precisa de análise.
+
+  PAC(["Paciente"])
+  LAB(["Laboratório parceiro"])
+  SMS(["Provedor de SMS"])
+
+  subgraph INET["Internet — não confiável"]
+    APP["App móvel"]
+  end
+  subgraph EDGE["Borda"]
+    GW["Gateway de API"]
+    IDP["Provedor de identidade"]
+  end
+  subgraph APPZ["Zona de aplicação"]
+    AG["Serviço de<br/>agendamento"]
+    NOT["Serviço de<br/>notificações"]
+    INT["Integração<br/>de laudos"]
+    Q[["Fila de eventos"]]
+  end
+  subgraph DATA["Zona de dados"]
+    DB[("Base de<br/>agendamentos")]
+    LD[("Repositório<br/>de laudos")]
+  end
+
+  PAC -- "1 · credenciais" --> APP
+  APP -- "2 · login" --> IDP
+  APP -- "3 · HTTPS + token" --> GW
+  IDP -. "chaves para validar o token" .-> GW
+  GW -- "4 · chamada autorizada" --> AG
+  AG -- "5 · SQL" --> DB
+  AG -- "6 · evento" --> Q
+  Q --> NOT
+  NOT -- "7 · mensagem" --> SMS
+  LAB -- "8 · resultado" --> INT
+  INT -- "9 · gravação" --> LD
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef untrusted stroke:#dc2626,stroke-width:2px,stroke-dasharray:5 3
+  classDef identity stroke:#2f74e8,stroke-width:2px
+  classDef actor stroke:#64748b,stroke-width:2px
+  class INET,EDGE,APPZ,DATA zone
+  class PAC,LAB,SMS actor
+  class APP untrusted
+  class IDP identity

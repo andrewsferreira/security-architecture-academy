@@ -5,7 +5,7 @@ description: O ofício do arquiteto de segurança, níveis de abstração, princ
 stage: n1
 status: published
 prerequisites: [M00, M01]
-last_updated: 2026-10-27
+last_updated: 2026-10-28
 reviewed_by: [Andrews Ferreira]
 ---
 
@@ -67,7 +67,7 @@ Profissionais com experiência em Vulnerability Management, pentest, AppSec ou i
 | [Laboratório 02 — Modelagem arquitetural como código](../../labs/lab-02-architecture-modeling.md) | C3, C4, C6, C8 | 2 a 3 h |
 | [Caso A — Meridiana Distribuidora](../../case-studies/case-a-meridiana/index.md) | C1 a C10 | 4 a 6 h |
 | [Avaliação do Módulo 2](../../assessments/m02-security-architecture.md) | C1, C2, C5, C6, C8 | 90 min |
-| [Avaliação final de Fundamentals — Livraria Ipê](../../assessments/fundamentals-final.md) | Integra Módulo Inicial, Módulo 1 e Módulo 2 | 3 a 4 h |
+| [Avaliação integradora do Módulo Inicial ao Módulo 2 — Livraria Ipê](../../assessments/fundamentals-final.md) | Integra Módulo Inicial, Módulo 1 e Módulo 2 | 3 a 4 h |
 
 ## Mapa do módulo
 

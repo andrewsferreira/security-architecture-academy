@@ -11,7 +11,7 @@ Dois horizontes, conforme o objetivo: a **trilha essencial** de 16 semanas para 
 
 !!! info "Disponibilidade do conteúdo"
 
-    O plano descreve o percurso completo. Hoje o portal traz **Nível 0 e Nível 1 completos** — Módulo Inicial, Módulo 1, Módulo 2, Módulo 3 e Módulo 4, 37 aulas (v0.1.1, v0.2.0), com as atividades associadas. As demais semanas passam a valer à medida que os níveis seguintes forem publicados.
+    O plano descreve o percurso completo. Hoje o portal traz **Nível 0 e Nível 1 completos** — Módulo Inicial, Módulo 1, Módulo 2, Módulo 3 e Módulo 4, 37 aulas (v0.1.1, v0.2.1), com as atividades associadas. As demais semanas passam a valer à medida que os níveis seguintes forem publicados.
 
 <!-- availability:end -->
 

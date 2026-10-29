@@ -90,6 +90,24 @@ def exit_with(report: Report) -> None:
     sys.exit(report.finish())
 
 
+# ------------------------------------------------------ identidade do repositório
+DEVELOPMENT_REPOSITORY = "andrewsferreira/security-architecture-academy-dev"
+PUBLIC_REPOSITORY = "andrewsferreira/security-architecture-academy"
+
+
+def repository_role(repository: str | None) -> str:
+    """Papel do repositório em que um verificador roda: 'development', 'public' ou 'local'.
+
+    ``repository`` vem de GITHUB_REPOSITORY, definida pelo runner do GitHub Actions a partir do
+    repositório em que o workflow executa — não do conteúdo do PR. Sem ela, a execução é local.
+    Qualquer repositório diferente do de desenvolvimento (o público, forks, cópias) recebe o papel
+    'public', com as verificações mais estritas: na dúvida, falha fechada.
+    """
+    if not repository or not repository.strip():
+        return "local"
+    return "development" if repository.strip().lower() == DEVELOPMENT_REPOSITORY else "public"
+
+
 # ------------------------------------------------------- versões de correção
 PUBLICATION_FIELDS = ("version", "title", "status", "candidate", "approved_by", "approved_on",
                       "approved_source_commit", "public_commit", "published_on", "url")

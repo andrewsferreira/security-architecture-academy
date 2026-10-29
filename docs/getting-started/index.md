@@ -9,7 +9,7 @@ description: Como a Security Architecture Academy está organizada, por onde com
 
 <!-- available:start -->
 
-O portal traz **Nível 0 e Nível 1 completos** — Módulo Inicial, Módulo 1, Módulo 2, Módulo 3 e Módulo 4, 37 aulas (v0.1.1, v0.2.0), com laboratórios, estudo de caso, avaliações e modelos.
+O portal traz **Nível 0 e Nível 1 completos** — Módulo Inicial, Módulo 1, Módulo 2, Módulo 3 e Módulo 4, 37 aulas (v0.1.1, v0.2.1), com laboratórios, estudo de caso, avaliações e modelos.
 
 <div class="grid cards" markdown>
 
@@ -104,8 +104,8 @@ Todas as aulas seguem a mesma estrutura, para que você saiba onde procurar:
 
 ## Acompanhar a evolução
 
-- Use **Watch → Custom → Releases** no [repositório](https://github.com/andrewsferreira/security-architecture-academy) para ser avisado a cada publicação.
-- O [CHANGELOG](https://github.com/andrewsferreira/security-architecture-academy/blob/main/CHANGELOG.md) registra o que mudou em cada versão.
+- A [página inicial](../index.md) mostra as versões publicadas, e o [CHANGELOG](https://github.com/andrewsferreira/security-architecture-academy/blob/main/CHANGELOG.md) registra o que mudou em cada uma.
+- Cada publicação entra na `main` do [repositório](https://github.com/andrewsferreira/security-architecture-academy) como um commit `release: vX.Y.Z`. Para ser avisado, assine o feed de commits da `main` (<https://github.com/andrewsferreira/security-architecture-academy/commits/main.atom>) em um leitor de RSS.
 
 ## Executar o portal localmente
 

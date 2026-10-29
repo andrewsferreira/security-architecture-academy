@@ -43,7 +43,7 @@ hide:
 
 !!! success "Disponível agora"
 
-    A Academy é disponibilizada progressivamente, por nível. Publicado: **v0.1.1 — Fundamentals Base, v0.2.0 — Fundamentals: conclusão do Nível 1**. Os níveis seguintes entram no portal somente depois de concluídos e revisados.
+    A Academy é disponibilizada progressivamente, por nível. Publicado: **v0.1.1 — Fundamentals Base, v0.2.1 — Fundamentals: conclusão do Nível 1**. Os níveis seguintes entram no portal somente depois de concluídos e revisados.
 
 [Começar pelos Fundamentals](modules/00-foundations/01-computing-os-virtualization.md){ .md-button .md-button--primary }
 [Ver o currículo](curriculum/index.md){ .md-button }
@@ -66,7 +66,7 @@ hide:
 
 **Módulos 3 e 4.** Governança, riscos e controles; métodos de design e threat modeling; avaliação integradora do Nível 1.
 
-<span class="saa-status saa-status--published">Disponível</span> <span class="saa-meta">v0.2.0</span>
+<span class="saa-status saa-status--published">Disponível</span> <span class="saa-meta">v0.2.1</span>
 
 </div>
 

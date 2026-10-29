@@ -2,7 +2,7 @@
 title: "Gabarito — Avaliação do Módulo 2"
 description: Gabarito comentado da avaliação do Módulo 2, com justificativa das alternativas incorretas, respostas de referência das tarefas e rubrica de correção.
 status: published
-last_updated: 2026-10-23
+last_updated: 2026-10-28
 reviewed_by: [Andrews Ferreira]
 ---
 
@@ -106,10 +106,10 @@ Para o cálculo, o item "MFA, acesso condicional e ZTNA" do orçamento original 
 
 | Tarefa | Excelente | Adequado | Insuficiente |
 |:---|:---|:---|:---|
-| **1 (12 pt)** | 4 problemas corretos, com risco de negócio e recomendação lógica (12) | 3 problemas corretos, ou recomendações em nível de produto (8) | 2 ou menos, ou sem relação com fronteiras e fluxos (3) |
+| **1 (12 pt)** | 4 problemas corretos, com risco de negócio e recomendação lógica (12) | 3 problemas corretos, ou recomendações em nível de produto (9) | 2 ou menos, ou sem relação com fronteiras e fluxos (3) |
 | **2 (10 pt)** | 5 itens corretos nos dois eixos (10) | 4 itens corretos (7) | 3 ou menos (3) |
-| **3 (12 pt)** | 3 requisitos específicos, verificáveis, rastreáveis e neutros (12) | 2 requisitos corretos, ou um sem origem (8) | Reescritas ainda vagas ou com produto (3) |
-| **4 (16 pt)** | Matriz com pesos coerentes ao cenário, seleção dentro do orçamento, risco residual com dono e parágrafo claro para não técnicos (16) | Seleção defensável, mas sem pesos explícitos ou sem dono do risco (11) | Seleção acima do orçamento, ignora a seguradora ou não declara risco residual (5) |
+| **3 (12 pt)** | 3 requisitos específicos, verificáveis, rastreáveis e neutros (12) | 2 requisitos corretos, ou um sem origem (9) | Reescritas ainda vagas ou com produto (3) |
+| **4 (16 pt)** | Matriz com pesos coerentes ao cenário, seleção dentro do orçamento, risco residual com dono e parágrafo claro para não técnicos (16) | Seleção defensável, mas sem pesos explícitos ou sem dono do risco (12) | Seleção acima do orçamento, ignora a seguradora ou não declara risco residual (5) |
 
 Seleções diferentes da referência na Tarefa 4 são aceitas quando a matriz justifica a escolha e o orçamento é respeitado — por exemplo, trocar parte do MDR por um SIEM com cobertura em horário comercial, desde que o risco de detecção fora do expediente seja declarado.
 

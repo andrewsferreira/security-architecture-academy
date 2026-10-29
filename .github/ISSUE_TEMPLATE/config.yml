@@ -3,6 +3,6 @@ contact_links:
   - name: Reportar vulnerabilidade de segurança
     url: https://github.com/andrewsferreira/security-architecture-academy/security/advisories/new
     about: Vulnerabilidades no repositório, CI ou site devem ser reportadas de forma privada.
-  - name: Guia editorial e modelo de conteúdo
-    url: https://andrewsferreira.github.io/security-architecture-academy/internal/
-    about: Leia o Handbook antes de propor conteúdo.
+  - name: Como contribuir
+    url: https://github.com/andrewsferreira/security-architecture-academy/blob/main/CONTRIBUTING.md
+    about: Formas de contribuir, regras de conteúdo e como as propostas chegam ao portal na versão seguinte.

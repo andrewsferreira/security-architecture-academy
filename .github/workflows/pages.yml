@@ -13,7 +13,10 @@
 #   3. RELEASE-MANIFEST.yml: árvore idêntica à exportada (SHA-256 de cada
 #      arquivo), modo final, aprovação do mantenedor e commit de origem.
 #   4. Atribuição de autoria: arquivos, mensagens de commit e site compilado.
-#   5. Validações de publicação (--release), testes, build e links internos.
+#   5. CHANGELOG da versão (check_changelog.py --release --tag), validações de
+#      publicação (--release), testes, build e links internos.
+#
+# Depois do deploy, o job "Smoke tests" consulta o site publicado (somente leitura).
 name: Deploy to GitHub Pages
 
 on:
@@ -81,6 +84,10 @@ jobs:
         env:
           RELEASE_TAG: ${{ inputs.release_tag }}
         run: python scripts/verify_release_manifest.py --require-approval --tag "$RELEASE_TAG"
+      - name: CHANGELOG da versão publicada
+        env:
+          RELEASE_TAG: ${{ inputs.release_tag }}
+        run: python scripts/check_changelog.py --release --tag "$RELEASE_TAG"
       - name: Atribuição de autoria (arquivos e commits)
         run: python scripts/check_attribution.py --commits HEAD
       - name: Validações de publicação (bloqueia rascunhos)
@@ -116,6 +123,31 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    outputs:
+      page_url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
         uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
+
+  # Conferência do site publicado. Só leitura: não refaz o deploy. Tentativas limitadas cobrem a
+  # propagação do Pages; uma falha aqui indica divergência a investigar, não dispara nova publicação.
+  smoke:
+    name: Smoke tests do site publicado
+    needs: deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: requirements*.txt
+      - run: pip install -r requirements.txt
+      - name: Páginas, versão, sitemap, assets e endereços proibidos
+        env:
+          PAGE_URL: ${{ needs.deploy.outputs.page_url }}
+          RELEASE_TAG: ${{ inputs.release_tag }}
+        run: python scripts/smoke_test_site.py --base-url "$PAGE_URL" --expect-version "$RELEASE_TAG"

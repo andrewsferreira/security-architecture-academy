@@ -42,8 +42,12 @@ jobs:
       - run: pip install -r requirements-dev.txt
       - name: Atribuição de autoria
         run: python scripts/check_attribution.py
-      - name: Manifesto de release (repositório público)
-        run: python scripts/verify_release_manifest.py --if-present
+      # Obrigatório no repositório público e em forks; opcional só no de desenvolvimento.
+      # A identidade vem de GITHUB_REPOSITORY, definida pelo runner, não do conteúdo do PR.
+      - name: Manifesto de release (obrigatório no repositório público)
+        run: python scripts/verify_release_manifest.py
+      - name: CHANGELOG coerente com o manifesto
+        run: python scripts/check_changelog.py
       - name: Estrutura do repositório
         run: python scripts/check_structure.py
       - name: Curriculum manifest

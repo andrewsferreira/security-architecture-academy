@@ -29,6 +29,11 @@ avaliações, diagramas, referências), aprovação, commit privado de origem e 
 SHA-256 de cada arquivo — verificado por scripts/verify_release_manifest.py no
 CI e no deploy do repositório público.
 
+O CHANGELOG exportado traz só a versão da release e as já publicadas: notas em
+*Unreleased* e seções pendentes de outras versões ficam no desenvolvimento. No
+modo final, o cabeçalho "## [X.Y.Z] — não publicada" da versão recebe a data de
+aprovação (contrato em scripts/check_changelog.py).
+
 No modo final, o commit aprovado (approved_source_commit) é conferido: entre
 ele e o HEAD só podem mudar o manifesto e as páginas geradas a partir dele, e
 os arquivos exportados não podem ter alterações não commitadas.
@@ -53,7 +58,8 @@ from typing import Any
 
 import yaml
 
-from _common import publication_target, release_publications
+from _common import DEVELOPMENT_REPOSITORY, PUBLIC_REPOSITORY, publication_target, release_publications
+from check_changelog import release_changelog
 
 ROOT = Path(__file__).resolve().parent.parent
 SCOPES = ("modules", "complements", "case_studies", "labs", "assessments", "artifacts")
@@ -76,7 +82,8 @@ GENERATED = {
     "docs/resources/cloud-security.md", "docs/resources/reference-matrix.md", "docs/resources/coverage.md",
 }
 CHANGEABLE_AFTER_APPROVAL = GENERATED | {"curriculum/manifest.yml"}
-PRIVATE_REPOSITORY = "andrewsferreira/security-architecture-academy-dev"
+PRIVATE_REPOSITORY = DEVELOPMENT_REPOSITORY
+PUBLIC_TREE = PUBLIC_REPOSITORY  # a árvore exportada é verificada com as regras do repositório público
 
 
 class ExportError(Exception):
@@ -185,6 +192,17 @@ def release_manifest(manifest: dict[str, Any], release: dict[str, Any], scope: d
         "source": source,
         "public_commit": target.get("public_commit"),
         "publication": {"published_on": _iso(target.get("published_on")), "url": target.get("url")},
+        # Campos que só existem depois desta árvore: não são preenchidos aqui nem alterados depois
+        # (o commit público é imutável e os hashes não mudam).
+        "post_export": {
+            "fields": [name for name, value in (("public_commit", target.get("public_commit")),
+                                                ("publication.published_on", target.get("published_on")),
+                                                ("publication.url", target.get("url"))) if not value],
+            "note": ("Conhecidos só depois do commit público e do deploy desta árvore. Ficam registrados no "
+                     "manifesto do repositório de desenvolvimento e chegam às árvores exportadas depois "
+                     "desta: em curriculum/manifest.yml e, nas correções seguintes da mesma release, em "
+                     "'history'."),
+        },
         "history": history,
         "files": files,
     }
@@ -339,6 +357,19 @@ def transform_nav(config_text: str, out: Path) -> str:
         text = new
 
 
+def publish_changelog(text: str, version: str, date: dt.date | None) -> str:
+    """CHANGELOG exportado: só a versão da release e as já publicadas (ver check_changelog.release_changelog).
+
+    No desenvolvimento, a versão em preparo tem o cabeçalho ``## [X.Y.Z] — não publicada`` desde o
+    commit submetido à aprovação; a árvore final recebe a data da release (``approved_on``). O commit
+    aprovado não é alterado, e a árvore pública nunca descreve a versão publicada como pendente.
+    """
+    try:
+        return release_changelog(text, version, date)
+    except ValueError as exc:
+        raise ExportError(str(exc)) from exc
+
+
 def publish_page(text: str, approvers: list[str], date: dt.date, rel: str = "") -> str:
     """Marca como publicada uma página do escopo aprovado.
 
@@ -420,6 +451,10 @@ def export(release_id: str, mode: str, out: Path, root: Path = ROOT) -> dict[str
             if new != text:
                 page.write_text(new, encoding="utf-8")
 
+    changelog = out / "CHANGELOG.md"
+    changelog.write_text(publish_changelog(changelog.read_text(encoding="utf-8"), str(pub["version"]),
+                                           pub["approved_on"] if mode == "final" else None), encoding="utf-8")
+
     # Páginas geradas refletem o manifesto público antes do cálculo dos hashes.
     render = subprocess.run([sys.executable, "scripts/render_curriculum.py"], cwd=out, capture_output=True, text=True)
     if render.returncode != 0:
@@ -458,7 +493,10 @@ def scope_findings(out: Path, mode: str) -> list[str]:
 def run_validations(out: Path, mode: str, python: str) -> list[tuple[str, int]]:
     release_flag = ["--release"] if mode == "final" else []
     steps = [
-        ["scripts/verify_release_manifest.py", *(["--require-approval"] if mode == "final" else [])],
+        ["scripts/verify_release_manifest.py", "--repository", PUBLIC_TREE,
+         *(["--require-approval"] if mode == "final" else [])],
+        # versão-alvo: a do RELEASE-MANIFEST.yml da árvore
+        ["scripts/check_changelog.py", "--rules", "release" if mode == "final" else "development"],
         ["scripts/check_attribution.py", "--path", "."],
         ["scripts/check_structure.py", *release_flag],
         ["scripts/validate_manifest.py", *release_flag],

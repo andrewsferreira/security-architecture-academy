@@ -35,7 +35,8 @@ check: ## Validações rápidas (sem build)
 	$(PYTHON) scripts/check_decision_matrices.py
 	$(PYTHON) scripts/validate_references.py
 	$(PYTHON) scripts/check_attribution.py
-	$(PYTHON) scripts/verify_release_manifest.py --if-present
+	$(PYTHON) scripts/verify_release_manifest.py
+	$(PYTHON) scripts/check_changelog.py
 
 validate: check build ## Validação completa: estrutura, manifesto, assets, build e links
 	$(PYTHON) scripts/check_links.py

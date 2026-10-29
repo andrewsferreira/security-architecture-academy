@@ -346,6 +346,9 @@ modules:
   prerequisites:
   - M02
   status: published
+  published_on: 2026-10-28
+  reviewed_by:
+  - Andrews Ferreira
   path: modules/03-governance-risk/index.md
   lessons:
   - id: M03-L01
@@ -353,68 +356,73 @@ modules:
     tier: fundamental
     minutes: 75
     status: published
-    file: 01-governance-csf.md
-    published_on: &id001 2026-10-28
-    reviewed_by: &id002
+    published_on: 2026-10-28
+    reviewed_by:
     - Andrews Ferreira
+    file: 01-governance-csf.md
   - id: M03-L02
     title: NIST Risk Management Framework (SP 800-37)
     tier: professional
     minutes: 75
     status: published
+    published_on: 2026-10-28
+    reviewed_by:
+    - Andrews Ferreira
     file: 02-nist-rmf.md
-    published_on: *id001
-    reviewed_by: *id002
   - id: M03-L03
     title: 'Seleção e tailoring de controles: SP 800-53 e CIS Controls'
     tier: professional
     minutes: 90
     status: published
+    published_on: 2026-10-28
+    reviewed_by:
+    - Andrews Ferreira
     file: 03-control-selection-tailoring.md
-    published_on: *id001
-    reviewed_by: *id002
   - id: M03-L04
     title: 'ISO/IEC 27001/27002, LGPD e PCI DSS: propósito e escopo'
     tier: fundamental
     minutes: 75
     status: published
+    published_on: 2026-10-28
+    reviewed_by:
+    - Andrews Ferreira
     file: 04-iso-lgpd-pci.md
-    published_on: *id001
-    reviewed_by: *id002
   - id: M03-L05
     title: Business Impact Analysis, RTO e RPO
     tier: professional
     minutes: 60
     status: published
+    published_on: 2026-10-28
+    reviewed_by:
+    - Andrews Ferreira
     file: 05-bia-rto-rpo.md
-    published_on: *id001
-    reviewed_by: *id002
   - id: M03-L06
     title: Risk assessment, risk register e tratamento de riscos
     tier: professional
     minutes: 90
     status: published
+    published_on: 2026-10-28
+    reviewed_by:
+    - Andrews Ferreira
     file: 06-risk-assessment-register.md
-    published_on: *id001
-    reviewed_by: *id002
   - id: M03-L07
     title: Catálogo de controles e arquitetura baseada em risco
     tier: architect
     minutes: 75
     status: published
+    published_on: 2026-10-28
+    reviewed_by:
+    - Andrews Ferreira
     file: 07-control-catalog-risk-architecture.md
-    published_on: *id001
-    reviewed_by: *id002
   - id: M03-L08
     title: Indicadores, maturidade e reporte à governança
     tier: architect
     minutes: 60
     status: published
+    published_on: 2026-10-28
+    reviewed_by:
+    - Andrews Ferreira
     file: 08-metrics-maturity-reporting.md
-    published_on: *id001
-    reviewed_by: *id002
-  published_on: *id001
-  reviewed_by: *id002
 - id: M04
   slug: threat-modeling
   title: Métodos de Design e Threat Modeling
@@ -426,6 +434,9 @@ modules:
   prerequisites:
   - M02
   status: published
+  published_on: 2026-10-28
+  reviewed_by:
+  - Andrews Ferreira
   path: modules/04-threat-modeling/index.md
   lessons:
   - id: M04-L01
@@ -433,59 +444,64 @@ modules:
     tier: fundamental
     minutes: 60
     status: published
+    published_on: 2026-10-28
+    reviewed_by:
+    - Andrews Ferreira
     file: 01-data-flow-diagrams.md
-    published_on: *id001
-    reviewed_by: *id002
   - id: M04-L02
     title: STRIDE aplicado à arquitetura
     tier: professional
     minutes: 75
     status: published
+    published_on: 2026-10-28
+    reviewed_by:
+    - Andrews Ferreira
     file: 02-stride.md
-    published_on: *id001
-    reviewed_by: *id002
   - id: M04-L03
     title: Attack trees e abuse cases
     tier: professional
     minutes: 60
     status: published
+    published_on: 2026-10-28
+    reviewed_by:
+    - Andrews Ferreira
     file: 03-attack-trees-abuse-cases.md
-    published_on: *id001
-    reviewed_by: *id002
   - id: M04-L04
     title: MITRE ATT&CK para cenários de ataque
     tier: professional
     minutes: 75
     status: published
+    published_on: 2026-10-28
+    reviewed_by:
+    - Andrews Ferreira
     file: 04-mitre-attack-scenarios.md
-    published_on: *id001
-    reviewed_by: *id002
   - id: M04-L05
     title: Pontos únicos de falha e análise de dependências
     tier: professional
     minutes: 60
     status: published
+    published_on: 2026-10-28
+    reviewed_by:
+    - Andrews Ferreira
     file: 05-single-points-of-failure.md
-    published_on: *id001
-    reviewed_by: *id002
   - id: M04-L06
     title: De ameaças a requisitos de segurança
     tier: architect
     minutes: 75
     status: published
+    published_on: 2026-10-28
+    reviewed_by:
+    - Andrews Ferreira
     file: 06-threats-to-requirements.md
-    published_on: *id001
-    reviewed_by: *id002
   - id: M04-L07
     title: Revisão arquitetural, As-Is/To-Be e validação de controles
     tier: architect
     minutes: 75
     status: published
+    published_on: 2026-10-28
+    reviewed_by:
+    - Andrews Ferreira
     file: 07-architecture-review-validation.md
-    published_on: *id001
-    reviewed_by: *id002
-  published_on: *id001
-  reviewed_by: *id002
 - id: M05
   slug: network-security
   title: Network Security Architecture
@@ -1220,7 +1236,7 @@ releases:
 - id: R2
   version: 0.2.0
   title: 'Release 2 — Fundamentals: conclusão do Nível 1'
-  status: approved
+  status: published
   candidate: v0.2.0-rc4
   modules:
   - M03
@@ -1234,9 +1250,20 @@ releases:
   - Andrews Ferreira
   approved_on: 2026-10-28
   approved_source_commit: 893280cad5456f674614867d14e0d89f46b372c6
-  public_commit: null
-  published_on: null
-  url: null
+  public_commit: 46e987a35463848f72a44dd8a11b584862e4e700
+  published_on: 2026-10-28
+  url: https://andrewsferreira.github.io/security-architecture-academy/
+  patches:
+  - version: 0.2.1
+    title: Release 2 — Fundamentals (estabilidade e consistência)
+    candidate: v0.2.1-rc2
+    status: approved
+    approved_by:
+    - Andrews Ferreira
+    approved_on: 2026-10-28
+    approved_source_commit: 239314b5c8e059eba3bd9c107f1f86b1427fbcf7
+    public_commit: null
+    published_on: null
 - id: R3
   version: 0.3.0
   title: 'Release 3 — Nível 2: Arquiteturas de Infraestrutura'
@@ -1476,10 +1503,11 @@ assessments:
   - M04
   phase: 2
   status: published
+  published_on: 2026-10-28
+  reviewed_by:
+  - Andrews Ferreira
   path: assessments/level-1-integrative.md
   answers: assessments/answers/level-1-integrative.md
-  published_on: *id001
-  reviewed_by: *id002
 - id: AS-MID
   title: Avaliação intermediária (Níveis 1 e 2)
   kind: intermediate

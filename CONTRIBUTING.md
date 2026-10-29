@@ -10,7 +10,7 @@ O conteúdo é produzido e revisado em um repositório de desenvolvimento. Este 
 
 | Contribuição | Como começar |
 |:---|:---|
-| Corrigir um erro técnico ou de digitação | Issue *Report a documentation error* — ou um Pull Request como proposta, que será incorporada pelo mantenedor |
+| Corrigir um erro técnico ou de digitação | Issue *Report a documentation error*, com o endereço da página — ou um Pull Request como proposta, que será incorporada pelo mantenedor |
 | Sugerir conteúdo | Issue *Suggest new learning content* |
 | Reportar link ou recurso quebrado | Issue *Report a broken resource* |
 | Melhorar diagramas, padrões ou arquiteturas | Issue *Propose architecture improvements* |
@@ -45,6 +45,8 @@ Issue → Proposta → Incorporação no desenvolvimento → Validação automá
 2. **Um tema por proposta**, com o template de Pull Request preenchido.
 3. **Revisão:** comentários indicam se são bloqueantes ou sugestões.
 4. **Publicação:** manual, por release aprovada pelo mantenedor; o deploy do GitHub Pages nunca é disparado por um merge.
+
+Um Pull Request neste repositório serve como **proposta**: não é integrado aqui. O CI compara a árvore com o `RELEASE-MANIFEST.yml`, então a verificação de integridade sempre aponta os arquivos alterados pela proposta — é o comportamento esperado. Não é preciso editar o `CHANGELOG.md`: o mantenedor registra a mudança na versão em que ela for publicada. Para indicar um erro a partir do portal, use o botão de exibir o código-fonte da página para localizar o arquivo e abra a issue com o endereço da página.
 
 ## Regras inegociáveis
 

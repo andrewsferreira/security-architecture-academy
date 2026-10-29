@@ -13,7 +13,7 @@ A formação é publicada **por nível, em releases cumulativas**. Cada release 
 | Release | Níveis | Escopo | Versão | Estado |
 |:---|:---|:---|:---|:---|
 | **1 — Fundamentals Base** | Nível 0; Nível 1 | **Módulo Inicial, Módulo 1 e Módulo 2.** Infraestrutura, fundamentos de segurança e introdução à arquitetura de segurança, com laboratórios, estudo de caso e avaliação integradora. | v0.1.0 (2026-10-27), v0.1.1 (2026-10-27) | ✅ disponível |
-| **2 — Fundamentals: conclusão do Nível 1** | Nível 1 | **Módulos 3 e 4.** Governança, riscos e controles; métodos de design e threat modeling; avaliação integradora do Nível 1. | v0.2.0 | ✅ disponível |
+| **2 — Fundamentals: conclusão do Nível 1** | Nível 1 | **Módulos 3 e 4.** Governança, riscos e controles; métodos de design e threat modeling; avaliação integradora do Nível 1. | v0.2.0 (2026-10-28), v0.2.1 | ✅ disponível |
 | **3 — Nível 2: Arquiteturas de Infraestrutura** | Nível 2 | **Módulos 5 a 8.** Rede, identidade, Zero Trust e ambientes on-premises e legados. | v0.3.0 | 🔄 em desenvolvimento |
 | **4 — Nível 3: Arquitetura Cloud e Híbrida** | Nível 3 | **Módulos 9 a 11.** AWS, Azure, Google Cloud e a integração segura entre ambientes. | v0.4.0 | 🔄 em desenvolvimento |
 | **5 — Nível 4: Arquitetura de Segurança Aplicada** | Nível 4 | **Módulos 12 a 15.** Aplicações, dados, gestão de vulnerabilidades e exposição, operações e resiliência. | v0.5.0 | ⏳ planejada |

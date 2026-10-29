@@ -224,6 +224,9 @@ def test_patch_release_manifest_has_own_version_and_history(manifest, tmp_path):
     assert out["history"][0]["version"] == "0.1.0"
     assert out["history"][0]["approved_source_commit"] == r1["approved_source_commit"]
     assert out["history"][0]["public_commit"] == r1["public_commit"]
+    # o que só existe depois da exportação é declarado como tal, não inventado
+    assert out["public_commit"] is None and out["publication"]["published_on"] is None
+    assert out["post_export"]["fields"] == ["public_commit", "publication.published_on"]  # url: a da release
 
 
 def test_final_export_requires_patch_approval(manifest, tmp_path, monkeypatch):

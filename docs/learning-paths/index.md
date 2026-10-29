@@ -77,7 +77,7 @@ O conteúdo chega ao portal em releases cumulativas, uma por nível — a Releas
 | Release | Níveis | Módulos | Estado |
 |:---|:---|:---|:---|
 | **1 — Fundamentals Base** | Nível 0; Nível 1 | Módulo Inicial, Módulo 1 e Módulo 2 | Disponível (v0.1.1) |
-| **2 — Fundamentals: conclusão do Nível 1** | Nível 1 | Módulos 3 e 4 | Disponível (v0.2.0) |
+| **2 — Fundamentals: conclusão do Nível 1** | Nível 1 | Módulos 3 e 4 | Disponível (v0.2.1) |
 | **3 — Nível 2: Arquiteturas de Infraestrutura** | Nível 2 | Módulos 5 a 8 | Em desenvolvimento (v0.3.0) |
 | **4 — Nível 3: Arquitetura Cloud e Híbrida** | Nível 3 | Módulos 9 a 11 | Em desenvolvimento (v0.4.0) |
 | **5 — Nível 4: Arquitetura de Segurança Aplicada** | Nível 4 | Módulos 12 a 15 | Planejado (v0.5.0) |

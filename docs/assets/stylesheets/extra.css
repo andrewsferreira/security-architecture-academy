@@ -260,7 +260,24 @@
 .md-typeset figure.saa-diagram { width: 100%; margin: var(--saa-space-6) auto; }
 /* Sem largura explícita, o tema ajusta a figura à largura da legenda e reduz os diagramas largos.
    O SVG do Mermaid mantém max-width igual ao tamanho natural, então diagramas estreitos não são ampliados. */
-.md-typeset figure.saa-diagram > .mermaid { width: 100%; }
+.md-typeset figure.saa-diagram > .mermaid,
+.md-typeset .saa-diagram__scroll > .mermaid { width: 100%; }
+/* Diagramas largos (assets/javascripts/a11y.js): em vez de encolher até rótulos ilegíveis (menos de 9 px),
+   o diagrama mantém rótulos de 11 px numa região com rolagem horizontal, focalizável pelo teclado.
+   Só a região rola; a página não ganha rolagem horizontal. Sem JavaScript, o diagrama continua
+   ajustado à largura, com legenda e descrição. */
+.md-typeset .saa-diagram__scroll { overflow-x: auto; overscroll-behavior-x: contain; }
+.md-typeset .saa-diagram__scroll > .mermaid { margin: var(--saa-space-4) 0; }
+.md-typeset figure.saa-diagram--scroll > figcaption::after {
+  content: "Diagrama largo: role horizontalmente para ver todas as partes.";
+  display: block; margin-top: var(--saa-space-1); font-size: 0.9em; font-style: italic;
+}
+/* Na impressão não há rolagem: o diagrama volta a caber na largura da página. */
+@media print {
+  .md-typeset .saa-diagram__scroll { overflow: visible; }
+  .md-typeset .saa-diagram__scroll > .mermaid { min-width: 0 !important; }
+  .md-typeset figure.saa-diagram--scroll > figcaption::after { display: none; }
+}
 
 /* ---------- 12. Responsividade ---------- */
 @media screen and (max-width: 59.9844em) {

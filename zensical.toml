@@ -170,7 +170,8 @@ favicon = "assets/branding/favicon.png"
 font = false
 features = [
   "announce.dismiss",
-  "content.action.edit",
+  # Sem "content.action.edit": o repositório público recebe só árvores exportadas, e uma edição
+  # direta nele não chega ao portal. "Exibir fonte" continua; propostas seguem o CONTRIBUTING.md.
   "content.action.view",
   "content.code.annotate",
   "content.code.copy",

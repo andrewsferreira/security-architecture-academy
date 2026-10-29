@@ -6,7 +6,31 @@ O formato segue o [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e 
 
 ## [Unreleased]
 
-Release 2 — Fundamentals: conclusão do Nível 1 (v0.2.0, em revisão; não publicada).
+## [0.2.1] — 2026-10-28
+
+Versão de correção da Release 2 — Fundamentals: conclusão do Nível 1. O escopo não muda: Níveis 0 e 1, Módulo Inicial ao Módulo 4, com as mesmas aulas, avaliações, gabaritos e endereços.
+
+### Added
+
+- Smoke tests do site publicado (`scripts/smoke_test_site.py`), executados pelo workflow de publicação depois do deploy: páginas principais, versão exibida, `sitemap.xml`, assets essenciais e endereços que não podem existir, com tentativas limitadas para a propagação do GitHub Pages.
+
+### Changed
+
+- Diagramas largos: quando o diagrama ajustado à largura da coluna deixaria os rótulos com menos de 9 px — o caso de muitos diagramas em telas de celular —, ele passa a ocupar uma região com rolagem horizontal, com rótulos de 11 px, alcançável pelo teclado e indicada na legenda. Os demais diagramas não mudam, e na impressão todos voltam a caber na largura da página.
+- O portal deixa de mostrar o botão de editar a página, que abria uma edição no repositório público — onde a mudança não chega ao portal. O botão de exibir o código-fonte continua; correções seguem o [CONTRIBUTING](CONTRIBUTING.md).
+- Como usar a Academy: novas versões são acompanhadas pela página inicial, pelo CHANGELOG e pelo feed de commits da `main`; o repositório ainda não tem GitHub Releases.
+- O CI do repositório público exige o `RELEASE-MANIFEST.yml`; antes, a verificação passava quando o arquivo estava ausente.
+- O `RELEASE-MANIFEST.yml` indica quais metadados só existem depois da exportação (commit público e data de publicação).
+
+### Fixed
+
+- CHANGELOG: as versões v0.1.0, v0.1.1 e v0.2.0 foram publicadas com a própria versão em *Unreleased*, descrita como "em revisão" ou "não publicada". A partir desta versão, a seção da versão em preparo existe desde o commit aprovado, e a exportação final grava a data da release; `scripts/check_changelog.py` confere o CHANGELOG contra o manifesto no CI e no deploy. As seções das versões anteriores ficam como foram registradas.
+- Formulário de issues: o contato do guia editorial apontava para uma página retirada do portal; passa a apontar para o guia de contribuição. O template de Pull Request deixa de citar material interno.
+- Rubrica da avaliação do Módulo 2 (`AS-M02`): *Adequado* nas tarefas da Parte 2 passa a 9, 7, 9 e 12 pontos (70% de cada tarefa, arredondado para cima, como na rubrica padrão). Quem acerta 7 das 10 questões da Parte 1 e é *Adequado* nas quatro tarefas soma 72 e é aprovado — antes somava 69. Pontuação máxima, enunciados, gabarito, ID e endereço não mudam. Teste de regressão das rubricas.
+
+## [0.2.0] — 2026-10-28
+
+Release 2 — Fundamentals: conclusão do Nível 1, publicada no GitHub Pages. Com a Release 1, o portal reúne os Níveis 0 e 1 completos (37 aulas).
 
 ### Added
 

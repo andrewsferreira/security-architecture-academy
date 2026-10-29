@@ -1,3 +1,8 @@
+<!--
+No repositório público, um Pull Request é uma proposta: o mantenedor a incorpora no
+desenvolvimento, e ela chega ao portal na versão seguinte (ver CONTRIBUTING.md).
+-->
+
 ## Resumo
 
 <!-- O que muda e por quê. Uma ou duas frases. -->
@@ -14,7 +19,7 @@ Relacionado a: #
 
 ## Checklist geral
 
-- [ ] `make validate` executado sem erros
+- [ ] `make validate` executado (no repositório público, a verificação do `RELEASE-MANIFEST.yml` acusa os arquivos da proposta; o `CHANGELOG.md` é atualizado pelo mantenedor, não na proposta)
 - [ ] Nenhum dado real, credencial ou informação de terceiros
 - [ ] Status editoriais refletem o estado real
 
@@ -22,11 +27,10 @@ Relacionado a: #
 
 - [ ] Front matter completo e coerente com `curriculum/manifest.yml`
 - [ ] Afirmações normativas com fonte, versão e data
-- [ ] Terminologia e siglas conforme o Guia editorial
+- [ ] Terminologia e siglas conforme a seção "Antes de escrever" do CONTRIBUTING.md
 - [ ] Diagramas com `accTitle`, `accDescr` e legenda
 - [ ] Objetivos de aprendizagem cobertos pelo conteúdo e pelas atividades
-- [ ] Para publicar: `published_on`, `reviewed_by` e entrada em `nav`
 
 ## Revisão
 
-<!-- Mantenedor único: registre aqui a auto-revisão (data/hora da escrita e da revisão, mínimo 24 h). -->
+<!-- Preenchido pelo mantenedor: revisão técnica (com data) e versão em que a mudança será publicada. -->

@@ -21,7 +21,9 @@ import export_release as ex
 from _common import ROOT, load_manifest
 from validate_references import coverage
 
-DEV_REPOSITORY = (ROOT / ".git").exists()
+# Repositório de desenvolvimento: tem histórico Git e não é uma árvore exportada. O repositório público também
+# tem .git, mas traz o RELEASE-MANIFEST.yml, e nele a exportação não se aplica.
+DEV_REPOSITORY = (ROOT / ".git").exists() and not (ROOT / "RELEASE-MANIFEST.yml").is_file()
 
 
 @pytest.fixture()
@@ -360,3 +362,28 @@ def test_unidentified_badge_may_only_say_planned(tmp_path):
 def test_module_page_badge_follows_the_module(tmp_path):
     errors = badge_errors(tmp_path, "docs/modules/05-network-security/index.md", badge("published") + "\n")
     assert errors == ["docs/modules/05-network-security/index.md:1: M05 com selo 'published', mas o manifesto diz 'in-review'"]
+
+
+# ------------------------------------------------------------ "Como usar a Academy" na árvore final
+def test_available_block_has_a_card_for_every_module_of_a_published_release():
+    """Quando uma release é publicada, cada módulo dela tem card com descrição em "Como usar a Academy".
+
+    Sem a descrição, o card sai vazio na árvore pública (e o markdownlint do repositório público falha).
+    """
+    import render_curriculum as rc
+
+    manifest = copy.deepcopy(load_manifest())
+    ids = {str(mid) for rel in manifest["releases"] if rel.get("status") in ("published", "approved", "in-review")
+           for mid in rel.get("modules") or []}
+    for unit in manifest["modules"]:
+        if str(unit["id"]) in ids and unit.get("path"):
+            unit["status"] = "published"
+    for item in manifest.get("assessments") or []:
+        if item.get("status") == "in-review":
+            item["status"] = "published"
+    out = rc.render_available(manifest)
+    assert "    ---\n\n    \n" not in out, "card sem descrição em 'Como usar a Academy'"
+    assert "\n\n\n" not in out
+    for mid in sorted(ids):
+        assert mid in rc.MODULE_CARDS, f"{mid} sem card em MODULE_CARDS"
+    assert "a avaliação intermediária dos Níveis 1 e 2" in out

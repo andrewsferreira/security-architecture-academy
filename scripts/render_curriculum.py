@@ -450,6 +450,19 @@ MODULE_CARDS = {
     "M04": ("crosshair", "Métodos de Design e Threat Modeling",
             "Sete aulas: DFDs, STRIDE, árvores de ataque e abuse cases, MITRE ATT&CK, dependências, "
             "requisitos derivados de ameaças e revisão As-Is/To-Be."),
+    "M05": ("network", "Network Security Architecture",
+            "Sete aulas: zonas e microsegmentação, perímetro e inspeção, tráfego north-south e east-west, "
+            "acesso remoto, SD-WAN, SASE e SSE, NAC e o desenho de uma rede corporativa segura."),
+    "M06": ("fingerprint", "Identity & Access Management",
+            "Nove aulas: IAM, IGA, PAM e PIM, modelos de autorização, Active Directory e Kerberos, SAML, OAuth "
+            "e OIDC, identidade híbrida, contas privilegiadas e de máquina, federação de workloads, ciclo de vida "
+            "e recuperação de identidade."),
+    "M07": ("shield-check", "Zero Trust Architecture",
+            "Sete aulas: NIST SP 800-207, componentes lógicos, abordagens e modelos de implantação, verificação "
+            "contínua, proteção de workloads, CISA ZTMM e implantação progressiva com legados."),
+    "M08": ("server-cog", "On-Premises e Sistemas Legados",
+            "Sete aulas: datacenter, hardening e baselines, Windows, Linux e AD, backup e resiliência contra "
+            "ransomware, sistemas sem suporte, protocolos inseguros e modernização gradual."),
 }
 CASE_CARDS = {
     "CS-A": ("Caso A — Meridiana",
@@ -521,14 +534,20 @@ def render_available(m: dict[str, Any]) -> str:
     if assess:
         finals = [x for x in assess if x.get("kind") == "final"]
         ids = {x["id"] for x in finals}
+        parts = []
         if {"AS-FUND", "AS-N1"} <= ids:
-            tail = "a avaliação integradora do Módulo Inicial ao Módulo 2 e a avaliação integradora do Nível 1"
+            parts = ["a avaliação integradora do Módulo Inicial ao Módulo 2", "a avaliação integradora do Nível 1"]
         elif finals:
-            tail = "a avaliação integradora do Módulo Inicial ao Módulo 2"
+            parts = ["a avaliação integradora do Módulo Inicial ao Módulo 2"]
+        if any(x.get("kind") == "intermediate" for x in assess):
+            parts.append("a avaliação intermediária dos Níveis 1 e 2")
+        if not parts:
+            listed = ""
+        elif len(parts) == 1:
+            listed = f" e {parts[0]}"
         else:
-            tail = ""
-        joiner = ", " if " e a avaliação" in tail else " e "
-        text = "Diagnóstica, uma por módulo" + (f"{joiner}{tail}" if tail else "") + ", com gabaritos comentados."
+            listed = ", " + ", ".join(parts[:-1]) + f" e {parts[-1]}"
+        text = f"Diagnóstica, uma por módulo{listed}, com gabaritos comentados."
         out += ["-   :lucide-clipboard-check:{ .lg .saa-card-icon } **[Avaliações](../assessments/index.md)**",
                 "", "    ---", "", f"    {text}", ""]
     out += ["</div>", "",

@@ -43,29 +43,29 @@ O portal traz **Níveis 0, 1 e 2 completos** — Módulo Inicial, Módulo 1, Mó
 
     Sete aulas: DFDs, STRIDE, árvores de ataque e abuse cases, MITRE ATT&CK, dependências, requisitos derivados de ameaças e revisão As-Is/To-Be.
 
--   :lucide-book-open:{ .lg .saa-card-icon } **[Módulo 5 — Network Security Architecture](../modules/05-network-security/index.md)**
+-   :lucide-network:{ .lg .saa-card-icon } **[Módulo 5 — Network Security Architecture](../modules/05-network-security/index.md)**
 
     ---
 
-    
+    Sete aulas: zonas e microsegmentação, perímetro e inspeção, tráfego north-south e east-west, acesso remoto, SD-WAN, SASE e SSE, NAC e o desenho de uma rede corporativa segura.
 
--   :lucide-book-open:{ .lg .saa-card-icon } **[Módulo 6 — Identity & Access Management](../modules/06-iam/index.md)**
-
-    ---
-
-    
-
--   :lucide-book-open:{ .lg .saa-card-icon } **[Módulo 7 — Zero Trust Architecture](../modules/07-zero-trust/index.md)**
+-   :lucide-fingerprint:{ .lg .saa-card-icon } **[Módulo 6 — Identity & Access Management](../modules/06-iam/index.md)**
 
     ---
 
-    
+    Nove aulas: IAM, IGA, PAM e PIM, modelos de autorização, Active Directory e Kerberos, SAML, OAuth e OIDC, identidade híbrida, contas privilegiadas e de máquina, federação de workloads, ciclo de vida e recuperação de identidade.
 
--   :lucide-book-open:{ .lg .saa-card-icon } **[Módulo 8 — On-Premises e Sistemas Legados](../modules/08-onprem-legacy/index.md)**
+-   :lucide-shield-check:{ .lg .saa-card-icon } **[Módulo 7 — Zero Trust Architecture](../modules/07-zero-trust/index.md)**
 
     ---
 
-    
+    Sete aulas: NIST SP 800-207, componentes lógicos, abordagens e modelos de implantação, verificação contínua, proteção de workloads, CISA ZTMM e implantação progressiva com legados.
+
+-   :lucide-server-cog:{ .lg .saa-card-icon } **[Módulo 8 — On-Premises e Sistemas Legados](../modules/08-onprem-legacy/index.md)**
+
+    ---
+
+    Sete aulas: datacenter, hardening e baselines, Windows, Linux e AD, backup e resiliência contra ransomware, sistemas sem suporte, protocolos inseguros e modernização gradual.
 
 -   :lucide-flask-conical:{ .lg .saa-card-icon } **[Laboratórios 00, 01 e 02](../labs/index.md)**
 
@@ -83,7 +83,7 @@ O portal traz **Níveis 0, 1 e 2 completos** — Módulo Inicial, Módulo 1, Mó
 
     ---
 
-    Diagnóstica, uma por módulo, a avaliação integradora do Módulo Inicial ao Módulo 2 e a avaliação integradora do Nível 1, com gabaritos comentados.
+    Diagnóstica, uma por módulo, a avaliação integradora do Módulo Inicial ao Módulo 2, a avaliação integradora do Nível 1 e a avaliação intermediária dos Níveis 1 e 2, com gabaritos comentados.
 
 </div>
 

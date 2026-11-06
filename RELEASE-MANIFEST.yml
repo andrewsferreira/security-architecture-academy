@@ -549,12 +549,12 @@ approval:
   approved_by:
   - Andrews Ferreira
   approved_on: '2026-11-05'
-  approved_source_commit: fbed39ed9e9ecd1e545fcce7fc44efe103db056e
+  approved_source_commit: 53187e5aa5fe9d8a675da6d5379d29ad612a1145
 source:
   repository: andrewsferreira/security-architecture-academy-dev
-  commit: 5d60c4cc758d22988d4415c53610776f982a41a2
+  commit: 001f0f726867d9f476138d4b5ab78d3bafc3de6c
   dirty: false
-  approved_source_commit: fbed39ed9e9ecd1e545fcce7fc44efe103db056e
+  approved_source_commit: 53187e5aa5fe9d8a675da6d5379d29ad612a1145
 public_commit: null
 publication:
   published_on: null
@@ -713,7 +713,7 @@ files:
   assets/diagrams/research-traceability.mmd: b066b89243de304f24ff5784dc2bafcd53838909f7cc7153d82cae86c4f84711
   assets/diagrams/risk-management-process.mmd: bdb77e32a16c3b9518457ccf5510bec77c1ee81611a73c98a7bdfc45a94ce3c3
   assets/diagrams/zero-trust-flow.mmd: 216ce2743dc0abaf71bf2801e87fa55dc51d8dfc25a833926fd77c0c7c81cf07
-  curriculum/manifest.yml: 835af90d3224257156447a645ee85565d5f280b2ecd89d06ddfa8dc458a7b382
+  curriculum/manifest.yml: bf9ef2580713f77d1b8901042c803b2df9a8be4623197bb086ea9f1ad4461bfc
   curriculum/public-allowlist.yml: 8c676cb4d708b1b7ed3b2f8ba2a7b7b4d50cc708c7524c6a35e40702221890b0
   docs/about/index.md: b36b799c7f35ee64eef5f57ccfc72ea971787cfd35627574c030ff0792cfc718
   docs/about/licensing.md: 89db619223cde32b4e5f7e959fc1d7ba1c45a5dc938e7ead26512b7370fe27bb
@@ -780,7 +780,7 @@ files:
   docs/curriculum/coverage-matrix.md: 1183e3b492811ef0aca616960b3449f5592498bfffc109dd79c7d690bdf488bf
   docs/curriculum/dependencies.md: b6a6f2e38f8272805ab746a9b4c91d2646a1225a7c4ebd4e7be7ad7d00e564ad
   docs/curriculum/index.md: 729f741beff45ed11667ef4c9d641597cc5f6b87c2c196da5d1763dedb834d31
-  docs/getting-started/index.md: 68c8b2d0d7ecdb73659aab53634cbf10f3d856eba8f9e6549d6d5919cf5d6dd6
+  docs/getting-started/index.md: 784b8b1bcf8ed118a147d19308702d197442c4f1935146e101683bc3fa955d6d
   docs/index.md: 59668fe8d4404721614e720011316d2114702304e0e8e9a7f21d9a808aa8b0af
   docs/labs/index.md: 435883461758e0c358d482139b8803ac3a6241c457d45ac9819cfa153bd3d7c8
   docs/labs/lab-00-network-plan.md: b7acf17de8702cdd5904e6ed9e9ac4302bb8ee5ed0392fed2386ede19691b5ca
@@ -926,7 +926,7 @@ files:
   scripts/create_labels.sh: 8202ff2e4d401387cd9bb99f446564ed2bc9902a873fcff32dd23e9d7db3ecac
   scripts/export_release.py: dc662a0e31d8045556d2e9588ad6f6f52cb2ae8e999d1d5d5209a6bc0ce2fd5c
   scripts/naming.py: 66f4b36a606e16476b3591202de420d11c6f3b373a8a830bf49c515e3b70b2ac
-  scripts/render_curriculum.py: dfd09c6ec5cf67e0b4f9ec06c5d4adc587d47fd2b508a5b40b826d68e98c042e
+  scripts/render_curriculum.py: 3b0387db741cd7a9adf3312ee5db6612c81810d9dd4cdffc5e1ce3f5e63b0ba6
   scripts/smoke_test_site.py: 1ab02c580ce3726a2dca180fba04a6e9db61964f4fdd1dba8411919535cb258f
   scripts/validate_manifest.py: d2b46a8c1781e71c40e90c74e7495ea486a244c381eca8804f2edfa5702fa036
   scripts/validate_references.py: 58cf07624c62361fa98d5ad332f86b9f455a05aad57d3014c556b5faa7aae12c
@@ -945,7 +945,7 @@ files:
   tests/test_navigation.py: 57e2936fb62bb9fe91a455ed676361f01a69ccf845c82bb37af7a433ab2f81e8
   tests/test_professional_lessons.py: 2e843ccda2fabc654adfe481d0e394513a8ab9a47a2ccfee885c97f0c5a1d621
   tests/test_public_links.py: 7431a35817f4b18d715bbe2d78168e79d84412400b16ec5d229e661692d1028e
-  tests/test_publication_contract.py: fbd29eaddb468babeada0fecf80f458ee5a7385443abe0ea54ce81aeacd04ef7
+  tests/test_publication_contract.py: b0e655f706045c529a3650b9288604393bd9ee0309397ec588acf90d668b78d7
   tests/test_references.py: b079fe1dabefeb00d37765d3fedf57f01945e5c2d8c2728348520dff1e8e8024
   tests/test_release.py: 9ca31e8d9b2bdd0690e2accc6c106a4ddef44a07ff30fcf9e3f81cc92f8d44bd
   tests/test_release_isolation.py: 985813e210d3132b0d29e66079a7a85b086e79ce8ff0137f55ffd93f86adfac4

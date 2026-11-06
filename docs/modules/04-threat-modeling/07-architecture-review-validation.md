@@ -252,6 +252,8 @@ Em cloud, muitas validações podem ser automatizadas: testes de política, varr
 
     - [Avaliação integradora do Nível 1](../../assessments/level-1-integrative.md)
 
+    Em seguida: [Módulo 5 — Network Security Architecture](../../modules/05-network-security/index.md).
+
 <!-- next-steps:end -->
 
 ## Referências

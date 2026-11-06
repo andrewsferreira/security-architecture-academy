@@ -1,6 +1,6 @@
 ---
 title: Modelos de artefatos
-description: Modelos editáveis de artefatos de arquitetura de segurança — ADR, especificação de requisitos, checklist de revisão e os demais previstos no currículo — com exemplos preenchidos.
+description: Modelos editáveis de artefatos de arquitetura de segurança — ADR, especificação de requisitos, checklist de revisão, avaliação de arquitetura, threat model, matriz de controles, risk register e os demais previstos no currículo — com exemplos preenchidos.
 ---
 
 # Modelos de artefatos
@@ -16,10 +16,10 @@ Modelos editáveis para os artefatos que um arquiteto de segurança produz. Cada
 | [Architecture Decision Record](architecture-decision-record.md) | Registrar uma decisão arquitetural significativa | [ADRs do Caso A](../case-studies/case-a-meridiana/adr-001-remote-access.md) | <span class="saa-status saa-status--published">Published</span> |
 | [Security Requirements Specification](security-requirements-specification.md) | Especificar requisitos de segurança de uma solução | [Solução do Caso A](../case-studies/case-a-meridiana/solution.md#requisitos-de-seguranca) | <span class="saa-status saa-status--published">Published</span> |
 | [Architecture Review Checklist](architecture-review-checklist.md) | Revisar uma arquitetura antes da aprovação | [Avaliação do As-Is do Caso A](../case-studies/case-a-meridiana/solution.md#analise-do-as-is) | <span class="saa-status saa-status--published">Published</span> |
-| Security Architecture Assessment | Avaliar a arquitetura de uma organização ou sistema | — | <span class="saa-status saa-status--planned">Planned</span> |
-| Threat Model | Documentar ameaças, mitigações e riscos de um sistema | — | <span class="saa-status saa-status--planned">Planned</span> |
-| Security Control Matrix | Mapear controles a requisitos, riscos e frameworks | — | <span class="saa-status saa-status--planned">Planned</span> |
-| Risk Register | Registrar riscos, tratamento e donos | — | <span class="saa-status saa-status--planned">Planned</span> |
+| [Security Architecture Assessment](security-architecture-assessment.md) | Avaliar a arquitetura de segurança de uma organização ou ambiente | [Meridiana — avaliação parcial](security-architecture-assessment.md#exemplo-preenchido) | <span class="saa-status saa-status--published">Published</span> |
+| [Threat Model](threat-model.md) | Documentar ameaças, mitigações e riscos de um sistema | [Integração de laudos da Lumen](threat-model.md#exemplo-preenchido) | <span class="saa-status saa-status--published">Published</span> |
+| [Security Control Matrix](security-control-matrix.md) | Mapear controles a requisitos, riscos e frameworks | [Meridiana — RSK-007](security-control-matrix.md#exemplo-preenchido) | <span class="saa-status saa-status--published">Published</span> |
+| [Risk Register](risk-register.md) | Registrar riscos, tratamento e donos | [Meridiana — RSK-007](risk-register.md#exemplo-preenchido) | <span class="saa-status saa-status--published">Published</span> |
 | Hybrid Security Architecture Blueprint | Descrever o contrato de segurança entre ambientes | — | <span class="saa-status saa-status--planned">Planned</span> |
 | Security Maturity Assessment | Avaliar maturidade de capacidades de segurança | — | <span class="saa-status saa-status--planned">Planned</span> |
 | Vulnerability Management Program | Estruturar um programa corporativo de VM | — | <span class="saa-status saa-status--planned">Planned</span> |

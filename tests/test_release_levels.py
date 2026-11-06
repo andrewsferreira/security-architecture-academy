@@ -55,7 +55,12 @@ def test_r2_completes_levels_0_and_1(manifest):
 def test_future_releases_publish_one_level_each(manifest, rid, stage):
     rel = next(r for r in manifest["releases"] if r["id"] == rid)
     assert set(rel["modules"]) == stage_modules(manifest, stage)
-    assert rel["status"] in {"planned", "in-development"}
+    if rel["status"] in {"approved", "published"}:
+        # Release já aprovada pelo mantenedor (árvore final): os campos de aprovação existem.
+        assert rel.get("approved_by") and rel.get("approved_on") and rel.get("approved_source_commit")
+        return
+    # "in-review" = candidata em revisão do mantenedor; ainda não aprovada nem publicada.
+    assert rel["status"] in {"planned", "in-development", "in-review"}
     assert not rel.get("approved_by") and not rel.get("published_on") and not rel.get("public_commit")
 
 
@@ -84,10 +89,11 @@ def test_version_must_grow_with_releases(manifest, tmp_path):
 
 def test_future_release_cannot_be_marked_published(manifest, tmp_path):
     data = copy.deepcopy(manifest)
-    data["releases"][2].update(status="published", published_on=None, url=None)
+    future = next(r for r in data["releases"] if r["status"] not in {"approved", "published"})
+    future.update(status="published", published_on=None, url=None)
     errs = release_errors(data, tmp_path)
-    assert any("R3" in e and "approved_by" in e for e in errs)
-    assert any("R3" in e and "não está 'published'" in e for e in errs)
+    assert any(future["id"] in e and "approved_by" in e for e in errs)
+    assert any(future["id"] in e and "não está 'published'" in e for e in errs)
 
 
 def test_r2_export_scope_excludes_levels_2_to_5(manifest):
@@ -104,9 +110,13 @@ def test_availability_follows_published_scope(manifest):
     import render_curriculum as rc
 
     data = copy.deepcopy(manifest)
-    for mod in data["modules"]:
-        if mod["id"] in {"M03", "M04"}:
+    order = [m["id"] for m in data["modules"]]
+    for mod in data["modules"]:  # estado da R2: só M00–M02 publicados antes; níveis 2 em diante fora
+        if order.index(mod["id"]) >= order.index("M03") and mod["status"] == "published":
             mod["status"] = "in-review"
+    for exam in data["assessments"]:
+        if exam["id"] not in {"AS-DIAG", "AS-M00", "AS-M01", "AS-M02", "AS-FUND"} and exam["status"] == "published":
+            exam["status"] = "in-review"
     before = rc.render_available(data)
     assert "03-governance-risk" not in before and "Nível 1 completo" not in before
     for mod in data["modules"]:
@@ -125,3 +135,16 @@ def test_availability_follows_published_scope(manifest):
     assert "Nível 0 e Nível 1 completos" in study and "37 aulas" in study and "22 aulas" not in study
     table = rc.render_release_table(data)
     assert "| **2 — Fundamentals: conclusão do Nível 1** | Nível 1 | Módulos 3 e 4 | Disponível" in table
+
+
+def test_availability_with_three_complete_levels_reads_naturally(manifest):
+    """Com a R3 publicada, o texto gerado diz "Níveis 0, 1 e 2 completos" (não "Nível 0 e Nível 1 e Nível 2")."""
+    import render_curriculum as rc
+
+    data = copy.deepcopy(manifest)
+    scope = ex.cumulative_scope(data, "R3")
+    for mod in data["modules"]:
+        mod["status"] = "published" if mod["id"] in scope["modules"] else ("planned" if mod["status"] == "published" else mod["status"])
+    text = rc.render_available(data)
+    assert "Níveis 0, 1 e 2 completos" in text and "Nível 0 e Nível 1 e Nível 2" not in text
+    assert "67 aulas" in rc.render_study_availability(data)

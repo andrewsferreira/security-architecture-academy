@@ -1,0 +1,23 @@
+flowchart LR
+  accTitle: Arquitetura de backup resiliente a ransomware
+  accDescr: Os sistemas de produção são copiados pelo servidor de backup, que usa identidade e credenciais próprias, fora do domínio corporativo, e é administrado apenas a partir da zona de gestão com autenticação resistente a phishing. As cópias vão para um repositório imutável, que impede exclusão e alteração durante o período de retenção, e uma cópia adicional segue para um local isolado ou offline. A restauração é testada periodicamente em um ambiente isolado de recuperação, onde se verifica a integridade e a ausência de malware antes de devolver os sistemas à produção. Imagens de referência e infraestrutura como código permitem reconstruir servidores rapidamente.
+
+  PROD["Produção<br/><small>servidores, bancos, arquivos</small>"]
+  BKS["Servidor de backup<br/><small>identidade própria,<br/>fora do domínio</small>"]
+  IMM[("Repositório imutável<br/><small>retenção bloqueada</small>")]
+  OFF[("Cópia isolada ou offline")]
+  CR["Ambiente isolado de recuperação<br/><small>teste de integridade<br/>e de malware</small>"]
+  GI["Imagens de referência e<br/>infraestrutura como código"]
+  MGMT["Zona de gestão<br/><small>MFA resistente a phishing</small>"]
+
+  PROD --> BKS --> IMM
+  BKS --> OFF
+  IMM -- "teste de restauração" --> CR
+  GI -- "reconstrução" --> CR
+  CR -- "validado" --> PROD
+  MGMT -. "administração" .-> BKS
+
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef identity stroke:#2f74e8,stroke-width:2px
+  class IMM,OFF,CR control
+  class BKS,MGMT identity

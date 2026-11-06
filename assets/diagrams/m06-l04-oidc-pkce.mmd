@@ -1,0 +1,20 @@
+sequenceDiagram
+  accTitle: Fluxo Authorization Code com PKCE e OpenID Connect
+  accDescr: O usuário acessa a aplicação, que gera um verificador secreto e envia ao navegador um redirecionamento para o servidor de autorização com o desafio derivado desse verificador, o escopo openid e o endereço de retorno registrado. O usuário autentica-se no servidor de autorização, que devolve ao navegador um código de autorização pelo endereço de retorno exato. A aplicação troca o código e o verificador original no endpoint de token, por um canal direto. O servidor confere que o verificador corresponde ao desafio e devolve um ID Token, que a aplicação valida quanto a emissor, audiência e expiração, e um access token restrito à API. A aplicação chama a API com o access token, e a API valida a audiência e o escopo.
+
+  participant U as Usuário (navegador)
+  participant A as Aplicação (cliente)
+  participant AS as Servidor de autorização (IdP)
+  participant API as API (servidor de recurso)
+
+  U->>A: Acessa a aplicação
+  A->>A: Gera code_verifier e code_challenge
+  A-->>U: Redireciona: response_type=code, scope=openid, code_challenge, redirect_uri registrado
+  U->>AS: Autenticação (MFA conforme política)
+  AS-->>U: Redireciona ao redirect_uri exato com o código
+  U->>A: Entrega o código
+  A->>AS: Troca código + code_verifier (canal direto)
+  AS-->>A: ID Token (iss, sub, aud, exp, iat) + access token com audiência da API
+  A->>A: Valida o ID Token
+  A->>API: Chamada com o access token
+  API-->>A: Resposta após validar audiência e escopo

@@ -1,0 +1,30 @@
+flowchart TB
+  accTitle: Tráfego north-south e east-west
+  accDescr: O tráfego north-south entra ou sai do datacenter ou da nuvem pela borda, onde estão os controles tradicionais de perímetro. O tráfego east-west circula entre workloads dentro do ambiente: entre servidores web, de aplicação e de banco, e entre hosts de virtualização. Sem controles internos, um atacante que comprometa um servidor web pode alcançar qualquer outro workload sem passar pela borda. Os controles east-west incluem firewall interno entre zonas, microsegmentação com política por workload e telemetria de fluxos para detectar movimento lateral.
+
+  NET(["Internet e filiais"])
+  EDGE{{"Controles de borda<br/><small>NGFW · WAF · IPS</small>"}}
+  NET -- "north-south" --> EDGE
+
+  subgraph DCZ["Datacenter ou nuvem"]
+    W1["Web 1"]
+    W2["Web 2"]
+    AP["Aplicação"]
+    DB[("Banco")]
+    MS["Microsegmentação<br/><small>política por workload</small>"]
+    TEL["Telemetria de fluxos<br/><small>detecção de movimento lateral</small>"]
+    W1 <-- "east-west" --> W2
+    W1 -- "east-west" --> AP
+    AP -- "east-west" --> DB
+    MS -. "aplica" .-> W1 & AP & DB
+    TEL -. "observa" .-> AP
+  end
+
+  EDGE --> W1
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef untrusted stroke:#dc2626,stroke-width:2px,stroke-dasharray:5 3
+  class DCZ zone
+  class EDGE,MS,TEL control
+  class NET untrusted

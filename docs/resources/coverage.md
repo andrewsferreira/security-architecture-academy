@@ -5,42 +5,35 @@ description: Relatório de cobertura bibliográfica por módulo — fontes verif
 
 # Cobertura bibliográfica
 
-Relatório gerado por `scripts/validate_references.py`. Cobertura mede **fundamentação disponível**, não qualidade do conteúdo: módulos planejados podem ter boa cobertura antes de existir qualquer aula.
+Relatório gerado por `scripts/validate_references.py`. Cobertura mede **fundamentação disponível**, não qualidade do conteúdo. Só entram os módulos com conteúdo; os planejados aparecem apenas na nota ao fim da tabela, sem estatísticas.
 
 <!-- coverage:start -->
 
-**189 referências** · 166 capítulos ou seções localizados, 93 efetivamente lidos · 77 conceitos no mapa de conhecimento.
+**193 referências** (119 ligadas aos módulos deste relatório) · 167 capítulos ou seções localizados, 94 efetivamente lidos · 107 conceitos no mapa de conhecimento.
 
 | Verificação | Qtde. |
 |:---|---:|
-| Verificada | 172 |
-| Parcialmente verificada | 11 |
+| Verificada | 176 |
+| Parcialmente verificada | 12 |
 | Indisponível | 2 |
-| Pendente | 4 |
+| Pendente | 3 |
 
 **Critério de cobertura:** *Boa* — pelo menos 3 fontes verificadas, leitura essencial, 3 conceitos mapeados e algum trecho efetivamente lido · *Localizada* — fontes e conceitos existem, mas os trechos foram só localizados ou são poucos · *Parcial* — menos de 3 fontes verificadas, sem leitura essencial ou sem conceitos mapeados · *Sem fontes*.
 
 | Módulo | Status | Fontes verificadas | Leitura essencial | Capítulos localizados (lidos) | Conceitos mapeados | Cobertura |
 |:---|:---|---:|:---|---:|---:|:---|
-| M00 — Fundamentos de Infraestrutura e Computação | published | 12 | `BOOK-ANDERSON-SE3`, `NIST-SP800-215`, `NIST-SP800-145` | 4 (3) | 9 | Boa |
-| M01 — Fundamentos de Segurança | published | 17 | `BOOK-ANDERSON-SE3`, `NIST-SP800-160-V1R1`, `NIST-SP800-30-R1`, `NIST-SP800-57-PT1-R5`, `BOOK-GOOGLE-BSRS` | 21 (14) | 21 | Boa |
-| M02 — Introdução à Arquitetura de Segurança | published | 29 | `BOOK-ANDERSON-SE3`, `NIST-SP800-160-V1R1`, `SABSA-W101`, `SABSA-W105`, `NIST-SP800-207`, `NIST-CSF-2`, `BOOK-GOOGLE-BSRS` | 20 (9) | 20 | Boa |
-| M03 — Governança, Riscos e Controles | published | 29 | `BOOK-ANDERSON-SE3`, `NIST-CSF-2`, `NIST-SP800-30-R1`, `NIST-SP800-37-R2`, `LGPD-L13709`, `BOOK-GOOGLE-BSRS` | 28 (24) | 24 | Boa |
-| M04 — Métodos de Design e Threat Modeling | published | 13 | `BOOK-ANDERSON-SE3`, `NIST-SP800-160-V1R1`, `SCHNEIER-ATTACK-TREES-1999`, `TM-MANIFESTO`, `BOOK-GOOGLE-BSRS` | 11 (5) | 14 | Boa |
-| M05 — Network Security Architecture | planned | 15 | `BOOK-ANDERSON-SE3`, `NIST-SP800-207`, `NIST-SP800-215`, `BOOK-GOOGLE-BSRS` | 19 (16) | 4 | Boa |
-| M06 — Identity & Access Management | planned | 24 | `BOOK-ANDERSON-SE3`, `NIST-SP800-207`, `NIST-SP800-63-4`, `RFC-9700`, `BOOK-GOOGLE-BSRS` | 11 (9) | 5 | Boa |
-| M07 — Zero Trust Architecture | planned | 12 | `NIST-SP800-207`, `NIST-SP800-215`, `NIST-SP800-63-4`, `BOOK-GOOGLE-BSRS` | 14 (10) | 7 | Boa |
-| M08 — On-Premises e Sistemas Legados | planned | 18 | `BOOK-ANDERSON-SE3`, `CISA-STOPRANSOMWARE-GUIDE` | 3 (3) | 3 | Boa |
-| M09 — AWS Security Architecture | planned | 41 | `AWS-SECURITY-PILLAR`, `AWS-SHARED-RESPONSIBILITY`, `NIST-SP800-145`, `AWS-IAM-BEST-PRACTICES` | 9 (9) | 6 | Boa |
-| M10 — Azure e Google Cloud | planned | 33 | `NIST-SP800-215`, `AZURE-LANDING-ZONE`, `AZURE-WAF-SECURITY`, `GCP-ENTERPRISE-FOUNDATIONS`, `GCP-RESOURCE-HIERARCHY`, `NIST-SP800-145`, `GCP-IAM-OVERVIEW` | 0 (0) | 5 | Localizada |
-| M11 — Hybrid & Multicloud Security Architecture | planned | 61 | `NIST-SP800-207`, `AWS-SECURITY-PILLAR`, `AWS-SHARED-RESPONSIBILITY`, `AZURE-WAF-SECURITY`, `GCP-ENTERPRISE-FOUNDATIONS`, `NIST-SP800-145` | 3 (2) | 8 | Boa |
-| M12 — Application Security Architecture | planned | 13 | `BOOK-ANDERSON-SE3`, `RFC-9700`, `TM-MANIFESTO`, `BOOK-GOOGLE-BSRS` | 8 (4) | 10 | Boa |
-| M13 — Data Security Architecture | planned | 18 | `BOOK-ANDERSON-SE3`, `LGPD-L13709`, `NIST-SP800-57-PT1-R5` | 8 (7) | 7 | Boa |
-| M14 — Vulnerability & Exposure Management Architecture | planned | 10 | `BOOK-ANDERSON-SE3`, `NIST-SP800-30-R1`, `BOOK-GOOGLE-BSRS` | 6 (5) | 6 | Boa |
-| M15 — Security Operations & Resilience Architecture | planned | 19 | `BOOK-ANDERSON-SE3`, `BOOK-GOOGLE-BSRS`, `CISA-STOPRANSOMWARE-GUIDE` | 11 (3) | 5 | Boa |
-| M16 — Enterprise Security Architecture | planned | 31 | `BOOK-ANDERSON-SE3`, `NIST-SP800-160-V1R1`, `SABSA-W101`, `SABSA-W105`, `NIST-SP800-207`, `AWS-SECURITY-PILLAR`, `AZURE-WAF-SECURITY`, `GCP-ENTERPRISE-FOUNDATIONS`, `NIST-CSF-2`, `NIST-SP800-37-R2`, `LGPD-L13709`, `BOOK-GOOGLE-BSRS` | 13 (7) | 15 | Boa |
-| M17 — Estudos de Caso e Projeto Final | planned | 2 | `NIST-SP800-160-V1R1`, `NIST-SP800-63-4` | 0 (0) | 0 | Parcial |
+| M00 — Fundamentos de Infraestrutura e Computação | published | 21 | `BOOK-ANDERSON-SE3`, `NIST-SP800-160-V1R1`, `NIST-SP800-207`, `NIST-SP800-215`, `AWS-SECURITY-PILLAR`, `AZURE-WAF-SECURITY`, `GCP-ENTERPRISE-FOUNDATIONS`, `NIST-SP800-145`, `BOOK-GOOGLE-BSRS` | 4 (3) | 9 | Boa |
+| M01 — Fundamentos de Segurança | published | 22 | `BOOK-ANDERSON-SE3`, `NIST-SP800-160-V1R1`, `NIST-SP800-207`, `AWS-SECURITY-PILLAR`, `NIST-SP800-145`, `NIST-CSF-2`, `NIST-SP800-30-R1`, `NIST-SP800-57-PT1-R5`, `BOOK-GOOGLE-BSRS` | 21 (14) | 22 | Boa |
+| M02 — Introdução à Arquitetura de Segurança | published | 32 | `BOOK-ANDERSON-SE3`, `NIST-SP800-160-V1R1`, `SABSA-W101`, `SABSA-W105`, `NIST-SP800-207`, `GCP-ENTERPRISE-FOUNDATIONS`, `NIST-CSF-2`, `BOOK-GOOGLE-BSRS` | 20 (9) | 20 | Boa |
+| M03 — Governança, Riscos e Controles | published | 32 | `BOOK-ANDERSON-SE3`, `NIST-CSF-2`, `NIST-SP800-30-R1`, `NIST-SP800-37-R2`, `LGPD-L13709`, `BOOK-GOOGLE-BSRS` | 28 (24) | 24 | Boa |
+| M04 — Métodos de Design e Threat Modeling | published | 22 | `BOOK-ANDERSON-SE3`, `NIST-SP800-160-V1R1`, `NIST-CSF-2`, `NIST-SP800-30-R1`, `NIST-SP800-37-R2`, `SCHNEIER-ATTACK-TREES-1999`, `TM-MANIFESTO`, `BOOK-GOOGLE-BSRS` | 11 (5) | 14 | Boa |
+| M05 — Network Security Architecture | published | 23 | `BOOK-ANDERSON-SE3`, `NIST-SP800-207`, `NIST-SP800-215`, `NIST-SP800-63-4`, `BOOK-GOOGLE-BSRS` | 20 (17) | 14 | Boa |
+| M06 — Identity & Access Management | published | 34 | `BOOK-ANDERSON-SE3`, `NIST-SP800-207`, `GCP-ENTERPRISE-FOUNDATIONS`, `NIST-SP800-63-4`, `RFC-9700`, `LGPD-L13709`, `BOOK-GOOGLE-BSRS` | 11 (9) | 17 | Boa |
+| M07 — Zero Trust Architecture | published | 22 | `NIST-SP800-207`, `NIST-SP800-215`, `NIST-CSF-2`, `NIST-SP800-63-4`, `RFC-9700`, `BOOK-GOOGLE-BSRS` | 14 (10) | 22 | Boa |
+| M08 — On-Premises e Sistemas Legados | published | 33 | `BOOK-ANDERSON-SE3`, `NIST-SP800-207`, `CISA-STOPRANSOMWARE-GUIDE` | 3 (3) | 14 | Boa |
 
-**Lacunas:** M17 (parcial)
+Módulos planejados (M09, M10, M11, M12, M13, M14, M15, M16, M17) não entram no relatório.
+
+**Lacunas:** nenhuma.
 
 <!-- coverage:end -->

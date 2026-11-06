@@ -1,0 +1,30 @@
+flowchart LR
+  accTitle: Proteção de workloads com políticas de identidade e de rede
+  accDescr: Em uma aplicação cloud-native distribuída entre nuvem e datacenter, cada serviço recebe uma identidade de workload emitida pela infraestrutura. As chamadas entre serviços passam por proxies que estabelecem TLS mútuo com essas identidades e aplicam políticas de nível de identidade, como o serviço de pedidos poder chamar o serviço de pagamentos apenas no método de autorização, e políticas de nível de rede, como segmentos permitidos. Um gateway de entrada aplica a política para usuários. A telemetria das chamadas alimenta a monitoração e o ajuste das políticas.
+
+  USR(["Usuários"])
+  ING{{"Gateway de entrada<br/><small>autenticação do usuário</small>"}}
+  subgraph CLD["Nuvem"]
+    PED["svc-pedidos<br/><small>identidade de workload</small>"]
+    PAG["svc-pagamentos<br/><small>identidade de workload</small>"]
+  end
+  subgraph DC["Datacenter"]
+    EST["svc-estoque<br/><small>identidade de workload</small>"]
+  end
+  POL["Políticas<br/><small>nível de identidade + nível de rede</small>"]
+  ISS["Emissão de identidade<br/>de serviço"]
+  TEL["Telemetria de chamadas"]
+
+  USR --> ING --> PED
+  PED -- "mTLS · POST /autorizar" --> PAG
+  PED -- "mTLS · GET /saldo" --> EST
+  ISS -. "certificados de curta duração" .-> PED & PAG & EST
+  POL -. "aplicadas pelos proxies" .-> PED & PAG & EST
+  PED & PAG & EST -. "eventos" .-> TEL
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef identity stroke:#2f74e8,stroke-width:2px
+  class CLD,DC zone
+  class ING,POL control
+  class ISS identity

@@ -1,0 +1,29 @@
+flowchart LR
+  accTitle: Três padrões de acesso remoto — VPN, ZTNA e bastion
+  accDescr: No padrão VPN, o dispositivo remoto estabelece um túnel com o concentrador no perímetro e recebe acesso de rede a um segmento interno, onde alcança várias aplicações; o tráfego para serviços em nuvem frequentemente volta pela sede. No padrão ZTNA, o cliente consulta um controlador que avalia identidade, dispositivo e contexto e autoriza conexões a aplicações específicas por um gateway; a rede interna permanece invisível. No padrão bastion ou acesso privilegiado, administradores se autenticam com MFA, a sessão é aprovada, intermediada e gravada, e só então alcança o servidor administrado.
+
+  subgraph VPNP["VPN — acesso de rede"]
+    D1(["Dispositivo"]) -- "túnel" --> VC["Concentrador VPN"]
+    VC --> SEGI["Segmento interno<br/><small>várias aplicações alcançáveis</small>"]
+  end
+
+  subgraph ZTNAP["ZTNA — acesso por aplicação"]
+    D2(["Dispositivo"]) -- "1 · pedido" --> CTRL["Controlador<br/><small>PDP: identidade, postura, contexto</small>"]
+    CTRL -- "2 · autoriza" --> GWZ["Gateway<br/><small>PEP</small>"]
+    D2 -- "3 · sessão para app específica" --> GWZ
+    GWZ --> APPX["Aplicação X"]
+  end
+
+  subgraph BASP["Bastion / acesso privilegiado"]
+    ADM(["Administrador"]) -- "MFA" --> BAS["Bastion / PAM<br/><small>aprovação · gravação</small>"]
+    BAS -- "sessão intermediada" --> SRVA["Servidor administrado"]
+  end
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef identity stroke:#2f74e8,stroke-width:2px
+  classDef untrusted stroke:#dc2626,stroke-width:2px,stroke-dasharray:5 3
+  class VPNP,ZTNAP,BASP zone
+  class CTRL identity
+  class GWZ,BAS control
+  class SEGI untrusted

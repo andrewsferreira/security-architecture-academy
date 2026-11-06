@@ -57,20 +57,26 @@ flowchart TB
   M01 --> M02
   M02 --> M03
   M02 --> M04
+  M03 --> M04
   M00 --> M05
   M02 --> M05
+  M04 --> M05
   M01 --> M06
   M02 --> M06
   M05 --> M07
   M06 --> M07
   M05 --> M08
   M06 --> M08
+  M07 --> M08
   M05 --> M09
   M06 --> M09
   M05 --> M10
   M06 --> M10
+  M09 --> M10
   M06 --> M11
   M07 --> M11
+  M08 --> M11
+  M10 --> M11
   M04 --> M12
   M06 --> M12
   M01 --> M13
@@ -87,7 +93,7 @@ flowchart TB
   classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
   classDef active stroke:#0e9fb8,stroke-width:3px
   class N0,N1,N2,N3,N4,N5 zone
-  class M00,M01,M02,M03,M04 active
+  class M00,M01,M02,M03,M04,M05,M06,M07,M08 active
 ```
 
 <!-- dependencies:end -->
@@ -104,6 +110,7 @@ flowchart TB
 |:---|:---|:---|
 | Módulo 2 Introdução à Arquitetura | Módulo Inicial e Módulo 1 | Ler diagramas e conhecer princípios de segurança é condição para discutir arquitetura. |
 | Módulo 3 — Governança, Riscos e Controles | Módulo 2 | Seleção de controles e arquitetura baseada em risco pressupõem o vocabulário de princípios, padrões e requisitos. |
+| Módulo 4 — Métodos de Design e Threat Modeling | Módulos 2 e 3 | A análise de dependências parte dos processos críticos da BIA, e as ameaças viram cenários do risk register do Módulo 3. |
 | Módulo 7 Zero Trust | Módulos 5 e 6 | Zero Trust combina decisões de identidade com pontos de aplicação na rede e nos workloads. |
 | Módulo 11 Hybrid & Multicloud | Módulos 6 e 7 | A integração híbrida depende de identidade federada e de decisões de acesso independentes de localização. |
 | Módulo 16 — Enterprise Security Architecture | Módulos 3 e 11 | Governança corporativa entre empresas exige gestão de riscos e domínio de ambientes heterogêneos. |

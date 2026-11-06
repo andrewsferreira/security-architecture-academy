@@ -1,0 +1,28 @@
+flowchart LR
+  accTitle: Controles compensatórios para um sistema sem suporte
+  accDescr: O sistema sem suporte fica em um segmento isolado. Usuários só o alcançam por um serviço intermediário, como uma aplicação publicada ou um proxy com autenticação forte; administradores só pelo bastion com gravação. O firewall do segmento permite apenas os fluxos documentados e bloqueia a saída para a internet. Um sistema de prevenção de intrusão aplica proteção virtual contra vulnerabilidades conhecidas, uma lista de aplicações permitidas impede a execução de software não autorizado e a monitoração envia eventos ao SIEM. Tudo está registrado como exceção com dono e data de substituição.
+
+  USR(["Usuários"])
+  ADM(["Administradores"])
+  PRX["Serviço intermediário<br/><small>aplicação publicada ou proxy<br/>com autenticação forte</small>"]
+  BAS["Bastion<br/><small>gravação de sessão</small>"]
+  subgraph ISO["Segmento isolado"]
+    FW{{"Firewall do segmento<br/><small>fluxos documentados;<br/>sem saída à internet</small>"}}
+    IPS["IPS<br/><small>proteção virtual</small>"]
+    LEG["Sistema sem suporte<br/><small>lista de aplicações permitidas</small>"]
+    FW --> IPS --> LEG
+  end
+  SIEM["SIEM"]
+  EXC["Exceção registrada<br/><small>dono · data de substituição</small>"]
+
+  USR --> PRX --> FW
+  ADM --> BAS --> FW
+  LEG -. "eventos" .-> SIEM
+  EXC -.-> ISO
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef untrusted stroke:#dc2626,stroke-width:2px,stroke-dasharray:5 3
+  class ISO zone
+  class FW,IPS,PRX,BAS control
+  class LEG untrusted

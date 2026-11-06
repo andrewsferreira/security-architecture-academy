@@ -1,0 +1,16 @@
+flowchart LR
+  accTitle: Mapa do Módulo 5
+  accDescr: O módulo começa por zonas de confiança, segmentação e microsegmentação. Em seguida trata dos controles de perímetro e inspeção e da diferença entre tráfego north-south e east-west. Depois aborda acesso remoto, a convergência de rede e segurança em SD-WAN, SASE e SSE, e o controle de acesso à rede local. A última aula reúne tudo no desenho de uma rede corporativa segura.
+
+  L01["Aula 01 · Zonas, segmentação<br/>e microsegmentação"] --> L02["Aula 02 · Perímetro e inspeção"]
+  L01 --> L03["Aula 03 · North-South<br/>e East-West"]
+  L02 --> L03
+  L02 --> L04["Aula 04 · Acesso remoto:<br/>VPN, ZTNA, bastion"]
+  L04 --> L05["Aula 05 · SD-WAN,<br/>SASE e SSE"]
+  L01 --> L06["Aula 06 · Network<br/>Access Control"]
+  L05 --> L07["Aula 07 · Desenho de uma<br/>rede corporativa segura"]
+  L06 --> L07
+  L07 --> M07(["Módulo 7 — Zero Trust Architecture"])
+
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  class M07 control

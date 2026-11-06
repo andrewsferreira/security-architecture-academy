@@ -1,0 +1,24 @@
+flowchart TB
+  accTitle: CISA Zero Trust Maturity Model 2.0 — pilares, capacidades transversais e estágios
+  accDescr: O modelo tem cinco pilares, Identity, Devices, Networks, Applications and Workloads e Data, sustentados por três capacidades transversais, Visibility and Analytics, Automation and Orchestration e Governance. Cada pilar evolui por quatro estágios, Traditional, Initial, Advanced e Optimal, de forma independente, de modo que uma organização pode estar em estágios diferentes em pilares diferentes.
+
+  subgraph PIL["Pilares"]
+    direction LR
+    P1["Identity"] ~~~ P2["Devices"] ~~~ P3["Networks"] ~~~ P4["Applications<br/>and Workloads"] ~~~ P5["Data"]
+  end
+  subgraph CC["Capacidades transversais"]
+    direction LR
+    C1["Visibility and Analytics"] ~~~ C2["Automation and Orchestration"] ~~~ C3["Governance"]
+  end
+  subgraph ST["Estágios — por pilar"]
+    direction LR
+    S1["Traditional"] --> S2["Initial"] --> S3["Advanced"] --> S4["Optimal"]
+  end
+
+  CC -- "sustentam" --> PIL
+  PIL -- "cada pilar evolui" --> ST
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  class PIL,CC,ST zone
+  class S4 control

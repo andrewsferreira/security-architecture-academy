@@ -27,12 +27,12 @@ Página do autor conferida: capítulos publicados por partes de abril de 2019 a 
 | Cap. 2 | Who Is the Opponent? | — | M01, M04 | Sumário |
 | Cap. 3 | Psychology and Usability | — | — | Sumário |
 | Cap. 4 | Protocols | — | M01, M06 | Sumário |
-| Cap. 5 | Cryptography | — | M01, M13 | Sumário |
+| Cap. 5 | Cryptography | — | M01 | Sumário |
 | Cap. 6 | Access Control | 207–240 (impressa) | M01, M06, M08 | **Lido** |
 | Cap. 7 | Distributed Systems | — | M00, M05 | Sumário |
-| Cap. 8 | Economics | 275– (impressa) | M02, M03, M14 | **Lido** |
+| Cap. 8 | Economics | 275– (impressa) | M02, M03 | **Lido** |
 | Cap. 9 | Multilevel Security | 315–339 (impressa) | M01 | **Lido** |
-| Cap. 10 | Boundaries | 341– (impressa) | M01, M05, M13 | **Lido** |
+| Cap. 10 | Boundaries | 341– (impressa) | M01, M05 | **Lido** |
 | Cap. 11 | Inference Control | — | — | Sumário |
 | Cap. 12 | Banking and Bookkeeping | 405– (impressa) | M01, M06 | **Lido** |
 | Cap. 13 | Physical Protection | — | — | Sumário |
@@ -43,14 +43,14 @@ Página do autor conferida: capítulos publicados por partes de abril de 2019 a 
 | Cap. 18 | Physical Tamper Resistance | — | — | Sumário |
 | Cap. 19 | Side Channels | — | — | Sumário |
 | Cap. 20 | Advanced Cryptographic Engineering | — | — | Sumário |
-| Cap. 21 | Network Attack and Defence | — | M05, M15 | Sumário |
+| Cap. 21 | Network Attack and Defence | — | M05 | Sumário |
 | Cap. 22 | Phones | — | — | Sumário |
 | Cap. 23 | Electronic and Information Warfare | — | — | Sumário |
 | Cap. 24 | Copyright and DRM | — | — | Sumário |
 | Cap. 25 | Taking Stock | — | — | Sumário |
 | Cap. 26 | Surveillance or Privacy? | — | — | Sumário |
-| Cap. 27 | Secure Systems Development | 965– (impressa) | M02, M04, M12, M14 | **Lido** |
-| Cap. 28 | Assurance and Sustainability | 1015– (impressa) | M03, M14, M16 | **Lido** |
+| Cap. 27 | Secure Systems Development | 965– (impressa) | M02, M04 | **Lido** |
+| Cap. 28 | Assurance and Sustainability | 1015– (impressa) | M03 | **Lido** |
 | Cap. 29 | Beyond 'Computer Says No' | — | — | Sumário |
 
 ## Building Secure and Reliable Systems: Best Practices for Designing, Implementing, and Maintaining Systems
@@ -69,31 +69,31 @@ Leitura online gratuita confirmada no catálogo sre.google/books (link para a ve
 | Capítulo | Título | Páginas | Módulos | Situação |
 |:---|:---|:---|:---|:---|
 | Parte I | Introductory Material | — | — | Sumário |
-| Cap. 1 | The Intersection of Security and Reliability | — | M01, M15 | Sumário |
+| Cap. 1 | The Intersection of Security and Reliability | — | M01 | Sumário |
 | Cap. 2 | Understanding Adversaries | — | M01, M04 | **Lido** |
 | Parte II | Designing Systems | — | — | Sumário |
 | Cap. 3 | Case Study: Safe Proxies | — | — | Sumário |
 | Cap. 4 | Design Tradeoffs | — | M02, M04 | Sumário |
 | Cap. 5 | Design for Least Privilege | — | M06, M07 | Sumário |
-| Cap. 6 | Design for Understandability | — | M02, M12 | Sumário |
-| Cap. 7 | Design for a Changing Landscape | — | M14, M16 | Sumário |
-| Cap. 8 | Design for Resilience | — | M04, M05, M15 | **Lido** |
-| Cap. 9 | Design for Recovery | — | M15 | Sumário |
-| Cap. 10 | Mitigating Denial-of-Service Attacks | — | M05, M15 | Sumário |
+| Cap. 6 | Design for Understandability | — | M02 | Sumário |
+| Cap. 7 | Design for a Changing Landscape | — | — | Sumário |
+| Cap. 8 | Design for Resilience | — | M04, M05 | **Lido** |
+| Cap. 9 | Design for Recovery | — | — | Sumário |
+| Cap. 10 | Mitigating Denial-of-Service Attacks | — | M05 | Sumário |
 | Parte III | Implementing Systems | — | — | Sumário |
 | Cap. 11 | Case Study: Designing, Implementing, and Maintaining a Publicly Trusted CA | — | — | Sumário |
-| Cap. 12 | Writing Code | — | M12 | Sumário |
-| Cap. 13 | Testing Code | — | M12 | Sumário |
-| Cap. 14 | Deploying Code | — | M12 | Sumário |
-| Cap. 15 | Investigating Systems | — | M15 | Sumário |
+| Cap. 12 | Writing Code | — | — | Sumário |
+| Cap. 13 | Testing Code | — | — | Sumário |
+| Cap. 14 | Deploying Code | — | — | Sumário |
+| Cap. 15 | Investigating Systems | — | — | Sumário |
 | Parte IV | Maintaining Systems | — | — | Sumário |
-| Cap. 16 | Disaster Planning | — | M15 | Sumário |
-| Cap. 17 | Crisis Management | — | M15 | Sumário |
-| Cap. 18 | Recovery and Aftermath | — | M15 | Sumário |
+| Cap. 16 | Disaster Planning | — | — | Sumário |
+| Cap. 17 | Crisis Management | — | — | Sumário |
+| Cap. 18 | Recovery and Aftermath | — | — | Sumário |
 | Parte V | Organization and Culture | — | — | Sumário |
 | Cap. 19 | Case Study: Chrome Security Team | — | — | Sumário |
-| Cap. 20 | Understanding Roles and Responsibilities | — | M03, M16 | Sumário |
-| Cap. 21 | Building a Culture of Security and Reliability | — | M16 | Sumário |
+| Cap. 20 | Understanding Roles and Responsibilities | — | M03 | Sumário |
+| Cap. 21 | Building a Culture of Security and Reliability | — | — | Sumário |
 | Apêndice A | A Disaster Risk Assessment Matrix | — | — | Sumário |
 
 <!-- books:end -->

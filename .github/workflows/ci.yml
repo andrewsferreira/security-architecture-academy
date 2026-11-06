@@ -60,12 +60,16 @@ jobs:
         run: python scripts/check_contrast.py
       - name: Matrizes de decisão (aritmética)
         run: python scripts/check_decision_matrices.py
+      - name: Selos de status × manifesto
+        run: python scripts/check_status_badges.py
       - name: Research Library (referências e arquivos privados)
         run: python scripts/validate_references.py
       - name: Build do portal
         run: python -m zensical build --clean
       - name: Links internos
         run: python scripts/check_links.py
+      - name: Escopo do site (páginas, busca e sitemap)
+        run: python scripts/check_site_scope.py
       - name: Testes dos scripts
         run: python -m pytest -q tests examples
 

@@ -406,11 +406,16 @@ def render_release_status(m: dict[str, Any]) -> str:
         first = mods[available[0]["modules"][0]]
         lesson = next(x for x in first["lessons"] if x.get("file"))
         versions = ", ".join(f"v{current_version(r)} — {r['title'].split(' — ')[-1]}" for r in available)
+        # Primeiro módulo publicado fora dos Níveis 0 e 1 (grupo Professional da navegação), se houver.
+        professional = next((mods[r["modules"][0]] for r in available
+                             if r.get("modules") and mods[r["modules"][0]].get("stage") not in {"n0", "n1"}), None)
         out += ['!!! success "Disponível agora"', "",
                 f"    A Academy é disponibilizada progressivamente, por nível. Publicado: **{versions}**. "
                 "Os níveis seguintes entram no portal somente depois de concluídos e revisados.", "",
-                f"[Começar pelos Fundamentals]({unit_base(first)}/{lesson['file']}){{ .md-button .md-button--primary }}",
-                "[Ver o currículo](curriculum/index.md){ .md-button }", ""]
+                f"[Começar pelos Fundamentals]({unit_base(first)}/{lesson['file']}){{ .md-button .md-button--primary }}"]
+        if professional:
+            out.append(f"[Continuar no Professional]({unit_base(professional)}/index.md){{ .md-button }}")
+        out += ["[Ver o currículo](curriculum/index.md){ .md-button }", ""]
     else:
         out += ['!!! info "Publicação progressiva por nível"', "",
                 "    A Academy será disponibilizada por níveis, do Nível 0 ao Nível 5. "
@@ -468,7 +473,10 @@ def levels_phrase(m: dict[str, Any]) -> str:
         elif pub & set(ids):
             partial.append(f"o {modules_phrase([i for i in ids if i in pub])} do {name}")
     text = ""
-    if complete:
+    if len(complete) > 2:  # "Níveis 0, 1 e 2 completos"
+        nums = [name.split()[-1] for name in complete]
+        text = "Níveis " + ", ".join(nums[:-1]) + " e " + nums[-1] + " completos"
+    elif complete:
         text = " e ".join(complete) + (" completos" if len(complete) > 1 else " completo")
     if partial:
         text += (" e " if text else "") + " e ".join(partial)

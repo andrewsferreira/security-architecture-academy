@@ -7,6 +7,10 @@ Verificações:
   - fontes sem metadados mínimos (aviso);
   - referências citadas em `sources` e `further_reading` das páginas existem,
     e `sources` não aponta para fonte Pending/Unavailable;
+  - semântica do campo `modules`: toda referência citada (`sources` ou
+    `further_reading`) por uma página de docs/modules/NN-*/ lista o módulo MNN;
+    o campo pode listar também módulos para os quais a fonte é leitura
+    recomendada na Research Library sem ser citada nas aulas;
   - research/knowledge-map.yml: referência existente, módulos válidos e
     `consulted: true` coerente com o capítulo na bibliografia;
   - IDs citados nas notas de leitura existem;
@@ -45,6 +49,7 @@ NOTES = RESEARCH / "notes"
 ID_RE = re.compile(r"^[A-Z0-9]+(?:-[A-Z0-9]+)*$")
 NOTE_ID_RE = re.compile(r"`([A-Z0-9]+(?:-[A-Z0-9]+)+)`")
 CHAPTER_RE = re.compile(r"^Cap\.\s*(\d+)")
+MODULE_PAGE_RE = re.compile(r"^docs/modules/(\d{2})-[^/]+/")
 
 AVAILABILITY = {"Free Download", "Free Online Reading", "Free With Registration", "Paid", "Restricted", "Unknown"}
 REDISTRIBUTION = {"Explicitly Permitted", "Restricted", "Prohibited", "Not Verified"}
@@ -160,6 +165,10 @@ def validate(bib: dict[str, Any], kmap: dict[str, Any], modules: list[str],
                     report.error(f"{page}: {field} cita referência inexistente: {rid}")
                 elif field == "sources" and ref.get("verification") not in CITABLE:
                     report.error(f"{page}: sources cita fonte não verificada ({ref.get('verification')}): {rid}")
+                if ref is not None:
+                    match = MODULE_PAGE_RE.match(page)
+                    if match and f"M{match.group(1)}" in modules and f"M{match.group(1)}" not in (ref.get("modules") or []):
+                        report.error(f"{page}: {field} cita {rid}, mas o campo modules da referência não lista M{match.group(1)}")
 
     # -- mapa de conhecimento
     for idx, entry in enumerate(kmap.get("concepts") or []):
@@ -222,10 +231,17 @@ def validate(bib: dict[str, Any], kmap: dict[str, Any], modules: list[str],
 # ------------------------------------------------------------------ cobertura
 def coverage(bib: dict[str, Any], kmap: dict[str, Any], manifest: dict[str, Any],
              pages: dict[str, dict[str, list[str]]]) -> dict[str, Any]:
-    """Estatísticas de cobertura usadas pelo relatório e pela página do portal."""
+    """Estatísticas de cobertura usadas pelo relatório e pela página do portal.
+
+    Só módulos com conteúdo (status diferente de ``planned``) entram nas linhas: na árvore pública,
+    os módulos fora do escopo da release ficam ``planned`` e não aparecem com estatísticas.
+    """
     refs = bib.get("references") or []
     rows = []
-    for mod in manifest["modules"]:
+    planned = [mod["id"] for mod in manifest["modules"] if mod.get("status") == "planned"]
+    covered = [mod for mod in manifest["modules"] if mod.get("status") != "planned"]
+    linked = {r["id"] for r in refs if set(r.get("modules") or []) & {m["id"] for m in covered}}
+    for mod in covered:
         mid = mod["id"]
         mrefs = [r for r in refs if mid in (r.get("modules") or [])]
         verified = [r for r in mrefs if r.get("verification") in CITABLE]
@@ -255,13 +271,14 @@ def coverage(bib: dict[str, Any], kmap: dict[str, Any], manifest: dict[str, Any]
         for k in states:
             states[k][r[k]] += 1
     return {"modules": rows, "by_category": dict(by_cat), "states": {k: dict(v) for k, v in states.items()},
-            "total": len(refs), "concepts": len(kmap.get("concepts") or []),
+            "total": len(refs), "linked": len(linked), "planned": planned, "concepts": len(kmap.get("concepts") or []),
             "chapters": sum(len(r.get("chapters") or []) for r in refs),
             "consulted": sum(1 for r in refs for c in r.get("chapters") or [] if c.get("consulted"))}
 
 
 def render_report(cov: dict[str, Any], categories: dict[str, str]) -> str:
-    out = [f"**{cov['total']} referências** · {cov['chapters']} capítulos ou seções localizados, "
+    out = [f"**{cov['total']} referências** ({cov['linked']} ligadas aos módulos deste relatório) · "
+           f"{cov['chapters']} capítulos ou seções localizados, "
            f"{cov['consulted']} efetivamente lidos · {cov['concepts']} conceitos no mapa de conhecimento.", ""]
     out += ["| Verificação | Qtde. |", "|:---|---:|"]
     names = {"Verified": "Verificada", "Partially Verified": "Parcialmente verificada", "Unavailable": "Indisponível", "Pending": "Pendente"}
@@ -275,6 +292,8 @@ def render_report(cov: dict[str, Any], categories: dict[str, str]) -> str:
         ess = ", ".join(f"`{e}`" for e in row["essential"]) or "—"
         out.append(f"| {row['id']} — {row['title']} | {row['status']} | {row['verified']} | {ess} | "
                    f"{row['chapters']} ({row['consulted']}) | {row['concepts']} | {row['level']} |")
+    if cov.get("planned"):
+        out += ["", f"Módulos planejados ({', '.join(cov['planned'])}) não entram no relatório."]
     gaps = [r for r in cov["modules"] if r["level"] in ("Sem fontes", "Parcial")]
     out += ["", "**Lacunas:** " + (", ".join(f"{r['id']} ({r['level'].lower()})" for r in gaps) if gaps else "nenhuma.")]
     empty = [label for key, label in categories.items() if not cov["by_category"].get(key)]

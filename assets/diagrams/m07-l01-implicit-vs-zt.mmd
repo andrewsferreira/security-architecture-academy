@@ -1,0 +1,24 @@
+flowchart LR
+  accTitle: Confiança implícita no perímetro versus decisão por requisição em Zero Trust
+  accDescr: À esquerda, no modelo de perímetro, o usuário passa uma vez pela borda e entra em uma zona de confiança implícita, onde alcança todos os recursos internos sem novas verificações. À direita, em Zero Trust, cada requisição a cada recurso passa por um ponto de aplicação de política que consulta a decisão de política, considerando identidade, estado do dispositivo e contexto, e concede acesso apenas àquele recurso, por aquela sessão. A zona de confiança implícita fica reduzida ao menor tamanho possível, junto ao recurso.
+
+  subgraph PER["Perímetro — confiança implícita"]
+    U1(["Usuário"]) --> B{{"Borda<br/><small>verificação única</small>"}}
+    B --> ZI["Zona interna confiável<br/><small>R1 · R2 · R3 alcançáveis</small>"]
+  end
+
+  subgraph ZT["Zero Trust — decisão por requisição"]
+    U2(["Usuário e dispositivo"]) --> P1{{"PEP"}}
+    P1 -- "consulta" --> PD["Decisão de política<br/><small>identidade · postura · contexto</small>"]
+    PD -- "permitir R2<br/>nesta sessão" --> P1
+    P1 --> R2["R2"]
+  end
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef untrusted stroke:#dc2626,stroke-width:2px,stroke-dasharray:5 3
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef identity stroke:#2f74e8,stroke-width:2px
+  class PER,ZT zone
+  class ZI untrusted
+  class P1 control
+  class PD identity

@@ -1,0 +1,26 @@
+flowchart LR
+  accTitle: Disciplinas de identidade e como se relacionam
+  accDescr: A fonte autoritativa, em geral o sistema de RH, alimenta a governança de identidades, que cria, altera e remove contas e acessos, faz revisões periódicas e verifica segregação de funções. O gerenciamento de identidade e acesso autentica e autoriza o uso diário por meio do diretório e do provedor de identidade. O gerenciamento de acesso privilegiado protege, intermedia e grava o uso de credenciais administrativas, e o gerenciamento de identidade privilegiada concede papéis privilegiados apenas quando necessários e por tempo limitado. Todas as disciplinas enviam evidências para auditoria e para o SIEM.
+
+  HR[("Fonte autoritativa<br/><small>RH, contratos</small>")]
+  IGA["IGA<br/><small>ciclo de vida · revisões ·<br/>segregação de funções</small>"]
+  IAM["IAM<br/><small>diretório · IdP ·<br/>autenticação · autorização</small>"]
+  PAM["PAM<br/><small>cofre · intermediação ·<br/>gravação de sessões</small>"]
+  PIM["PIM<br/><small>papéis just-in-time ·<br/>aprovação</small>"]
+  APPS["Aplicações e<br/>infraestrutura"]
+  EVD[("Evidências<br/><small>auditoria · SIEM</small>")]
+
+  HR --> IGA
+  IGA -- "provisiona e remove" --> IAM
+  IAM -- "autentica e autoriza" --> APPS
+  PIM -- "ativa papel por tempo limitado" --> IAM
+  PAM -- "sessões administrativas" --> APPS
+  IGA -. "revisões" .-> EVD
+  IAM -. "eventos" .-> EVD
+  PAM -. "gravações" .-> EVD
+  PIM -. "ativações" .-> EVD
+
+  classDef identity stroke:#2f74e8,stroke-width:2px
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  class IAM,PIM identity
+  class IGA,PAM control

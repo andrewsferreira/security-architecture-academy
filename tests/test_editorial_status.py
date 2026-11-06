@@ -68,7 +68,7 @@ def test_getting_started_starts_at_initial_module():
     first = re.search(r"\]\(\.\./modules/([\w-]+)/index\.md\)", available).group(1)
     assert first == "00-foundations"
     assert rc.render_available(MANIFEST).strip() in available
-    assert "Nível 0" in available
+    assert "Nível 0" in available or "Níveis 0," in available
 
 
 def test_homepage_availability_follows_manifest():

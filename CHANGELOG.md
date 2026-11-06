@@ -6,6 +6,27 @@ O formato segue o [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e 
 
 ## [Unreleased]
 
+## [0.3.0] — 2026-11-05
+
+Release 3 — Nível 2: Arquiteturas de Infraestrutura. Acrescenta os Módulos 5 a 8 aos Níveis 0 e 1: o portal reúne os Níveis 0 a 2 (67 aulas).
+
+### Added
+
+- **Módulo 5 — Network Security Architecture** (7 aulas), **Módulo 6 — Identity & Access Management** (9 aulas), **Módulo 7 — Zero Trust Architecture** (7 aulas) e **Módulo 8 — On-Premises e Sistemas Legados** (7 aulas): 30 aulas com a seção "Controles e padrões relevantes", critérios de aceite em "Como validar" e exercício de decisão com matriz ponderada, pesos justificados, risco residual e condições que mudariam a escolha.
+- **Avaliação intermediária** (`AS-MID`), com cenário fictício, oito tarefas, rubrica, resultados de aprendizagem do Nível 2 e gabarito comentado separado.
+- Modelos para o estudante: **Security Architecture Assessment** (`ART-SAA`), **Threat Model** (`ART-TM`), **Security Control Matrix** (`ART-SCM`) e **Risk Register** (`ART-RR`), com orientação por campo, critérios de qualidade e exemplos preenchidos.
+
+### Changed
+
+- Research Library: registros reconferidos nas fontes oficiais durante a revisão do Nível 2 (entre eles NIST SP 800-207, 800-207A, 800-162, 800-128 e 800-215, RFC 9700, RFC 8996, OpenID Connect Core, guias da Microsoft, Google Cloud e AWS, #StopRansomware Guide e os nomes dos CIS Controls v8.1). Na finalização, o fact sheet primário da CISA sobre MFA resistente a phishing e a página de introdução à arquitetura de segurança do Azure Architecture Center foram lidos e passaram a verificados; a Aula 04 do Módulo 5 passou a localizar a NIST SP 800-46 Rev. 2 por seção.
+- Research Library: o campo `modules` de cada referência passa a listar todo módulo cujas páginas a citam (fonte ou leitura complementar), além dos módulos para os quais é leitura recomendada; a regra é verificada pelo validador. Os registros foram completados sem remoções.
+- Mapa de competências: a coluna do Nível 2 passa a refletir o conteúdo publicado (C5, C8, C9 e C10), incluindo a avaliação intermediária.
+- Exercícios de decisão dos Módulos 5 a 8: cada um passa a indicar os objetivos de aprendizagem avaliados, a entrega esperada e os critérios de avaliação antes da resolução, e a resolução de referência termina com os erros comuns.
+- Pré-requisitos: o Módulo 4 passa a declarar o Módulo 3 (a Aula 05 parte da BIA e a página do módulo já pedia a Aula 06 do Módulo 3), com o grafo de dependências e o currículo regenerados; as páginas dos Módulos 4, 7 e 8 passam a listar as aulas do Módulo 3 usadas pelas suas aulas.
+- Research Library: NTLM nos Módulos 6 e 8 passa a ter como fonte primária a lista oficial de recursos obsoletos do Windows (obsolescência em junho de 2024; NTLMv1 removido no Windows 11 24H2 e no Windows Server 2025), mantendo a imprensa especializada só para o plano em fases; o artigo de Saltzer e Schroeder passa a apontar para o texto mantido pelo autor, com os princípios conferidos no original; novos registros parcialmente verificados para o relato *BeyondCorp* (2014), citado como origem histórica no Módulo 7, e para o arcabouço Mplify 169 de SSE (2026), referência neutra citada no Módulo 5.
+- Errata: título completo do controle IA-2 da SP 800-53 na Aula 03 do Módulo 2.
+- Publicação: as páginas que a exportação marca como publicadas registram a revisão como "Revisado por" seguido do revisor e da data; candidata da R3 renomeada para `v0.3.0-rc2`.
+
 ## [0.2.1] — 2026-10-28
 
 Versão de correção da Release 2 — Fundamentals: conclusão do Nível 1. O escopo não muda: Níveis 0 e 1, Módulo Inicial ao Módulo 4, com as mesmas aulas, avaliações, gabaritos e endereços.

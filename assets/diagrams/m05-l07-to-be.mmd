@@ -1,0 +1,47 @@
+flowchart LR
+  accTitle: Rede-alvo da Aurora Pagamentos
+  accDescr: Estado-alvo. Sede e filiais usam bordas SD-WAN conectadas a um serviço SSE, que aplica SWG, CASB e DLP ao acesso à internet e a SaaS, e ZTNA para usuários remotos e de filiais que acessam aplicações internas. No datacenter, um firewall interno separa zonas de usuários, aplicações, dados, gestão e o ambiente de dados de cartão, que só aceita fluxos documentados a partir do serviço de tokenização. A administração ocorre a partir da zona de gestão, via acesso privilegiado com MFA e gravação de sessão. A conexão com a nuvem passa por um hub de trânsito com firewall e inspeção. Estações em escritórios autenticam-se na rede por 802.1X. Telemetria de fluxos de todas as zonas segue para o SIEM.
+
+  subgraph ESC["Escritórios"]
+    SDW["Bordas SD-WAN<br/><small>sede e filiais · 802.1X</small>"]
+  end
+  REM(["Usuários remotos"])
+  SSE{{"SSE<br/><small>SWG · CASB · DLP · ZTNA</small>"}}
+  SAAS["SaaS e internet"]
+
+  subgraph DCB["Datacenter"]
+    FWI{{"Firewall interno<br/><small>matriz de fluxos</small>"}}
+    APPZ["Zona de aplicações"]
+    DATZ["Zona de dados"]
+    subgraph CDEZ["CDE"]
+      TOK["Tokenização"]
+      AUT["Autorização"]
+    end
+    subgraph MGT["Zona de gestão"]
+      PAM["Acesso privilegiado<br/><small>MFA · gravação</small>"]
+    end
+  end
+  HUB{{"Hub de trânsito na nuvem<br/><small>firewall · inspeção</small>"}}
+  CLOUD["Workloads em nuvem"]
+  SIEM["SIEM"]
+
+  REM --> SSE
+  SDW --> SSE
+  SSE --> SAAS
+  SSE -- "ZTNA por aplicação" --> FWI
+  FWI --> APPZ
+  APPZ --> FWI
+  FWI --> DATZ
+  FWI -- "somente fluxos documentados" --> TOK
+  TOK --> AUT
+  PAM -. "sessões administrativas" .-> FWI
+  CLOUD --> HUB --> FWI
+  FWI -. "fluxos e eventos" .-> SIEM
+  SSE -. "eventos" .-> SIEM
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef identity stroke:#2f74e8,stroke-width:2px
+  class ESC,DCB,CDEZ,MGT zone
+  class SSE,FWI,HUB control
+  class PAM identity

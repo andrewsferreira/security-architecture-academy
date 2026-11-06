@@ -1,0 +1,51 @@
+flowchart TB
+  accTitle: Cooperativa Buriti Alimentos — arquitetura atual (cenário da avaliação intermediária)
+  accDescr: Colaboradores remotos e três fornecedores entram por uma VPN SSL autenticada só com senha do diretório, que dá acesso à rede inteira; os fornecedores usam contas compartilhadas. Na sede, o datacenter tem uma rede plana de servidores, sem regras entre eles, com o ERP sem suporte, os controladores de domínio, o servidor de etiquetas com SMBv1 e o appliance de backup ingressado no domínio, que grava em um NAS no mesmo datacenter. O diretório é sincronizado com o provedor de identidade em nuvem por autenticação de passagem, com dois agentes nos controladores de domínio da sede; os administradores globais da nuvem são contas sincronizadas. O provedor em nuvem autentica o e-mail, o portal de RH e o futuro portal do cooperado. Cada uma das três unidades fabris liga-se à sede por MPLS e tem uma rede de automação com o historiador SCADA, separada da rede corporativa por um firewall com regra que libera qualquer tráfego entre o historiador e a rede de servidores. O MES das unidades autentica no diretório por bind LDAP simples sem TLS.
+
+  USR(["Colaboradores remotos<br/><small>420 usuários</small>"])
+  FOR(["Fornecedores<br/><small>ERP · SCADA · folha<br/>contas compartilhadas</small>"])
+  COOP(["Cooperados<br/><small>portal em projeto</small>"])
+
+  VPN{{"VPN SSL<br/><small>só senha · rede inteira</small>"}}
+
+  subgraph NUVEM["Nuvem"]
+    IDP["Provedor de identidade<br/><small>PTA · admins globais sincronizados</small>"]
+    SAAS["E-mail, RH e<br/>portal do cooperado"]
+  end
+
+  subgraph SEDE["Sede — datacenter com rede plana de servidores"]
+    AD["Controladores de domínio<br/><small>agentes de PTA</small>"]
+    ERP[("ERP<br/><small>Windows Server 2012 R2</small>")]
+    ETQ["Servidor de etiquetas<br/><small>SMBv1</small>"]
+    BKP["Backup<br/><small>appliance no domínio</small>"]
+    NAS[("NAS de backup<br/><small>mesmo datacenter</small>")]
+  end
+
+  subgraph FAB["3 unidades fabris — MPLS"]
+    MES["MES<br/><small>bind LDAP sem TLS</small>"]
+    subgraph OT["Rede de automação"]
+      HIS["Historiador SCADA<br/><small>Windows Server 2008 R2</small>"]
+    end
+  end
+
+  USR --> VPN
+  FOR --> VPN
+  VPN -- "acesso à rede inteira" --> SEDE
+  VPN --> FAB
+  COOP -. "futuro" .-> SAAS
+  SAAS --> IDP
+  IDP -. "PTA" .-> AD
+  BKP --> NAS
+  BKP -. "contas do domínio" .-> AD
+  MES -- "LDAP simples" --> AD
+  MES --> ERP
+  HIS -- "regra any" --> SEDE
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef untrusted stroke:#dc2626,stroke-width:2px,stroke-dasharray:5 3
+  classDef identity stroke:#2f74e8,stroke-width:2px
+  classDef actor stroke:#64748b,stroke-width:2px
+  class NUVEM,SEDE,FAB,OT zone
+  class VPN,ERP,HIS,BKP untrusted
+  class AD,IDP identity
+  class USR,FOR,COOP actor

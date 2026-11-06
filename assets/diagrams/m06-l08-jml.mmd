@@ -1,0 +1,27 @@
+flowchart LR
+  accTitle: Ciclo de vida de identidades — joiner, mover, leaver
+  accDescr: A admissão registrada no RH cria a identidade e concede o acesso de nascimento definido pelo cargo. Na mudança de função, novos acessos são concedidos pelo novo cargo e os antigos são revogados após um período de transição, com verificação de segregação de funções antes de qualquer concessão. Pedidos adicionais passam por aprovação do dono do recurso e pela mesma verificação. Revisões periódicas confirmam ou removem acessos. No desligamento, a identidade é desabilitada imediatamente, sessões e tokens são revogados e os acessos removidos. Contas sem fonte autoritativa são tratadas como órfãs e investigadas.
+
+  JOIN(["Admissão no RH"])
+  MOVE(["Mudança de função"])
+  LEAVE(["Desligamento"])
+  CREATE["Criar identidade<br/><small>acesso de nascimento pelo cargo</small>"]
+  CHANGE["Conceder acessos do novo cargo<br/><small>revogar os antigos após transição</small>"]
+  REQ["Pedido adicional<br/><small>aprovação do dono do recurso</small>"]
+  SOD{"Conflito de<br/>segregação de funções?"}
+  REV["Revisão periódica<br/><small>confirmar ou remover</small>"]
+  DIS["Desabilitar imediatamente<br/><small>revogar sessões e tokens</small>"]
+  ORF["Contas órfãs<br/><small>sem fonte autoritativa</small>"]
+
+  JOIN --> CREATE --> SOD
+  MOVE --> CHANGE --> SOD
+  REQ --> SOD
+  SOD -- "não" --> REV
+  SOD -- "sim" --> EXC["Negar ou exceção<br/>com controle compensatório"]
+  LEAVE --> DIS
+  ORF -. "investigar e remover" .-> DIS
+
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef untrusted stroke:#dc2626,stroke-width:2px,stroke-dasharray:5 3
+  class SOD,REV control
+  class ORF untrusted

@@ -33,7 +33,7 @@ def parse(path):
 
 def test_integrative_assessments_have_rubric_tables():
     names = {p.name for p in rubric_pages()}
-    assert {"fundamentals-final.md", "level-1-integrative.md"} <= names
+    assert {"fundamentals-final.md", "level-1-integrative.md", "level-2-intermediate.md"} <= names
 
 
 @pytest.mark.parametrize("path", rubric_pages(), ids=lambda p: p.name)
@@ -84,3 +84,46 @@ def test_regression_as_m02_seven_correct_and_adequate_everywhere_passes():
     assert [r[1] for r in rows] == [12, 10, 12, 16]  # pontuação máxima preservada
     total = 7 * per_question + sum(r[3] for r in rows)
     assert total == 72 and total >= approval
+
+
+# ------------------------------------------------------------------ AS-MID (avaliação intermediária)
+AS_MID = DOCS / "assessments" / "level-2-intermediate.md"
+AS_MID_ANSWERS = DOCS / "assessments" / "answers" / "level-2-intermediate.md"
+OUTCOMES_COLUMN = re.compile(r"^\| (\d+) \| \d+ \| \d+ \| \d+ \| \d+ \| ([\d, ]+) \|$", re.M)
+OUTCOME_ROW = re.compile(r"^\| (\d+) \| [^|]+ \| [^|]+ \|$", re.M)
+
+
+def test_as_mid_rounding_edge_cases():
+    """Casos-limite: só quem não tem tarefa Insuficiente alcança 70 pontos, e Adequado em tudo aprova."""
+    rows, approval = parse(AS_MID)
+    assert approval == 70 and len(rows) == 8
+    adequate = [r[2] for r in rows]
+    assert sum(adequate) == 72
+    # Uma única tarefa Insuficiente, mesmo a de menor peso, derruba a soma abaixo da aprovação:
+    # a regra "nenhuma Insuficiente" e a nota mínima apontam na mesma direção.
+    for i, (points, excellent, adequate_i, insufficient) in enumerate(rows):
+        total = sum(adequate) - adequate_i + insufficient
+        assert total < approval, (i + 1, total)
+    # Excelente em todas as tarefas soma exatamente 100.
+    assert sum(r[1] for r in rows) == 100
+
+
+def test_as_mid_rubric_covers_every_level_2_outcome():
+    text = AS_MID.read_text(encoding="utf-8")
+    rubric = TABLE.search(text).group(0)
+    covered = {int(n) for _, cells in OUTCOMES_COLUMN.findall(rubric) for n in cells.split(",")}
+    outcomes_section = text.split("### Resultados de aprendizagem do Nível 2", 1)[1].split("\n## ", 1)[0]
+    listed = {int(n) for n in OUTCOME_ROW.findall(outcomes_section)}
+    assert listed == set(range(1, 16))
+    assert covered == listed, sorted(listed - covered)
+
+
+def test_as_mid_answer_key_is_separate_and_summary_fits_word_limit():
+    page = AS_MID.read_text(encoding="utf-8")
+    answers = AS_MID_ANSWERS.read_text(encoding="utf-8")
+    assert "answers/level-2-intermediate.md" in page
+    assert "??? success" not in page, "a avaliação não traz respostas: o gabarito fica em arquivo separado"
+    summary = re.search(r"\*\*Resumo executivo.*?\n\n> (.*?)\n\n", answers, re.S).group(1)
+    assert len(summary.split()) <= 200
+    for task in range(1, 9):
+        assert f"## Tarefa {task} " in answers, task

@@ -43,9 +43,10 @@ hide:
 
 !!! success "Disponível agora"
 
-    A Academy é disponibilizada progressivamente, por nível. Publicado: **v0.1.1 — Fundamentals Base, v0.2.1 — Fundamentals: conclusão do Nível 1**. Os níveis seguintes entram no portal somente depois de concluídos e revisados.
+    A Academy é disponibilizada progressivamente, por nível. Publicado: **v0.1.1 — Fundamentals Base, v0.2.1 — Fundamentals: conclusão do Nível 1, v0.3.0 — Nível 2: Arquiteturas de Infraestrutura**. Os níveis seguintes entram no portal somente depois de concluídos e revisados.
 
 [Começar pelos Fundamentals](modules/00-foundations/01-computing-os-virtualization.md){ .md-button .md-button--primary }
+[Continuar no Professional](modules/05-network-security/index.md){ .md-button }
 [Ver o currículo](curriculum/index.md){ .md-button }
 
 <div class="saa-journey" markdown>
@@ -76,7 +77,7 @@ hide:
 
 **Módulos 5 a 8.** Rede, identidade, Zero Trust e ambientes on-premises e legados.
 
-<span class="saa-status saa-status--draft">Em desenvolvimento</span> <span class="saa-meta">v0.3.0</span>
+<span class="saa-status saa-status--published">Disponível</span> <span class="saa-meta">v0.3.0</span>
 
 </div>
 

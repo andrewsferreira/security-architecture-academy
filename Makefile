@@ -33,6 +33,7 @@ check: ## Validações rápidas (sem build)
 	$(PYTHON) scripts/check_assets.py
 	$(PYTHON) scripts/check_contrast.py
 	$(PYTHON) scripts/check_decision_matrices.py
+	$(PYTHON) scripts/check_status_badges.py
 	$(PYTHON) scripts/validate_references.py
 	$(PYTHON) scripts/check_attribution.py
 	$(PYTHON) scripts/verify_release_manifest.py
@@ -40,6 +41,7 @@ check: ## Validações rápidas (sem build)
 
 validate: check build ## Validação completa: estrutura, manifesto, assets, build e links
 	$(PYTHON) scripts/check_links.py
+	$(PYTHON) scripts/check_site_scope.py
 
 test: ## Testes unitários dos scripts de validação
 	$(PYTHON) -m pytest -q tests examples

@@ -1,0 +1,31 @@
+flowchart BT
+  accTitle: Separação administrativa entre plano de controle, servidores e estações em um ambiente Windows e Linux
+  accDescr: O plano de controle contém controladores de domínio, PKI, servidor de sincronização, console do EDR e servidor de backup, administrados apenas a partir de estações de acesso privilegiado dedicadas, por contas do plano de controle. O plano de gestão de servidores contém servidores Windows e Linux de aplicação e de dados, administrados por contas separadas, via bastion ou acesso privilegiado, com SSH por certificado de curta duração para Linux, sem chaves estáticas autorizadas, e sem login interativo de contas do plano de controle. As estações de usuários são administradas por contas de suporte que não têm direitos sobre servidores. Setas que desceriam de planos inferiores para superiores são proibidas.
+
+  subgraph T0["Plano de controle"]
+    DC["Controladores de domínio · PKI ·<br/>sincronização de identidade ·<br/>console do EDR · backup"]
+    PAW["Estações de acesso<br/>privilegiado"]
+  end
+  subgraph T1["Servidores"]
+    WIN["Servidores Windows"]
+    LNX["Servidores Linux<br/><small>SSH com certificado<br/>de curta duração</small>"]
+    BAS["Bastion / acesso privilegiado"]
+  end
+  subgraph T2["Estações"]
+    WS["Estações de usuários"]
+    SUP["Contas de suporte"]
+  end
+
+  PAW -- "contas do plano de controle" --> DC
+  BAS -- "contas de servidores" --> WIN
+  BAS -- "contas de servidores" --> LNX
+  SUP --> WS
+  WS -. "proibido" .-x WIN
+  WIN -. "proibido" .-x DC
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef identity stroke:#2f74e8,stroke-width:2px
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  class T0,T1,T2 zone
+  class DC identity
+  class PAW,BAS control

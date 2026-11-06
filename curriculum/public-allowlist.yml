@@ -8,6 +8,12 @@
 # repositório de desenvolvimento.
 #
 # files: caminhos exatos · directories: prefixos (o conteúdo versionado inteiro)
+# shared_diagrams: diagramas sem prefixo de módulo publicados sem página que os
+#   inclua; os demais diagramas sem prefixo só entram se uma página exportada os usa.
+#
+# Depois da cópia, a exportação classifica cada arquivo (currículo no escopo,
+# página da navegação pública, asset, Research Library, infraestrutura) e falha
+# se algum não tiver classificação (fail-closed).
 # =============================================================================
 
 schema_version: 1
@@ -50,6 +56,18 @@ directories:
 # Documentação operacional (Handbook, templates de autoria, padrões internos, preparação do
 # ambiente de manutenção) não é conteúdo educacional e não vai ao Pages nem ao repositório
 # público. Diretórios terminam em "/".
+# Diagramas genéricos publicados desde a v0.1.0 (biblioteca de diagramas do repositório; nenhuma página
+# os inclui hoje). Mantidos para não remover conteúdo já publicado.
+shared_diagrams:
+  - assets/diagrams/architecture-decision-flow.mmd
+  - assets/diagrams/control-lifecycle.mmd
+  - assets/diagrams/hybrid-infrastructure.mmd
+  - assets/diagrams/identity-access-flow.mmd
+  - assets/diagrams/layered-security.mmd
+  - assets/diagrams/network-segmentation.mmd
+  - assets/diagrams/risk-management-process.mmd
+  - assets/diagrams/zero-trust-flow.mmd
+
 exclude:
   - docs/internal/                       # Handbook de manutenção e relatórios internos
   - docs/getting-started/local-development.md   # preparação do ambiente de manutenção do portal

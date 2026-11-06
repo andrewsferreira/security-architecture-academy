@@ -1,4 +1,4 @@
-# Mapa de conhecimento público gerado por scripts/export_release.py — escopo até R2.
+# Mapa de conhecimento público gerado por scripts/export_release.py — escopo até R3.
 schema_version: 1
 updated: 2026-10-23
 concepts:
@@ -81,7 +81,6 @@ concepts:
   modules:
   - M02
   - M08
-  - M14
   lessons:
   - M02-L04
   diagrams:
@@ -99,8 +98,6 @@ concepts:
   modules:
   - M02
   - M03
-  - M14
-  - M16
   lessons:
   - M02-L02
   tier: architect
@@ -116,7 +113,6 @@ concepts:
   modules:
   - M01
   - M05
-  - M13
   lessons:
   - M01-L03
   - M01-L07
@@ -153,7 +149,6 @@ concepts:
   consulted: true
   modules:
   - M04
-  - M12
   lessons:
   - M01-L06
   tier: professional
@@ -167,7 +162,6 @@ concepts:
   consulted: true
   modules:
   - M02
-  - M12
   tier: professional
   learning_type: método
   application: Posicionar a revisão de arquitetura em ciclos ágeis sem transformá-la em gargalo.
@@ -180,8 +174,6 @@ concepts:
   consulted: true
   modules:
   - M03
-  - M14
-  - M16
   lessons:
   - M02-L06
   tier: architect
@@ -211,7 +203,6 @@ concepts:
   consulted: false
   modules:
   - M07
-  - M11
   tier: professional
   learning_type: conceito
   application: Projetar decisões de acesso por recurso, avaliadas continuamente, com pontos de decisão e de aplicação explícitos.
@@ -223,8 +214,6 @@ concepts:
   consulted: false
   modules:
   - M07
-  - M11
-  - M16
   tier: architect
   learning_type: método
   application: Planejar a migração gradual de uma rede de perímetro para decisões de acesso por recurso, mantendo os dois modelos por um período.
@@ -274,7 +263,6 @@ concepts:
   modules:
   - M02
   - M04
-  - M16
   lessons:
   - M02-L07
   tier: architect
@@ -288,7 +276,6 @@ concepts:
   consulted: true
   modules:
   - M07
-  - M16
   tier: professional
   learning_type: catálogo
   application: Avaliar a maturidade atual por pilar e definir um roadmap incremental.
@@ -302,7 +289,6 @@ concepts:
   modules:
   - M02
   - M03
-  - M16
   lessons:
   - M02-L06
   - M02-L07
@@ -320,7 +306,6 @@ concepts:
   consulted: true
   modules:
   - M03
-  - M16
   lessons:
   - M02-L06
   diagrams:
@@ -349,7 +334,6 @@ concepts:
   consulted: false
   modules:
   - M02
-  - M16
   lessons:
   - M02-L03
   - M02-L06
@@ -368,7 +352,6 @@ concepts:
   consulted: false
   modules:
   - M02
-  - M16
   lessons:
   - M02-L04
   tier: architect
@@ -383,7 +366,6 @@ concepts:
   consulted: true
   modules:
   - M02
-  - M16
   lessons:
   - M02-L08
   tier: professional
@@ -391,67 +373,6 @@ concepts:
   application: Registrar decisões com contexto e consequências, substituindo em vez de editar decisões aceitas.
   limitations: Formato mínimo; não trata de governança de decisões em escala.
   examples: ADR-001 a ADR-003 do Caso A.
-- concept: Áreas de segurança de um workload em cloud (AWS)
-  ref: AWS-SECURITY-PILLAR
-  locator: Definition — sete áreas de boas práticas
-  consulted: true
-  modules:
-  - M09
-  - M11
-  tier: professional
-  learning_type: catálogo
-  application: Revisar um workload pelas sete áreas e pelo modelo de responsabilidade compartilhada.
-  limitations: Específico da AWS; termos e serviços não se transpõem diretamente a outros provedores.
-  examples: Revisão do portal B2B da Meridiana se migrado para a AWS.
-- concept: Checklist de revisão de segurança (Azure SE:01–SE:12)
-  ref: AZURE-WAF-SECURITY-CHECKLIST
-  locator: SE:01–SE:12
-  consulted: true
-  modules:
-  - M10
-  - M11
-  tier: professional
-  learning_type: prática
-  application: Conduzir uma revisão de desenho com itens verificáveis, de baseline a resposta a incidentes.
-  limitations: Específico do Azure; data da página (14/11/2023) anterior à última atualização do pilar.
-  examples: Exercício do M10 aplicando SE:04 (segmentação) e SE:05 (IAM) a uma landing zone.
-- concept: Fundação corporativa em cloud — hierarquia, identidade, rede, guardrails e logs
-  ref: GCP-ENTERPRISE-FOUNDATIONS
-  locator: Página principal do blueprint (Markdown oficial)
-  consulted: true
-  modules:
-  - M10
-  - M11
-  - M16
-  tier: architect
-  learning_type: estudo de caso
-  application: Comparar landing zones de provedores e derivar guardrails preventivos (políticas) e detectivos (monitoramento central).
-  limitations: Específico do Google Cloud; o código de referência exige conta e pode gerar custo.
-  examples: Comparação de landing zones AWS, Azure e Google Cloud no M11.
-- concept: Domínios de segurança em cloud (CSA)
-  ref: CSA-GUIDANCE-V5
-  locator: Doze domínios (lista da página oficial)
-  consulted: true
-  modules:
-  - M09
-  - M10
-  - M11
-  tier: professional
-  learning_type: catálogo
-  application: Usar os domínios como checklist neutro de provedor antes de ir à documentação específica.
-  limitations: Download sujeito a login; conteúdo dos domínios não lido nesta revisão.
-  examples: Matriz de cobertura dos módulos de cloud.
-- concept: Requisitos verificáveis de segurança de aplicações
-  ref: OWASP-ASVS-5
-  locator: ASVS 5.0.0 — capítulos a mapear
-  consulted: false
-  modules:
-  - M12
-  tier: professional
-  learning_type: catálogo
-  application: Derivar requisitos de aplicação verificáveis e níveis de verificação por criticidade.
-  limitations: Estrutura de capítulos da 5.0.0 não conferida nesta revisão.
-  examples: Requisitos do serviço de pedidos (avaliação do M02, tarefa 3).
 - id: KC-R1-20
   concept: Segurança e confiabilidade como propriedades conjuntas
   ref: BOOK-GOOGLE-BSRS
@@ -459,7 +380,6 @@ concepts:
   consulted: false
   modules:
   - M01
-  - M15
   lessons:
   - M00-L04
   - M01-L02
@@ -482,17 +402,6 @@ concepts:
   application: Projetar acesso administrativo com privilégio mínimo, proxies e aprovações.
   limitations: Sumário conferido; capítulo não lido nesta revisão.
   examples: Acesso administrativo da Aurora Pagamentos (M02-L03).
-- concept: Design for resilience and recovery
-  ref: BOOK-GOOGLE-BSRS
-  locator: Cap. 8 Design for Resilience; Cap. 9 Design for Recovery
-  consulted: false
-  modules:
-  - M15
-  tier: professional
-  learning_type: conceito
-  application: Projetar degradação controlada e recuperação após comprometimento.
-  limitations: Sumário conferido; capítulos não lidos nesta revisão.
-  examples: Backup isolado e imutável do Caso A.
 - id: KC-M00-01
   concept: Fronteiras de isolamento — kernel, hipervisor e containers
   ref: BOOK-ANDERSON-SE3
@@ -519,7 +428,6 @@ concepts:
   modules:
   - M00
   - M05
-  - M11
   lessons:
   - M00-L02
   diagrams:
@@ -554,7 +462,6 @@ concepts:
   modules:
   - M00
   - M01
-  - M13
   lessons:
   - M00-L03
   tier: fundamental
@@ -571,7 +478,6 @@ concepts:
   - M00
   - M03
   - M08
-  - M15
   lessons:
   - M00-L04
   diagrams:
@@ -588,8 +494,6 @@ concepts:
   consulted: true
   modules:
   - M00
-  - M09
-  - M15
   lessons:
   - M00-L04
   tier: fundamental
@@ -604,7 +508,6 @@ concepts:
   consulted: true
   modules:
   - M00
-  - M12
   lessons:
   - M00-L05
   diagrams:
@@ -621,9 +524,6 @@ concepts:
   consulted: true
   modules:
   - M00
-  - M09
-  - M10
-  - M11
   lessons:
   - M00-L06
   diagrams:
@@ -658,7 +558,6 @@ concepts:
   consulted: true
   modules:
   - M01
-  - M13
   lessons:
   - M01-L01
   diagrams:
@@ -725,7 +624,6 @@ concepts:
   consulted: true
   modules:
   - M01
-  - M13
   lessons:
   - M01-L04
   - M01-L05
@@ -743,7 +641,6 @@ concepts:
   consulted: true
   modules:
   - M01
-  - M13
   lessons:
   - M01-L05
   diagrams:
@@ -777,7 +674,6 @@ concepts:
   modules:
   - M01
   - M03
-  - M14
   lessons:
   - M01-L06
   - M03-L06
@@ -827,7 +723,6 @@ concepts:
   modules:
   - M01
   - M06
-  - M13
   lessons:
   - M01-L07
   - M01-L01
@@ -858,7 +753,6 @@ concepts:
   consulted: true
   modules:
   - M03
-  - M16
   lessons:
   - M03-L01
   diagrams:
@@ -875,7 +769,6 @@ concepts:
   consulted: true
   modules:
   - M03
-  - M16
   lessons:
   - M03-L01
   diagrams:
@@ -923,8 +816,6 @@ concepts:
   consulted: true
   modules:
   - M03
-  - M09
-  - M10
   lessons:
   - M03-L02
   - M03-L03
@@ -970,7 +861,6 @@ concepts:
   consulted: true
   modules:
   - M03
-  - M13
   lessons:
   - M03-L04
   diagrams:
@@ -1001,7 +891,6 @@ concepts:
   consulted: true
   modules:
   - M03
-  - M12
   lessons:
   - M03-L05
   diagrams:
@@ -1018,8 +907,6 @@ concepts:
   consulted: true
   modules:
   - M03
-  - M09
-  - M12
   lessons:
   - M03-L05
   tier: professional
@@ -1050,7 +937,6 @@ concepts:
   consulted: false
   modules:
   - M03
-  - M16
   lessons:
   - M03-L07
   diagrams:
@@ -1067,8 +953,6 @@ concepts:
   consulted: true
   modules:
   - M03
-  - M14
-  - M16
   lessons:
   - M03-L08
   diagrams:
@@ -1085,7 +969,6 @@ concepts:
   consulted: true
   modules:
   - M04
-  - M12
   lessons:
   - M04-L01
   - M04-L06
@@ -1151,7 +1034,6 @@ concepts:
   consulted: true
   modules:
   - M04
-  - M12
   lessons:
   - M04-L03
   - M04-L06
@@ -1167,8 +1049,6 @@ concepts:
   consulted: true
   modules:
   - M04
-  - M14
-  - M15
   lessons:
   - M04-L04
   diagrams:
@@ -1186,7 +1066,6 @@ concepts:
   modules:
   - M04
   - M05
-  - M12
   lessons:
   - M04-L05
   diagrams:
@@ -1218,7 +1097,6 @@ concepts:
   consulted: false
   modules:
   - M04
-  - M12
   lessons:
   - M04-L06
   diagrams:
@@ -1246,3 +1124,590 @@ concepts:
   application: Escolher o método conforme a criticidade do controle; testar controles críticos.
   limitations: Procedimentos detalhados da SP 800-53A não lidos nesta revisão.
   examples: Bloqueante encontrado por teste no gateway de integração da Aurora.
+- id: KC-M05-01
+  concept: Fim do perímetro único e predominância do tráfego east-west
+  ref: NIST-SP800-215
+  locator: Sec. 2 (pp. 5–7)
+  consulted: true
+  modules:
+  - M05
+  - M07
+  lessons:
+  - M05-L01
+  - M05-L03
+  diagrams:
+  - m05-l03-ns-ew
+  tier: fundamental
+  learning_type: conceito
+  application: Justificar controles internos e telemetria east-west além do perímetro.
+  limitations: A proporção de tráfego east-west é citada pelo documento sem metodologia detalhada.
+  examples: Servidor de relatórios da Lumen que alcançava prontuários e backups.
+- id: KC-M05-02
+  concept: Microsegmentação — pré-requisitos e abordagens (virtualização, host, identidade)
+  ref: NIST-SP800-215
+  locator: Sec. 5 (pp. 17–21)
+  consulted: true
+  modules:
+  - M05
+  - M07
+  lessons:
+  - M05-L01
+  diagrams:
+  - m05-l01-zones
+  tier: professional
+  learning_type: padrão
+  application: Aplicar política por workload com identidade única de aplicação e mapa de dependências.
+  limitations: Exige maturidade de identidade de workload e descoberta de serviços.
+  examples: Portal do paciente da Lumen em containers.
+- id: KC-M05-03
+  concept: Política de firewall negar por padrão; NAT não é controle de segurança
+  ref: NIST-SP800-41-R1
+  locator: Sec. 3 (p. 3-3) e Sec. 4 (p. 4-1)
+  consulted: true
+  modules:
+  - M05
+  lessons:
+  - M05-L01
+  - M05-L02
+  tier: fundamental
+  learning_type: princípio
+  application: Matrizes de fluxos explícitas e regras que permitem apenas o necessário.
+  limitations: Documento de 2009; produtos e ameaças evoluíram.
+  examples: Seis zonas da Meridiana com 23 fluxos documentados.
+- id: KC-M05-04
+  concept: Appliances de segurança de rede — NGFW, WAF, WAAP, SWG, CASB, UTM
+  ref: NIST-SP800-215
+  locator: Sec. 3 (pp. 8–13)
+  consulted: true
+  modules:
+  - M05
+  lessons:
+  - M05-L02
+  - M05-L05
+  diagrams:
+  - m05-l02-perimeter
+  tier: professional
+  learning_type: conceito
+  application: Posicionar cada controle no fluxo correto, de entrada ou de saída.
+  limitations: Não trata proxies e NDR como tópicos distintos.
+  examples: API de parceiros da Aurora atrás de WAAP e proxy de saída de servidores.
+- id: KC-M05-05
+  concept: Recomendações de arquitetura de rede da NSA (agrupamento, conexões ocultas, perímetro, NAC, VPN, gerência)
+  ref: NSA-NETWORK-INFRA-2022
+  locator: Sec. 2 e Sec. 7
+  consulted: true
+  modules:
+  - M05
+  - M08
+  lessons:
+  - M05-L01
+  - M05-L02
+  - M05-L04
+  - M05-L06
+  tier: professional
+  learning_type: framework
+  application: Checklist de desenho e endurecimento de infraestrutura de rede.
+  limitations: Exemplos de configuração centrados em um fabricante; contexto governamental dos EUA.
+  examples: Endurecimento da VPN residual da Meridiana.
+- id: KC-M05-06
+  concept: Métodos de acesso remoto e premissa de ambiente externo hostil
+  ref: NIST-SP800-46-R2
+  locator: Sumário executivo e Sec. 2.2 (2.2.1–2.2.4)
+  consulted: true
+  modules:
+  - M05
+  lessons:
+  - M05-L04
+  diagrams:
+  - m05-l04-remote-access
+  tier: professional
+  learning_type: conceito
+  application: Escolher entre tunneling, portais, acesso a desktop e acesso direto à aplicação, com acesso mínimo e verificação de dispositivo.
+  limitations: Documento de 2016, anterior à difusão do ZTNA.
+  examples: Migração da VPN da Meridiana para acesso por aplicação.
+- id: KC-M05-07
+  concept: ZTNA com cliente, controlador (PDP) e gateway (PEP)
+  ref: NIST-SP800-215
+  locator: Sec. 5 (p. 18)
+  consulted: true
+  modules:
+  - M05
+  - M07
+  lessons:
+  - M05-L04
+  diagrams:
+  - m05-l04-remote-access
+  tier: professional
+  learning_type: padrão
+  application: Conceder sessões por aplicação após decisão de política com contexto.
+  limitations: Depende de serviço e conectores críticos; não resolve dispositivo comprometido com credencial válida.
+  examples: ERP web e intranet da Meridiana publicados via ZTNA.
+- id: KC-M05-08
+  concept: SD-WAN, SASE e SSE — definições e serviços mínimos
+  ref: NIST-SP800-215
+  locator: Sec. 6 (pp. 23–27)
+  consulted: true
+  modules:
+  - M05
+  lessons:
+  - M05-L05
+  diagrams:
+  - m05-l05-sase
+  tier: professional
+  learning_type: padrão
+  application: Avaliar convergência de rede e segurança em nuvem, com modo de falha e dependência de provedor.
+  limitations: SSE não é definido no documento; definição de mercado em fonte secundária.
+  examples: SSE da Aurora para usuários híbridos.
+- id: KC-M05-09
+  concept: NAC com 802.1X e EAP-TLS; MAB apenas como exceção
+  ref: RFC-9190
+  locator: Introdução
+  consulted: true
+  modules:
+  - M05
+  lessons:
+  - M05-L06
+  diagrams:
+  - m05-l06-nac
+  tier: professional
+  learning_type: padrão
+  application: Autenticar dispositivos por certificado e atribuir segmento por identidade e postura.
+  limitations: O padrão IEEE 802.1X (pago) não foi lido; papéis descritos a partir de fontes abertas.
+  examples: Notebook de fornecedor ligado à tomada de um CD da Meridiana.
+- id: KC-M06-01
+  concept: Níveis de garantia de autenticação e resistência a phishing
+  ref: NIST-SP800-63-4
+  locator: SP 800-63B-4, Sec. 2
+  consulted: true
+  modules:
+  - M06
+  - M07
+  lessons:
+  - M06-L01
+  - M06-L06
+  tier: fundamental
+  learning_type: framework
+  application: Exigir autenticação resistente a phishing para privilegiados e acesso remoto; oferecer a opção a todos.
+  limitations: Escrito para sistemas do governo federal dos EUA; referência, não obrigação no Brasil.
+  examples: Prioridade de MFA da Meridiana para administradores e VPN.
+- id: KC-M06-02
+  concept: Planos de controle, gestão e dados e princípios para papéis privilegiados
+  ref: MS-ENTERPRISE-ACCESS-MODEL
+  locator: Página do modelo de acesso corporativo
+  consulted: true
+  modules:
+  - M06
+  - M07
+  lessons:
+  - M06-L01
+  - M06-L03
+  - M06-L06
+  diagrams:
+  - m06-l06-planes
+  tier: professional
+  learning_type: padrão
+  application: Separar privilégios por plano, ativar just-in-time com aprovação, limitar escopo e manter contas de emergência.
+  limitations: Modelo de um fornecedor; não compara explicitamente com o modelo de tiers legado.
+  examples: Redução de 22 administradores permanentes da nuvem da Aurora.
+- id: KC-M06-03
+  concept: ABAC, explosão de papéis e componentes PDP, PEP, PIP e PAP
+  ref: NIST-SP800-162
+  locator: Sec. 2 (pp. 4–17)
+  consulted: true
+  modules:
+  - M06
+  - M07
+  lessons:
+  - M06-L02
+  diagrams:
+  - m06-l02-abac
+  tier: professional
+  learning_type: padrão
+  application: Combinar papéis de função com atributos de fontes autoritativas e registrar decisões críticas.
+  limitations: Auditar "quem pode acessar este objeto" é mais difícil em ABAC.
+  examples: De 640 para 38 papéis na Aurora.
+- id: KC-M06-04
+  concept: Trocas do Kerberos V5 e abusos (Kerberoasting, Golden Ticket)
+  ref: RFC-4120
+  locator: Sec. 1 e 3
+  consulted: true
+  modules:
+  - M06
+  - M08
+  lessons:
+  - M06-L03
+  diagrams:
+  - m06-l03-kerberos
+  tier: professional
+  learning_type: conceito
+  application: Proteger contas com SPN e a krbtgt; separar contas administrativas por plano.
+  limitations: A RFC descreve o protocolo, não a implementação do Active Directory.
+  examples: 23 contas com SPN na Meridiana.
+- id: KC-M06-05
+  concept: Práticas de segurança do OAuth 2.0 (PKCE, redirecionamento exato, tokens restritos)
+  ref: RFC-9700
+  locator: Sec. 2
+  consulted: true
+  modules:
+  - M06
+  lessons:
+  - M06-L04
+  diagrams:
+  - m06-l04-oidc-pkce
+  tier: professional
+  learning_type: padrão
+  application: Especificar fluxos e validação de tokens em aplicações e APIs.
+  limitations: Não substitui a validação de autorização por objeto na aplicação.
+  examples: Token do aplicativo de marketing aceito pela API financeira da Aurora.
+- id: KC-M06-06
+  concept: Papéis, asserções, bindings e fluxos SP/IdP do SAML 2.0
+  ref: OASIS-SAML2-TECH-OVERVIEW
+  locator: Sec. 3–5
+  consulted: true
+  modules:
+  - M06
+  lessons:
+  - M06-L04
+  tier: professional
+  learning_type: conceito
+  application: Configurar SSO SAML com validação de asserções e preferência pelo fluxo iniciado pelo SP.
+  limitations: Visão geral não normativa (Committee Draft).
+  examples: SaaS corporativos federados com o IdP.
+- id: KC-M06-07
+  concept: PHS, PTA e federação — dependência e resiliência
+  ref: MS-ENTRA-HYBRID-AUTHN
+  locator: Página de escolha do método de autenticação
+  consulted: true
+  modules:
+  - M06
+  lessons:
+  - M06-L05
+  - M06-L09
+  diagrams:
+  - m06-l05-hybrid
+  tier: architect
+  learning_type: padrão
+  application: Habilitar PHS como contingência e tratar sincronização e federação como plano de controle.
+  limitations: Ecossistema Microsoft; outros IdPs têm mecanismos equivalentes.
+  examples: Troca de PTA para PHS na Meridiana.
+- id: KC-M06-08
+  concept: Federação de identidade de workload por troca de tokens com condições de emissor, sujeito e audiência
+  ref: GCP-WORKLOAD-IDENTITY-FED
+  locator: Página de visão geral
+  consulted: true
+  modules:
+  - M06
+  lessons:
+  - M06-L07
+  diagrams:
+  - m06-l07-wif
+  tier: architect
+  learning_type: padrão
+  application: Eliminar chaves de longa duração de pipelines e integrações multicloud.
+  limitations: Transfere a confiança ao emissor; condições amplas reabrem o risco.
+  examples: Pipeline da Aurora com condições por ambiente.
+- id: KC-M06-09
+  concept: Identidade de workload com SPIFFE (SPIFFE ID, SVID, Workload API, trust domain)
+  ref: SPIFFE-CONCEPTS
+  locator: Página de conceitos
+  consulted: true
+  modules:
+  - M05
+  - M06
+  - M07
+  lessons:
+  - M06-L06
+  - M06-L07
+  tier: architect
+  learning_type: padrão
+  application: Emitir identidades de workload sem segredo prévio e separar ambientes em domínios de confiança.
+  limitations: Exige infraestrutura de emissão (por exemplo, SPIRE) e integração das aplicações.
+  examples: Cluster on-premises da Lumen.
+- id: KC-M06-10
+  concept: Segregação de funções (AC-5) e ciclo joiner-mover-leaver
+  ref: NIST-SP800-53
+  locator: Controle AC-5 (texto conferido em réplica do catálogo)
+  consulted: false
+  modules:
+  - M06
+  lessons:
+  - M06-L08
+  diagrams:
+  - m06-l08-jml
+  tier: professional
+  learning_type: princípio
+  application: Matriz de conflitos aplicada preventivamente e revisões de acesso focadas.
+  limitations: Texto lido em réplica, não no catálogo oficial.
+  examples: Analistas que cadastravam e aprovavam fornecedores na Meridiana.
+- id: KC-M06-11
+  concept: Recuperação de floresta do Active Directory como último recurso, em isolamento
+  ref: MS-AD-FOREST-RECOVERY
+  locator: Páginas de entrada e Steps for restoring the forest
+  consulted: true
+  modules:
+  - M06
+  - M08
+  lessons:
+  - M06-L09
+  diagrams:
+  - m06-l09-recovery
+  tier: architect
+  learning_type: método
+  application: Recuperar identidade antes de qualquer outro sistema, com backups isolados e redefinição de contas privilegiadas.
+  limitations: Procedimentos detalhados (subpáginas) não lidos nesta revisão.
+  examples: Exercício de recuperação da Meridiana.
+- id: KC-M07-01
+  concept: Os sete princípios de Zero Trust
+  ref: NIST-SP800-207
+  locator: §2.1, princípios (tenets)
+  consulted: true
+  modules:
+  - M07
+  lessons:
+  - M07-L01
+  diagrams:
+  - m07-l01-implicit-vs-zt
+  tier: fundamental
+  learning_type: princípio
+  application: Expressar projetos de Zero Trust como objetivos de arquitetura ligados a princípios, não a produtos.
+  limitations: Referência conceitual; não prescreve tecnologias.
+  examples: Objetivos de Zero Trust da Lumen para prontuários.
+- id: KC-M07-02
+  concept: Policy Engine, Policy Administrator, PEP e fontes de dados
+  ref: NIST-SP800-207
+  locator: §3 (p. 9) e §3.4 (p. 21)
+  consulted: true
+  modules:
+  - M07
+  lessons:
+  - M07-L02
+  diagrams:
+  - m07-l02-components
+  tier: professional
+  learning_type: padrão
+  application: Mapear produtos aos papéis lógicos e exigir disponibilidade, controle de mudanças e modo de falha dos componentes de decisão.
+  limitations: Produtos reais misturam papéis.
+  examples: Três PDPs com políticas incoerentes na Aurora.
+- id: KC-M07-03
+  concept: Abordagens de ZTA e modelos de implantação
+  ref: NIST-SP800-207
+  locator: §3.1 (pp. 11–12) e §3.2 (pp. 13–16)
+  consulted: true
+  modules:
+  - M07
+  lessons:
+  - M07-L03
+  diagrams:
+  - m07-l03-deployment-models
+  tier: professional
+  learning_type: padrão
+  application: Escolher modelo por classe de recurso e por gestão do dispositivo; enclaves para legados.
+  limitations: Modelos abstratos; visibilidade varia por modelo.
+  examples: Cinco classes de aplicações da Aurora.
+- id: KC-M07-04
+  concept: Algoritmo de confiança por critérios ou pontuação, singular ou contextual
+  ref: NIST-SP800-207
+  locator: §3.3 (pp. 17–19)
+  consulted: true
+  modules:
+  - M07
+  lessons:
+  - M07-L04
+  diagrams:
+  - m07-l04-continuous
+  tier: professional
+  learning_type: conceito
+  application: Desenhar acesso adaptativo com sinais atestados e respostas graduais.
+  limitations: Reavaliação durante a sessão depende de suporte das aplicações.
+  examples: Políticas por sensibilidade da Aurora.
+- id: KC-M07-05
+  concept: Políticas de nível de identidade e de rede para aplicações cloud-native em vários locais
+  ref: NIST-SP800-207A
+  locator: Notícia oficial (resumo)
+  consulted: false
+  modules:
+  - M07
+  lessons:
+  - M07-L05
+  diagrams:
+  - m07-l05-workloads
+  tier: professional
+  learning_type: padrão
+  application: Proteger chamadas entre serviços com identidade de workload, mTLS e autorização por operação.
+  limitations: Texto integral não lido nesta revisão.
+  examples: Serviço de relatórios que autorizava pagamentos na Aurora.
+- id: KC-M07-06
+  concept: Pilares, capacidades transversais e estágios do ZTMM 2.0
+  ref: CISA-ZTMM-2
+  locator: Estrutura do modelo (fontes secundárias)
+  consulted: false
+  modules:
+  - M07
+  lessons:
+  - M07-L06
+  diagrams:
+  - m07-l06-ztmm
+  tier: architect
+  learning_type: framework
+  application: Avaliar maturidade por função com evidência e alvos ligados a riscos e dependências.
+  limitations: PDF oficial não aberto; estrutura conferida em fontes secundárias; escrito para agências federais dos EUA.
+  examples: Perfil de maturidade da Meridiana ligado ao RSK-007.
+- id: KC-M07-07
+  concept: Migração para ZTA — híbrido com perímetro e etapas da seção 7
+  ref: NIST-SP800-207
+  locator: §7 (pp. 36–41)
+  consulted: true
+  modules:
+  - M07
+  lessons:
+  - M07-L07
+  diagrams:
+  - m07-l07-roadmap
+  tier: architect
+  learning_type: método
+  application: Planejar ondas com pré-requisitos, critérios de aceite e enclaves para legados.
+  limitations: Não detalha cronogramas nem capacidade organizacional.
+  examples: Plano em três ondas da Meridiana.
+- id: KC-M07-08
+  concept: Ameaças à própria arquitetura Zero Trust
+  ref: NIST-SP800-207
+  locator: §5 (pp. 28–30)
+  consulted: true
+  modules:
+  - M07
+  lessons:
+  - M07-L01
+  - M07-L02
+  - M07-L07
+  tier: professional
+  learning_type: conceito
+  application: Tratar subversão da decisão, indisponibilidade dos componentes, credenciais roubadas e contas não humanas no plano.
+  limitations: Lista não exaustiva.
+  examples: Modo de falha do PDP da Lumen.
+- id: KC-M08-01
+  concept: Gerenciamento fora de banda e segmento de gerenciamento
+  ref: NSA-NETWORK-INFRA-2022
+  locator: Sec. 7.1 e 7.4
+  consulted: true
+  modules:
+  - M08
+  lessons:
+  - M08-L01
+  diagrams:
+  - m08-l01-datacenter-layers
+  tier: fundamental
+  learning_type: padrão
+  application: Isolar interfaces de gerenciamento de hardware e acessá-las apenas pela zona de gestão.
+  limitations: Exemplos centrados em equipamentos de rede de um fabricante.
+  examples: Controladoras de servidores da Meridiana com senha padrão.
+- id: KC-M08-02
+  concept: Gestão de configuração focada em segurança — quatro fases, baseline e comitê de controle
+  ref: NIST-SP800-128
+  locator: Sec. 2 (pp. 7–12)
+  consulted: true
+  modules:
+  - M08
+  lessons:
+  - M08-L02
+  diagrams:
+  - m08-l02-seccm
+  tier: professional
+  learning_type: método
+  application: Transformar benchmarks em baselines aprovadas, aplicadas por automação e verificadas continuamente.
+  limitations: Escrito para sistemas federais dos EUA; documento de 2011 com atualizações de 2019.
+  examples: Baseline Linux da Aurora de 61% a 96% de conformidade.
+- id: KC-M08-03
+  concept: Perfis de benchmark (Level 1, Level 2, STIG)
+  ref: CIS-BENCHMARKS
+  locator: FAQ dos CIS Benchmarks
+  consulted: true
+  modules:
+  - M08
+  lessons:
+  - M08-L02
+  tier: fundamental
+  learning_type: framework
+  application: Escolher perfil por tipo de sistema e risco, testando antes de aplicar.
+  limitations: Termos de uso não verificados; benchmarks variam por produto.
+  examples: Plano de baseline dos 80 servidores Windows da Meridiana.
+- id: KC-M08-04
+  concept: Backup resiliente a ransomware — offline, cifrado, testado; imagens de referência e IaC
+  ref: CISA-STOPRANSOMWARE-GUIDE
+  locator: Seções de preparação e lista de resposta
+  consulted: true
+  modules:
+  - M08
+  lessons:
+  - M08-L04
+  - M08-L03
+  diagrams:
+  - m08-l04-backup
+  tier: professional
+  learning_type: padrão
+  application: Isolar a identidade do backup, manter cópias imutáveis e offline e restaurar em ambiente limpo.
+  limitations: Contatos de notificação e contexto legal são dos EUA.
+  examples: Teste de isolamento que apagou o backup da Meridiana em dois minutos.
+- id: KC-M08-05
+  concept: Componentes sem suporte (SA-22) e controles compensatórios verificáveis
+  ref: NIST-SP800-53
+  locator: Controle SA-22 (texto conferido em réplica do catálogo)
+  consulted: false
+  modules:
+  - M08
+  lessons:
+  - M08-L05
+  diagrams:
+  - m08-l05-legacy-isolation
+  tier: architect
+  learning_type: princípio
+  application: Decidir entre substituir, suporte alternativo, isolar ou aceitar, com exceção registrada.
+  limitations: Texto lido em réplica, não no catálogo oficial.
+  examples: Servidor de etiquetas da Meridiana e equipamento de imagem da Lumen.
+- id: KC-M08-06
+  concept: Descontinuação de TLS 1.0 e 1.1
+  ref: RFC-8996
+  locator: RFC completa
+  consulted: true
+  modules:
+  - M01
+  - M08
+  lessons:
+  - M08-L06
+  diagrams:
+  - m08-l06-protocol-migration
+  tier: professional
+  learning_type: princípio
+  application: Remover versões antigas de TLS por auditoria, comunicação e desabilitação com monitoração.
+  limitations: Trata apenas de TLS e DTLS.
+  examples: Desativação de TLS antigo com parceiros da Aurora.
+- id: KC-M08-07
+  concept: Plano de desativação do NTLM — auditar, migrar para Kerberos, desabilitar por padrão
+  ref: PETRI-NTLM-2026
+  locator: Artigo completo
+  consulted: true
+  modules:
+  - M06
+  - M08
+  lessons:
+  - M08-L06
+  tier: professional
+  learning_type: método
+  application: Inventariar e reduzir o uso de NTLM em ondas antes do bloqueio por padrão.
+  limitations: Fonte secundária de imprensa; detalhes e datas a confirmar na documentação da Microsoft.
+  examples: Impressoras e aplicações antigas da Meridiana.
+- id: KC-M08-08
+  concept: Strangler fig e estratégias de migração (7 Rs) como instrumentos de redução de risco
+  ref: FOWLER-STRANGLER-FIG
+  locator: Artigo completo
+  consulted: true
+  modules:
+  - M08
+  lessons:
+  - M08-L07
+  diagrams:
+  - m08-l07-strangler
+  tier: architect
+  learning_type: padrão
+  application: Modernizar em etapas com fachada de autenticação moderna e marcos de segurança.
+  limitations: Exige identificar costuras no sistema legado.
+  examples: Portal de fornecedores e ERP antigo da Meridiana.

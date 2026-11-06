@@ -1,0 +1,35 @@
+flowchart LR
+  accTitle: SD-WAN, SASE e SSE
+  accDescr: Filiais conectam-se por um equipamento SD-WAN, que escolhe dinamicamente entre links de internet e MPLS conforme a aplicação. Usuários remotos e filiais chegam a um ponto de presença do provedor de SASE, onde serviços de segurança entregues como nuvem — secure web gateway, CASB, firewall como serviço, ZTNA e DLP — aplicam uma política única antes de o tráfego seguir para a internet, para aplicações SaaS, para cargas em nuvem ou para o datacenter. SSE corresponde ao conjunto desses serviços de segurança; SASE acrescenta a parte de rede, o SD-WAN.
+
+  subgraph FIL["Filial"]
+    SDW["Borda SD-WAN<br/><small>escolha de link por aplicação</small>"]
+  end
+  REM(["Usuários remotos<br/><small>agente</small>"])
+
+  subgraph SASE["SASE"]
+    subgraph SSE["SSE — serviços de segurança"]
+      SWG["SWG"]
+      CASB["CASB"]
+      FWAAS["FWaaS"]
+      ZT["ZTNA"]
+      DLP["DLP"]
+    end
+    POP{{"PoP do provedor<br/><small>política única</small>"}}
+  end
+
+  INET(["Internet"])
+  SAAS["Aplicações SaaS"]
+  IAAS["Cargas em nuvem"]
+  DCX["Datacenter"]
+
+  SDW --> POP
+  REM --> POP
+  POP --> SSE
+  SSE --> INET & SAAS & IAAS & DCX
+  SDW -. "MPLS ou internet" .-> DCX
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  class FIL,SASE,SSE zone
+  class POP control

@@ -1,0 +1,20 @@
+flowchart LR
+  accTitle: Camadas de proteção de um datacenter
+  accDescr: A proteção do datacenter é organizada em camadas sucessivas. No perímetro do site há controle de acesso de veículos e pessoas e vigilância. No edifício, recepção com identificação e registro de visitantes. Na sala de servidores, acesso por credencial e segundo fator, com registro e vídeo. No rack, fechaduras e controle por equipe. No equipamento, portas desabilitadas, cifragem de discos e descarte seguro de mídias. Em paralelo, a infraestrutura de suporte — energia redundante, refrigeração, detecção e combate a incêndio — garante disponibilidade, e uma rede de gerenciamento fora de banda permite administrar equipamentos sem depender da rede de produção.
+
+  S1["Perímetro do site<br/><small>acesso de pessoas e veículos,<br/>vigilância</small>"]
+  S2["Edifício<br/><small>recepção, identificação,<br/>registro de visitantes</small>"]
+  S3["Sala de servidores<br/><small>credencial + segundo fator,<br/>registro e vídeo</small>"]
+  S4["Rack<br/><small>fechadura, controle<br/>por equipe</small>"]
+  S5["Equipamento<br/><small>portas desabilitadas, disco cifrado,<br/>descarte seguro de mídia</small>"]
+  INF["Infraestrutura de suporte<br/><small>energia redundante · refrigeração ·<br/>detecção e combate a incêndio</small>"]
+  OOB["Gerenciamento fora de banda<br/><small>rede própria, acesso restrito</small>"]
+
+  S1 --> S2 --> S3 --> S4 --> S5
+  INF -. "disponibilidade" .-> S3
+  OOB -. "administração" .-> S5
+
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef identity stroke:#2f74e8,stroke-width:2px
+  class S3,S4 control
+  class OOB identity

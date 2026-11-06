@@ -1,0 +1,35 @@
+flowchart LR
+  accTitle: Zonas de confiança, segmentação e microsegmentação
+  accDescr: À esquerda, a segmentação por zonas separa usuários, aplicações, dados e gestão, e cada fluxo entre zonas passa por um ponto de controle que aplica uma matriz de fluxos permitidos. À direita, dentro da zona de aplicações, a microsegmentação aplica política a cada workload: o serviço de pedidos só pode chamar o serviço de estoque e o banco de pedidos, e o serviço de relatórios só lê a réplica de leitura. A política é baseada em identidade de workload e não em endereço IP.
+
+  subgraph SEG["Segmentação por zonas"]
+    U["Zona de usuários"]
+    A["Zona de aplicações"]
+    D["Zona de dados"]
+    G["Zona de gestão"]
+    FW{{"Ponto de controle<br/>entre zonas<br/><small>matriz de fluxos</small>"}}
+    U --> FW
+    FW --> A
+    A --> FW
+    FW --> D
+    G -. "administração" .-> FW
+  end
+
+  subgraph MICRO["Microsegmentação na zona de aplicações"]
+    PED["svc-pedidos"]
+    EST["svc-estoque"]
+    REL["svc-relatorios"]
+    DBP[("db-pedidos")]
+    RR[("réplica de leitura")]
+    PED -- "permitido" --> EST
+    PED -- "permitido" --> DBP
+    REL -- "somente leitura" --> RR
+    REL -. "negado" .-x DBP
+  end
+
+  A -. "detalhe" .-> MICRO
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  class SEG,MICRO zone
+  class FW control

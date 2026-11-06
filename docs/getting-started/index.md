@@ -9,7 +9,7 @@ description: Como a Security Architecture Academy está organizada, por onde com
 
 <!-- available:start -->
 
-O portal traz **Nível 0 e Nível 1 completos** — Módulo Inicial, Módulo 1, Módulo 2, Módulo 3 e Módulo 4, 37 aulas (v0.1.1, v0.2.1), com laboratórios, estudo de caso, avaliações e modelos.
+O portal traz **Níveis 0, 1 e 2 completos** — Módulo Inicial, Módulo 1, Módulo 2, Módulo 3, Módulo 4, Módulo 5, Módulo 6, Módulo 7 e Módulo 8, 67 aulas (v0.1.1, v0.2.1, v0.3.0), com laboratórios, estudo de caso, avaliações e modelos.
 
 <div class="grid cards" markdown>
 
@@ -42,6 +42,30 @@ O portal traz **Nível 0 e Nível 1 completos** — Módulo Inicial, Módulo 1, 
     ---
 
     Sete aulas: DFDs, STRIDE, árvores de ataque e abuse cases, MITRE ATT&CK, dependências, requisitos derivados de ameaças e revisão As-Is/To-Be.
+
+-   :lucide-book-open:{ .lg .saa-card-icon } **[Módulo 5 — Network Security Architecture](../modules/05-network-security/index.md)**
+
+    ---
+
+    
+
+-   :lucide-book-open:{ .lg .saa-card-icon } **[Módulo 6 — Identity & Access Management](../modules/06-iam/index.md)**
+
+    ---
+
+    
+
+-   :lucide-book-open:{ .lg .saa-card-icon } **[Módulo 7 — Zero Trust Architecture](../modules/07-zero-trust/index.md)**
+
+    ---
+
+    
+
+-   :lucide-book-open:{ .lg .saa-card-icon } **[Módulo 8 — On-Premises e Sistemas Legados](../modules/08-onprem-legacy/index.md)**
+
+    ---
+
+    
 
 -   :lucide-flask-conical:{ .lg .saa-card-icon } **[Laboratórios 00, 01 e 02](../labs/index.md)**
 

@@ -67,6 +67,7 @@ Ao concluir o módulo, você será capaz de:
 | [Módulo 2](../02-security-architecture/index.md) | Rastreabilidade, requisitos de negócio e ADRs são usados em todas as aulas | [Avaliação do Módulo 2](../../assessments/m02-security-architecture.md) |
 | [Módulo 1 — Aula 03](../01-security-fundamentals/03-trust-boundaries-attack-surface.md) | Fronteiras de confiança e superfície de ataque | Questões de compreensão da aula |
 | [Módulo 3 — Aula 06](../03-governance-risk/06-risk-assessment-register.md) | Ameaças viram cenários do risk register | Questões de compreensão da aula |
+| [Módulo 3 — Aula 05](../03-governance-risk/05-bia-rto-rpo.md) | Processos críticos, MTD e RTO da BIA são o ponto de partida da análise de dependências da Aula 05 | Questões de compreensão da aula |
 
 ## Atividades
 

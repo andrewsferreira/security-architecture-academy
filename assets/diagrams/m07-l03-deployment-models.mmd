@@ -1,0 +1,23 @@
+flowchart TB
+  accTitle: Modelos de implantação de Zero Trust da NIST SP 800-207
+  accDescr: Quatro modelos de implantação. No modelo agente e gateway, um agente no dispositivo e um gateway diante de cada recurso aplicam a política; exige dispositivos gerenciados. No gateway de enclave, um gateway protege um grupo de recursos, o que serve a sistemas legados, mas os sujeitos podem ver recursos do enclave que não estão autorizados a usar. No portal de recursos, um portal único dá acesso aos recursos sem software no dispositivo, com visibilidade limitada sobre o dispositivo. No sandboxing de aplicações, aplicações aprovadas executam em compartimentos isolados no dispositivo.
+
+  subgraph M1["Agente e gateway"]
+    A1["Agente no dispositivo"] --> G1{{"Gateway por recurso"}} --> R1[("Recurso")]
+  end
+  subgraph M2["Gateway de enclave"]
+    A2(["Dispositivo"]) --> G2{{"Gateway do enclave"}}
+    G2 --> R2A[("Recurso A")]
+    G2 --> R2B[("Recurso legado B")]
+  end
+  subgraph M3["Portal de recursos"]
+    A3(["Navegador, sem agente"]) --> P3{{"Portal"}} --> R3[("Recursos")]
+  end
+  subgraph M4["Sandboxing de aplicações"]
+    A4["Aplicação aprovada<br/>em compartimento isolado"] --> G4{{"PEP"}} --> R4[("Recurso")]
+  end
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  class M1,M2,M3,M4 zone
+  class G1,G2,P3,G4 control

@@ -1,0 +1,19 @@
+sequenceDiagram
+  accTitle: Federação de identidade de workload sem chaves estáticas
+  accDescr: Um job de pipeline em um provedor externo recebe da sua plataforma um token de identidade de curta duração, assinado e com claims sobre o repositório, o ramo e o ambiente. O job apresenta esse token ao serviço de tokens do provedor de nuvem. O serviço valida a assinatura pelo emissor configurado e aplica a condição de atributos, por exemplo apenas o repositório e o ramo de produção autorizados. Se a condição for satisfeita, devolve um token de acesso de curta duração com as permissões mapeadas. O job usa esse token para implantar o recurso. Nenhuma chave de longa duração é armazenada no pipeline.
+
+  participant J as Job de pipeline (externo)
+  participant P as Plataforma do pipeline (emissor OIDC)
+  participant STS as Serviço de tokens da nuvem
+  participant R as Recurso na nuvem
+
+  J->>P: Pede token de identidade do job
+  P-->>J: Token OIDC assinado (repositório, ramo e ambiente, validade de minutos)
+  J->>STS: Troca de token (no Google Cloud, RFC 8693)
+  STS->>STS: Valida emissor e assinatura e aplica a condição de atributos
+  alt Repositório e ramo autorizados
+    STS-->>J: Token de acesso de curta duração com permissões mapeadas
+    J->>R: Implantação com o token
+  else Condição não satisfeita
+    STS-->>J: Recusa
+  end

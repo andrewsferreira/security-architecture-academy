@@ -1,0 +1,30 @@
+flowchart LR
+  accTitle: Rede atual da Aurora Pagamentos
+  accDescr: Estado atual. A sede, duas filiais e o datacenter estão ligados por MPLS em uma rede interna ampla, com poucos controles entre segmentos. O ambiente de dados de cartão está em uma VLAN do datacenter, separada apenas por listas de acesso no switch. Usuários remotos usam VPN com acesso a toda a rede interna. O tráfego para aplicações SaaS e para a conta de nuvem sai pela internet da sede. Administradores acessam servidores diretamente de suas estações. A conta de nuvem conecta-se ao datacenter por VPN site a site sem filtragem.
+
+  REM(["Usuários remotos"])
+  subgraph CORP["Rede interna ampla — MPLS"]
+    HQ["Sede"]
+    F1["Filial 1"]
+    F2["Filial 2"]
+    subgraph DCA["Datacenter"]
+      SRVS["Servidores"]
+      CDE["VLAN do CDE<br/><small>só ACL de switch</small>"]
+    end
+  end
+  VPN["VPN<br/><small>acesso a toda a rede</small>"]
+  CLOUD["Conta de nuvem"]
+  SAAS["SaaS"]
+
+  REM --> VPN --> CORP
+  F1 --- HQ
+  F2 --- HQ
+  HQ --- DCA
+  HQ -- "saída única para internet" --> SAAS
+  CLOUD -- "VPN site a site sem filtragem" --- DCA
+  HQ -. "administração direta" .-> SRVS
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef untrusted stroke:#dc2626,stroke-width:2px,stroke-dasharray:5 3
+  class CORP,DCA zone
+  class VPN,CDE untrusted

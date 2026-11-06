@@ -18,7 +18,7 @@ As avaliações verificam **competências**, não memorização. Elas pedem que 
 | [Avaliação integradora do Módulo Inicial ao Módulo 2](fundamentals-final.md) | Ao fim do Módulo 2 | Integrar Módulo Inicial, Módulo 1 e Módulo 2 em um cenário empresarial | <span class="saa-status saa-status--published">Published</span> |
 | [Avaliação integradora do Nível 1](level-1-integrative.md) | Fim do Módulo 4 | Integrar governança, riscos, controles e threat modeling (Módulos 2, 3 e 4) em um cenário empresarial | <span class="saa-status saa-status--published">Published</span> |
 | Avaliações dos demais módulos | Fim de cada módulo | Verificar o módulo na profundidade de suas aulas | <span class="saa-status saa-status--planned">Planned</span> |
-| Intermediária | Após os Níveis 1 e 2 | Integrar governança, identidade, rede e Zero Trust | <span class="saa-status saa-status--planned">Planned</span> |
+| [Avaliação intermediária](level-2-intermediate.md) | Fim do Módulo 8 | Integrar rede, identidade, Zero Trust, legados e recuperação (Módulos 5 a 8), com risco e threat modeling dos Módulos 3 e 4, em um cenário empresarial | <span class="saa-status saa-status--published">Published</span> |
 | Final | Após o Nível 5 | Integrar o currículo em cenários executivos | <span class="saa-status saa-status--planned">Planned</span> |
 | Advanced assessment (English) | Trilha Advanced | Raciocínio no estilo CISSP/ISSAP, sem reproduzir questões oficiais | <span class="saa-status saa-status--planned">Planned</span> |
 

@@ -1,0 +1,16 @@
+flowchart LR
+  accTitle: Ciclo de remoção de protocolos inseguros
+  accDescr: A remoção de um protocolo inseguro segue quatro etapas. Primeiro, auditar o uso, com registros que mostram quais sistemas e aplicações ainda o utilizam. Segundo, corrigir ou substituir as dependências, atualizando configurações, aplicações e equipamentos. Terceiro, desabilitar em ambiente piloto e depois em produção, com plano de reversão. Quarto, monitorar tentativas de uso e tratar exceções com dono e prazo. Exemplos: NTLM para Kerberos, SMB versão 1 para versão 3, TLS 1.0 e 1.1 para TLS 1.2 e 1.3, LDAP simples para LDAP sobre TLS, Telnet e FTP para SSH e SFTP.
+
+  A["1 · Auditar uso<br/><small>quem ainda usa e por quê</small>"]
+  B["2 · Corrigir dependências<br/><small>configuração, aplicação,<br/>equipamento</small>"]
+  C["3 · Desabilitar<br/><small>piloto → produção,<br/>com reversão</small>"]
+  D["4 · Monitorar<br/><small>tentativas e exceções</small>"]
+  EX["Exemplos<br/><small>NTLM → Kerberos · SMBv1 → SMBv3 ·<br/>TLS 1.0/1.1 → TLS 1.2/1.3 ·<br/>LDAP simples → LDAP sobre TLS ·<br/>Telnet/FTP → SSH/SFTP</small>"]
+
+  A --> B --> C --> D
+  D -. "exceções com dono e prazo" .-> B
+  EX -.-> A
+
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  class C,D control

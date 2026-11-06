@@ -1,0 +1,65 @@
+flowchart TB
+  accTitle: Cooperativa Buriti Alimentos — arquitetura-alvo de referência (gabarito da avaliação intermediária)
+  accDescr: Colaboradores remotos entram por VPN com MFA e regras por perfil, que dão acesso só às aplicações do perfil; administradores usam MFA resistente a phishing. Fornecedores não têm VPN: acessam por um serviço de acesso privilegiado na zona de gestão, com conta nominal, MFA, aprovação por janela e gravação, que alcança apenas os sistemas autorizados. O provedor de identidade em nuvem usa sincronização de hash de senha, com administradores somente em nuvem e privilégio ativado por tempo limitado. Na sede, o datacenter passa a ter zonas: plano de controle com controladores de domínio e estações dedicadas de administração; zona de aplicações com o ERP; zona de legados com o servidor de etiquetas; e zona de backup, com identidade própria, repositório imutável e cópia isolada fora do site. Nas unidades fabris, uma zona intermediária industrial recebe a réplica dos dados do historiador para os relatórios; a rede de automação não tem fluxo direto com a rede corporativa. O portal do cooperado, em nuvem, exige MFA e chama uma API de integração no datacenter, com autenticação mútua, que expõe só três operações de leitura do ERP.
+
+  USR(["Colaboradores remotos"])
+  FOR(["Fornecedores"])
+  COOP(["Cooperados"])
+
+  VPN{{"VPN com MFA<br/><small>regras por perfil</small>"}}
+
+  subgraph NUVEM["Nuvem"]
+    IDP["Provedor de identidade<br/><small>PHS · admins só em nuvem · JIT</small>"]
+    PORTAL["Portal do cooperado<br/><small>MFA · autorização por objeto</small>"]
+  end
+
+  subgraph SEDE["Sede — datacenter por zonas"]
+    subgraph GES["Zona de gestão"]
+      PAM["Acesso privilegiado<br/><small>nominal · aprovação · gravação</small>"]
+      PAW["Estações dedicadas<br/>de administração"]
+    end
+    subgraph CTRL["Plano de controle"]
+      AD["Controladores de domínio"]
+    end
+    subgraph APPZ["Zona de aplicações"]
+      API["API de integração<br/><small>mTLS · 3 operações</small>"]
+      ERP[("ERP<br/><small>exceção até o SaaS</small>")]
+    end
+    subgraph LEG["Zona de legados"]
+      ETQ["Servidor de etiquetas"]
+    end
+    subgraph BKZ["Zona de backup"]
+      BKP["Backup<br/><small>identidade própria · imutável</small>"]
+    end
+  end
+
+  OFF[("Cópia isolada<br/><small>fora do site</small>")]
+
+  subgraph FAB["Unidades fabris"]
+    DMZI["Zona intermediária industrial<br/><small>réplica do historiador</small>"]
+    subgraph OT["Rede de automação"]
+      HIS["Historiador SCADA"]
+    end
+  end
+
+  USR --> VPN --> APPZ
+  FOR --> PAM
+  PAM -- "sessão autorizada" --> HIS
+  PAM -- "sessão autorizada" --> ERP
+  PAW --> AD
+  COOP --> PORTAL
+  PORTAL -. "autenticação" .-> IDP
+  PORTAL -- "mTLS" --> API --> ERP
+  HIS -- "réplica" --> DMZI
+  BKP --> OFF
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef untrusted stroke:#dc2626,stroke-width:2px,stroke-dasharray:5 3
+  classDef identity stroke:#2f74e8,stroke-width:2px
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef actor stroke:#64748b,stroke-width:2px
+  class NUVEM,SEDE,GES,CTRL,APPZ,LEG,BKZ,FAB,OT zone
+  class ERP,ETQ,HIS untrusted
+  class AD,IDP identity
+  class PAM,PAW,API,BKP,DMZI,VPN control
+  class USR,FOR,COOP actor

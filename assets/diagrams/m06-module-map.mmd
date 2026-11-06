@@ -1,0 +1,20 @@
+flowchart LR
+  accTitle: Mapa do Módulo 6
+  accDescr: O módulo começa pelas disciplinas de identidade e pelos modelos de autorização. Em seguida trata de diretórios e autenticação corporativa com Active Directory, LDAP e Kerberos, e de federação com SAML, OAuth e OpenID Connect, que se combinam na identidade híbrida. Depois aborda contas privilegiadas e identidades de máquina, que dependem do diretório e da identidade híbrida, a federação de identidades de workload, que parte da federação e dos privilegiados, ciclo de vida e segregação de funções e, por fim, a recuperação de identidade em incidentes, que leva ao Módulo 7 — Zero Trust Architecture.
+
+  L01["Aula 01 · Disciplinas:<br/>IAM, IGA, PAM, PIM"] --> L02["Aula 02 · RBAC, ABAC e<br/>acesso contextual"]
+  L01 --> L03["Aula 03 · AD, LDAP<br/>e Kerberos"]
+  L01 --> L04["Aula 04 · SAML, OAuth 2.0<br/>e OpenID Connect"]
+  L03 --> L05["Aula 05 · Identidade híbrida"]
+  L04 --> L05
+  L03 --> L06["Aula 06 · Privilegiados e<br/>identidades de máquina"]
+  L05 --> L06
+  L06 --> L07["Aula 07 · Workload Identity<br/>Federation"]
+  L04 --> L07
+  L02 --> L08["Aula 08 · Ciclo de vida<br/>e segregação de funções"]
+  L06 --> L09["Aula 09 · Recuperação de<br/>identidade em incidentes"]
+  L05 --> L09
+  L09 --> M07(["Módulo 7 — Zero Trust Architecture"])
+
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  class M07 control

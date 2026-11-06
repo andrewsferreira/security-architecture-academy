@@ -75,7 +75,7 @@ ID técnico: `M03` · Status: **Published** · Fase 2 · Pré-requisitos: Módul
 
 ### Módulo 4 — Métodos de Design e Threat Modeling
 
-ID técnico: `M04` · Status: **Published** · Fase 3 · Pré-requisitos: Módulo 2
+ID técnico: `M04` · Status: **Published** · Fase 3 · Pré-requisitos: Módulo 2, Módulo 3
 
 - **Aula 01** — [Data Flow Diagrams e fluxos de confiança](docs/modules/04-threat-modeling/01-data-flow-diagrams.md) — `M04-L01` · Fundamental, 60 min — Published
 - **Aula 02** — [STRIDE aplicado à arquitetura](docs/modules/04-threat-modeling/02-stride.md) — `M04-L02` · Professional, 75 min — Published
@@ -91,53 +91,53 @@ Rede, identidade, Zero Trust e ambientes on-premises e legados.
 
 ### Módulo 5 — Network Security Architecture
 
-ID técnico: `M05` · Status: **Planned** · Fase 3 · Pré-requisitos: Módulo Inicial, Módulo 2
+ID técnico: `M05` · Status: **Published** · Fase 3 · Pré-requisitos: Módulo Inicial, Módulo 2, Módulo 4
 
-- **Aula 01** — Zonas de confiança, segmentação e microsegmentação — `M05-L01` · Fundamental, 75 min — Planned
-- **Aula 02** — Perímetro e inspeção: DMZ, WAF, NGFW, IDS/IPS e proxies — `M05-L02` · Professional, 75 min — Planned
-- **Aula 03** — Tráfego North-South e East-West — `M05-L03` · Professional, 60 min — Planned
-- **Aula 04** — Acesso remoto: VPN, ZTNA e bastion hosts — `M05-L04` · Professional, 75 min — Planned
-- **Aula 05** — SD-WAN, SASE e SSE — `M05-L05` · Professional, 60 min — Planned
-- **Aula 06** — Network Access Control — `M05-L06` · Professional, 45 min — Planned
-- **Aula 07** — Desenho de uma rede corporativa segura — `M05-L07` · Architect, 90 min — Planned
+- **Aula 01** — [Zonas de confiança, segmentação e microsegmentação](docs/modules/05-network-security/01-zones-segmentation.md) — `M05-L01` · Fundamental, 75 min — Published
+- **Aula 02** — [Perímetro e inspeção: DMZ, WAF, NGFW, IDS/IPS e proxies](docs/modules/05-network-security/02-perimeter-inspection.md) — `M05-L02` · Professional, 75 min — Published
+- **Aula 03** — [Tráfego North-South e East-West](docs/modules/05-network-security/03-north-south-east-west.md) — `M05-L03` · Professional, 60 min — Published
+- **Aula 04** — [Acesso remoto: VPN, ZTNA e bastion hosts](docs/modules/05-network-security/04-remote-access.md) — `M05-L04` · Professional, 75 min — Published
+- **Aula 05** — [SD-WAN, SASE e SSE](docs/modules/05-network-security/05-sdwan-sase-sse.md) — `M05-L05` · Professional, 60 min — Published
+- **Aula 06** — [Network Access Control](docs/modules/05-network-security/06-network-access-control.md) — `M05-L06` · Professional, 45 min — Published
+- **Aula 07** — [Desenho de uma rede corporativa segura](docs/modules/05-network-security/07-secure-enterprise-network.md) — `M05-L07` · Architect, 90 min — Published
 
 ### Módulo 6 — Identity & Access Management
 
-ID técnico: `M06` · Status: **Planned** · Fase 2 · Pré-requisitos: Módulo 1, Módulo 2
+ID técnico: `M06` · Status: **Published** · Fase 2 · Pré-requisitos: Módulo 1, Módulo 2
 
-- **Aula 01** — Disciplinas de identidade: IAM, IGA, PAM e PIM — `M06-L01` · Fundamental, 60 min — Planned
-- **Aula 02** — Modelos de autorização: RBAC, ABAC e acesso contextual — `M06-L02` · Professional, 75 min — Planned
-- **Aula 03** — Diretórios e autenticação corporativa: Active Directory, LDAP e Kerberos — `M06-L03` · Professional, 90 min — Planned
-- **Aula 04** — Federação: SAML 2.0, OAuth 2.0 e OpenID Connect — `M06-L04` · Professional, 90 min — Planned
-- **Aula 05** — Identidade híbrida: Active Directory, Microsoft Entra ID e provedores cloud — `M06-L05` · Architect, 90 min — Planned
-- **Aula 06** — Contas privilegiadas e identidades de máquina — `M06-L06` · Professional, 75 min — Planned
-- **Aula 07** — Workload Identity Federation — `M06-L07` · Architect, 60 min — Planned
-- **Aula 08** — Ciclo de vida de identidades e segregação de funções — `M06-L08` · Professional, 60 min — Planned
-- **Aula 09** — Recuperação de identidade em incidentes — `M06-L09` · Architect, 75 min — Planned
+- **Aula 01** — [Disciplinas de identidade: IAM, IGA, PAM e PIM](docs/modules/06-iam/01-identity-disciplines.md) — `M06-L01` · Fundamental, 60 min — Published
+- **Aula 02** — [Modelos de autorização: RBAC, ABAC e acesso contextual](docs/modules/06-iam/02-authorization-models.md) — `M06-L02` · Professional, 75 min — Published
+- **Aula 03** — [Diretórios e autenticação corporativa: Active Directory, LDAP e Kerberos](docs/modules/06-iam/03-directories-kerberos.md) — `M06-L03` · Professional, 90 min — Published
+- **Aula 04** — [Federação: SAML 2.0, OAuth 2.0 e OpenID Connect](docs/modules/06-iam/04-federation-saml-oauth-oidc.md) — `M06-L04` · Professional, 90 min — Published
+- **Aula 05** — [Identidade híbrida: Active Directory, Microsoft Entra ID e provedores cloud](docs/modules/06-iam/05-hybrid-identity.md) — `M06-L05` · Architect, 90 min — Published
+- **Aula 06** — [Contas privilegiadas e identidades de máquina](docs/modules/06-iam/06-privileged-machine-identities.md) — `M06-L06` · Professional, 75 min — Published
+- **Aula 07** — [Workload Identity Federation](docs/modules/06-iam/07-workload-identity-federation.md) — `M06-L07` · Architect, 60 min — Published
+- **Aula 08** — [Ciclo de vida de identidades e segregação de funções](docs/modules/06-iam/08-lifecycle-sod.md) — `M06-L08` · Professional, 60 min — Published
+- **Aula 09** — [Recuperação de identidade em incidentes](docs/modules/06-iam/09-identity-recovery.md) — `M06-L09` · Architect, 75 min — Published
 
 ### Módulo 7 — Zero Trust Architecture
 
-ID técnico: `M07` · Status: **Planned** · Fase 2 · Pré-requisitos: Módulo 5, Módulo 6
+ID técnico: `M07` · Status: **Published** · Fase 2 · Pré-requisitos: Módulo 5, Módulo 6
 
-- **Aula 01** — Fundamentos de Zero Trust e o NIST SP 800-207 — `M07-L01` · Fundamental, 75 min — Planned
-- **Aula 02** — Componentes lógicos: Policy Engine, Policy Administrator e PEP — `M07-L02` · Professional, 60 min — Planned
-- **Aula 03** — Abordagens identity-centric, resource-centric e de rede — `M07-L03` · Professional, 60 min — Planned
-- **Aula 04** — Verificação contínua, postura de dispositivo e acesso adaptativo — `M07-L04` · Professional, 75 min — Planned
-- **Aula 05** — Segmentação e proteção de workloads — `M07-L05` · Professional, 60 min — Planned
-- **Aula 06** — CISA Zero Trust Maturity Model — `M07-L06` · Architect, 60 min — Planned
-- **Aula 07** — Implantação progressiva com sistemas legados e restrições — `M07-L07` · Architect, 90 min — Planned
+- **Aula 01** — [Fundamentos de Zero Trust e o NIST SP 800-207](docs/modules/07-zero-trust/01-zero-trust-fundamentals.md) — `M07-L01` · Fundamental, 75 min — Published
+- **Aula 02** — [Componentes lógicos: Policy Engine, Policy Administrator e PEP](docs/modules/07-zero-trust/02-logical-components.md) — `M07-L02` · Professional, 60 min — Published
+- **Aula 03** — [Abordagens identity-centric, resource-centric e de rede](docs/modules/07-zero-trust/03-approaches-deployment.md) — `M07-L03` · Professional, 60 min — Published
+- **Aula 04** — [Verificação contínua, postura de dispositivo e acesso adaptativo](docs/modules/07-zero-trust/04-continuous-verification.md) — `M07-L04` · Professional, 75 min — Published
+- **Aula 05** — [Segmentação e proteção de workloads](docs/modules/07-zero-trust/05-workload-protection.md) — `M07-L05` · Professional, 60 min — Published
+- **Aula 06** — [CISA Zero Trust Maturity Model](docs/modules/07-zero-trust/06-cisa-ztmm.md) — `M07-L06` · Architect, 60 min — Published
+- **Aula 07** — [Implantação progressiva com sistemas legados e restrições](docs/modules/07-zero-trust/07-progressive-deployment.md) — `M07-L07` · Architect, 90 min — Published
 
 ### Módulo 8 — On-Premises e Sistemas Legados
 
-ID técnico: `M08` · Status: **Planned** · Fase 3 · Pré-requisitos: Módulo 5, Módulo 6
+ID técnico: `M08` · Status: **Published** · Fase 3 · Pré-requisitos: Módulo 5, Módulo 6, Módulo 7
 
-- **Aula 01** — Segurança de datacenters — `M08-L01` · Fundamental, 60 min — Planned
-- **Aula 02** — Hardening e baselines de configuração — `M08-L02` · Professional, 75 min — Planned
-- **Aula 03** — Arquitetura para Windows Server, Linux e Active Directory — `M08-L03` · Professional, 90 min — Planned
-- **Aula 04** — Backup, recuperação e resiliência contra ransomware — `M08-L04` · Professional, 75 min — Planned
-- **Aula 05** — Sistemas sem suporte e controles compensatórios — `M08-L05` · Architect, 60 min — Planned
-- **Aula 06** — Protocolos inseguros e dependências legadas — `M08-L06` · Professional, 60 min — Planned
-- **Aula 07** — Integração com ambientes modernos e modernização gradual — `M08-L07` · Architect, 75 min — Planned
+- **Aula 01** — [Segurança de datacenters](docs/modules/08-onprem-legacy/01-datacenter-security.md) — `M08-L01` · Fundamental, 60 min — Published
+- **Aula 02** — [Hardening e baselines de configuração](docs/modules/08-onprem-legacy/02-hardening-baselines.md) — `M08-L02` · Professional, 75 min — Published
+- **Aula 03** — [Arquitetura para Windows Server, Linux e Active Directory](docs/modules/08-onprem-legacy/03-windows-linux-ad.md) — `M08-L03` · Professional, 90 min — Published
+- **Aula 04** — [Backup, recuperação e resiliência contra ransomware](docs/modules/08-onprem-legacy/04-backup-ransomware-resilience.md) — `M08-L04` · Professional, 75 min — Published
+- **Aula 05** — [Sistemas sem suporte e controles compensatórios](docs/modules/08-onprem-legacy/05-unsupported-systems.md) — `M08-L05` · Architect, 60 min — Published
+- **Aula 06** — [Protocolos inseguros e dependências legadas](docs/modules/08-onprem-legacy/06-insecure-protocols.md) — `M08-L06` · Professional, 60 min — Published
+- **Aula 07** — [Integração com ambientes modernos e modernização gradual](docs/modules/08-onprem-legacy/07-modernization.md) — `M08-L07` · Architect, 75 min — Published
 
 ## Nível 3 — Arquitetura Cloud e Híbrida
 
@@ -157,7 +157,7 @@ ID técnico: `M09` · Status: **Planned** · Fase 3 · Pré-requisitos: Módulo 
 
 ### Módulo 10 — Azure e Google Cloud
 
-ID técnico: `M10` · Status: **Planned** · Fase 3 · Pré-requisitos: Módulo 5, Módulo 6
+ID técnico: `M10` · Status: **Planned** · Fase 3 · Pré-requisitos: Módulo 5, Módulo 6, Módulo 9
 
 - **Aula 01** — Azure Well-Architected, Cloud Adoption Framework e Azure Landing Zones — `M10-L01` · Professional, 75 min — Planned
 - **Aula 02** — Microsoft Entra ID e identidade híbrida — `M10-L02` · Professional, 75 min — Planned
@@ -169,7 +169,7 @@ ID técnico: `M10` · Status: **Planned** · Fase 3 · Pré-requisitos: Módulo 
 
 ### Módulo 11 — Hybrid & Multicloud Security Architecture
 
-ID técnico: `M11` · Status: **Planned** · Fase 2 · Pré-requisitos: Módulo 6, Módulo 7
+ID técnico: `M11` · Status: **Planned** · Fase 2 · Pré-requisitos: Módulo 6, Módulo 7, Módulo 8, Módulo 10
 
 - **Aula 01** — Conectividade híbrida: VPN site-to-site, AWS Direct Connect e Azure ExpressRoute — `M11-L01` · Professional, 90 min — Planned
 - **Aula 02** — Arquitetura de DNS híbrido — `M11-L02` · Professional, 60 min — Planned
@@ -297,7 +297,7 @@ Status: **Planned** · Fase 3
 - `AS-FUND` [Avaliação integradora do Módulo Inicial ao Módulo 2](docs/assessments/fundamentals-final.md) — Published
 - `AS-M02` [Avaliação do Módulo 2](docs/assessments/m02-security-architecture.md) — Published
 - `AS-N1` [Avaliação integradora do Nível 1](docs/assessments/level-1-integrative.md) — Published
-- `AS-MID` Avaliação intermediária (Níveis 1 e 2) — Planned
+- `AS-MID` [Avaliação intermediária (Níveis 1 e 2)](docs/assessments/level-2-intermediate.md) — Published
 - `AS-FINAL` Avaliação final — Planned
 - `AS-ADV-EN` Advanced assessment (English, CISSP/ISSAP reasoning style) — Planned
 
@@ -306,10 +306,10 @@ Status: **Planned** · Fase 3
 - `ART-ADR` [Architecture Decision Record](docs/artifacts/architecture-decision-record.md) — Published
 - `ART-SRS` [Security Requirements Specification](docs/artifacts/security-requirements-specification.md) — Published
 - `ART-ARC` [Architecture Review Checklist](docs/artifacts/architecture-review-checklist.md) — Published
-- `ART-SAA` Security Architecture Assessment — Planned
-- `ART-TM` Threat Model — Planned
-- `ART-SCM` Security Control Matrix — Planned
-- `ART-RR` Risk Register — Planned
+- `ART-SAA` [Security Architecture Assessment](docs/artifacts/security-architecture-assessment.md) — Published
+- `ART-TM` [Threat Model](docs/artifacts/threat-model.md) — Published
+- `ART-SCM` [Security Control Matrix](docs/artifacts/security-control-matrix.md) — Published
+- `ART-RR` [Risk Register](docs/artifacts/risk-register.md) — Published
 - `ART-HSAB` Hybrid Security Architecture Blueprint — Planned
 - `ART-SMA` Security Maturity Assessment — Planned
 - `ART-VMP` Vulnerability Management Program — Planned

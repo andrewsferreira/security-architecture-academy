@@ -1,0 +1,16 @@
+sequenceDiagram
+  accTitle: Trocas do Kerberos V5 em um domínio Active Directory
+  accDescr: Na troca de serviço de autenticação, o cliente pede ao centro de distribuição de chaves um tíquete de concessão de tíquetes e o recebe cifrado com a chave da conta krbtgt. Na troca com o serviço de concessão de tíquetes, o cliente apresenta esse tíquete e pede um tíquete para um serviço específico, identificado por um nome principal de serviço, e recebe um tíquete de serviço cifrado com a chave da conta do serviço. Na troca de aplicação, o cliente apresenta o tíquete de serviço ao servidor, que o decifra com a própria chave e, opcionalmente, autentica-se de volta ao cliente. Qualquer usuário autenticado pode pedir tíquetes de serviço, o que permite tentar quebrar offline senhas fracas de contas de serviço.
+
+  participant C as Cliente
+  participant AS as KDC — Authentication Service
+  participant TGS as KDC — Ticket-Granting Service
+  participant S as Servidor de aplicação (SPN)
+
+  C->>AS: AS-REQ (identidade, pré-autenticação)
+  AS-->>C: AS-REP com TGT (cifrado com a chave da krbtgt)
+  C->>TGS: TGS-REQ (TGT + SPN do serviço)
+  TGS-->>C: TGS-REP com tíquete de serviço (cifrado com a chave da conta do serviço)
+  C->>S: AP-REQ (tíquete de serviço + autenticador)
+  S-->>C: AP-REP (autenticação mútua, opcional)
+  Note over C,TGS: Qualquer usuário autenticado pode pedir tíquetes de serviço:<br/>senha fraca na conta do serviço permite quebra offline (Kerberoasting)

@@ -20,6 +20,7 @@ Base de pesquisa que sustenta o conteúdo da Academy: **quais fontes oficiais ex
 5. Obras de terceiros nunca são versionadas — cópias ficam em `private-research/` (ignorada pelo git).
 6. Notas são **análises originais**: sem trechos longos, sem figuras de terceiros, sem resumos que substituam a obra.
 7. Referência citada em aula usa o ID no front matter (`sources:`) e aparece na seção *Referências* com localização.
+8. `modules` lista **todo módulo cujas páginas citam a referência** (`sources` ou `further_reading`) — o validador rejeita a omissão — e pode listar também módulos para os quais a fonte é leitura recomendada sem ser citada. O campo não indica que a fonte foi lida para o módulo; isso fica em `verification`, `notes` e `chapters`.
 
 ## Manutenção
 

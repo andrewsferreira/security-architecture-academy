@@ -1,0 +1,29 @@
+flowchart LR
+  accTitle: Identidade híbrida com Active Directory e provedor de identidade em nuvem
+  accDescr: O Active Directory local continua sendo a fonte das contas e grupos e é sincronizado com o provedor de identidade em nuvem por um servidor de sincronização, que é um ativo crítico de nível máximo. Há três formas de validar a senha no login em nuvem. Na sincronização de hash de senha, a validação ocorre na nuvem e o login funciona mesmo com o ambiente local fora do ar. Na autenticação de passagem, agentes locais validam a senha nos controladores de domínio. Na federação, servidores de federação locais emitem a asserção. As duas últimas dependem do ambiente local. O provedor em nuvem aplica MFA e acesso condicional para aplicações SaaS e consoles de nuvem.
+
+  subgraph ONP["On-premises"]
+    AD[("Active Directory<br/><small>contas e grupos</small>")]
+    SYNC["Servidor de sincronização<br/><small>ativo crítico — nível máximo</small>"]
+    PTA["Agentes de autenticação<br/>de passagem"]
+    FED["Servidores de federação"]
+  end
+  subgraph CLD["Nuvem"]
+    IDP{{"Provedor de identidade<br/><small>MFA · acesso condicional</small>"}}
+    SAAS["SaaS e consoles de nuvem"]
+  end
+
+  AD --> SYNC
+  SYNC -- "contas, grupos e hash de senha (PHS)" --> IDP
+  IDP -. "PTA: valida senha no local" .-> PTA
+  PTA --> AD
+  IDP -. "federação: delega o login" .-> FED
+  FED --> AD
+  IDP --> SAAS
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef identity stroke:#2f74e8,stroke-width:2px
+  classDef untrusted stroke:#dc2626,stroke-width:2px,stroke-dasharray:5 3
+  class ONP,CLD zone
+  class IDP,AD identity
+  class SYNC untrusted

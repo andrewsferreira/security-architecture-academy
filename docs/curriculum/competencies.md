@@ -41,7 +41,7 @@ Cada competência evolui em três profundidades. As evidências são **observáv
 
 ## Onde cada competência é desenvolvida
 
-As colunas indicam os níveis do currículo; as células, os módulos em que a competência é **trabalhada com intenção** (não apenas mencionada).
+As colunas indicam os níveis do currículo; as células, os módulos e avaliações em que a competência é **trabalhada com intenção** (não apenas mencionada). As colunas dos níveis ainda não publicados descrevem o plano e são revistas na publicação de cada nível.
 
 | # | Nível 0 | Nível 1 | Nível 2 | Nível 3 | Nível 4 | Nível 5 |
 |:---|:---|:---|:---|:---|:---|:---|
@@ -49,12 +49,12 @@ As colunas indicam os níveis do currículo; as células, os módulos em que a c
 | C2 | — | Módulos 2 a 4 | Módulos 6 e 7 | Módulo 11 | Módulos 12 e 13 | Módulos 16 e 17 |
 | C3 | Módulo Inicial | Módulos 2 e 4 | Módulos 5 e 8 | Módulos 9 a 11 | Módulo 14 | Módulo 17 |
 | C4 | Módulo 1 | Módulos 3 e 4 | Módulos 5, 7 e 8 | Módulo 11 | Módulos 12 a 15 | Módulos 16 e 17 |
-| C5 | — | Módulo 2 | Módulos 5 a 7 | Módulos 9 a 11 | Módulos 12 e 15 | Módulos 16 e 17 |
+| C5 | — | Módulo 2 | Módulos 5 a 8 | Módulos 9 a 11 | Módulos 12 e 15 | Módulos 16 e 17 |
 | C6 | — | Módulos 2 e 4 | Módulos 5 a 8 | Módulos 9 a 11 | Módulos 12 e 13 | Módulos 16 e 17 |
 | C7 | Módulo 1 | Módulo 3 | Módulos 5 a 8 | Módulos 9 a 11 | Módulos 12 a 15 | Módulo 16 |
-| C8 | — | Módulo 2 | Módulo 7 | Módulo 11 | Módulo 14 | Módulos 16 e 17 |
-| C9 | — | — | Módulos 7 e 8 | Módulo 11 | Módulo 14 | Módulos 16 e 17 |
-| C10 | — | Módulo 2 | — | Módulo 11 | Módulo 14 | Módulos 16 e 17 |
+| C8 | — | Módulo 2 | Módulo 7 e avaliação intermediária | Módulo 11 | Módulo 14 | Módulos 16 e 17 |
+| C9 | — | — | Módulos 5, 7 e 8 | Módulo 11 | Módulo 14 | Módulos 16 e 17 |
+| C10 | — | Módulo 2 | Módulos 5 a 8 e avaliação intermediária | Módulo 11 | Módulo 14 | Módulos 16 e 17 |
 
 ## Como as competências são verificadas
 

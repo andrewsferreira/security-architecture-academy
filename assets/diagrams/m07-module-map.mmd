@@ -1,0 +1,15 @@
+flowchart LR
+  accTitle: Mapa do Módulo 7
+  accDescr: O módulo parte dos fundamentos e princípios de Zero Trust segundo a NIST SP 800-207, passa pelos componentes lógicos de decisão e aplicação de política e pelas abordagens de implantação. Em seguida trata da verificação contínua e da postura de dispositivos, da proteção de workloads, do modelo de maturidade da CISA e, por fim, da implantação progressiva em ambientes com sistemas legados, que leva ao Módulo 8 — On-Premises e Sistemas Legados.
+
+  L01["Aula 01 · Fundamentos e<br/>SP 800-207"] --> L02["Aula 02 · PE, PA e PEP"]
+  L02 --> L03["Aula 03 · Abordagens e<br/>modelos de implantação"]
+  L02 --> L04["Aula 04 · Verificação contínua<br/>e postura"]
+  L03 --> L05["Aula 05 · Segmentação e<br/>proteção de workloads"]
+  L04 --> L06["Aula 06 · CISA ZTMM 2.0"]
+  L05 --> L06
+  L06 --> L07["Aula 07 · Implantação progressiva<br/>com legados"]
+  L07 --> M08(["Módulo 8 — On-Premises<br/>e Sistemas Legados"])
+
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  class M08 control

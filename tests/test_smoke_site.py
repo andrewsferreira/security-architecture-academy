@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import smoke_test_site as st
-from _common import ROOT
+from _common import ROOT, load_manifest
 
 BASE = "https://example.test/security-architecture-academy/"
 CANON = "https://andrewsferreira.github.io/security-architecture-academy/"
@@ -39,8 +39,51 @@ def test_expectations_come_from_navigation_and_manifest():
         assert doc in exp["core"], doc
     assert "internal/" in exp["forbidden"]
     assert "getting-started/local-development/" in exp["forbidden"]
-    assert "modules/05-network-security/" in exp["forbidden"]
-    assert not any(f.startswith("modules/0" + n) for f in exp["forbidden"] for n in "01234")
+    # Publicado é o status do módulo, não o da release: uma release aprovada só publica seus módulos na
+    # árvore final da exportação (no desenvolvimento eles continuam 'in-review' até o registro da publicação).
+    manifest = load_manifest()
+    for mod in manifest["modules"]:
+        folder = f"modules/{mod['id'][1:]}-{mod['slug']}/"
+        if mod["status"] == "published":
+            assert folder not in exp["forbidden"] and f"{folder}index.md" in exp["core"], mod["id"]
+        else:
+            assert folder in exp["forbidden"], mod["id"]
+
+
+def approved_not_published_root(tmp_path, published_modules: bool):
+    """Raiz mínima com a R3 aprovada; M05–M08 'in-review' (desenvolvimento) ou 'published' (árvore final)."""
+    import yaml
+
+    manifest = load_manifest()
+    r3 = next(r for r in manifest["releases"] if r["id"] == "R3")
+    r3.update(status="approved", approved_by=["Mantenedor"], approved_on="2026-01-01",
+              approved_source_commit="0" * 40)
+    for mod in manifest["modules"]:
+        if mod["id"] in r3["modules"]:
+            mod["status"] = "published" if published_modules else "in-review"
+    (tmp_path / "curriculum").mkdir()
+    (tmp_path / "curriculum" / "manifest.yml").write_text(yaml.safe_dump(manifest, allow_unicode=True), encoding="utf-8")
+    (tmp_path / "zensical.toml").write_text((ROOT / "zensical.toml").read_text(encoding="utf-8"), encoding="utf-8")
+    (tmp_path / "docs").symlink_to(ROOT / "docs", target_is_directory=True)
+    return tmp_path
+
+
+def test_approved_release_is_not_treated_as_published(tmp_path):
+    """R3 aprovada, M05–M08 ainda 'in-review' (entre o registro da aprovação e a publicação): continuam proibidos."""
+    exp = st.expectations(approved_not_published_root(tmp_path, published_modules=False))
+    for folder in ("modules/05-network-security/", "modules/06-iam/", "modules/07-zero-trust/", "modules/08-onprem-legacy/"):
+        assert folder in exp["forbidden"]
+        assert f"{folder}index.md" not in exp["core"]
+    assert "modules/04-threat-modeling/" not in exp["forbidden"]
+
+
+def test_published_modules_of_an_approved_release_are_expected_online(tmp_path):
+    """Na árvore final, a exportação marca os módulos da release aprovada como 'published': deixam de ser proibidos."""
+    exp = st.expectations(approved_not_published_root(tmp_path, published_modules=True))
+    for folder in ("modules/05-network-security/", "modules/08-onprem-legacy/"):
+        assert folder not in exp["forbidden"]
+        assert f"{folder}index.md" in exp["core"]
+    assert "modules/09-aws/" in exp["forbidden"]
 
 
 def test_page_url_follows_directory_urls():

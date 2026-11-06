@@ -1,0 +1,26 @@
+flowchart LR
+  accTitle: Componentes de uma decisão de autorização baseada em atributos
+  accDescr: O usuário pede uma operação sobre um recurso. O ponto de aplicação de política intercepta o pedido e consulta o ponto de decisão de política. O ponto de decisão avalia as regras publicadas pelo ponto de administração de política, usando atributos do sujeito, como departamento e função, atributos do objeto, como classificação e dono, e condições de ambiente, como horário, localização e risco do dispositivo, fornecidos pelos pontos de informação. A decisão volta ao ponto de aplicação, que permite ou nega a operação. No RBAC, o mesmo fluxo usa apenas o atributo papel.
+
+  U(["Sujeito"])
+  PEP{{"PEP<br/><small>aplica a decisão</small>"}}
+  PDP["PDP<br/><small>avalia regras</small>"]
+  PAP["PAP<br/><small>cria, testa e<br/>publica políticas</small>"]
+  PIS[("PIP — sujeito<br/><small>departamento, função, papel</small>")]
+  PIO[("PIP — objeto<br/><small>classificação, dono</small>")]
+  PIE[("PIP — ambiente<br/><small>horário, local, risco</small>")]
+  R["Recurso"]
+
+  U -- "pedido de operação" --> PEP
+  PEP -- "consulta" --> PDP
+  PAP -- "políticas" --> PDP
+  PIS --> PDP
+  PIO --> PDP
+  PIE --> PDP
+  PDP -- "permitir ou negar" --> PEP
+  PEP -- "se permitido" --> R
+
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef identity stroke:#2f74e8,stroke-width:2px
+  class PEP control
+  class PDP identity

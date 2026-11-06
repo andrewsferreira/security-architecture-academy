@@ -179,7 +179,7 @@ A visão física revela uma decisão importante que não aparece nas outras: na 
 | Objetivo (conceitual) | Mecanismo (lógico) | Referência |
 |:---|:---|:---|
 | Acesso administrativo controlado | Ponto único de acesso, elevação just-in-time | NIST SP 800-53 Rev. 5: AC-6 (Least Privilege), AC-17 (Remote Access) |
-| Autenticação forte | MFA resistente a phishing | NIST SP 800-53 Rev. 5: IA-2 (Identification and Authentication) |
+| Autenticação forte | MFA resistente a phishing | NIST SP 800-53 Rev. 5: IA-2 (Identification and Authentication (Organizational Users)) |
 | Rastreabilidade | Gravação de sessão e geração de registros de auditoria | NIST SP 800-53 Rev. 5: AU-12 (Audit Record Generation) |
 | Gestão de contas privilegiadas | Contas administrativas separadas e temporárias | CIS Controls v8.1: Controles 5 e 6 |
 | Segurança em todas as camadas | Controles na identidade, na rede e no host | AWS Well-Architected, princípio *Apply security at all layers* |

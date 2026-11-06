@@ -1,0 +1,16 @@
+flowchart LR
+  accTitle: Mapa do Módulo 8
+  accDescr: O módulo começa pela segurança física e lógica de datacenters e pelo endurecimento com baselines de configuração. Em seguida trata da arquitetura de servidores Windows, Linux e Active Directory e da resiliência contra ransomware com backup e recuperação. Depois aborda sistemas sem suporte e controles compensatórios, protocolos inseguros e dependências legadas e, por fim, a integração com ambientes modernos e a modernização gradual, que leva ao Nível 3, começando pelo Módulo 9 — AWS Security Architecture.
+
+  L01["Aula 01 · Segurança de<br/>datacenters"] --> L02["Aula 02 · Hardening e<br/>baselines"]
+  L02 --> L03["Aula 03 · Windows, Linux<br/>e Active Directory"]
+  L03 --> L04["Aula 04 · Backup, recuperação<br/>e ransomware"]
+  L02 --> L05["Aula 05 · Sistemas sem suporte<br/>e compensatórios"]
+  L03 --> L06["Aula 06 · Protocolos inseguros<br/>e dependências legadas"]
+  L05 --> L07["Aula 07 · Integração e<br/>modernização gradual"]
+  L06 --> L07
+  L04 --> L07
+  L07 --> M09(["Nível 3 · Módulo 9 —<br/>AWS Security Architecture"])
+
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  class M09 control

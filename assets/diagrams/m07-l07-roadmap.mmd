@@ -1,0 +1,19 @@
+flowchart LR
+  accTitle: Implantação progressiva de Zero Trust com sistemas legados
+  accDescr: A implantação começa identificando atores, ativos, processos críticos e riscos, conforme a seção 7 da SP 800-207. A primeira onda protege identidade e acesso remoto com autenticação resistente a phishing e acesso por aplicação. A segunda leva postura de dispositivo e políticas contextuais às aplicações web e SaaS. A terceira aplica microsegmentação e identidade de workload aos workloads críticos. Sistemas legados que não suportam os novos mecanismos ficam atrás de um gateway de enclave com fluxos mínimos e monitoração, até serem substituídos. Cada onda passa por implantação inicial em modo de observação, monitoração e expansão.
+
+  F0["Fundação<br/><small>atores · ativos · processos ·<br/>riscos · políticas</small>"]
+  W1["Onda 1<br/><small>identidade resistente a phishing;<br/>acesso remoto por aplicação</small>"]
+  W2["Onda 2<br/><small>postura de dispositivo e<br/>políticas contextuais em web e SaaS</small>"]
+  W3["Onda 3<br/><small>microsegmentação e identidade<br/>de workload nos críticos</small>"]
+  LEG["Legados<br/><small>gateway de enclave · fluxos mínimos ·<br/>monitoração até substituição</small>"]
+  OBS["Em cada onda:<br/><small>observação → aplicação → expansão</small>"]
+
+  F0 --> W1 --> W2 --> W3
+  F0 --> LEG
+  OBS -.-> W1 & W2 & W3
+
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef untrusted stroke:#dc2626,stroke-width:2px,stroke-dasharray:5 3
+  class W1,W2,W3 control
+  class LEG untrusted

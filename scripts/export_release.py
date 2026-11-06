@@ -22,7 +22,19 @@ Seleção dos arquivos (nesta ordem):
     2. Allowlist explícita (curriculum/public-allowlist.yml): o que não está nela
        fica só no desenvolvimento (relatórios de processo, arquivos locais).
     3. Escopo cumulativo da release, pelo manifesto: módulos, atividades,
-       diagramas e conceitos de releases futuras são removidos.
+       diagramas e conceitos de releases futuras são removidos. Diagramas sem
+       prefixo de módulo só entram se alguma página exportada os usa (ou se
+       estão em ``shared_diagrams`` da allowlist).
+    4. Classificação (fail-closed): todo arquivo da árvore precisa ter uma
+       razão para ser público — item do currículo no escopo, página da
+       navegação pública, asset do portal, dado da Research Library,
+       infraestrutura pública. Arquivo sem classificação interrompe a
+       exportação. ``--inventory`` grava o inventário (fora da árvore).
+
+Relações com módulos fora do escopo também saem da árvore: o campo ``modules``
+das referências (e dos capítulos) e dos conceitos do mapa de conhecimento só
+lista módulos do escopo, e conceitos ligados apenas a módulos futuros não são
+publicados. As referências da biblioteca continuam todas na árvore.
 
 A árvore recebe RELEASE-MANIFEST.yml: versão, escopo (aulas, laboratórios,
 avaliações, diagramas, referências), aprovação, commit privado de origem e o
@@ -93,7 +105,7 @@ class ExportError(Exception):
 def load_allowlist(root: Path = ROOT) -> dict[str, list[str]]:
     data = yaml.safe_load((root / ALLOWLIST).read_text(encoding="utf-8")) or {}
     return {"files": list(data.get("files") or []), "directories": list(data.get("directories") or []),
-            "exclude": list(data.get("exclude") or [])}
+            "exclude": list(data.get("exclude") or []), "shared_diagrams": list(data.get("shared_diagrams") or [])}
 
 
 def is_public(rel: str, allow: dict[str, list[str]]) -> bool:
@@ -320,10 +332,11 @@ def transform_manifest(manifest: dict[str, Any], scope: dict[str, set[str]], mod
 
 
 def transform_knowledge_map(kmap: dict[str, Any], scope: dict[str, set[str]], out: Path) -> dict[str, Any]:
-    """Remove do mapa de conhecimento os conceitos ligados só a aulas fora do escopo.
+    """Remove do mapa de conhecimento os conceitos ligados só a aulas ou módulos fora do escopo.
 
-    Conceitos sem aula associada (orientação de pesquisa) permanecem. Nos demais,
-    ficam apenas as aulas do escopo e os diagramas presentes na árvore pública.
+    Conceitos sem aula associada (orientação de pesquisa) permanecem se algum módulo deles está no
+    escopo (ou se não têm módulo). Nos demais, ficam apenas as aulas e os módulos do escopo e os
+    diagramas presentes na árvore pública.
     """
     units = scope["modules"] | scope["complements"]
     kept = []
@@ -335,11 +348,164 @@ def transform_knowledge_map(kmap: dict[str, Any], scope: dict[str, set[str]], ou
             if not inside:
                 continue
             concept["lessons"] = inside
+        modules = list(concept.get("modules") or [])
+        if modules:
+            # Relação com módulo futuro não é publicada; conceito só de módulos futuros fica de fora.
+            concept["modules"] = [m for m in modules if str(m) in units]
+            if not concept["modules"]:
+                continue
         if concept.get("diagrams"):
             concept["diagrams"] = [d for d in concept["diagrams"]
                                    if (out / "assets" / "diagrams" / f"{d}.mmd").is_file()]
         kept.append(concept)
     return {**kmap, "concepts": kept}
+
+
+MODULE_KEY_RE = re.compile(r"^(?P<indent>\s*)(?:- )?modules:\s*$")
+MODULE_ITEM_RE = re.compile(r"^(?P<indent>\s*)- (?P<id>[MC]\d{2})\s*$")
+
+
+def transform_bibliography(text: str, scope: dict[str, set[str]]) -> str:
+    """Bibliografia pública: o campo ``modules`` (da referência e de cada capítulo) só lista módulos do escopo.
+
+    Edita o texto (preserva comentários e formatação do arquivo). Nenhuma referência é removida;
+    uma referência ligada só a módulos futuros fica com ``modules: []``.
+    """
+    units = scope["modules"] | scope["complements"]
+    lines = text.split("\n")
+    out: list[str] = []
+    i = 0
+    while i < len(lines):
+        line = lines[i]
+        key = MODULE_KEY_RE.match(line)
+        if not key:
+            out.append(line)
+            i += 1
+            continue
+        col = len(key.group("indent")) + (2 if line.lstrip().startswith("- ") else 0)
+        j, items = i + 1, []
+        while j < len(lines) and (m := MODULE_ITEM_RE.match(lines[j])) and len(m.group("indent")) == col:
+            items.append(m.group("id"))
+            j += 1
+        kept = [x for x in items if x in units]
+        if items and not kept:
+            out.append(line.rstrip() + " []")
+        else:
+            out.append(line)
+            out += [" " * col + f"- {x}" for x in kept]
+        i = j
+    result = "\n".join(out)
+    expected = yaml.safe_load(text)
+    for ref in expected.get("references") or []:
+        ref["modules"] = [m for m in ref.get("modules") or [] if m in units]
+        for chapter in ref.get("chapters") or []:
+            if "modules" in chapter:
+                chapter["modules"] = [m for m in chapter.get("modules") or [] if m in units]
+    if yaml.safe_load(result) != expected:  # fail-closed: o filtro de texto tem de equivaler ao filtro dos dados
+        raise ExportError("transform_bibliography: o filtro do campo modules divergiu do esperado")
+    return result
+
+
+SNIPPET_DIAGRAM_RE = re.compile(r"assets/diagrams/([\w.-]+)\.mmd")
+
+
+def unreferenced_shared_diagrams(out: Path, allow: dict[str, list[str]]) -> list[str]:
+    """Diagramas sem prefixo de módulo que nenhuma página exportada usa e que não estão em ``shared_diagrams``.
+
+    Um diagrama de atividade futura (por exemplo, de um caso de outra release) só é usado pelas páginas
+    dessa atividade, que ficaram de fora; por isso não entra na árvore.
+    """
+    used: set[str] = set()
+    for page in list((out / "docs").rglob("*.md")) + [out / "README.md"]:
+        if page.is_file():
+            used.update(SNIPPET_DIAGRAM_RE.findall(page.read_text(encoding="utf-8")))
+    shared = {Path(s).stem for s in allow.get("shared_diagrams") or []}
+    return sorted(p.relative_to(out).as_posix() for p in (out / "assets" / "diagrams").glob("*.mmd")
+                  if not DIAGRAM_MODULE_RE.match(p.name) and p.stem not in used | shared)
+
+
+INFRA_PREFIXES = (
+    (".github/", "infraestrutura pública: CI, templates de issue e PR e deploy do repositório público"),
+    ("overrides/", "tema do portal"),
+    ("includes/", "trechos incluídos nas páginas do portal"),
+    ("docs/assets/", "asset do portal (marca, fontes, imagens, estilos)"),
+    ("assets/", "asset do portal (marca, imagens)"),
+    ("research/", "dado da Research Library (bibliografia, mapa de conhecimento, notas de leitura)"),
+    ("scripts/", "ferramenta pública de validação, geração e verificação da release"),
+    ("tests/", "teste público executado pelo CI do repositório público"),
+)
+
+
+def classify_tree(out: Path, manifest: dict[str, Any], scope: dict[str, set[str]],
+                  allow: dict[str, list[str]]) -> tuple[list[dict[str, str]], list[str]]:
+    """Classifica cada arquivo da árvore exportada. Retorna (inventário, arquivos sem classificação).
+
+    ``manifest`` é o manifesto público (já transformado); ``status`` vem dele. A ordem das regras importa:
+    currículo primeiro, depois páginas da navegação, depois infraestrutura.
+    """
+    nav = {m.group(1) for line in (out / "zensical.toml").read_text(encoding="utf-8").splitlines()
+           if (m := NAV_ITEM_RE.match(line))}
+    curriculum: list[tuple[str, str, str, str]] = []  # (prefixo ou caminho, item, status, tipo)
+    for key in ("modules", "complements"):
+        for unit in manifest.get(key) or []:
+            if str(unit["id"]) not in scope[key]:
+                continue
+            base = unit_dir(unit) + "/"
+            curriculum.append((base + "index.md", str(unit["id"]), str(unit.get("status")), "índice de módulo"))
+            for lesson in unit.get("lessons") or []:
+                if lesson.get("file"):
+                    curriculum.append((base + lesson["file"], str(lesson["id"]), str(lesson.get("status")), "aula"))
+            curriculum.append((base, str(unit["id"]), str(unit.get("status")), "página do módulo"))
+    for key in COLLECTIONS:
+        for item in manifest.get(key) or []:
+            if str(item["id"]) not in scope[key] or not item.get("path"):
+                continue
+            status, iid = str(item.get("status")), str(item["id"])
+            path = f"docs/{item['path']}"
+            curriculum.append((path, iid, status, key))
+            if path.endswith("/index.md"):
+                curriculum.append((path.rsplit("/", 1)[0] + "/", iid, status, key))
+            if item.get("answers"):
+                curriculum.append((f"docs/{item['answers']}", iid, status, f"{key} (gabarito)"))
+            if key == "labs":
+                curriculum.append((f"examples/{Path(item['path']).stem}/", iid, status, "código do laboratório"))
+    shared = set(allow.get("shared_diagrams") or [])
+    inventory: list[dict[str, str]] = []
+    unclassified: list[str] = []
+    for path in sorted(out.rglob("*")):
+        if not path.is_file():
+            continue
+        rel = path.relative_to(out).as_posix()
+        if "__pycache__/" in rel:
+            continue
+        entry = {"path": rel, "type": path.suffix.lstrip(".") or path.name, "item": "", "status": "", "reason": ""}
+        hit = next((c for c in curriculum if rel == c[0] or (c[0].endswith("/") and rel.startswith(c[0]))), None)
+        match = DIAGRAM_MODULE_RE.match(path.name) if rel.startswith("assets/diagrams/") else None
+        if rel == RELEASE_MANIFEST:
+            entry["reason"] = "manifesto da release (gerado, com o SHA-256 de cada arquivo)"
+        elif hit:
+            entry.update(item=hit[1], status=hit[2], reason=f"currículo no escopo: {hit[3]}")
+        elif rel in allow["files"]:
+            entry["reason"] = "documento ou configuração da raiz listado na allowlist"
+        elif rel in {"curriculum/manifest.yml", "curriculum/public-allowlist.yml"}:
+            entry["reason"] = "dado do currículo (manifesto público e allowlist)"
+        elif rel.startswith("docs/") and rel.endswith(".md") and rel[5:] in nav:
+            entry["reason"] = "página da navegação pública (institucional, índice ou referência)"
+        elif match:
+            mid = f"M{match.group(1)}"
+            if mid in scope["modules"]:
+                entry.update(item=mid, reason="diagrama de módulo no escopo")
+        elif rel.startswith("assets/diagrams/"):
+            entry["reason"] = ("diagrama compartilhado publicado (allowlist shared_diagrams)" if rel in shared
+                               else "diagrama usado por página exportada")
+        else:
+            entry["reason"] = next((why for prefix, why in INFRA_PREFIXES if rel.startswith(prefix)), "")
+            if rel.startswith("docs/") and not rel.startswith("docs/assets/"):
+                entry["reason"] = ""  # página fora do currículo e da navegação: não tem razão para ser pública
+        if not entry["reason"]:
+            unclassified.append(rel)
+        inventory.append(entry)
+    return inventory, unclassified
 
 
 def transform_nav(config_text: str, out: Path) -> str:
@@ -382,7 +548,7 @@ def publish_page(text: str, approvers: list[str], date: dt.date, rel: str = "") 
     text = STATUS_LINE_RE.sub("status: published", text, count=1)
     names = ", ".join(approvers)
     text = REVIEWED_RE.sub(f"reviewed_by: [{names}]", text, count=1)
-    text = text.replace(REVIEW_ROW, f"| Revisão técnica | {names} — {date.isoformat()} |")
+    text = text.replace(REVIEW_ROW, f"| Revisão técnica | Revisado por {names} — {date.isoformat()} |")
     lines = text.split("\n")
     for i, line in enumerate(lines):
         if BADGE_IN_REVIEW in line and not line.lstrip().startswith("| " + BADGE_IN_REVIEW):
@@ -428,6 +594,13 @@ def export(release_id: str, mode: str, out: Path, root: Path = ROOT) -> dict[str
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(source, target)
         copied.append(rel)
+    for rel in unreferenced_shared_diagrams(out, allow):
+        (out / rel).unlink()
+        copied.remove(rel)
+        skipped.append(rel)
+    bib_path = out / "research" / "bibliography.yml"
+    if bib_path.is_file():
+        bib_path.write_text(transform_bibliography(bib_path.read_text(encoding="utf-8"), scope), encoding="utf-8")
 
     public_manifest = transform_manifest(yaml.safe_load((root / "curriculum" / "manifest.yml").read_text(encoding="utf-8")),
                                          scope, mode, release)
@@ -461,6 +634,10 @@ def export(release_id: str, mode: str, out: Path, root: Path = ROOT) -> dict[str
         raise ExportError(f"render_curriculum.py na árvore exportada: {render.stdout[-500:]}{render.stderr[-500:]}")
     for cache in out.rglob("__pycache__"):
         shutil.rmtree(cache)
+    inventory, unclassified = classify_tree(out, public_manifest, scope, allow)
+    if unclassified:
+        raise ExportError("arquivos sem classificação de publicação (fail-closed): " + ", ".join(unclassified[:20])
+                          + (f" … e mais {len(unclassified) - 20}" if len(unclassified) > 20 else ""))
 
     approved_commit = check_approved_commit(root, pub, copied) if mode == "final" else None
     head = git(root, "rev-parse", "HEAD")
@@ -472,7 +649,9 @@ def export(release_id: str, mode: str, out: Path, root: Path = ROOT) -> dict[str
     (out / RELEASE_MANIFEST).write_text(
         "# Gerado por scripts/export_release.py — não editar. Verificado por scripts/verify_release_manifest.py.\n"
         + yaml.safe_dump(data, sort_keys=False, allow_unicode=True, width=1000), encoding="utf-8")
-    return {"copied": copied, "skipped": skipped, "not_allowed": not_allowed, "scope": scope, "source": source}
+    return {"copied": copied, "skipped": skipped, "not_allowed": not_allowed, "scope": scope, "source": source,
+            "inventory": inventory + [{"path": RELEASE_MANIFEST, "type": "yml", "item": "", "status": "",
+                                       "reason": "manifesto da release (gerado, com o SHA-256 de cada arquivo)"}]}
 
 
 def scope_findings(out: Path, mode: str) -> list[str]:
@@ -504,9 +683,11 @@ def run_validations(out: Path, mode: str, python: str) -> list[tuple[str, int]]:
         ["scripts/check_assets.py"],
         ["scripts/check_contrast.py"],
         ["scripts/check_decision_matrices.py"],
+        ["scripts/check_status_badges.py"],
         ["scripts/validate_references.py"],
         ["-m", "zensical", "build", "--clean"],
         ["scripts/check_links.py"],
+        ["scripts/check_site_scope.py"],
         ["scripts/check_attribution.py", "--path", "site"],
         ["-m", "pytest", "-q", "-p", "no:cacheprovider", "tests", "examples"],
     ]
@@ -525,6 +706,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--mode", choices=["candidate", "final"], default="candidate")
     parser.add_argument("--out", required=True, type=Path, help="diretório de saída (novo ou vazio)")
     parser.add_argument("--no-validate", action="store_true", help="não executa as validações na árvore gerada")
+    parser.add_argument("--inventory", type=Path, help="grava o inventário classificado (JSON) neste arquivo, fora da árvore")
     args = parser.parse_args(argv)
     try:
         result = export(args.release, args.mode, args.out.resolve())
@@ -537,6 +719,14 @@ def main(argv: list[str] | None = None) -> int:
         print(f"  só no desenvolvimento: {rel}")
     src = result["source"]
     print(f"  commit de origem: {src['commit']}{' (com alterações não commitadas)' if src['dirty'] else ''}")
+    print(f"  inventário: {len(result['inventory'])} arquivos classificados, 0 sem classificação")
+    if args.inventory:
+        import json
+        inv = args.inventory.resolve()
+        if inv.is_relative_to(args.out.resolve()):
+            print("[FALHOU] --inventory precisa ficar fora da árvore exportada")
+            return 2
+        inv.write_text(json.dumps(result["inventory"], ensure_ascii=False, indent=1), encoding="utf-8")
     for key in SCOPES:
         if result["scope"][key]:
             print(f"  {key}: {', '.join(sorted(result['scope'][key]))}")

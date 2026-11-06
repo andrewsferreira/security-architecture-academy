@@ -70,6 +70,20 @@ def test_further_reading_may_point_to_pending_but_must_exist():
     assert errors == ["docs/modules/02-x/01-a.md: further_reading cita referência inexistente: MISSING-REF"]
 
 
+@pytest.mark.parametrize("field", ["sources", "further_reading"])
+def test_module_page_citation_requires_module_in_reference(field):
+    other = "further_reading" if field == "sources" else "sources"
+    pages = {"docs/modules/05-x/01-a.md": {field: ["TEST-REF"], other: []}}
+    errors = run(bib(ref(modules=["M02"])), pages=pages).errors
+    assert errors == [f"docs/modules/05-x/01-a.md: {field} cita TEST-REF, mas o campo modules da referência não lista M05"]
+    assert run(bib(ref(modules=["M02", "M05"])), pages=pages).errors == []
+
+
+def test_modules_may_list_recommended_modules_without_citation():
+    pages = {"docs/modules/02-x/01-a.md": {"sources": ["TEST-REF"], "further_reading": []}}
+    assert run(bib(ref(modules=["M02", "M07"])), pages=pages).errors == []
+
+
 def test_consulted_concept_requires_consulted_chapter():
     chapters = [{"locator": "Cap. 3", "title": "X", "consulted": False}]
     kmap = {"concepts": [{"concept": "C", "ref": "TEST-REF", "locator": "Cap. 3, §3.1", "consulted": True, "modules": ["M02"],
@@ -100,11 +114,15 @@ def test_unused_reference_and_uncovered_modules_are_warnings():
     assert any(w.startswith("M00:") for w in report.warnings)
 
 
-def test_coverage_report_lists_every_module():
+def test_coverage_report_lists_every_module_with_content():
+    """Módulos com conteúdo têm linha; os planejados só aparecem na nota (sem estatísticas)."""
     manifest = load_manifest()
     cov = coverage(load_yaml(BIBLIOGRAPHY), load_yaml(KNOWLEDGE_MAP), manifest, page_citations())
     text = render_report(cov, load_yaml(BIBLIOGRAPHY)["categories"])
     for mod in manifest["modules"]:
-        assert f"| {mod['id']} — " in text
+        assert (f"| {mod['id']} — " in text) is (mod["status"] != "planned")
+    planned = [m["id"] for m in manifest["modules"] if m["status"] == "planned"]
+    if planned:
+        assert f"Módulos planejados ({', '.join(planned)}) não entram no relatório." in text
     m02 = next(r for r in cov["modules"] if r["id"] == "M02")
     assert m02["verified"] >= 3 and m02["cited"]

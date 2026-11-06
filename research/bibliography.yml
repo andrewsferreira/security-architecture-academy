@@ -17,6 +17,13 @@
 #
 # reading_role: essential | deep-dive | reference | exercises | projects
 # priority: 1 (ler primeiro) a 3 (consulta)
+#
+# modules: módulos em que a referência é usada. Obrigatório listar todo módulo
+# cujas páginas (docs/modules/NN-*/) citam a referência em `sources` ou
+# `further_reading` (verificado por scripts/validate_references.py). Pode
+# listar também módulos para os quais a fonte é leitura recomendada na Research
+# Library sem ser citada nas aulas. Não indica que a fonte foi lida para aquele
+# módulo — isso é registrado em `verification`, `notes` e `chapters`.
 # =============================================================================
 
 schema_version: 2
@@ -60,11 +67,6 @@ references:
   - M05
   - M06
   - M08
-  - M12
-  - M13
-  - M14
-  - M15
-  - M16
   reading_role: essential
   priority: 1
   subject: 'Engenharia de segurança: princípios, mecanismos, economia, assurance e casos de falha'
@@ -109,7 +111,6 @@ references:
     consulted: false
     modules:
     - M01
-    - M13
   - locator: Cap. 6
     title: Access Control
     consulted: true
@@ -131,7 +132,6 @@ references:
     modules:
     - M02
     - M03
-    - M14
     pages: 275–
     page_basis: printed
   - locator: Cap. 9
@@ -147,7 +147,6 @@ references:
     modules:
     - M01
     - M05
-    - M13
     pages: 341–
     page_basis: printed
   - locator: Cap. 11
@@ -199,7 +198,6 @@ references:
     consulted: false
     modules:
     - M05
-    - M15
   - locator: Cap. 22
     title: Phones
     consulted: false
@@ -226,8 +224,6 @@ references:
     modules:
     - M02
     - M04
-    - M12
-    - M14
     pages: 965–
     page_basis: printed
   - locator: Cap. 28
@@ -235,8 +231,6 @@ references:
     consulted: true
     modules:
     - M03
-    - M14
-    - M16
     pages: 1015–
     page_basis: printed
   - locator: Cap. 29
@@ -296,11 +290,10 @@ references:
   verification: Verified
   verified_on: '2026-10-23'
   modules:
+  - M00
   - M01
   - M02
   - M04
-  - M16
-  - M17
   reading_role: essential
   priority: 1
   subject: Engenharia de segurança de sistemas; princípios de design
@@ -363,7 +356,6 @@ references:
     consulted: false
     modules:
     - M02
-    - M16
     pages: '32'
     page_basis: printed
   - locator: Apêndice C
@@ -395,7 +387,6 @@ references:
     consulted: false
     modules:
     - M02
-    - M16
     pages: '102'
     page_basis: printed
   - locator: Apêndice H
@@ -404,7 +395,6 @@ references:
     modules:
     - M02
     - M04
-    - M16
     pages: '115'
     page_basis: printed
   - locator: Apêndice I
@@ -511,7 +501,7 @@ references:
   availability: Free Online Reading
   redistribution: Not Verified
   verification: Verified
-  verified_on: '2026-10-23'
+  verified_on: '2026-10-29'
   modules:
   - M01
   - M08
@@ -520,7 +510,7 @@ references:
   subject: Descontinuação formal de TLS 1.0, TLS 1.1 e DTLS 1.0
   billing_risk: Nenhum
   prerequisites: —
-  notes: 'RFC lida em 2026-10-23: TLS 1.0 e 1.1 não devem ser usados; razões incluem dependência de SHA-1 e cifras legadas. Autores registrados por conhecimento prévio.'
+  notes: 'RFC lida em 2026-10-23: TLS 1.0 e 1.1 não devem ser usados; razões incluem dependência de SHA-1 e cifras legadas. Autores registrados por conhecimento prévio. Reconferido em 2026-10-29: o resumo diz que perfis de governo e indústria exigem evitar as versões antigas; o MUST NOT está nas Sec. 4 (TLS 1.0) e 5 (TLS 1.1); a Sec. 1 lista cifras obrigatórias indesejáveis, ausência de AEAD, integridade do handshake e autenticação dependentes de SHA-1, risco de configuração com quatro versões e fim do suporte em biblioteca. BCP 195; atualiza a RFC 7525.'
 - id: RFC-9846
   title: RFC 9846 — The Transport Layer Security (TLS) Protocol Version 1.3
   authors:
@@ -540,16 +530,22 @@ references:
   modules:
   - M00
   - M01
-  - M13
+  - M05
+  - M08
   reading_role: reference
   priority: 2
   subject: Especificação vigente do TLS 1.3
   chapters:
   - locator: §1.2
-    title: Major Differences from TLS 1.2 / resumo das mudanças em relação ao RFC 8446
+    title: Relationship to RFC 8446 — resumo das mudanças em relação ao RFC 8446
     consulted: true
     modules:
     - M01
+  - locator: §1.3
+    title: Major Differences from TLS 1.2 — todas as mensagens do handshake depois do ServerHello são cifradas
+    consulted: true
+    modules:
+    - M05
   - locator: §2
     title: Protocol Overview — autenticação do servidor e, opcionalmente, do cliente; CertificateVerify como assinatura de todo o handshake
     consulted: true
@@ -572,7 +568,7 @@ references:
     - M01
   billing_risk: Nenhum
   prerequisites: —
-  notes: 'Página conferida: julho de 2026, Standards Track; obsoleta os RFCs 8446, 5246, 5077, 6961, 7627 e 8422. Segundo a seção 1.2, é uma atualização menor que mantém o número de versão e a compatibilidade, endurece alguns requisitos e esclarece o texto. O RFC 8446 deixa de ser a referência vigente. Em 2026-10-27 foram lidas as seções 2, 2.2 e 2.3 (modos de troca de chaves, forward secrecy e 0-RTT); a §4.3.9 foi localizada apenas pelo sumário.'
+  notes: 'Página conferida: julho de 2026, Standards Track; obsoleta os RFCs 8446, 5246, 5077, 6961, 7627 e 8422. Segundo a seção 1.2, é uma atualização menor que mantém o número de versão e a compatibilidade, endurece alguns requisitos e esclarece o texto. O RFC 8446 deixa de ser a referência vigente. Em 2026-10-27 foram lidas as seções 2, 2.2 e 2.3 (modos de troca de chaves, forward secrecy e 0-RTT); a §4.3.9 foi localizada apenas pelo sumário. Em 2026-10-29: sumário da Seção 1 conferido (§1.2 Relationship to RFC 8446; §1.3 Major Differences from TLS 1.2) e lida, na §1.3, a frase ''All handshake messages after the ServerHello are now encrypted'' (usada no Módulo 5 — Aula 02).'
 - id: SALTZER-SCHROEDER-1975
   title: The Protection of Information in Computer Systems
   authors:
@@ -581,15 +577,15 @@ references:
   publisher: Proceedings of the IEEE
   year: 1975
   edition: Vol. 63, n. 9, pp. 1278–1308
-  url: https://en.wikipedia.org/wiki/The_Protection_of_Information_in_Computer_Systems
+  url: https://web.mit.edu/Saltzer/www/publications/protection/
   type: Paper
   language: en
   level: professional
   category: security-engineering
-  availability: Unknown
+  availability: Free Online Reading
   redistribution: Not Verified
   verification: Partially Verified
-  verified_on: '2026-10-23'
+  verified_on: '2026-11-05'
   modules:
   - M01
   - M02
@@ -609,7 +605,7 @@ references:
   - Compromise recording
   billing_risk: Nenhum
   prerequisites: —
-  notes: Dados bibliográficos e a lista dos princípios conferidos em fonte secundária (Wikipedia). O artigo original não foi aberto nesta revisão; a URL registrada é a da fonte secundária.
+  notes: 'Texto do artigo conferido em 2026-11-05 na versão HTML mantida na página de publicações de J. H. Saltzer (MIT): Seção I.A.3, Design Principles — os oito princípios (economy of mechanism, fail-safe defaults, complete mediation, open design, separation of privilege, least privilege, least common mechanism, psychological acceptability) e os dois princípios que, segundo os autores, se aplicam só imperfeitamente a sistemas computacionais (work factor, compromise recording). Periódico, volume, número e páginas (Proceedings of the IEEE, v. 63, n. 9, pp. 1278–1308, 1975) não aparecem nas páginas abertas; vêm do registro anterior, conferido em fonte secundária. Termos de redistribuição da versão HTML não exibidos.'
 - id: ARC42-ISO42010-SUMMARY
   title: ISO/IEC/IEEE 42010:2022 — Architecture Description (resumo no arc42 Quality Model)
   authors:
@@ -648,8 +644,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M10
+  modules: []
   reading_role: reference
   priority: 3
   subject: 'Fases de adoção: Strategy, Plan, Ready, Adopt, Govern, Secure, Manage'
@@ -671,16 +666,15 @@ references:
   availability: Free Online Reading
   redistribution: Not Verified
   verification: Verified
-  verified_on: '2026-10-23'
+  verified_on: '2026-11-04'
   modules:
   - M08
-  - M11
   reading_role: reference
   priority: 2
   subject: Modernização gradual de sistemas legados
   billing_risk: Nenhum
   prerequisites: —
-  notes: 'Artigo lido em 2026-10-23: quatro atividades (entender resultados, dividir o problema, entregar as partes, mudar a organização); riscos de substituições completas.'
+  notes: 'Artigo lido em 2026-10-23: quatro atividades (entender resultados, dividir o problema, entregar as partes, mudar a organização); riscos de substituições completas. Reconferido em 2026-11-04: data (22/08/2024), as quatro atividades atribuídas a Cartwright, Horn e Lewis e a frase sobre substituições completas que fracassam "most of the time".'
 - id: ISO-42010-2022
   title: ISO/IEC/IEEE 42010:2022 — Software, systems and enterprise — Architecture description
   publisher: ISO/IEC/IEEE
@@ -696,6 +690,7 @@ references:
   verification: Verified
   verified_on: '2026-10-23'
   modules:
+  - M00
   - M02
   reading_role: reference
   priority: 3
@@ -720,7 +715,6 @@ references:
   modules:
   - M02
   - M03
-  - M16
   reading_role: deep-dive
   priority: 2
   subject: White paper SABSA
@@ -741,8 +735,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M16
+  modules: []
   reading_role: deep-dive
   priority: 3
   subject: White paper SABSA
@@ -765,7 +758,8 @@ references:
   verified_on: '2026-10-23'
   modules:
   - M02
-  - M16
+  - M03
+  - M04
   reading_role: deep-dive
   priority: 2
   subject: White paper SABSA
@@ -778,7 +772,6 @@ references:
     consulted: true
     modules:
     - M02
-    - M16
     pages: 8–9
     page_basis: printed
   - locator: Table 3
@@ -786,7 +779,6 @@ references:
     consulted: true
     modules:
     - M02
-    - M16
     pages: 15–16
     page_basis: printed
   - locator: Business Attributes Profile
@@ -794,7 +786,6 @@ references:
     consulted: true
     modules:
     - M02
-    - M16
     pages: 18–20
     page_basis: printed
   concepts:
@@ -818,7 +809,6 @@ references:
   verified_on: '2026-10-23'
   modules:
   - M02
-  - M16
   reading_role: essential
   priority: 1
   subject: Introdução ao SABSA
@@ -845,7 +835,6 @@ references:
   verified_on: '2026-10-23'
   modules:
   - M03
-  - M16
   reading_role: deep-dive
   priority: 2
   subject: White paper SABSA
@@ -868,7 +857,6 @@ references:
   verified_on: '2026-10-23'
   modules:
   - M03
-  - M16
   reading_role: deep-dive
   priority: 3
   subject: White paper SABSA
@@ -891,7 +879,6 @@ references:
   verified_on: '2026-10-23'
   modules:
   - M02
-  - M16
   reading_role: essential
   priority: 1
   subject: White paper SABSA
@@ -916,7 +903,6 @@ references:
   verified_on: '2026-10-23'
   modules:
   - M02
-  - M16
   reading_role: deep-dive
   priority: 2
   subject: White paper SABSA
@@ -938,7 +924,7 @@ references:
   verified_on: '2026-10-23'
   modules:
   - M02
-  - M16
+  - M03
   reading_role: reference
   priority: 3
   subject: Integração de risco e segurança ao método TOGAF; Security Services Catalog
@@ -961,7 +947,6 @@ references:
   verified_on: '2026-10-23'
   modules:
   - M02
-  - M16
   reading_role: reference
   priority: 3
   subject: Enterprise Architecture; estrutura modular do padrão
@@ -1003,8 +988,9 @@ references:
   availability: Free Online Reading
   redistribution: Not Verified
   verification: Partially Verified
-  verified_on: '2026-10-23'
+  verified_on: '2026-10-29'
   modules:
+  - M05
   - M07
   reading_role: reference
   priority: 3
@@ -1015,7 +1001,7 @@ references:
   - 'Estágios: Traditional, Initial, Advanced, Optimal'
   billing_risk: Nenhum
   prerequisites: M07-L01
-  notes: Página da CISA aberta, mas sem versão e data visíveis no trecho; pilares, capacidades e data (abril de 2023) confirmados por fonte secundária da Microsoft (learn.microsoft.com, cisa-zero-trust-maturity-model-intro). O PDF oficial não pôde ser aberto pela ferramenta (erro do site). Funções por pilar e descrições de estágios para Identity/Authentication e Networks/Network Segmentation conferidas em reprodução da Thales (ebook) e definição de estágios e capacidades transversais no Microsoft Learn (cisa-zero-trust-maturity-model-intro).
+  notes: 'Página da CISA aberta, mas sem versão e data visíveis no trecho; pilares, capacidades e data (abril de 2023) confirmados por fonte secundária da Microsoft (learn.microsoft.com, cisa-zero-trust-maturity-model-intro). O PDF oficial não pôde ser aberto pela ferramenta (erro do site). Funções por pilar e descrições de estágios para Identity/Authentication e Networks/Network Segmentation conferidas em reprodução da Thales (ebook) e definição de estágios e capacidades transversais no Microsoft Learn (cisa-zero-trust-maturity-model-intro). Em 2026-10-29: nova tentativa de abrir o PDF oficial (cisa.gov/sites/default/files/2023-04/zero_trust_maturity_model_v2_508.pdf) falhou na ferramenta (erro do site); alerta da CISA confirma que a versão 2 substitui a de setembro de 2021 e cita cinco pilares; Microsoft Learn (atualizado em 2026-05-31) reconferido: cinco pilares, três capacidades transversais e definições dos quatro estágios. Continua Partially Verified. Em 2026-11-04: nova tentativa de abrir o PDF oficial falhou (erro do site). Continua Partially Verified; a aula declara a limitação.'
 - id: NIST-SP1800-35
   title: SP 1800-35 — Implementing a Zero Trust Architecture
   publisher: NIST National Cybersecurity Center of Excellence (NCCoE)
@@ -1032,7 +1018,6 @@ references:
   verified_on: '2026-10-23'
   modules:
   - M07
-  - M11
   reading_role: reference
   priority: 2
   subject: Implementações de exemplo de arquiteturas Zero Trust de ponta a ponta
@@ -1059,14 +1044,15 @@ references:
   availability: Free Download
   redistribution: Not Verified
   verification: Verified
-  verified_on: '2026-10-23'
+  verified_on: '2026-10-29'
   modules:
+  - M00
+  - M01
   - M02
   - M05
   - M06
   - M07
-  - M11
-  - M16
+  - M08
   reading_role: essential
   priority: 1
   subject: Componentes lógicos de ZTA, modelos de implantação e casos de uso
@@ -1081,7 +1067,7 @@ references:
   - Posicionar PDP/PEP em ambientes híbridos
   billing_risk: Nenhum
   prerequisites: M05, M06
-  notes: 'Página oficial conferida: final de 11/08/2020; relacionados SP 800-207A e CSWP 20. Sumário do PDF conferido (seções e páginas impressas) e §2.1 lida: sete princípios (tenets). Demais seções identificadas pelo sumário. Em 2026-10-23 foram lidos no PDF o §3 (componentes lógicos e fontes de dados), §3.1 (abordagens), §3.2 (modelos de implantação), §3.3 (algoritmo de confiança), §5 (ameaças) e §7 (migração).'
+  notes: 'Página oficial conferida: final de 11/08/2020; relacionados SP 800-207A e CSWP 20. Sumário do PDF conferido (seções e páginas impressas) e §2.1 lida: sete princípios (tenets). Demais seções identificadas pelo sumário. Em 2026-10-23 foram lidos no PDF o §3 (componentes lógicos e fontes de dados), §3.1 (abordagens), §3.2 (modelos de implantação), §3.3 (algoritmo de confiança), §5 (ameaças) e §7 (migração). Reconferido no PDF em 2026-10-29: resumo (defesas de perímetros estáticos para usuários, ativos e recursos); sete princípios no §2.1 (pp. 6–7); componentes PE, PA, PEP e divisão do PDP em PE e PA (§3, pp. 9–10); fontes de dados (pp. 10–11); abordagens §3.1.1–3.1.3 (pp. 11–12); modelos §3.2.1–3.2.4 (pp. 13–16), com a desvantagem do enclave (p. 15) e do portal (p. 16); algoritmo de confiança §3.3 (pp. 17–19) e variações §3.3.1 (pp. 19–20), ''Ideally, a ZTA trust algorithm should be contextual''; requisitos de rede §3.4.1 itens 4 e 5 (pp. 21–22); sumário do §5 (5.1–5.7, pp. 28–30) e do §7 (7.1–7.3.7, pp. 36–41).'
   chapters:
   - locator: §2.1
     title: Tenets of Zero Trust
@@ -1133,7 +1119,6 @@ references:
     consulted: false
     modules:
     - M07
-    - M11
     pages: '23'
     page_basis: printed
   - locator: §5
@@ -1149,8 +1134,6 @@ references:
     consulted: true
     modules:
     - M07
-    - M11
-    - M16
     pages: 36–41
     page_basis: printed
   - locator: Apêndice B
@@ -1173,17 +1156,16 @@ references:
   availability: Free Download
   redistribution: Not Verified
   verification: Verified
-  verified_on: '2026-10-23'
+  verified_on: '2026-10-29'
   modules:
   - M07
-  - M09
-  - M12
+  - M08
   reading_role: reference
   priority: 2
   subject: Políticas de nível de identidade e de rede para aplicações cloud-native distribuídas; service mesh
   billing_risk: Nenhum
   prerequisites: —
-  notes: 'Notícia oficial do CSRC conferida em 2026-10-23: políticas de nível de identidade e de rede; gateways e infraestrutura de identidade de serviço; monitoração e telemetria para ajustar acessos e exigir autenticação adicional; service mesh como infraestrutura de apoio. Texto integral não lido.'
+  notes: 'Notícia oficial do CSRC conferida em 2026-10-23: políticas de nível de identidade e de rede; gateways e infraestrutura de identidade de serviço; monitoração e telemetria para ajustar acessos e exigir autenticação adicional; service mesh como infraestrutura de apoio. Texto integral não lido. PDF lido em 2026-10-29: sumário; políticas identity-tier (escopo de acesso por identidades de serviços e usuários) e network-tier (comunicação permitida entre elementos da rede) na Sec. 3.3 (p. 10); sidecar proxies (Sec. 2.1, p. 6); gateways de entrada, saída e borda (Sec. 4.5, p. 16); SPIFFE ID identifica de forma única e específica um workload (Sec. 4.6.2, p. 18); service mesh como plataforma integrada (sumário executivo, p. 1; Sec. 4.2); telemetria para ajustar direitos e exigir step-up (arcabouço de monitoração, pp. 20–21); ambientes multicloud, híbridos e on-premises. O documento não usa o termo ''API gateway''.'
 - id: AWS-NETWORK-FIREWALL
   title: What is AWS Network Firewall?
   publisher: AWS
@@ -1198,9 +1180,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M09
-  - M11
+  modules: []
   reading_role: reference
   priority: 3
   subject: Firewall gerenciado stateful e IPS para VPCs
@@ -1221,9 +1201,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M09
-  - M11
+  modules: []
   reading_role: reference
   priority: 3
   subject: Hub de trânsito entre VPCs e redes on-premises; anexos, tabelas de rota, associação e propagação
@@ -1244,8 +1222,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M11
+  modules: []
   reading_role: reference
   priority: 3
   subject: Private endpoints para serviços PaaS e proteção contra vazamento
@@ -1266,8 +1243,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M11
+  modules: []
   reading_role: reference
   priority: 3
   subject: Acesso privado a serviços gerenciados e APIs do Google por endpoints internos
@@ -1287,12 +1263,11 @@ references:
   availability: Free Download
   redistribution: Not Verified
   verification: Verified
-  verified_on: '2026-10-23'
+  verified_on: '2026-10-29'
   modules:
   - M00
   - M05
   - M07
-  - M10
   reading_role: essential
   priority: 1
   subject: 'Panorama de segurança de redes corporativas: limites do perímetro e da VPN, appliances de segurança, ZTNA, microsegmentação, SD-WAN e SASE'
@@ -1302,7 +1277,7 @@ references:
   - SASE e SD-WAN
   billing_risk: Nenhum
   prerequisites: —
-  notes: 'Anúncio oficial do CSRC conferido (16–17/11/2022). PDF lido em 2026-10-23 (Sec. 1–6): ''desaparecimento do conceito de perímetro''; mais de 75% do tráfego é east-west (p. 5); VPN com backhaul e limites de escala (pp. 5–6); appliances (CASB, NGFW, WAF, WAAP, SWG, UTM); ZTNA com cliente, controlador (PDP) e gateway (PEP) (p. 18); microsegmentação e SDP (pp. 17–22); SD-WAN e SASE com serviços mínimos (pp. 23–27).'
+  notes: 'Anúncio oficial do CSRC conferido (16–17/11/2022). PDF lido em 2026-10-23 (Sec. 1–6): ''desaparecimento do conceito de perímetro''; mais de 75% do tráfego é east-west (p. 5); VPN com backhaul e limites de escala (pp. 5–6); appliances (CASB, NGFW, WAF, WAAP, SWG, UTM); ZTNA com cliente, controlador (PDP) e gateway (PEP) (p. 18); microsegmentação e SDP (pp. 17–22); SD-WAN e SASE com serviços mínimos (pp. 23–27). Em 2026-10-29: PDF reconsultado — Sec. 2.1 (p. 5) confirma ''over 75 % of network traffic is now east-west'', ''largely invisible to security teams'' e a visibilidade buscada com EDR; sumário das Seções 2, 3 e 5 conferido (§5.1 Microsegmentation p. 17, §5.1.1 pré-requisitos p. 18, §5.1.2 abordagens p. 19, §5.2 SDP p. 21). Reconferido em 2026-10-29: os três blocos do ZTNA (cliente ou navegador, controlador como PDP, gateway como PEP) estão na p. 17, não na p. 18 como registrado antes; Sec. 5.1.1 (pp. 18–19): pré-requisitos da microsegmentação, ''A unique application identity is inevitable'' e SPIFFE ID como exemplo de identidade de workload; Sec. 5.1.2 (pp. 20–21): abordagens baseada em servidor virtualizado, em host e em identidade; Sec. 5.2 (pp. 21–22): SDP torna recursos invisíveis até autenticação e autorização, com reavaliação contínua; Sec. 4.4 (p. 16): HAE-NCF-3, autenticação de dispositivo por certificado e verificação de saúde (versão do sistema, correções, software de segurança, geolocalização).'
   authors:
   - Ramaswamy Chandramouli
   identifiers:
@@ -1367,6 +1342,7 @@ references:
   modules:
   - M00
   - M05
+  - M08
   reading_role: reference
   priority: 2
   subject: Tecnologias de firewall, arquiteturas com DMZ e política de firewall
@@ -1414,7 +1390,7 @@ references:
   availability: Free Download
   redistribution: Not Verified
   verification: Verified
-  verified_on: '2026-10-23'
+  verified_on: '2026-11-04'
   modules:
   - M05
   reading_role: reference
@@ -1444,7 +1420,7 @@ references:
     page_basis: printed
   billing_risk: Nenhum
   prerequisites: —
-  notes: 'Página oficial e PDF lidos em 2026-10-23. Substitui a Rev. 1 (2009). Documento de 2016: anterior à difusão de ZTNA; usar para os métodos e premissas, não para produtos.'
+  notes: 'Página oficial e PDF lidos em 2026-10-23. Substitui a Rev. 1 (2009). Documento de 2016: anterior à difusão de ZTNA; usar para os métodos e premissas, não para produtos. Reconferido em 2026-11-04: frase sobre acesso remoto a desktop ("should only be used for exceptional cases after a careful analysis of the security risks") está na Sec. 2.2.3; a numeração de páginas lida pela ferramenta divergiu da citação anterior (p. 11), por isso a M05-L04 passou a citar seções, não páginas.'
 - id: NIST-SP800-94
   title: SP 800-94 — Guide to Intrusion Detection and Prevention Systems (IDPS)
   authors:
@@ -1464,7 +1440,7 @@ references:
   verified_on: '2026-10-23'
   modules:
   - M05
-  - M15
+  - M08
   reading_role: reference
   priority: 3
   subject: 'Tecnologias de IDS/IPS: baseadas em rede, sem fio, análise de comportamento de rede e baseadas em host'
@@ -1487,6 +1463,7 @@ references:
   verified_on: '2026-10-23'
   modules:
   - M05
+  - M06
   - M08
   reading_role: reference
   priority: 2
@@ -1569,10 +1546,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M09
-  - M11
-  - M15
+  modules: []
   reading_role: reference
   priority: 2
   subject: 'Trilha de organização: registro centralizado de todas as contas'
@@ -1593,9 +1567,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M09
-  - M11
+  modules: []
   reading_role: reference
   priority: 3
   subject: Registro de configuração, regras, conformance packs e agregadores
@@ -1616,8 +1588,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M09
+  modules: []
   reading_role: reference
   priority: 3
   subject: Landing zone multi-conta, controles e Account Factory
@@ -1638,9 +1609,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M09
-  - M13
+  modules: []
   reading_role: deep-dive
   priority: 3
   subject: 'Perímetro de dados: identidades confiáveis, recursos confiáveis e redes esperadas'
@@ -1663,8 +1632,9 @@ references:
   verified_on: '2026-10-23'
   modules:
   - M03
-  - M09
-  - M12
+  - M04
+  - M06
+  - M08
   reading_role: reference
   priority: 2
   subject: Estratégias de recuperação de desastres (backup e restauração, pilot light, warm standby, multi-site ativo-ativo) e proteção contra corrupção de dados
@@ -1685,9 +1655,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M09
-  - M15
+  modules: []
   reading_role: reference
   priority: 3
   subject: 'Detecção de ameaças: fontes fundamentais e planos de proteção'
@@ -1708,9 +1676,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M09
-  - M14
+  modules: []
   reading_role: reference
   priority: 3
   subject: Gestão de vulnerabilidades de EC2, imagens ECR e Lambda
@@ -1730,17 +1696,15 @@ references:
   availability: Free Online Reading
   redistribution: Not Verified
   verification: Verified
-  verified_on: '2026-10-23'
+  verified_on: '2026-10-29'
   modules:
   - M08
-  - M09
-  - M11
   reading_role: reference
   priority: 3
   subject: 'Estratégias de migração: retire, retain, rehost, relocate, repurchase, replatform, refactor'
   billing_risk: Nenhum
   prerequisites: —
-  notes: 'Página lida em 2026-10-23: definições e casos de uso das sete estratégias; recomendação de modernizar depois da migração em grandes migrações; retire inclui reduzir riscos de componentes sem suporte.'
+  notes: 'Página lida em 2026-10-23: definições e casos de uso das sete estratégias; recomendação de modernizar depois da migração em grandes migrações; retire inclui reduzir riscos de componentes sem suporte. Reconferido em 2026-10-29: sete estratégias (Retire, Retain, Rehost, Relocate, Repurchase, Replatform, Refactor); em grandes migrações, recomenda rehost, relocate ou replatform e modernizar depois, sem refactor durante a migração; retire para reduzir riscos de sistema operacional ou componentes sem suporte.'
 - id: AWS-ORG-RCP
   title: Resource control policies (RCPs) — AWS Organizations User Guide
   publisher: AWS
@@ -1755,8 +1719,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M09
+  modules: []
   reading_role: reference
   priority: 3
   subject: Guardrails sobre recursos, inclusive contra principais externos à organização
@@ -1777,8 +1740,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M09
+  modules: []
   reading_role: reference
   priority: 2
   subject: Guardrails de permissões em organizações AWS
@@ -1799,9 +1761,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M09
-  - M11
+  modules: []
   reading_role: reference
   priority: 3
   subject: Postura de segurança contra padrões (FSBP, CIS, PCI DSS, NIST) e agregação de achados
@@ -1824,10 +1784,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M09
-  - M11
-  - M14
+  modules: []
   reading_role: reference
   priority: 3
   subject: 'Novo Security Hub: correlação de sinais, exposições, caminhos de ataque e OCSF'
@@ -1848,10 +1805,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M09
-  - M11
-  - M15
+  modules: []
   reading_role: reference
   priority: 3
   subject: Data lake de segurança em OCSF e Parquet, fontes nativas e assinantes
@@ -1873,9 +1827,8 @@ references:
   verification: Verified
   verified_on: '2026-10-23'
   modules:
-  - M09
-  - M11
-  - M16
+  - M00
+  - M01
   reading_role: essential
   priority: 1
   subject: Boas práticas de segurança em workloads AWS
@@ -1886,38 +1839,31 @@ references:
   - locator: Área
     title: Security foundations
     consulted: true
-    modules:
-    - M09
+    modules: []
   - locator: Área
     title: Identity and access management
     consulted: true
-    modules:
-    - M09
+    modules: []
   - locator: Área
     title: Detection
     consulted: true
-    modules:
-    - M09
+    modules: []
   - locator: Área
     title: Infrastructure protection
     consulted: true
-    modules:
-    - M09
+    modules: []
   - locator: Área
     title: Data protection
     consulted: true
-    modules:
-    - M09
+    modules: []
   - locator: Área
     title: Incident response
     consulted: true
-    modules:
-    - M09
+    modules: []
   - locator: Área
     title: Application security
     consulted: true
-    modules:
-    - M09
+    modules: []
   billing_risk: Nenhum
   prerequisites: —
   notes: Whitepaper datado de 06/11/2024; as sete áreas de boas práticas conferidas na página 'Definition' (sec-def) do framework.
@@ -1935,9 +1881,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M09
-  - M11
+  modules: []
   reading_role: essential
   priority: 1
   subject: Segurança da nuvem versus segurança na nuvem; controles herdados, compartilhados e específicos do cliente
@@ -1960,8 +1904,8 @@ references:
   verified_on: '2026-10-23'
   modules:
   - M02
-  - M09
-  - M11
+  - M06
+  - M08
   reading_role: reference
   priority: 3
   subject: Arquitetura de referência multi-account para serviços de segurança
@@ -1972,14 +1916,11 @@ references:
   - locator: Architecture
     title: 'AWS SRA — contas e OUs (Org Management; Security OU: Security Tooling e Log Archive; Infrastructure OU: Network e Shared Services; Workloads OU: Application)'
     consulted: true
-    modules:
-    - M09
-    - M11
+    modules: []
   - locator: Security Tooling account
     title: Serviços administrados por delegação a partir da conta Security Tooling
     consulted: true
-    modules:
-    - M09
+    modules: []
 - id: AWS-TRAINING-SECURITY
   title: 'Free digital training: Security (AWS Skill Builder)'
   publisher: AWS
@@ -1993,8 +1934,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M09
+  modules: []
   reading_role: reference
   priority: 3
   subject: Cursos digitais gratuitos de segurança
@@ -2015,8 +1955,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M09
+  modules: []
   reading_role: reference
   priority: 3
   subject: Políticas de endpoint de VPC
@@ -2037,8 +1976,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M09
+  modules: []
   reading_role: reference
   priority: 2
   subject: Security groups, network ACLs e PrivateLink
@@ -2060,8 +1998,6 @@ references:
   verified_on: '2026-10-23'
   modules:
   - M02
-  - M09
-  - M11
   reading_role: reference
   priority: 3
   subject: Sete princípios de design do pilar de segurança
@@ -2080,9 +2016,7 @@ references:
   redistribution: Not Verified
   verification: Unavailable
   verified_on: '2026-10-23'
-  modules:
-  - M10
-  - M11
+  modules: []
   reading_role: reference
   priority: 3
   subject: Guias de arquitetura de segurança no Azure
@@ -2103,8 +2037,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M10
+  modules: []
   reading_role: essential
   priority: 1
   subject: Platform landing zone, workload landing zones, hierarquia de management groups e subscription vending
@@ -2125,8 +2058,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M10
+  modules: []
   reading_role: reference
   priority: 3
   subject: 'Áreas de design: billing e tenant, identidade, organização de recursos, rede, segurança, gestão, governança, automação'
@@ -2147,9 +2079,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M10
-  - M16
+  modules: []
   reading_role: reference
   priority: 2
   subject: Hierarquia recomendada de management groups e atribuição de Azure Policy
@@ -2170,8 +2100,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M10
+  modules: []
   reading_role: reference
   priority: 3
   subject: Efeitos de Azure Policy e ordem de avaliação
@@ -2192,8 +2121,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M11
+  modules: []
   reading_role: reference
   priority: 3
   subject: Consulta de recursos em escala com KQL e histórico de mudanças de 14 dias
@@ -2210,16 +2138,16 @@ references:
   category: cloud-security
   availability: Free Online Reading
   redistribution: Not Verified
-  verification: Pending
-  verified_on: '2026-10-23'
+  verification: Verified
+  verified_on: '2026-11-04'
   modules:
-  - M10
+  - M06
   reading_role: reference
   priority: 3
   subject: Visão geral de arquitetura de segurança no Azure
   billing_risk: —
   prerequisites: —
-  notes: URL fornecida no currículo; não aberta no ambiente de verificação.
+  notes: 'URL fornecida no currículo; não aberta no ambiente de verificação. Aberta em 2026-11-04: Introdução ao design da arquitetura de segurança (Azure Architecture Center), atualizada em 30/04/2026; serviços centrais (Defender para Nuvem, Entra ID, Front Door, Firewall, Key Vault, Link Privado, Gateway de Aplicativo, Azure Policy), arquitetura de referência hub-and-spoke e links para CAF, WAF e MCSB. Página-índice: serve como leitura de orientação, não como fonte de afirmações específicas.'
 - id: AZURE-WAF-PILLARS
   title: Azure Well-Architected Framework pillars
   publisher: Microsoft
@@ -2234,8 +2162,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M10
+  modules: []
   reading_role: reference
   priority: 3
   subject: Cinco pilares, incluindo Security
@@ -2257,9 +2184,7 @@ references:
   verification: Verified
   verified_on: '2026-10-23'
   modules:
-  - M10
-  - M11
-  - M16
+  - M00
   reading_role: essential
   priority: 1
   subject: Pilar de segurança do Azure Well-Architected
@@ -2283,9 +2208,7 @@ references:
   verification: Verified
   verified_on: '2026-10-23'
   modules:
-  - M10
-  - M11
-  - M16
+  - M02
   reading_role: exercises
   priority: 2
   subject: Checklist de revisão de segurança
@@ -2344,9 +2267,7 @@ references:
   verification: Partially Verified
   verified_on: '2026-10-23'
   modules:
-  - M09
-  - M10
-  - M11
+  - M00
   reading_role: deep-dive
   priority: 2
   subject: Segurança em cloud em 12 domínios
@@ -2403,9 +2324,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M10
-  - M11
+  modules: []
   reading_role: reference
   priority: 3
   subject: Centro de arquitetura do Google Cloud
@@ -2424,8 +2343,7 @@ references:
   redistribution: Not Verified
   verification: Pending
   verified_on: '2026-10-23'
-  modules:
-  - M10
+  modules: []
   reading_role: reference
   priority: 3
   subject: Fundamentos de arquitetura no Google Cloud
@@ -2446,9 +2364,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M10
-  - M15
+  modules: []
   reading_role: reference
   priority: 3
   subject: Admin Activity, Data Access, System Event e Policy Denied
@@ -2469,8 +2385,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M11
+  modules: []
   reading_role: reference
   priority: 3
   subject: Inventário de metadados de recursos e políticas, histórico de 35 dias, exportação e feeds
@@ -2491,9 +2406,9 @@ references:
   verification: Verified
   verified_on: '2026-10-23'
   modules:
-  - M10
-  - M11
-  - M16
+  - M00
+  - M02
+  - M06
   reading_role: essential
   priority: 1
   subject: Blueprint de fundação corporativa no Google Cloud
@@ -2524,8 +2439,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M10
+  modules: []
   reading_role: reference
   priority: 2
   subject: Restrições de configuração (o quê) complementares ao IAM (quem)
@@ -2546,8 +2460,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M10
+  modules: []
   reading_role: essential
   priority: 2
   subject: Organização, pastas, projetos e recursos; herança de políticas
@@ -2568,9 +2481,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M10
-  - M11
+  modules: []
   reading_role: reference
   priority: 3
   subject: Detecção de vulnerabilidades e ameaças, posturas e conformidade; níveis de serviço
@@ -2593,7 +2504,6 @@ references:
   verified_on: '2026-10-23'
   modules:
   - M02
-  - M10
   reading_role: reference
   priority: 3
   subject: Princípios de segurança, privacidade e compliance
@@ -2615,7 +2525,7 @@ references:
   verified_on: '2026-10-23'
   modules:
   - M00
-  - M12
+  - M07
   reading_role: reference
   priority: 3
   subject: Segurança em camadas para workloads cloud native
@@ -2638,9 +2548,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M10
-  - M11
+  modules: []
   reading_role: reference
   priority: 2
   subject: 'CNAPP: CSPM (foundational e Defender CSPM), DevSecOps e planos CWPP; multicloud'
@@ -2664,8 +2572,6 @@ references:
   modules:
   - M02
   - M07
-  - M10
-  - M11
   reading_role: reference
   priority: 3
   subject: Arquiteturas de referência de segurança, Zero Trust e antipadrões
@@ -2686,10 +2592,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M10
-  - M11
-  - M16
+  modules: []
   reading_role: reference
   priority: 3
   subject: Habilidades medidas do SC-100
@@ -2710,7 +2613,6 @@ references:
   verified_on: '2026-10-23'
   modules:
   - M02
-  - M10
   reading_role: reference
   priority: 3
   subject: Trilha gratuita do SC-100
@@ -2731,8 +2633,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M11
+  modules: []
   reading_role: reference
   priority: 3
   subject: CNAPP e componentes CSPM, CWPP, CIEM e varredura de IaC
@@ -2760,9 +2661,7 @@ references:
   verified_on: '2026-10-23'
   modules:
   - M00
-  - M09
-  - M10
-  - M11
+  - M01
   reading_role: essential
   priority: 1
   subject: 'Definição de cloud computing: características essenciais, modelos de serviço e de implantação'
@@ -2795,9 +2694,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M09
-  - M11
+  modules: []
   reading_role: reference
   priority: 3
   subject: Direct Connect não cifra por padrão; opções MACsec e VPN sobre Direct Connect
@@ -2818,9 +2715,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M09
-  - M11
+  modules: []
   reading_role: reference
   priority: 3
   subject: 'DNS híbrido: endpoints de entrada e saída e regras de encaminhamento'
@@ -2841,9 +2736,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M09
-  - M11
+  modules: []
   reading_role: reference
   priority: 3
   subject: VPN IPsec entre redes on-premises e VPCs
@@ -2864,9 +2757,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M10
-  - M11
+  modules: []
   reading_role: reference
   priority: 3
   subject: Projeção de servidores, Kubernetes e SQL Server externos no Azure Resource Manager
@@ -2887,8 +2778,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M11
+  modules: []
   reading_role: reference
   priority: 3
   subject: Endpoints de entrada e saída, rulesets de encaminhamento e links de VNet
@@ -2909,8 +2799,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M11
+  modules: []
   reading_role: reference
   priority: 2
   subject: ExpressRoute não cifra por padrão; MACsec no ExpressRoute Direct e IPsec sobre private peering
@@ -2931,8 +2820,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M11
+  modules: []
   reading_role: reference
   priority: 3
   subject: Conexão privada com o Azure por provedor; redundância e resiliência
@@ -2953,8 +2841,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M11
+  modules: []
   reading_role: reference
   priority: 3
   subject: 'DNS híbrido: política de servidor de entrada, zonas de encaminhamento, peering de DNS, hub-and-spoke'
@@ -2975,8 +2862,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M11
+  modules: []
   reading_role: reference
   priority: 3
   subject: HA VPN, Dedicated, Partner e Cross-Cloud Interconnect; cifragem
@@ -2995,17 +2881,20 @@ references:
   availability: Free Online Reading
   redistribution: Not Verified
   verification: Verified
-  verified_on: '2026-10-28'
+  verified_on: '2026-10-29'
   modules:
   - M02
   - M03
+  - M05
+  - M06
+  - M07
   - M08
   reading_role: reference
   priority: 3
   subject: Controles priorizados e grupos de implementação IG1–IG3
   billing_risk: Nenhum
   prerequisites: —
-  notes: 'Página oficial conferida: v8.1 descrita como atualização iterativa da v8, com mapeamentos realinhados ao CSF 2.0, inclusão da função Govern, glossário ampliado e classes de ativos revisadas. Página de Implementation Groups: 153 safeguards nas versões 8 e 8.1; IG1 é ''essential cyber hygiene'' e todo ambiente deveria começar por ele; IG3 inclui todos os safeguards. Contagem por IG não conferida (está em imagem). Licença não exibida — redistribuição não verificada. Reconferido em 2026-10-28: página de Implementation Groups — IG1 como essential cyber hygiene, recomendação de que toda organização comece pelo IG1, IG3 composto por todos os Controls e Safeguards, total de 153 Safeguards na v8 e na v8.1.'
+  notes: 'Página oficial conferida: v8.1 descrita como atualização iterativa da v8, com mapeamentos realinhados ao CSF 2.0, inclusão da função Govern, glossário ampliado e classes de ativos revisadas. Página de Implementation Groups: 153 safeguards nas versões 8 e 8.1; IG1 é ''essential cyber hygiene'' e todo ambiente deveria começar por ele; IG3 inclui todos os safeguards. Contagem por IG não conferida (está em imagem). Licença não exibida — redistribuição não verificada. Reconferido em 2026-10-28: página de Implementation Groups — IG1 como essential cyber hygiene, recomendação de que toda organização comece pelo IG1, IG3 composto por todos os Controls e Safeguards, total de 153 Safeguards na v8 e na v8.1. Em 2026-10-29: lista dos 18 controles da v8.1, com números e nomes, conferida na página oficial cis-controls-list (cisecurity.org). Nomes conferidos na página cis-controls-list em 2026-10-29: 1 Inventory and Control of Enterprise Assets; 2 Inventory and Control of Software Assets; 3 Data Protection; 4 Secure Configuration of Enterprise Assets and Software; 5 Account Management; 6 Access Control Management; 7 Continuous Vulnerability Management; 8 Audit Log Management; 9 Email and Web Browser Protections; 10 Malware Defenses; 11 Data Recovery; 12 Network Infrastructure Management; 13 Network Monitoring and Defense; 14 Security Awareness and Skills Training; 15 Service Provider Management; 16 Application Software Security; 17 Incident Response Management; 18 Penetration Testing.'
 - id: CISA-BOD-23-01
   title: 'BOD 23-01: Improving Asset Visibility and Vulnerability Detection on Federal Networks'
   publisher: CISA
@@ -3020,9 +2909,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M11
-  - M14
+  modules: []
   reading_role: reference
   priority: 3
   subject: Descoberta automatizada de ativos a cada 7 dias e enumeração de vulnerabilidades a cada 14 dias
@@ -3067,7 +2954,6 @@ references:
   verified_on: '2026-10-23'
   modules:
   - M03
-  - M16
   reading_role: reference
   priority: 2
   subject: Requisitos de um sistema de gestão de segurança da informação (SGSI)
@@ -3092,7 +2978,7 @@ references:
   verified_on: '2026-10-23'
   modules:
   - M03
-  - M16
+  - M08
   reading_role: reference
   priority: 3
   subject: Orientação de implementação dos controles de segurança da informação (correspondentes ao Anexo A da ISO/IEC 27001:2022)
@@ -3120,9 +3006,11 @@ references:
   verification: Verified
   verified_on: '2026-10-28'
   modules:
+  - M01
   - M02
   - M03
-  - M16
+  - M04
+  - M07
   reading_role: essential
   priority: 1
   subject: Resultados de cibersegurança; seis Functions; Profiles e Tiers
@@ -3150,7 +3038,6 @@ references:
     consulted: true
     modules:
     - M03
-    - M16
     pages: 6–7
     page_basis: printed
   - locator: Sec. 3.2 e App. B
@@ -3165,7 +3052,6 @@ references:
     consulted: true
     modules:
     - M03
-    - M16
     pages: 16–18
     page_basis: printed
 - id: NIST-CSF-FAQ
@@ -3224,8 +3110,8 @@ references:
   verification: Verified
   verified_on: '2026-10-23'
   modules:
+  - M02
   - M03
-  - M16
   reading_role: reference
   priority: 2
   subject: Mapeamentos oficiais entre o CSF 2.0 e outros frameworks
@@ -3279,7 +3165,7 @@ references:
   modules:
   - M01
   - M03
-  - M14
+  - M04
   reading_role: essential
   priority: 1
   subject: 'Avaliação de riscos: ameaças, vulnerabilidades, probabilidade e impacto'
@@ -3337,7 +3223,7 @@ references:
   verified_on: '2026-10-28'
   modules:
   - M03
-  - M16
+  - M04
   reading_role: essential
   priority: 1
   subject: 'Risk Management Framework: preparação, categorização, seleção, implementação, avaliação, autorização e monitoramento contínuo'
@@ -3390,11 +3276,11 @@ references:
   - M01
   - M02
   - M03
+  - M04
   - M05
   - M06
+  - M07
   - M08
-  - M14
-  - M15
   reading_role: reference
   priority: 2
   subject: Catálogo de controles; Release 5.2.0 com foco em atualização e integridade de software
@@ -3408,7 +3294,7 @@ references:
   - Diferenciar catálogo, baseline (SP 800-53B) e obrigação regulatória
   billing_risk: Nenhum
   prerequisites: M03
-  notes: 'Página oficial conferida: Release 5.2.0 em 27/08/2025; materiais suplementares em OSCAL (JSON, XML, YAML), planilhas e crosswalk ISO/IEC 27001:2022. Partes: SP 800-53A Rev. 5 e SP 800-53B. Catálogo — não é uma lista de obrigações para toda organização. A página lista 20 famílias de controles, inclusive Supply Chain Risk Management. Texto do controle AC-5 (Separation of Duties) conferido em réplica do catálogo (stigviewer.com, 2026-10-23): identificar e documentar deveres que exigem separação e definir autorizações de acesso que a suportem; discussão inclui dividir funções de negócio e de suporte entre pessoas diferentes e evitar que quem administra controle de acesso também administre funções de auditoria; baselines moderada e alta. Texto do controle SA-22 (Unsupported System Components) conferido em réplica (stigviewer.com): substituir componentes sem suporte do fornecedor ou prover fontes alternativas de suporte; discussão admite isolamento como redução de risco; baselines baixa, moderada e alta. Reconferido em 2026-10-28: Release 5.2.0 (27/08/2025) com novos controles e melhorias SA-15(13), SA-24 e SI-02(07) e revisão de SI-07(12); 20 famílias.'
+  notes: 'Página oficial conferida: Release 5.2.0 em 27/08/2025; materiais suplementares em OSCAL (JSON, XML, YAML), planilhas e crosswalk ISO/IEC 27001:2022. Partes: SP 800-53A Rev. 5 e SP 800-53B. Catálogo — não é uma lista de obrigações para toda organização. A página lista 20 famílias de controles, inclusive Supply Chain Risk Management. Texto do controle AC-5 (Separation of Duties) conferido em réplica do catálogo (stigviewer.com, 2026-10-23): identificar e documentar deveres que exigem separação e definir autorizações de acesso que a suportem; discussão inclui dividir funções de negócio e de suporte entre pessoas diferentes e evitar que quem administra controle de acesso também administre funções de auditoria; baselines moderada e alta. Texto do controle SA-22 (Unsupported System Components) conferido em réplica (stigviewer.com): substituir componentes sem suporte do fornecedor ou prover fontes alternativas de suporte; discussão admite isolamento como redução de risco; baselines baixa, moderada e alta. Reconferido em 2026-10-28: Release 5.2.0 (27/08/2025) com novos controles e melhorias SA-15(13), SA-24 e SI-02(07) e revisão de SI-07(12); 20 famílias. Em 2026-10-29: títulos e enunciados dos controles citados nas aulas do Professional conferidos no catálogo OSCAL oficial da Release 5.2.0 (usnistgov/oscal-content, NIST_SP-800-53_rev5_catalog.json, 1.196 controles e melhorias).'
 - id: NIST-SP800-53A-R5
   title: SP 800-53A Rev. 5 — Assessing Security and Privacy Controls in Information Systems and Organizations
   authors:
@@ -3485,8 +3371,7 @@ references:
   verified_on: '2026-10-23'
   modules:
   - M03
-  - M14
-  - M16
+  - M07
   reading_role: reference
   priority: 2
   subject: 'Medição em segurança da informação: seleção de medidas e programa de medição'
@@ -3513,7 +3398,6 @@ references:
     consulted: true
     modules:
     - M03
-    - M14
     pages: 12–17
     page_basis: printed
   - locator: Sec. 3.3
@@ -3521,7 +3405,6 @@ references:
     consulted: true
     modules:
     - M03
-    - M14
     pages: 17–18
     page_basis: printed
   - locator: Sec. 3.4
@@ -3547,7 +3430,7 @@ references:
   verified_on: '2026-10-23'
   modules:
   - M02
-  - M16
+  - M04
   reading_role: reference
   priority: 3
   subject: Formato original de ADR
@@ -3570,7 +3453,7 @@ references:
   verified_on: '2026-10-28'
   modules:
   - M03
-  - M13
+  - M05
   reading_role: reference
   priority: 2
   subject: Requisitos de segurança para ambientes de dados de cartão
@@ -3590,8 +3473,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M16
+  modules: []
   reading_role: reference
   priority: 3
   subject: Solicitação de white papers
@@ -3614,7 +3496,6 @@ references:
   verified_on: '2026-10-23'
   modules:
   - M02
-  - M16
   reading_role: reference
   priority: 3
   subject: Segurança como parte da arquitetura corporativa
@@ -3635,8 +3516,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M09
+  modules: []
   reading_role: essential
   priority: 1
   subject: Boas práticas de IAM na AWS
@@ -3657,9 +3537,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M09
-  - M11
+  modules: []
   reading_role: reference
   priority: 2
   subject: Acesso da força de trabalho a contas e aplicações AWS
@@ -3679,17 +3557,15 @@ references:
   availability: Free Online Reading
   redistribution: Not Verified
   verification: Verified
-  verified_on: '2026-10-23'
+  verified_on: '2026-10-29'
   modules:
   - M06
-  - M09
-  - M11
   reading_role: reference
   priority: 2
   subject: Papéis do IAM para federação OIDC (sts:AssumeRoleWithWebIdentity) e condições de confiança
   billing_risk: Nenhum
   prerequisites: —
-  notes: 'Página lida em 2026-10-23: condições de aud e sub na política de confiança; aviso de que sem limitar o sub ao repositório, ações do GitHub de organizações fora do controle da conta podem assumir o papel; o IAM rejeita políticas sem sub ou com curinga para o provedor do GitHub.'
+  notes: 'Página lida em 2026-10-23: condições de aud e sub na política de confiança; aviso de que sem limitar o sub ao repositório, ações do GitHub de organizações fora do controle da conta podem assumir o papel; o IAM rejeita políticas sem sub ou com curinga para o provedor do GitHub. Reconferido em 2026-10-29: o IAM rejeita sub ausente, nulo ou só curinga (asterisco ou ponto de interrogação) para o provedor do GitHub, mas aceita valores como repo:Org/ seguido de curinga; recomenda limitar a repositórios ou ramos específicos; aud sts.amazonaws.com nos exemplos; HCP Terraform exige app.terraform.io:sub.'
 - id: AWS-IAM-POLICY-EVALUATION
   title: Policy evaluation logic e Cross-account policy evaluation logic — IAM User Guide
   publisher: AWS
@@ -3704,8 +3580,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M09
+  modules: []
   reading_role: reference
   priority: 2
   subject: Avaliação de políticas de identidade, de recurso, permissions boundaries, SCPs e RCPs; acesso entre contas
@@ -3726,9 +3601,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M09
-  - M11
+  modules: []
   reading_role: reference
   priority: 3
   subject: Credenciais temporárias para workloads fora da AWS com certificados X.509
@@ -3749,8 +3622,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M11
+  modules: []
   reading_role: reference
   priority: 3
   subject: Entra ID como fonte de identidade do IAM Identity Center
@@ -3771,8 +3643,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M10
+  modules: []
   reading_role: reference
   priority: 2
   subject: 'Atribuições de função: principal, definição e escopo; modelo aditivo; deny assignments'
@@ -3791,8 +3662,8 @@ references:
   category: identity
   availability: Free Online Reading
   redistribution: Not Verified
-  verification: Partially Verified
-  verified_on: '2026-10-23'
+  verification: Verified
+  verified_on: '2026-11-04'
   modules:
   - M06
   reading_role: deep-dive
@@ -3800,7 +3671,7 @@ references:
   subject: MFA resistente a phishing e number matching como medida intermediária
   billing_risk: Nenhum
   prerequisites: —
-  notes: 'Lido o alerta que resume os fact sheets da CISA: adoção de MFA resistente a phishing por todas as organizações; number matching como mitigação intermediária para MFA por push. O fact sheet original não pôde ser aberto pela ferramenta.'
+  notes: 'Lido o alerta que resume os fact sheets da CISA: adoção de MFA resistente a phishing por todas as organizações; number matching como mitigação intermediária para MFA por push. O fact sheet original não pôde ser aberto pela ferramenta. Em 2026-11-04 foi lido o fact sheet primário da CISA, Implementing Phishing-Resistant MFA (outubro de 2022, <https://www.cisa.gov/sites/default/files/publications/fact-sheet-implementing-phishing-resistant-mfa-508c.pdf>): a CISA "strongly urges all organizations to implement phishing-resistant MFA"; FIDO/WebAuthn e PKI são as formas resistentes a phishing; number matching não é resistente a phishing, mas é resistente a push bombing e recomendado como medida intermediária. A afirmação da M06-L01 passa a ter base primária.'
 - id: GCP-FEDERATION-ENTRA
   title: Federating Google Cloud with Microsoft Entra ID
   publisher: Google Cloud
@@ -3815,8 +3686,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M11
+  modules: []
   reading_role: reference
   priority: 3
   subject: Provisionamento unidirecional para Cloud Identity e SSO por SAML com o Entra ID
@@ -3837,8 +3707,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M10
+  modules: []
   reading_role: essential
   priority: 2
   subject: Principais, papéis (básicos, predefinidos, personalizados), políticas de permissão e negação, principal access boundary, condições
@@ -3859,9 +3728,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M10
-  - M11
+  modules: []
   reading_role: reference
   priority: 3
   subject: Evitar chaves de contas de serviço, contas de serviço dedicadas, impersonação limitada
@@ -3882,8 +3749,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M11
+  modules: []
   reading_role: reference
   priority: 3
   subject: Federação sem sincronização para a força de trabalho
@@ -3894,7 +3760,7 @@ references:
   title: Workload Identity Federation — Google Cloud IAM
   publisher: Google Cloud
   year: 2026
-  edition: Atualizada em 20/10/2026
+  edition: Atualizada em 26/10/2026
   url: https://docs.cloud.google.com/iam/docs/workload-identity-federation
   type: Documentation
   language: en
@@ -3903,18 +3769,16 @@ references:
   availability: Free Online Reading
   redistribution: Not Verified
   verification: Verified
-  verified_on: '2026-10-23'
+  verified_on: '2026-10-29'
   modules:
   - M06
-  - M09
-  - M10
-  - M11
+  - M07
   reading_role: reference
   priority: 2
   subject: Federação de identidades de workload externas sem chaves de conta de serviço
   billing_risk: Nenhum
   prerequisites: —
-  notes: 'Página lida em 2026-10-23: troca de credenciais pelo STS (RFC 8693) por tokens de curta duração; pools e provedores; mapeamento e condições de atributos; um pool por ambiente; risco de conceder acesso a todo o pool.'
+  notes: 'Página lida em 2026-10-23: troca de credenciais pelo STS (RFC 8693) por tokens de curta duração; pools e provedores; mapeamento e condições de atributos; um pool por ambiente; risco de conceder acesso a todo o pool. Reconferido em 2026-10-29 (página atualizada em 26/10/2026): chaves de conta de serviço como credenciais poderosas; especificação OAuth 2.0 token exchange (link para a RFC 8693); STS devolve token federado; pools, provedores, mapeamento de atributos e condições em CEL; conceder acesso a todo o pool pode trazer risco; um pool por ambiente fora do Google Cloud; condições contra confused deputy.'
 - id: IBM-WHAT-IS-CIEM
   title: What is cloud infrastructure entitlement management (CIEM)?
   authors:
@@ -3932,8 +3796,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M11
+  modules: []
   reading_role: reference
   priority: 3
   subject: 'CIEM: visão única de permissões entre nuvens e privilégio mínimo'
@@ -3953,17 +3816,16 @@ references:
   availability: Free Online Reading
   redistribution: Not Verified
   verification: Verified
-  verified_on: '2026-10-23'
+  verified_on: '2026-10-29'
   modules:
   - M06
   - M08
-  - M15
   reading_role: reference
   priority: 2
   subject: Recuperação de floresta do Active Directory após falha ou comprometimento de todos os DCs
   billing_risk: Nenhum
   prerequisites: —
-  notes: 'Página de entrada lida em 2026-10-23 (versão localizada): recuperação de floresta como último recurso quando todos os DCs deixam de funcionar normalmente, por corrupção ou comprometimento; estrutura do guia em etapas. Detalhes de planejamento não lidos. Página ''Steps for restoring the forest'' lida: cinco etapas — identificar o problema; determinar como recuperar; recuperação inicial isolada de um DC por domínio, limpeza, redefinição de contas privilegiadas e correção de problemas da violação; reimplantar os demais DCs; limpeza final (resolução de nomes e aplicações). Procedimentos detalhados (subpáginas) não lidos.'
+  notes: 'Página de entrada lida em 2026-10-23 (versão localizada): recuperação de floresta como último recurso quando todos os DCs deixam de funcionar normalmente, por corrupção ou comprometimento; estrutura do guia em etapas. Detalhes de planejamento não lidos. Página ''Steps for restoring the forest'' lida: cinco etapas — identificar o problema; determinar como recuperar; recuperação inicial isolada de um DC por domínio, limpeza, redefinição de contas privilegiadas e correção de problemas da violação; reimplantar os demais DCs; limpeza final (resolução de nomes e aplicações). Procedimentos detalhados (subpáginas) não lidos. Reconferido em 2026-10-29: a página de entrada descreve falha de toda a floresta que deixa todos os DCs incapazes de funcionar normalmente; não menciona corrupção nem comprometimento, e a expressão ''último recurso'' não está nela — a página de etapas registra que, em muitos casos, a recuperação total da floresta deve ser a última opção. Etapa 3: em isolamento, recuperar um DC por domínio, limpá-lo, reconectar os domínios, redefinir contas privilegiadas e corrigir problemas de violações. Os passos minimizam a reintrodução de dados perigosos. A página de procedimentos lista a redefinição das senhas da krbtgt, de relações de confiança e da conta de computador do DC (detalhes não lidos). Rodapé da página de entrada: ''Last updated on 2025-07-11''. Em 2026-10-29: página ''Reset the krbtgt password'' (atualizada em 22/05/2025) — redefinir duas vezes, com espera de 10 horas entre as redefinições (tempo de vida máximo padrão de tíquetes de usuário e de serviço; mais, se a política mudou), porque o histórico de senhas da krbtgt é 2.'
 - id: MS-ENTERPRISE-ACCESS-MODEL
   title: The enterprise access model (módulo de treinamento SC-100)
   publisher: Microsoft Learn
@@ -3977,16 +3839,17 @@ references:
   availability: Free Online Reading
   redistribution: Not Verified
   verification: Verified
-  verified_on: '2026-10-23'
+  verified_on: '2026-10-29'
   modules:
   - M06
   - M07
+  - M08
   reading_role: reference
   priority: 2
   subject: Planos de controle, gestão e dados; caminhos de acesso; princípios para papéis privilegiados
   billing_risk: Nenhum
   prerequisites: —
-  notes: 'Página lida em 2026-10-23: planos de dados/workload, gestão e controle; caminhos de acesso de usuários, aplicações e privilegiados; separação de funções entre planos, ativação just-in-time, aprovação, escopo mínimo e contas de emergência. Não compara explicitamente com o modelo de tiers legado.'
+  notes: 'Página lida em 2026-10-23: planos de dados/workload, gestão e controle; caminhos de acesso de usuários, aplicações e privilegiados; separação de funções entre planos, ativação just-in-time, aprovação, escopo mínimo e contas de emergência. Não compara explicitamente com o modelo de tiers legado. Reconferido em 2026-10-29: tabela de princípios para papéis privilegiados (separação de funções entre planos, ativação just-in-time, aprovação para papéis de alto impacto, escopo mínimo com unidades administrativas, contas de emergência com credenciais únicas e tokens físicos); seção Zero Trust: impor hierarquia para impedir o controle de planos superiores a partir de inferiores. A página não trata de estações de acesso privilegiado, intermediários nem gravação de sessão.'
 - id: MS-ENTRA-CLOUD-SYNC
   title: What is Microsoft Entra Cloud Sync?
   publisher: Microsoft
@@ -4001,9 +3864,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M10
-  - M11
+  modules: []
   reading_role: reference
   priority: 3
   subject: Sincronização AD → Entra ID com agentes leves e orquestração na nuvem
@@ -4025,7 +3886,6 @@ references:
   verification: Verified
   verified_on: '2026-10-23'
   modules:
-  - M10
   - M07
   reading_role: reference
   priority: 2
@@ -4046,16 +3906,39 @@ references:
   availability: Free Online Reading
   redistribution: Not Verified
   verification: Verified
-  verified_on: '2026-10-23'
+  verified_on: '2026-10-29'
   modules:
   - M06
-  - M11
+  - M07
+  - M08
   reading_role: reference
   priority: 2
   subject: 'PHS, PTA e federação: dependências e resiliência'
   billing_risk: Nenhum
   prerequisites: —
-  notes: 'Página lida em 2026-10-23 (versão localizada, conteúdo em inglês): recomendação de habilitar PHS em qualquer cenário, como contingência e para detecção de credenciais vazadas; PTA e federação dependem do ambiente local; failover manual.'
+  notes: 'Página lida em 2026-10-23 (versão localizada, conteúdo em inglês): recomendação de habilitar PHS em qualquer cenário, como contingência e para detecção de credenciais vazadas; PTA e federação dependem do ambiente local; failover manual. Reconferido em 2026-10-29: PHS em qualquer método (contingência; troca manual pelo Entra Connect; relatório de credenciais vazadas do ID Protection exige PHS; failover só se configurado antes da falha); com PHS, organizações voltaram a operar em horas após ransomware, sem PHS levaram semanas; PTA com um ou mais agentes, três recomendados; federação com dois ou mais AD FS e dois ou mais WAP na DMZ, balanceamento e certificado TLS. A página não trata do certificado de assinatura de tokens. Correção em 2026-10-29 (revisão independente): a tabela comparativa lista, para PHS, só ''Disabled accounts (up to 30-minute delay)''; o texto diz que os estados de senha expirada e conta bloqueada não são sincronizados. PTA e federação aplicam conta desabilitada, bloqueada, expirada, senha expirada e horário de logon.'
+- id: MS-PROTECTED-USERS
+  title: Protected Users Security Group
+  publisher: Microsoft Learn
+  year: 2025
+  edition: Atualizada em 27/06/2025
+  url: https://learn.microsoft.com/en-us/windows-server/security/credentials-protection-and-management/protected-users-security-group
+  type: Documentation
+  language: en
+  level: professional
+  category: identity
+  availability: Free Online Reading
+  redistribution: Not Verified
+  verification: Verified
+  verified_on: '2026-10-29'
+  modules:
+  - M08
+  reading_role: reference
+  priority: 3
+  subject: Proteções do grupo Protected Users para contas privilegiadas do AD
+  billing_risk: Nenhum
+  prerequisites: —
+  notes: 'Página lida em 2026-10-29: membros não autenticam por NTLM; Kerberos sem chaves DES ou RC4 (exige AES); sem delegação irrestrita ou restrita; TGT com vida de 240 minutos; não adicionar contas de serviço nem de computador ao grupo.'
 - id: MS-ENTRA-MANAGED-IDENTITIES
   title: What are managed identities for Azure resources?
   publisher: Microsoft
@@ -4070,9 +3953,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M10
-  - M11
+  modules: []
   reading_role: reference
   priority: 2
   subject: Identidades gerenciadas atribuídas pelo sistema e pelo usuário
@@ -4094,7 +3975,6 @@ references:
   verification: Verified
   verified_on: '2026-10-23'
   modules:
-  - M10
   - M06
   reading_role: reference
   priority: 2
@@ -4115,17 +3995,15 @@ references:
   availability: Free Online Reading
   redistribution: Not Verified
   verification: Verified
-  verified_on: '2026-10-23'
+  verified_on: '2026-10-29'
   modules:
   - M06
-  - M10
-  - M11
   reading_role: reference
   priority: 2
   subject: 'Credenciais de identidade federada: confiança por emissor, sujeito e audiência'
   billing_risk: Nenhum
   prerequisites: —
-  notes: 'Página lida em 2026-10-23: elimina segredos e certificados de workloads externos; correspondência exata (sensível a maiúsculas) de issuer, subject e audience; cenários GitHub Actions, Kubernetes, Google Cloud, AWS e SPIFFE; o escopo da confiança depende da precisão do sujeito e do emissor.'
+  notes: 'Página lida em 2026-10-23: elimina segredos e certificados de workloads externos; correspondência exata (sensível a maiúsculas) de issuer, subject e audience; cenários GitHub Actions, Kubernetes, Google Cloud, AWS e SPIFFE; o escopo da confiança depende da precisão do sujeito e do emissor. Reconferido em 2026-10-29: segredos e certificados exigem armazenamento seguro e rotação, com risco de indisponibilidade ao expirar; issuer, subject e audience com correspondência sensível a maiúsculas; credencial federada em identidade gerenciada atribuída pelo usuário ou registro de aplicação; cenários Kubernetes (inclusive on-premises), GitHub Actions, Google Cloud, AWS, SPIFFE/SPIRE e Azure Pipelines.'
 - id: MS-KERBEROASTING-2024
   title: Microsoft's guidance to help mitigate Kerberoasting
   authors:
@@ -4142,7 +4020,7 @@ references:
   availability: Free Online Reading
   redistribution: Not Verified
   verification: Verified
-  verified_on: '2026-10-23'
+  verified_on: '2026-10-29'
   modules:
   - M06
   - M08
@@ -4151,7 +4029,7 @@ references:
   subject: 'Kerberoasting: ataque, papel do RC4, mitigações e detecção'
   billing_risk: Nenhum
   prerequisites: —
-  notes: 'Artigo lido em 2026-10-23: contas com SPN; quebra offline; gMSA/dMSA; senhas longas e aleatórias; AES; auditoria de SPNs; detecção por tipo de cifra incomum e volume de pedidos.'
+  notes: 'Artigo lido em 2026-10-23: contas com SPN; quebra offline; gMSA/dMSA; senhas longas e aleatórias; AES; auditoria de SPNs; detecção por tipo de cifra incomum e volume de pedidos. Reconferido em 2026-10-29: gMSA com senhas de 120 caracteres aleatórios; dMSA como geração mais recente, no Windows Server 2025; mínimo de 14 caracteres para senhas de contas de serviço; AES 128 e 256 bits nos tíquetes de serviço e desabilitar RC4 nas contas; RC4 sem sal nem hash iterado; auditar e remover SPNs; detectar tipos de cifra incomuns e muitos pedidos de um mesmo usuário em pouco tempo.'
 - id: NIST-SP800-162
   title: SP 800-162 — Guide to Attribute Based Access Control (ABAC) Definition and Considerations
   authors:
@@ -4173,7 +4051,7 @@ references:
   availability: Free Download
   redistribution: Not Verified
   verification: Verified
-  verified_on: '2026-10-23'
+  verified_on: '2026-10-29'
   modules:
   - M06
   - M07
@@ -4198,7 +4076,7 @@ references:
     page_basis: printed
   billing_risk: Nenhum
   prerequisites: —
-  notes: 'PDF lido em 2026-10-23 (Sec. 2–3, parcialmente): ABAC concede ou nega acesso por atributos do sujeito, do objeto e condições de ambiente; ACL e RBAC são casos especiais de ABAC; risco de explosão de papéis no RBAC; responder ''quem pode acessar este objeto'' é mais difícil em ABAC.'
+  notes: 'PDF lido em 2026-10-23 (Sec. 2–3, parcialmente): ABAC concede ou nega acesso por atributos do sujeito, do objeto e condições de ambiente; ACL e RBAC são casos especiais de ABAC; risco de explosão de papéis no RBAC; responder ''quem pode acessar este objeto'' é mais difícil em ABAC. Reconferido no PDF em 2026-10-29 (revisão do Professional): sumário das Seções 2 e 3 (2.4.3 na p. 14; Sec. 3 na p. 17; 3.1.3 na p. 22; 3.2 na p. 25); definições de PDP e PEP (p. 15) e de PIP e PAP (p. 16); autoridades de atributo (2.4.2, p. 13); Natural Language Policies (2.4.1, p. 12); o indivíduo não deve alterar o próprio atributo e fontes autoritativas na declaração de práticas de atributos (3.1.3.3, p. 23); esforço significativo para saber quem acessa um objeto (3.1.2.3, p. 20); serviços de autorização sozinhos não bastam (3.1.2.5, p. 21).'
 - id: NIST-SP800-63-4
   title: SP 800-63-4 — Digital Identity Guidelines (com SP 800-63A-4, 63B-4 e 63C-4)
   publisher: NIST
@@ -4214,9 +4092,9 @@ references:
   verification: Verified
   verified_on: '2026-10-23'
   modules:
+  - M05
   - M06
   - M07
-  - M17
   reading_role: essential
   priority: 1
   subject: Prova de identidade, autenticação e federação; níveis IAL, AAL e FAL
@@ -4238,7 +4116,7 @@ references:
     - M06
   billing_risk: Nenhum
   prerequisites: —
-  notes: 'Página oficial conferida em 2026-10-23 (final de 31/07/2025, substitui a 63-3 de 02/03/2020). Versão HTML da 63B-4 lida até a Sec. 3.2: AAL3 exige autenticador resistente a phishing; AAL2 deve oferecer ao menos uma opção resistente a phishing; autenticadores sincronizáveis (passkeys sincronizadas) não podem ser usados em AAL3; senhas de fator único com no mínimo 15 caracteres; sem regras de composição nem troca periódica; PSTN restrito; e-mail proibido para fora de banda. Escrito para sistemas do governo federal dos EUA.'
+  notes: 'Página oficial conferida em 2026-10-23 (final de 31/07/2025, substitui a 63-3 de 02/03/2020). Versão HTML da 63B-4 lida até a Sec. 3.2: AAL3 exige autenticador resistente a phishing; AAL2 deve oferecer ao menos uma opção resistente a phishing; autenticadores sincronizáveis (passkeys sincronizadas) não podem ser usados em AAL3; senhas de fator único com no mínimo 15 caracteres; sem regras de composição nem troca periódica; PSTN restrito; e-mail proibido para fora de banda. Escrito para sistemas do governo federal dos EUA. Em 2026-10-29 (HTML da 63B-4): Sec. 2.1 — ''Verifiers SHOULD make multi-factor authentication options available at AAL1''; Sec. 2.2.2 — oferta obrigatória de ao menos uma opção resistente a phishing no AAL2 (Sec. 3.2.5); Sec. 2.3.2 — AAL3 com chave privada não exportável, resistência a phishing e proibição de autenticadores sincronizáveis; Sec. 3.1.1–3.1.5 — senhas, look-up secrets, fora de banda e OTP não são resistentes a phishing.'
 - id: OASIS-SAML2-TECH-OVERVIEW
   title: Security Assertion Markup Language (SAML) V2.0 Technical Overview
   publisher: OASIS
@@ -4252,7 +4130,7 @@ references:
   availability: Free Online Reading
   redistribution: Not Verified
   verification: Verified
-  verified_on: '2026-10-23'
+  verified_on: '2026-10-29'
   modules:
   - M06
   reading_role: reference
@@ -4260,7 +4138,7 @@ references:
   subject: Papéis, asserções, protocolos, bindings e perfis do SAML 2.0
   billing_risk: Nenhum
   prerequisites: —
-  notes: Documento lido em 2026-10-23 (Sec. 3–5). É uma visão geral não normativa (Committee Draft); a especificação normativa é o conjunto SAML V2.0 da OASIS.
+  notes: 'Documento lido em 2026-10-23 (Sec. 3–5). É uma visão geral não normativa (Committee Draft); a especificação normativa é o conjunto SAML V2.0 da OASIS. Reconferido em 2026-10-29: sumário das Sec. 3–5; papéis em 3.1; asserções, bindings e perfis em 4.3; SSO iniciado pelo SP em 5.1.2–5.1.3 e pelo IdP em 5.1.4; 5.1.1 registra que no fluxo iniciado pelo IdP nenhuma mensagem AuthnRequest do SP ao IdP está envolvida.'
 - id: OIDC-CORE-1
   title: OpenID Connect Core 1.0 incorporating errata set 2
   publisher: OpenID Foundation
@@ -4274,16 +4152,15 @@ references:
   availability: Free Online Reading
   redistribution: Not Verified
   verification: Verified
-  verified_on: '2026-10-23'
+  verified_on: '2026-10-29'
   modules:
   - M06
-  - M12
   reading_role: reference
   priority: 2
   subject: 'Camada de identidade sobre OAuth 2.0: ID Token, claims e fluxos'
   billing_risk: Nenhum
   prerequisites: —
-  notes: 'Especificação lida em 2026-10-23 (resumo, ID Token e fluxos): iss, sub, aud, exp e iat obrigatórios; fluxos Authorization Code, Implicit e Hybrid.'
+  notes: 'Especificação lida em 2026-10-23 (resumo, ID Token e fluxos): iss, sub, aud, exp e iat obrigatórios; fluxos Authorization Code, Implicit e Hybrid. Reconferido em 2026-10-29: resumo (''identity layer on top of the OAuth 2.0 protocol''); Sec. 2 — iss, sub, aud, exp, iat REQUIRED; auth_time obrigatório com max_age; acr e amr OPTIONAL; nonce associa sessão e mitiga repetição; Sec. 3.1.3.7 — validação de iss (correspondência exata), aud, assinatura pelo alg, exp e nonce.'
 - id: PETRI-NTLM-2026
   title: 'Microsoft Details NTLM Phase-Out Plan in Windows: How IT Teams Can Prepare'
   authors:
@@ -4299,7 +4176,7 @@ references:
   availability: Free Online Reading
   redistribution: Not Verified
   verification: Verified
-  verified_on: '2026-10-23'
+  verified_on: '2026-11-04'
   modules:
   - M06
   - M08
@@ -4308,7 +4185,81 @@ references:
   subject: Plano da Microsoft para desabilitar NTLM por padrão
   billing_risk: Nenhum
   prerequisites: —
-  notes: 'Artigo lido em 2026-10-23 (fonte secundária de imprensa especializada): auditoria aprimorada de NTLM, Local KDC e IAKerb, NTLM de rede bloqueado por padrão em versões futuras, com reabilitação possível por política; citação da Microsoft de que desabilitar por padrão não significa remover.'
+  notes: 'Artigo lido em 2026-10-23 (fonte secundária de imprensa especializada): auditoria aprimorada de NTLM, Local KDC e IAKerb, NTLM de rede bloqueado por padrão em versões futuras, com reabilitação possível por política; citação da Microsoft de que desabilitar por padrão não significa remover. Reconferido em 2026-11-04: três fases (visibilidade, alternativas Local KDC/IAKerb, desabilitação por padrão com reabilitação por política), NTLM de rede bloqueado por padrão em versões futuras, frase de que desabilitar não significa remover e ações de preparação. O trecho obtido não exibiu autor e data nem o link da publicação primária da Microsoft; continua fonte secundária.'
+- id: MS-WINDOWS-DEPRECATED-FEATURES
+  title: Deprecated features for Windows client
+  authors:
+  - Microsoft
+  publisher: Microsoft Learn
+  year: 2026
+  edition: Página viva — linha NTLM anunciada em junho de 2024, atualização de novembro de 2024
+  url: https://learn.microsoft.com/en-us/windows/whats-new/deprecated-features
+  type: Documentation
+  language: en
+  level: professional
+  category: identity
+  availability: Free Online Reading
+  redistribution: Not Verified
+  verification: Verified
+  verified_on: '2026-11-05'
+  modules:
+  - M06
+  - M08
+  reading_role: reference
+  priority: 2
+  subject: Lista oficial de recursos obsoletos do Windows, incluindo NTLM
+  billing_risk: Nenhum
+  prerequisites: —
+  notes: 'Página oficial lida em 2026-11-05. Linha NTLM (junho de 2024): todas as versões do NTLM, incluindo LANMAN, NTLMv1 e NTLMv2, não estão mais em desenvolvimento ativo e estão obsoletas; o uso continua funcionando na próxima versão do Windows Server e na próxima versão anual do Windows; chamadas a NTLM devem ser substituídas por Negotiate, que tenta Kerberos e só recorre a NTLM quando necessário. Atualização de novembro de 2024 na mesma linha: NTLMv1 removido a partir do Windows 11, versão 24H2, e do Windows Server 2025. O post da Microsoft sobre o plano em fases de desabilitação por padrão (Windows IT Pro Blog, techcommunity.microsoft.com, ID 4489526) foi localizado, mas o texto não pôde ser lido pela ferramenta de verificação; o plano continua sustentado por PETRI-NTLM-2026 (fonte secundária).'
+- id: BEYONDCORP-2014
+  title: 'BeyondCorp: A New Approach to Enterprise Security'
+  authors:
+  - Rory Ward
+  - Betsy Beyer
+  publisher: 'USENIX ;login:'
+  year: 2014
+  edition: 'Vol. 39, n. 6, dezembro de 2014'
+  url: https://www.usenix.org/publications/login/dec14/ward
+  type: Article
+  language: en
+  level: professional
+  category: zero-trust
+  availability: Free Online Reading
+  redistribution: Not Verified
+  verification: Partially Verified
+  verified_on: '2026-11-05'
+  modules:
+  - M07
+  reading_role: deep-dive
+  priority: 3
+  subject: Relato do Google sobre a remoção da exigência de uma intranet privilegiada para o acesso corporativo
+  billing_risk: Nenhum
+  prerequisites: —
+  notes: 'Página da USENIX conferida em 2026-11-05: título, autores, ;login: v. 39, n. 6, dezembro de 2014, e resumo — o Google está removendo a exigência de uma intranet privilegiada e levando as aplicações corporativas para a internet, porque um perímetro baseado em firewall dá ao atacante que o rompe acesso relativamente fácil à intranet. O texto completo (PDF) não foi lido; detalhes da arquitetura (inventário de dispositivos, proxy de acesso) não devem ser atribuídos a esta fonte nas aulas até a leitura.'
+- id: MPLIFY-169-SSE
+  title: Mplify 169 — Security Service Edge Framework
+  authors:
+  - Mplify Alliance (antigo MEF Forum)
+  publisher: Mplify Alliance
+  year: 2026
+  edition: Fevereiro de 2026 (Service Attributes)
+  url: https://www.mplify.net/resources/mplify-169-security-service-edge-framework/
+  type: Standard
+  language: en
+  level: professional
+  category: network-security
+  availability: Free Download
+  redistribution: Restricted
+  verification: Partially Verified
+  verified_on: '2026-11-05'
+  modules:
+  - M05
+  reading_role: deep-dive
+  priority: 3
+  subject: Atributos de serviço e arcabouço para ofertas de Security Service Edge (SSE), de organização de padrões do setor
+  billing_risk: Nenhum
+  prerequisites: —
+  notes: 'Página oficial conferida em 2026-11-05: o documento define atributos de serviço e um arcabouço que pode servir de base para uma oferta de SSE; não é uma especificação implementável isolada; apoia-se nas funções de segurança do MEF 138; funções listadas incluem Secure Access, Full Proxy, Forward Proxy, Reverse Proxy, CASB, DLP e Secure Gateway. Padrões podem ser baixados e reproduzidos sem custo, sem modificação, com a frase "Reproduced with permission of Mplify Alliance". O PDF não foi lido. A página não define a relação entre SSE e SASE; o MEF 117 (SASE, outubro de 2022) consta como substituído pelo Mplify 117.1 (junho de 2025), não aberto.'
 - id: RFC-4120
   title: RFC 4120 — The Kerberos Network Authentication Service (V5)
   authors:
@@ -4330,6 +4281,7 @@ references:
   verified_on: '2026-10-23'
   modules:
   - M06
+  - M08
   reading_role: reference
   priority: 3
   subject: 'Protocolo Kerberos V5: KDC, trocas AS, TGS e AP'
@@ -4354,10 +4306,10 @@ references:
   availability: Free Online Reading
   redistribution: Not Verified
   verification: Verified
-  verified_on: '2026-10-23'
+  verified_on: '2026-10-29'
   modules:
   - M06
-  - M12
+  - M07
   reading_role: essential
   priority: 1
   subject: Práticas de segurança obrigatórias e recomendadas para OAuth 2.0
@@ -4367,10 +4319,9 @@ references:
     consulted: true
     modules:
     - M06
-    - M12
   billing_risk: Nenhum
   prerequisites: —
-  notes: RFC lida em 2026-10-23 (Sec. 2). Autores além de Lodderstedt registrados por conhecimento prévio, não conferidos.
+  notes: 'RFC lida em 2026-10-23 (Sec. 2). Autores além de Lodderstedt registrados por conhecimento prévio, não conferidos. Reconferido em 2026-10-29: §2.1 correspondência exata (exceto porta em localhost); §2.1.1 PKCE MUST para clientes públicos, RECOMMENDED para confidenciais, servidores MUST suportar; §2.1.2 implicit SHOULD NOT; §2.2.1 tokens restritos ao remetente SHOULD; §2.2.2 refresh tokens de clientes públicos MUST restritos ou rotacionados; §2.3 audiência SHOULD; §2.4 password grant MUST NOT; §2.5 autenticação de cliente SHOULD, criptografia assimétrica RECOMMENDED; §2.6 respostas de autorização MUST NOT em conexões não cifradas.'
 - id: SPIFFE-CONCEPTS
   title: SPIFFE Concepts
   publisher: SPIFFE project (CNCF)
@@ -4384,7 +4335,7 @@ references:
   availability: Free Online Reading
   redistribution: Not Verified
   verification: Verified
-  verified_on: '2026-10-23'
+  verified_on: '2026-10-29'
   modules:
   - M05
   - M06
@@ -4394,7 +4345,7 @@ references:
   subject: 'Identidade de workload: SPIFFE ID, SVID (X.509 e JWT), Workload API, trust domain e trust bundle'
   billing_risk: Nenhum
   prerequisites: —
-  notes: Página lida em 2026-10-23.
+  notes: 'Página lida em 2026-10-23. Reconferido em 2026-10-29: formato spiffe://trust domain/workload identifier; SVID em X.509 ou JWT; tokens suscetíveis a repetição, X.509-SVID aconselhado sempre que possível (JWT pode ser a única opção com proxy L7 no caminho); a Workload API não exige que o workload conheça a própria identidade, sem segredos coimplantados; domínios de confiança distintos para locais ou ambientes com práticas de segurança diferentes (homologação versus produção).'
 - id: MCDERMOTT-FOX-ABUSE-1999
   title: Using Abuse Case Models for Security Requirements Analysis
   authors:
@@ -4436,7 +4387,6 @@ references:
   verified_on: '2026-10-23'
   modules:
   - M04
-  - M12
   reading_role: reference
   priority: 3
   subject: Catálogo público de padrões de ataque
@@ -4487,7 +4437,6 @@ references:
   verified_on: '2026-10-23'
   modules:
   - M00
-  - M12
   reading_role: reference
   priority: 3
   subject: ''
@@ -4514,7 +4463,7 @@ references:
   verified_on: '2026-10-23'
   modules:
   - M00
-  - M12
+  - M07
   reading_role: reference
   priority: 3
   subject: ''
@@ -4564,8 +4513,10 @@ references:
   verification: Verified
   verified_on: '2026-10-28'
   modules:
+  - M00
   - M04
-  - M12
+  - M05
+  - M06
   reading_role: reference
   priority: 2
   subject: Requisitos verificáveis de segurança de aplicações
@@ -4651,7 +4602,6 @@ references:
   verified_on: '2026-10-23'
   modules:
   - M04
-  - M12
   reading_role: essential
   priority: 1
   subject: Definição, quatro perguntas, valores e princípios de threat modeling
@@ -4678,8 +4628,6 @@ references:
   verified_on: '2026-10-28'
   modules:
   - M03
-  - M13
-  - M15
   reading_role: reference
   priority: 2
   subject: Prazos e critérios de comunicação de incidentes de segurança com dados pessoais
@@ -4704,9 +4652,7 @@ references:
   redistribution: Not Verified
   verification: Partially Verified
   verified_on: '2026-10-23'
-  modules:
-  - M11
-  - M13
+  modules: []
   reading_role: reference
   priority: 2
   subject: Mecanismos de transferência internacional e cláusulas-padrão contratuais
@@ -4727,10 +4673,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M09
-  - M11
-  - M13
+  modules: []
   reading_role: reference
   priority: 2
   subject: Chaves KMS, tipos de chave, políticas de chave e hierarquia
@@ -4752,9 +4695,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M11
-  - M13
+  modules: []
   reading_role: reference
   priority: 3
   subject: Chaves mantidas fora da AWS (HYOK) e a transferência de responsabilidade
@@ -4775,9 +4716,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M09
-  - M13
+  modules: []
   reading_role: reference
   priority: 3
   subject: Descoberta de dados sensíveis em S3 e avaliação de postura de buckets
@@ -4798,9 +4737,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M09
-  - M11
+  modules: []
   reading_role: reference
   priority: 3
   subject: Gestão e rotação de segredos
@@ -4823,7 +4760,6 @@ references:
   verified_on: '2026-10-23'
   modules:
   - M01
-  - M13
   reading_role: reference
   priority: 2
   subject: Redução da validade máxima de certificados TLS públicos
@@ -4844,9 +4780,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M11
-  - M13
+  modules: []
   reading_role: reference
   priority: 3
   subject: Chaves em gerenciador externo de parceiro, Key Access Justifications
@@ -4867,9 +4801,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M10
-  - M13
+  modules: []
   reading_role: reference
   priority: 3
   subject: Perímetros de serviço contra exfiltração em serviços gerenciados
@@ -4892,8 +4824,7 @@ references:
   verified_on: '2026-10-28'
   modules:
   - M03
-  - M13
-  - M16
+  - M06
   reading_role: essential
   priority: 1
   subject: Proteção de dados pessoais no Brasil
@@ -4901,38 +4832,31 @@ references:
   - locator: Art. 5º, II
     title: Definição de dado pessoal sensível
     consulted: true
-    modules:
-    - M13
+    modules: []
   - locator: Art. 6º
     title: Princípios (finalidade, adequação, necessidade, livre acesso, qualidade, transparência, segurança, prevenção, não discriminação, responsabilização)
     consulted: true
     modules:
     - M03
-    - M13
   - locator: Art. 7º
     title: Bases legais para tratamento
     consulted: true
-    modules:
-    - M13
+    modules: []
   - locator: Art. 46
     title: Medidas de segurança técnicas e administrativas
     consulted: true
     modules:
     - M03
-    - M13
   - locator: Art. 48
     title: Comunicação de incidente de segurança à ANPD e ao titular
     consulted: true
     modules:
     - M03
-    - M13
-    - M15
   - locator: Art. 50
     title: Boas práticas e programa de governança em privacidade
     consulted: true
     modules:
     - M03
-    - M13
   billing_risk: Nenhum
   prerequisites: —
   notes: 'Texto oficial do Planalto conferido. Sem licença aplicável: a Lei nº 9.610/1998, art. 8º, IV (texto do Planalto conferido em 2026-10-23), exclui da proteção autoral ''os textos de tratados ou convenções, leis, decretos, regulamentos, decisões judiciais e demais atos oficiais''. Reconferido em 2026-10-28 no Planalto: arts. 5º, II; 11, caput; 37, caput; 46, caput e § 2º (desde a fase de concepção); 48, caput; 49.'
@@ -4950,9 +4874,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M11
-  - M13
+  modules: []
   reading_role: reference
   priority: 3
   subject: DSPM centrado em dados versus CSPM centrado em infraestrutura
@@ -4975,7 +4897,6 @@ references:
   verified_on: '2026-10-23'
   modules:
   - M01
-  - M13
   reading_role: reference
   priority: 2
   subject: Primeiro padrão NIST de encapsulamento de chaves pós-quântico
@@ -5002,7 +4923,6 @@ references:
   verified_on: '2026-10-23'
   modules:
   - M01
-  - M13
   reading_role: reference
   priority: 3
   subject: Plano de transição de algoritmos vulneráveis a computação quântica
@@ -5025,7 +4945,6 @@ references:
   verified_on: '2026-10-23'
   modules:
   - M01
-  - M13
   reading_role: deep-dive
   priority: 2
   subject: Gestão de certificados de servidor TLS em organizações
@@ -5052,7 +4971,6 @@ references:
   verified_on: '2026-10-23'
   modules:
   - M01
-  - M13
   reading_role: essential
   priority: 1
   subject: 'Gerenciamento de chaves criptográficas: tipos de chave, ciclo de vida, cryptoperiods'
@@ -5074,8 +4992,9 @@ references:
   verified_on: '2026-10-23'
   modules:
   - M00
-  - M09
-  - M15
+  - M03
+  - M04
+  - M08
   reading_role: reference
   priority: 3
   subject: Princípios de confiabilidade em cloud
@@ -5112,6 +5031,7 @@ references:
   verification: Verified
   verified_on: '2026-10-23'
   modules:
+  - M00
   - M01
   - M02
   - M03
@@ -5119,10 +5039,6 @@ references:
   - M05
   - M06
   - M07
-  - M12
-  - M14
-  - M15
-  - M16
   reading_role: essential
   priority: 1
   subject: Segurança e confiabilidade no desenho, implementação e operação de sistemas (Google)
@@ -5144,7 +5060,6 @@ references:
     consulted: false
     modules:
     - M01
-    - M15
   - locator: Cap. 2
     title: Understanding Adversaries
     consulted: true
@@ -5175,31 +5090,25 @@ references:
     consulted: false
     modules:
     - M02
-    - M12
   - locator: Cap. 7
     title: Design for a Changing Landscape
     consulted: false
-    modules:
-    - M14
-    - M16
+    modules: []
   - locator: Cap. 8
     title: Design for Resilience
     consulted: true
     modules:
     - M04
     - M05
-    - M15
   - locator: Cap. 9
     title: Design for Recovery
     consulted: false
-    modules:
-    - M15
+    modules: []
   - locator: Cap. 10
     title: Mitigating Denial-of-Service Attacks
     consulted: false
     modules:
     - M05
-    - M15
   - locator: Parte III
     title: Implementing Systems
     consulted: false
@@ -5210,41 +5119,34 @@ references:
   - locator: Cap. 12
     title: Writing Code
     consulted: false
-    modules:
-    - M12
+    modules: []
   - locator: Cap. 13
     title: Testing Code
     consulted: false
-    modules:
-    - M12
+    modules: []
   - locator: Cap. 14
     title: Deploying Code
     consulted: false
-    modules:
-    - M12
+    modules: []
   - locator: Cap. 15
     title: Investigating Systems
     consulted: false
-    modules:
-    - M15
+    modules: []
   - locator: Parte IV
     title: Maintaining Systems
     consulted: false
   - locator: Cap. 16
     title: Disaster Planning
     consulted: false
-    modules:
-    - M15
+    modules: []
   - locator: Cap. 17
     title: Crisis Management
     consulted: false
-    modules:
-    - M15
+    modules: []
   - locator: Cap. 18
     title: Recovery and Aftermath
     consulted: false
-    modules:
-    - M15
+    modules: []
   - locator: Parte V
     title: Organization and Culture
     consulted: false
@@ -5257,12 +5159,10 @@ references:
     consulted: false
     modules:
     - M03
-    - M16
   - locator: Cap. 21
     title: Building a Culture of Security and Reliability
     consulted: false
-    modules:
-    - M16
+    modules: []
   - locator: Apêndice A
     title: A Disaster Risk Assessment Matrix
     consulted: false
@@ -5285,8 +5185,6 @@ references:
   verified_on: '2026-10-23'
   modules:
   - M08
-  - M09
-  - M10
   reading_role: reference
   priority: 2
   subject: Guias de configuração segura por consenso, com perfis Level 1, Level 2 e STIG
@@ -5306,16 +5204,15 @@ references:
   availability: Free Online Reading
   redistribution: Not Verified
   verification: Verified
-  verified_on: '2026-10-23'
+  verified_on: '2026-11-04'
   modules:
   - M08
-  - M15
   reading_role: essential
   priority: 1
   subject: Prevenção de ransomware e extorsão de dados e lista de verificação de resposta
   billing_risk: Nenhum
   prerequisites: —
-  notes: 'Página lida em 2026-10-23: backups offline e cifrados, testados; golden images; IaC versionado; armazenamento imutável com cautela; vetores iniciais (serviços expostos, credenciais, phishing, malware precursor, terceiros); checklist de resposta em quatro fases. Documento do governo dos EUA; contatos de notificação são dos EUA.'
+  notes: 'Página lida em 2026-10-23: backups offline e cifrados, testados; golden images; IaC versionado; armazenamento imutável com cautela; vetores iniciais (serviços expostos, credenciais, phishing, malware precursor, terceiros); checklist de resposta em quatro fases. Documento do governo dos EUA; contatos de notificação são dos EUA. Reconferido em 2026-10-29: não expor RDP na web e limitar seu uso, com MFA e registro de tentativas; separar contas administrativas e de usuário; privilégio mínimo; monitorar força bruta e password spraying; desabilitar SMBv1, migrar para SMBv3 e bloquear a porta TCP 445 de entrada e saída; LAPS onde possível em sistemas anteriores ao Windows Server 2019; trocar usuários e senhas administrativos padrão; backups offline e cifrados com teste de disponibilidade e integridade; golden images atualizadas; IaC versionado e auditado; armazenamento imutável com cautela, por não atender a critérios de certas regulações. Guia de setembro de 2023, atualiza o de setembro de 2020. Reaberto em 2026-11-04: edição de setembro de 2023; conferidos backups offline e cifrados, testados; variantes que procuram e apagam ou cifram backups acessíveis; armazenamento imutável com cautela por critérios regulatórios; SMBv1 desabilitado, SMBv3 e bloqueio da porta TCP 445 de entrada e saída no perímetro; LAPS onde possível em sistemas anteriores ao Windows Server 2019 e Windows 10; RDP não exposto, MFA resistente a phishing e registro de tentativas; contas administrativas separadas; lista de aplicações permitidas e/ou EDR em todos os ativos; o termo gerenciado centralmente refere-se ao antivírus, não ao EDR (M08-L05 corrigida).'
 - id: MITRE-ATTACK
   title: MITRE ATT&CK
   publisher: MITRE
@@ -5330,17 +5227,18 @@ references:
   verification: Verified
   verified_on: '2026-10-28'
   modules:
+  - M01
   - M03
   - M04
+  - M05
   - M06
-  - M14
-  - M15
+  - M08
   reading_role: reference
   priority: 3
   subject: Táticas e técnicas de adversários
   billing_risk: Nenhum
   prerequisites: M01
-  notes: 'Página de atualizações conferida: versão atual v20, de 13/10/2026. Página de táticas Enterprise lida em 2026-10-23 (conteúdo v20.0): 15 táticas — Reconnaissance, Resource Development, Initial Access, Execution, Persistence, Privilege Escalation, Stealth (TA0005), Defense Impairment (TA0112), Credential Access, Discovery, Lateral Movement, Collection, Command and Control, Exfiltration, Impact. Termos de uso (página Legal & Branding) não verificados. Técnicas conferidas nas páginas da v20: T1133 External Remote Services (Persistence, Initial Access), T1078 Valid Accounts (Stealth, Persistence, Privilege Escalation, Initial Access), T1003 OS Credential Dumping, T1087 Account Discovery, T1021 Remote Services, T1685 Disable or Modify Tools (Defense Impairment, 18 técnicas), T1490 Inhibit System Recovery e T1486 Data Encrypted for Impact (Impact). T1558 Steal or Forge Kerberos Tickets (Credential Access) conferida, com subtécnicas .001 Golden Ticket, .002 Silver Ticket, .003 Kerberoasting, .004 AS-REP Roasting e .005 Ccache Files. Reconferido em 2026-10-28: página de versões (v20.0 desde 13/10/2026; v19.2 de 28/04/2026 a 12/10/2026; v18.1 de 28/10/2025 a 27/04/2026); lista de 15 táticas Enterprise; T1078 (Stealth, Persistence, Privilege Escalation, Initial Access), T1133 (Persistence, Initial Access) e T1490 (Impact); página da TA0112 Defense Impairment criada em 14/04/2026 (anterior à v20), com 18 técnicas. As páginas de versões anteriores (/versions/v19, /versions/v18) não puderam ser lidas (robots), então a versão exata em que a tática foi introduzida não foi confirmada. Também em 2026-10-28: T1003 (Credential Access), T1685 (Defense Impairment), T1070 Indicator Removal (Stealth; subtécnicas .003 a .010), T1566 Phishing (Initial Access), T1213 e T1530 (Collection), T1567 (Exfiltration) e T1598 Phishing for Information (Reconnaissance; objetivo de obter dados da vítima, frequentemente credenciais, em vez de executar código).'
+  notes: 'Página de atualizações conferida: versão atual v20, de 13/10/2026. Página de táticas Enterprise lida em 2026-10-23 (conteúdo v20.0): 15 táticas — Reconnaissance, Resource Development, Initial Access, Execution, Persistence, Privilege Escalation, Stealth (TA0005), Defense Impairment (TA0112), Credential Access, Discovery, Lateral Movement, Collection, Command and Control, Exfiltration, Impact. Termos de uso (página Legal & Branding) não verificados. Técnicas conferidas nas páginas da v20: T1133 External Remote Services (Persistence, Initial Access), T1078 Valid Accounts (Stealth, Persistence, Privilege Escalation, Initial Access), T1003 OS Credential Dumping, T1087 Account Discovery, T1021 Remote Services, T1685 Disable or Modify Tools (Defense Impairment, 18 técnicas), T1490 Inhibit System Recovery e T1486 Data Encrypted for Impact (Impact). T1558 Steal or Forge Kerberos Tickets (Credential Access) conferida, com subtécnicas .001 Golden Ticket, .002 Silver Ticket, .003 Kerberoasting, .004 AS-REP Roasting e .005 Ccache Files. Reconferido em 2026-10-28: página de versões (v20.0 desde 13/10/2026; v19.2 de 28/04/2026 a 12/10/2026; v18.1 de 28/10/2025 a 27/04/2026); lista de 15 táticas Enterprise; T1078 (Stealth, Persistence, Privilege Escalation, Initial Access), T1133 (Persistence, Initial Access) e T1490 (Impact); página da TA0112 Defense Impairment criada em 14/04/2026 (anterior à v20), com 18 técnicas. As páginas de versões anteriores (/versions/v19, /versions/v18) não puderam ser lidas (robots), então a versão exata em que a tática foi introduzida não foi confirmada. Também em 2026-10-28: T1003 (Credential Access), T1685 (Defense Impairment), T1070 Indicator Removal (Stealth; subtécnicas .003 a .010), T1566 Phishing (Initial Access), T1213 e T1530 (Collection), T1567 (Exfiltration) e T1598 Phishing for Information (Reconnaissance; objetivo de obter dados da vítima, frequentemente credenciais, em vez de executar código). Em 2026-10-29 (v20): T1606.002 Forge Web Credentials: SAML Tokens (Credential Access) — com um certificado de assinatura válido, o adversário forja tokens SAML com quaisquer declarações de permissão. Em 2026-10-29 (v20): T1046 Network Service Discovery (Discovery, TA0007), usada na sequência da avaliação intermediária.'
 - id: NIST-IR-8374-R1
   title: 'NIST IR 8374 Rev. 1 — Ransomware Risk Management: A Cybersecurity Framework 2.0 Community Profile'
   authors:
@@ -5363,7 +5261,6 @@ references:
   modules:
   - M03
   - M08
-  - M15
   reading_role: reference
   priority: 2
   subject: Perfil comunitário do CSF 2.0 para gestão de risco de ransomware
@@ -5411,10 +5308,9 @@ references:
   availability: Free Download
   redistribution: Not Verified
   verification: Verified
-  verified_on: '2026-10-23'
+  verified_on: '2026-10-29'
   modules:
   - M08
-  - M14
   reading_role: reference
   priority: 2
   subject: 'Gestão de configuração focada em segurança: fases, baseline segura e controle de mudanças'
@@ -5428,7 +5324,7 @@ references:
     page_basis: printed
   billing_risk: Nenhum
   prerequisites: —
-  notes: PDF lido em 2026-10-23 (Sec. 2 e início da Sec. 3). Autores registrados por conhecimento prévio, não conferidos.
+  notes: 'PDF lido em 2026-10-23 (Sec. 2 e início da Sec. 3). Autores registrados por conhecimento prévio, não conferidos. Reconferido em 2026-10-29 (páginas impressas): SecCM definida na Sec. 2.1.3 (p. 6); quatro fases na Sec. 2.2 (p. 7, confirmada no sumário); CCB como ''check and balance'' na Sec. 2.3.3 (pp. 9–10); baseline ''formally reviewed and agreed on'' na Sec. 2.3.7 (p. 11). As páginas registradas antes estavam deslocadas em uma unidade.'
 - id: NIST-SP800-34-R1
   title: SP 800-34 Rev. 1 — Contingency Planning Guide for Federal Information Systems
   authors:
@@ -5454,8 +5350,9 @@ references:
   modules:
   - M00
   - M03
+  - M04
+  - M06
   - M08
-  - M15
   reading_role: reference
   priority: 2
   subject: Planejamento de contingência, Business Impact Analysis, estratégias de recuperação
@@ -5475,7 +5372,6 @@ references:
     consulted: true
     modules:
     - M03
-    - M12
     pages: 15–19
     page_basis: printed
   - locator: Sec. 2.2
@@ -5483,8 +5379,6 @@ references:
     consulted: true
     modules:
     - M03
-    - M12
-    - M15
     pages: 8–11
     page_basis: printed
 - id: NIST-SP800-61-R3
@@ -5506,9 +5400,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M09
-  - M15
+  modules: []
   reading_role: reference
   priority: 2
   subject: Resposta a incidentes integrada à gestão de riscos, como perfil comunitário do CSF 2.0
@@ -5557,9 +5449,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M09
-  - M15
+  modules: []
   reading_role: reference
   priority: 3
   subject: 'Gestão de logs: infraestrutura, processos e planejamento'
@@ -5580,9 +5470,7 @@ references:
   redistribution: Not Verified
   verification: Verified
   verified_on: '2026-10-23'
-  modules:
-  - M11
-  - M15
+  modules: []
   reading_role: reference
   priority: 3
   subject: 'Esquema aberto e agnóstico para eventos de segurança: atributos, classes, categorias, perfis e extensões'
@@ -5629,8 +5517,6 @@ references:
   - M03
   - M05
   - M06
-  - M12
-  - M15
   reading_role: reference
   priority: 3
   subject: Domínios oficiais do CISSP; referência curricular
@@ -5679,8 +5565,6 @@ references:
   - M03
   - M05
   - M06
-  - M11
-  - M16
   reading_role: reference
   priority: 3
   subject: 'Novo outline do ISSAP: 4 domínios e pesos, vigente desde 01/08/2025'
@@ -5701,7 +5585,6 @@ references:
   verified_on: '2026-10-23'
   modules:
   - M02
-  - M16
   reading_role: reference
   priority: 3
   subject: Outline do ISSAP

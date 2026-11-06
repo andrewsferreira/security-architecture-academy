@@ -1,0 +1,24 @@
+flowchart LR
+  accTitle: Sequência de recuperação de identidade após comprometimento do diretório
+  accDescr: Ao confirmar o comprometimento da identidade, a equipe ativa o canal de comunicação fora de banda e as contas de emergência, que não dependem do diretório comprometido. Em seguida contém o incidente na nuvem, revogando sessões e tokens e bloqueando a sincronização, e decide se o diretório local pode ser limpo ou se é preciso recuperar a floresta. A recuperação ocorre em rede isolada, a partir de backup anterior ao comprometimento, com redefinição de contas privilegiadas e das credenciais de serviço. Depois de validado o diretório recuperado, a sincronização com a nuvem é restabelecida, as credenciais de aplicações e workloads são rotacionadas e a monitoração reforçada acompanha a reentrada dos usuários.
+
+  C1{{"Comprometimento<br/>confirmado"}}
+  C2["Canal fora de banda e<br/>contas de emergência"]
+  C3["Conter na nuvem<br/><small>revogar sessões e tokens;<br/>suspender sincronização</small>"]
+  C4{"Limpar ou<br/>recuperar a floresta?"}
+  C5["Recuperação isolada<br/><small>backup anterior ao comprometimento;<br/>redefinir contas privilegiadas</small>"]
+  C6["Validar diretório<br/>recuperado"]
+  C7["Restabelecer sincronização<br/><small>rotacionar credenciais de<br/>aplicações e workloads</small>"]
+  C8["Monitoração reforçada<br/>na reentrada"]
+
+  C1 --> C2 --> C3 --> C4
+  C4 -- "recuperar" --> C5 --> C6
+  C4 -- "limpar" --> C6
+  C6 --> C7 --> C8
+
+  classDef untrusted stroke:#dc2626,stroke-width:2px,stroke-dasharray:5 3
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef identity stroke:#2f74e8,stroke-width:2px
+  class C1 untrusted
+  class C2,C8 control
+  class C5,C7 identity

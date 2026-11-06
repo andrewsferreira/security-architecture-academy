@@ -1,0 +1,36 @@
+flowchart TB
+  accTitle: Planos de controle, gestão e dados e caminhos de acesso privilegiado
+  accDescr: O plano de controle reúne a identidade corporativa, como diretório e provedor de identidade, e controla o acesso a todo o resto. O plano de gestão reúne as ferramentas que administram workloads e infraestrutura, como consoles de nuvem, hypervisores e ferramentas de implantação. O plano de dados e workloads contém as aplicações e os dados de negócio. Usuários e aplicações acessam o plano de dados; administradores usam caminhos de acesso privilegiado, a partir de estações dedicadas, com ativação just-in-time e gravação. Planos inferiores não podem controlar planos superiores: uma conta de administração de servidor não deve ter direitos sobre o diretório.
+
+  subgraph CP["Plano de controle"]
+    DIR["Diretório · IdP · PKI"]
+  end
+  subgraph MP["Plano de gestão"]
+    MGMT["Consoles de nuvem · hypervisores ·<br/>ferramentas de implantação"]
+  end
+  subgraph DP["Plano de dados e workloads"]
+    APP["Aplicações e dados de negócio"]
+  end
+
+  USR(["Usuários e parceiros"])
+  API(["Aplicações via API"])
+  ADM(["Administradores"])
+  PAW["Estação de acesso privilegiado<br/><small>MFA resistente a phishing</small>"]
+  JIT["Ativação just-in-time<br/><small>aprovação · gravação</small>"]
+
+  USR -- "acesso de usuário" --> APP
+  API -- "acesso de aplicação" --> APP
+  ADM --> PAW --> JIT
+  JIT -- "papel do plano de controle" --> DIR
+  JIT -- "papel do plano de gestão" --> MGMT
+  DIR -- "controla acesso a" --> MGMT
+  MGMT -- "administra" --> APP
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef identity stroke:#2f74e8,stroke-width:2px
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef actor stroke:#64748b,stroke-width:2px
+  class CP,MP,DP zone
+  class DIR identity
+  class PAW,JIT control
+  class USR,API,ADM actor

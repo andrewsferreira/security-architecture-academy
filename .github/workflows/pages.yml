@@ -98,11 +98,14 @@ jobs:
           python scripts/check_assets.py
           python scripts/check_contrast.py
           python scripts/check_decision_matrices.py
+          python scripts/check_status_badges.py
           python scripts/validate_references.py
       - name: Build
         run: python -m zensical build --clean
       - name: Links internos
         run: python scripts/check_links.py
+      - name: Escopo do site (páginas, busca e sitemap)
+        run: python scripts/check_site_scope.py
       - name: Atribuição de autoria no site compilado
         run: python scripts/check_attribution.py --path site
       - name: Testes

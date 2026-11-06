@@ -108,7 +108,7 @@ def test_publish_page_marks_review():
             '<span class="saa-status saa-status--in-review">In Review</span>\n')
     out = ex.publish_page(text, ["Mantenedor"], dt.date(2026, 11, 1))
     assert "status: published" in out and "reviewed_by: [Mantenedor]" in out
-    assert "| Revisão técnica | Mantenedor — 2026-11-01 |" in out
+    assert "| Revisão técnica | Revisado por Mantenedor — 2026-11-01 |" in out
     assert "saa-status--published" in out
 
 

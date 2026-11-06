@@ -1,0 +1,22 @@
+sequenceDiagram
+  accTitle: Controle de acesso à rede com IEEE 802.1X
+  accDescr: O dispositivo conecta-se à porta do switch, que atua como autenticador e mantém a porta bloqueada para tudo exceto a autenticação. O dispositivo apresenta um certificado ao servidor RADIUS por meio do switch. O servidor valida o certificado e consulta a postura do dispositivo. Se o dispositivo for corporativo e estiver conforme, o servidor devolve a VLAN ou a política de acesso correspondente e a porta é liberada. Se o certificado for inválido ou a postura não conforme, o servidor devolve a política de quarentena, que só permite acesso à remediação.
+
+  participant D as Dispositivo (suplicante)
+  participant S as Switch ou AP (autenticador)
+  participant R as Servidor RADIUS (política)
+  participant P as Fonte de postura (MDM/EDR)
+
+  D->>S: Conecta à porta
+  S-->>D: Porta bloqueada, exceto autenticação
+  D->>S: EAP-TLS com certificado do dispositivo
+  S->>R: Encaminha a autenticação
+  R->>P: Consulta postura do dispositivo
+  P-->>R: Conforme ou não conforme
+  alt Certificado válido e postura conforme
+    R-->>S: Aceito + VLAN/política corporativa
+    S-->>D: Acesso ao segmento autorizado
+  else Certificado inválido ou postura não conforme
+    R-->>S: Política de quarentena
+    S-->>D: Acesso somente à remediação
+  end

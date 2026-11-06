@@ -1,4 +1,5 @@
-"""Navegação pública: sete grupos, níveis dentro de Fundamentals e Research Library separada da Prática."""
+"""Navegação pública: sete grupos (oito quando há nível Professional publicado), níveis dentro de Fundamentals
+e de Professional, e Research Library separada da Prática."""
 
 from __future__ import annotations
 
@@ -8,7 +9,8 @@ import export_release as ex
 from _common import ROOT, load_config, load_manifest
 
 PUBLIC_GROUPS = ["Início", "Começar", "Fundamentals", "Prática", "Research Library", "Currículo e Roadmap", "Sobre"]
-DEV_ONLY_GROUPS = {"Professional", "Handbook"}  # removidos da árvore pública pela exportação
+DEV_ONLY_GROUPS = {"Professional", "Handbook"}  # removidos da árvore pública enquanto não têm página publicada
+FUNDAMENTALS_STAGES = {"n0", "n1"}  # o grupo Professional reúne os níveis 2 em diante
 
 MANIFEST = load_manifest()
 NAV = load_config()["project"]["nav"]
@@ -65,14 +67,28 @@ def test_no_duplicate_paths():
     assert len(all_paths) == len(set(all_paths))
 
 
-def test_public_navigation_has_exactly_seven_groups():
+def released_modules(stages: set[str] | None = None, negate: bool = False) -> list[str]:
+    """Índices dos módulos no escopo publicado, na ordem do manifesto, filtrados por nível."""
+    scope = ex.cumulative_scope(MANIFEST, public_release())["modules"]
+    return [m["path"] for m in MANIFEST["modules"] if m["id"] in scope
+            and (stages is None or ((m["stage"] in stages) != negate))]
+
+
+def expected_public_groups() -> list[str]:
+    groups = list(PUBLIC_GROUPS)
+    if released_modules(FUNDAMENTALS_STAGES, negate=True):
+        groups.insert(groups.index("Fundamentals") + 1, "Professional")
+    return groups
+
+
+def test_public_navigation_has_seven_groups_plus_released_professional():
     public = prune(NAV)
-    assert [label(e) for e in public] == PUBLIC_GROUPS
+    assert [label(e) for e in public] == expected_public_groups()
     if not PUBLIC_TREE:
         assert [label(e) for e in NAV if label(e) not in DEV_ONLY_GROUPS] == PUBLIC_GROUPS
         for entry in NAV:
-            if label(entry) in DEV_ONLY_GROUPS:
-                assert not any(is_public_doc(p) for p in paths(entry)), f"{label(entry)} contém página pública"
+            if label(entry) == "Handbook":
+                assert not any(is_public_doc(p) for p in paths(entry)), "Handbook contém página pública"
 
 
 def test_research_library_is_its_own_group():
@@ -104,6 +120,14 @@ def test_fundamentals_groups_modules_by_level():
 def test_public_fundamentals_shows_only_released_modules():
     fundamentals = next(e for e in prune(NAV) if label(e) == "Fundamentals")
     indexes = [p for p in paths(fundamentals) if p.endswith("/index.md")]
-    scope = ex.cumulative_scope(MANIFEST, public_release())["modules"]
-    expected = [m["path"] for m in MANIFEST["modules"] if m["id"] in scope]
+    assert indexes == released_modules(FUNDAMENTALS_STAGES)
+
+
+def test_public_professional_shows_only_released_modules():
+    expected = released_modules(FUNDAMENTALS_STAGES, negate=True)
+    professional = next((e for e in prune(NAV) if label(e) == "Professional"), None)
+    if not expected:
+        assert professional is None
+        return
+    indexes = [p for p in paths(professional) if p.endswith("/index.md")]
     assert indexes == expected

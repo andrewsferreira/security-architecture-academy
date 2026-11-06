@@ -1,4 +1,4 @@
-# Manifesto público gerado por scripts/export_release.py — escopo cumulativo até R2 (final). Não editar: a fonte é o repositório de desenvolvimento.
+# Manifesto público gerado por scripts/export_release.py — escopo cumulativo até R3 (final). Não editar: a fonte é o repositório de desenvolvimento.
 schema_version: 2
 updated: 2026-10-23
 statuses:
@@ -433,6 +433,7 @@ modules:
   - enterprise-architecture
   prerequisites:
   - M02
+  - M03
   status: published
   published_on: 2026-10-28
   reviewed_by:
@@ -512,43 +513,69 @@ modules:
   prerequisites:
   - M00
   - M02
-  status: planned
+  - M04
+  status: published
+  path: modules/05-network-security/index.md
   lessons:
   - id: M05-L01
     title: Zonas de confiança, segmentação e microsegmentação
     tier: fundamental
     minutes: 75
-    status: planned
+    status: published
+    file: 01-zones-segmentation.md
+    published_on: &id001 2026-11-05
+    reviewed_by: &id002
+    - Andrews Ferreira
   - id: M05-L02
     title: 'Perímetro e inspeção: DMZ, WAF, NGFW, IDS/IPS e proxies'
     tier: professional
     minutes: 75
-    status: planned
+    status: published
+    file: 02-perimeter-inspection.md
+    published_on: *id001
+    reviewed_by: *id002
   - id: M05-L03
     title: Tráfego North-South e East-West
     tier: professional
     minutes: 60
-    status: planned
+    status: published
+    file: 03-north-south-east-west.md
+    published_on: *id001
+    reviewed_by: *id002
   - id: M05-L04
     title: 'Acesso remoto: VPN, ZTNA e bastion hosts'
     tier: professional
     minutes: 75
-    status: planned
+    status: published
+    file: 04-remote-access.md
+    published_on: *id001
+    reviewed_by: *id002
   - id: M05-L05
     title: SD-WAN, SASE e SSE
     tier: professional
     minutes: 60
-    status: planned
+    status: published
+    file: 05-sdwan-sase-sse.md
+    published_on: *id001
+    reviewed_by: *id002
   - id: M05-L06
     title: Network Access Control
     tier: professional
     minutes: 45
-    status: planned
+    status: published
+    file: 06-network-access-control.md
+    published_on: *id001
+    reviewed_by: *id002
   - id: M05-L07
     title: Desenho de uma rede corporativa segura
     tier: architect
     minutes: 90
-    status: planned
+    status: published
+    file: 07-secure-enterprise-network.md
+    published_on: *id001
+    reviewed_by: *id002
+  published_on: *id001
+  reviewed_by: *id002
 - id: M06
   slug: iam
   title: Identity & Access Management
@@ -559,53 +586,83 @@ modules:
   prerequisites:
   - M01
   - M02
-  status: planned
+  status: published
+  path: modules/06-iam/index.md
   lessons:
   - id: M06-L01
     title: 'Disciplinas de identidade: IAM, IGA, PAM e PIM'
     tier: fundamental
     minutes: 60
-    status: planned
+    status: published
+    file: 01-identity-disciplines.md
+    published_on: *id001
+    reviewed_by: *id002
   - id: M06-L02
     title: 'Modelos de autorização: RBAC, ABAC e acesso contextual'
     tier: professional
     minutes: 75
-    status: planned
+    status: published
+    file: 02-authorization-models.md
+    published_on: *id001
+    reviewed_by: *id002
   - id: M06-L03
     title: 'Diretórios e autenticação corporativa: Active Directory, LDAP e Kerberos'
     tier: professional
     minutes: 90
-    status: planned
+    status: published
+    file: 03-directories-kerberos.md
+    published_on: *id001
+    reviewed_by: *id002
   - id: M06-L04
     title: 'Federação: SAML 2.0, OAuth 2.0 e OpenID Connect'
     tier: professional
     minutes: 90
-    status: planned
+    status: published
+    file: 04-federation-saml-oauth-oidc.md
+    published_on: *id001
+    reviewed_by: *id002
   - id: M06-L05
     title: 'Identidade híbrida: Active Directory, Microsoft Entra ID e provedores cloud'
     tier: architect
     minutes: 90
-    status: planned
+    status: published
+    file: 05-hybrid-identity.md
+    published_on: *id001
+    reviewed_by: *id002
   - id: M06-L06
     title: Contas privilegiadas e identidades de máquina
     tier: professional
     minutes: 75
-    status: planned
+    status: published
+    file: 06-privileged-machine-identities.md
+    published_on: *id001
+    reviewed_by: *id002
   - id: M06-L07
     title: Workload Identity Federation
     tier: architect
     minutes: 60
-    status: planned
+    status: published
+    file: 07-workload-identity-federation.md
+    published_on: *id001
+    reviewed_by: *id002
   - id: M06-L08
     title: Ciclo de vida de identidades e segregação de funções
     tier: professional
     minutes: 60
-    status: planned
+    status: published
+    file: 08-lifecycle-sod.md
+    published_on: *id001
+    reviewed_by: *id002
   - id: M06-L09
     title: Recuperação de identidade em incidentes
     tier: architect
     minutes: 75
-    status: planned
+    status: published
+    file: 09-identity-recovery.md
+    published_on: *id001
+    reviewed_by: *id002
+  published_on: *id001
+  reviewed_by: *id002
 - id: M07
   slug: zero-trust
   title: Zero Trust Architecture
@@ -618,43 +675,67 @@ modules:
   prerequisites:
   - M05
   - M06
-  status: planned
+  status: published
+  path: modules/07-zero-trust/index.md
   lessons:
   - id: M07-L01
     title: Fundamentos de Zero Trust e o NIST SP 800-207
     tier: fundamental
     minutes: 75
-    status: planned
+    status: published
+    file: 01-zero-trust-fundamentals.md
+    published_on: *id001
+    reviewed_by: *id002
   - id: M07-L02
     title: 'Componentes lógicos: Policy Engine, Policy Administrator e PEP'
     tier: professional
     minutes: 60
-    status: planned
+    status: published
+    file: 02-logical-components.md
+    published_on: *id001
+    reviewed_by: *id002
   - id: M07-L03
     title: Abordagens identity-centric, resource-centric e de rede
     tier: professional
     minutes: 60
-    status: planned
+    status: published
+    file: 03-approaches-deployment.md
+    published_on: *id001
+    reviewed_by: *id002
   - id: M07-L04
     title: Verificação contínua, postura de dispositivo e acesso adaptativo
     tier: professional
     minutes: 75
-    status: planned
+    status: published
+    file: 04-continuous-verification.md
+    published_on: *id001
+    reviewed_by: *id002
   - id: M07-L05
     title: Segmentação e proteção de workloads
     tier: professional
     minutes: 60
-    status: planned
+    status: published
+    file: 05-workload-protection.md
+    published_on: *id001
+    reviewed_by: *id002
   - id: M07-L06
     title: CISA Zero Trust Maturity Model
     tier: architect
     minutes: 60
-    status: planned
+    status: published
+    file: 06-cisa-ztmm.md
+    published_on: *id001
+    reviewed_by: *id002
   - id: M07-L07
     title: Implantação progressiva com sistemas legados e restrições
     tier: architect
     minutes: 90
-    status: planned
+    status: published
+    file: 07-progressive-deployment.md
+    published_on: *id001
+    reviewed_by: *id002
+  published_on: *id001
+  reviewed_by: *id002
 - id: M08
   slug: onprem-legacy
   title: On-Premises e Sistemas Legados
@@ -666,43 +747,68 @@ modules:
   prerequisites:
   - M05
   - M06
-  status: planned
+  - M07
+  status: published
+  path: modules/08-onprem-legacy/index.md
   lessons:
   - id: M08-L01
     title: Segurança de datacenters
     tier: fundamental
     minutes: 60
-    status: planned
+    status: published
+    file: 01-datacenter-security.md
+    published_on: *id001
+    reviewed_by: *id002
   - id: M08-L02
     title: Hardening e baselines de configuração
     tier: professional
     minutes: 75
-    status: planned
+    status: published
+    file: 02-hardening-baselines.md
+    published_on: *id001
+    reviewed_by: *id002
   - id: M08-L03
     title: Arquitetura para Windows Server, Linux e Active Directory
     tier: professional
     minutes: 90
-    status: planned
+    status: published
+    file: 03-windows-linux-ad.md
+    published_on: *id001
+    reviewed_by: *id002
   - id: M08-L04
     title: Backup, recuperação e resiliência contra ransomware
     tier: professional
     minutes: 75
-    status: planned
+    status: published
+    file: 04-backup-ransomware-resilience.md
+    published_on: *id001
+    reviewed_by: *id002
   - id: M08-L05
     title: Sistemas sem suporte e controles compensatórios
     tier: architect
     minutes: 60
-    status: planned
+    status: published
+    file: 05-unsupported-systems.md
+    published_on: *id001
+    reviewed_by: *id002
   - id: M08-L06
     title: Protocolos inseguros e dependências legadas
     tier: professional
     minutes: 60
-    status: planned
+    status: published
+    file: 06-insecure-protocols.md
+    published_on: *id001
+    reviewed_by: *id002
   - id: M08-L07
     title: Integração com ambientes modernos e modernização gradual
     tier: architect
     minutes: 75
-    status: planned
+    status: published
+    file: 07-modernization.md
+    published_on: *id001
+    reviewed_by: *id002
+  published_on: *id001
+  reviewed_by: *id002
 - id: M09
   slug: aws
   title: AWS Security Architecture
@@ -761,6 +867,7 @@ modules:
   prerequisites:
   - M05
   - M06
+  - M09
   status: planned
   lessons:
   - id: M10-L01
@@ -811,6 +918,8 @@ modules:
   prerequisites:
   - M06
   - M07
+  - M08
+  - M10
   status: planned
   lessons:
   - id: M11-L01
@@ -1257,17 +1366,18 @@ releases:
   - version: 0.2.1
     title: Release 2 — Fundamentals (estabilidade e consistência)
     candidate: v0.2.1-rc2
-    status: approved
+    status: published
     approved_by:
     - Andrews Ferreira
     approved_on: 2026-10-28
     approved_source_commit: 239314b5c8e059eba3bd9c107f1f86b1427fbcf7
-    public_commit: null
-    published_on: null
+    public_commit: 4a8f28263f5dcea4a840c935063c1a2dec870da0
+    published_on: 2026-10-28
 - id: R3
   version: 0.3.0
   title: 'Release 3 — Nível 2: Arquiteturas de Infraestrutura'
-  status: in-development
+  status: approved
+  candidate: v0.3.0-rc2
   modules:
   - M05
   - M06
@@ -1282,9 +1392,10 @@ releases:
   - ART-TM
   - ART-SCM
   - ART-RR
-  approved_by: []
-  approved_on: null
-  approved_source_commit: null
+  approved_by:
+  - Andrews Ferreira
+  approved_on: 2026-11-05
+  approved_source_commit: fbed39ed9e9ecd1e545fcce7fc44efe103db056e
   public_commit: null
   published_on: null
   url: null
@@ -1519,7 +1630,11 @@ assessments:
   - M07
   - M08
   phase: 2
-  status: planned
+  status: published
+  reviewed_by: *id002
+  path: assessments/level-2-intermediate.md
+  answers: assessments/answers/level-2-intermediate.md
+  published_on: *id001
 - id: AS-FINAL
   title: Avaliação final
   kind: final
@@ -1574,19 +1689,31 @@ artifacts:
 - id: ART-SAA
   title: Security Architecture Assessment
   phase: 2
-  status: planned
+  status: published
+  reviewed_by: *id002
+  path: artifacts/security-architecture-assessment.md
+  published_on: *id001
 - id: ART-TM
   title: Threat Model
   phase: 3
-  status: planned
+  status: published
+  reviewed_by: *id002
+  path: artifacts/threat-model.md
+  published_on: *id001
 - id: ART-SCM
   title: Security Control Matrix
   phase: 2
-  status: planned
+  status: published
+  reviewed_by: *id002
+  path: artifacts/security-control-matrix.md
+  published_on: *id001
 - id: ART-RR
   title: Risk Register
   phase: 2
-  status: planned
+  status: published
+  reviewed_by: *id002
+  path: artifacts/risk-register.md
+  published_on: *id001
 - id: ART-HSAB
   title: Hybrid Security Architecture Blueprint
   phase: 2

@@ -1,0 +1,29 @@
+flowchart LR
+  accTitle: Modernização gradual com o padrão strangler fig
+  accDescr: Usuários e integrações acessam uma fachada, como um gateway de API, que aplica autenticação moderna e roteia cada funcionalidade para o sistema legado ou para o novo serviço. A cada etapa, uma funcionalidade migra do legado para o novo serviço, e a fachada passa a rotear para ele. Uma camada anticorrupção traduz dados e protocolos entre o legado e os serviços novos. Ao final, o legado deixa de receber chamadas e é desativado. A segurança melhora em cada etapa, porque os novos serviços nascem com identidade de workload, registro e controles modernos, enquanto o legado fica isolado atrás da fachada.
+
+  CLI(["Usuários e integrações"])
+  FAC{{"Fachada / gateway de API<br/><small>autenticação moderna,<br/>roteamento por funcionalidade</small>"}}
+  subgraph LEGZ["Legado — encolhendo"]
+    LEG["Sistema legado<br/><small>funcionalidades restantes</small>"]
+  end
+  subgraph NEWZ["Novos serviços — crescendo"]
+    N1["Serviço de pedidos"]
+    N2["Serviço de faturamento"]
+  end
+  ACL["Camada anticorrupção<br/><small>tradução de dados e protocolos</small>"]
+
+  CLI --> FAC
+  FAC -- "funcionalidades ainda não migradas" --> LEG
+  FAC -- "pedidos" --> N1
+  FAC -- "faturamento" --> N2
+  N1 <--> ACL
+  N2 <--> ACL
+  ACL <--> LEG
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef untrusted stroke:#dc2626,stroke-width:2px,stroke-dasharray:5 3
+  class LEGZ,NEWZ zone
+  class FAC control
+  class LEG untrusted

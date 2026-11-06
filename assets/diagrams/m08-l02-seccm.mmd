@@ -1,0 +1,22 @@
+flowchart LR
+  accTitle: Ciclo de gestão de configuração focada em segurança
+  accDescr: O ciclo tem quatro fases, segundo a NIST SP 800-128. No planejamento, definem-se política, papéis e o comitê de controle de configuração. Na identificação e implementação, escolhe-se um benchmark de referência, adaptam-se os parâmetros e aprova-se a baseline segura, aplicada por automação. No controle de mudanças, toda alteração passa por análise de impacto de segurança e aprovação do comitê, e a baseline é atualizada. Na monitoração, varreduras comparam os sistemas com a baseline; desvios são corrigidos ou registrados como exceção com dono e prazo, e alimentam a revisão da baseline.
+
+  P["Planejamento<br/><small>política · papéis · comitê</small>"]
+  I["Identificar e implementar<br/><small>benchmark de referência →<br/>baseline aprovada → automação</small>"]
+  C["Controlar mudanças<br/><small>análise de impacto ·<br/>aprovação do comitê</small>"]
+  M["Monitorar<br/><small>varredura contra a baseline</small>"]
+  D{"Desvio?"}
+  R["Corrigir"]
+  E["Exceção<br/><small>dono e prazo</small>"]
+
+  P --> I --> C --> M --> D
+  D -- "não autorizado" --> R --> M
+  D -- "justificado" --> E
+  E -. "revisão da baseline" .-> I
+  C -. "atualiza baseline" .-> I
+
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef untrusted stroke:#dc2626,stroke-width:2px,stroke-dasharray:5 3
+  class I,M control
+  class E untrusted

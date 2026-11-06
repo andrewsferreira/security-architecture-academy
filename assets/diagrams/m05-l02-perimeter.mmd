@@ -1,0 +1,30 @@
+flowchart LR
+  accTitle: Controles de perímetro para tráfego de entrada e de saída
+  accDescr: No tráfego de entrada, clientes na internet passam primeiro por proteção contra negação de serviço e por um WAF ou WAAP, depois pelo firewall de borda, e chegam ao proxy reverso e ao balanceador na DMZ, que encaminham apenas as requisições permitidas aos servidores de aplicação na zona interna. O sistema de prevenção de intrusão inspeciona o tráfego no firewall de próxima geração. No tráfego de saída, as estações dos usuários acessam a internet somente pelo secure web gateway, que inspeciona HTTPS e aplica filtragem; servidores só saem por um proxy de saída com lista de destinos permitidos.
+
+  CLI(["Clientes na internet"])
+  WEB(["Sites na internet"])
+  DDOS["Proteção contra DDoS"]
+  WAF["WAF / WAAP"]
+  NGFW{{"NGFW de borda<br/><small>política negar por padrão · IPS</small>"}}
+  subgraph DMZ["DMZ"]
+    RP["Proxy reverso<br/>e balanceador"]
+  end
+  subgraph INT["Rede interna"]
+    APP["Servidores de aplicação"]
+    WS["Estações de usuários"]
+    SRV["Servidores"]
+  end
+  SWG["Secure web gateway<br/><small>inspeção HTTPS · filtragem</small>"]
+  EGP["Proxy de saída de servidores<br/><small>lista de destinos permitidos</small>"]
+
+  CLI --> DDOS --> WAF --> NGFW --> RP --> APP
+  WS --> SWG --> WEB
+  SRV --> EGP --> WEB
+
+  classDef zone fill:transparent,stroke:#64748b,stroke-width:1px,stroke-dasharray:4 3
+  classDef control stroke:#0e9fb8,stroke-width:2px
+  classDef untrusted stroke:#dc2626,stroke-width:2px,stroke-dasharray:5 3
+  class DMZ,INT zone
+  class DDOS,WAF,NGFW,SWG,EGP control
+  class CLI,WEB untrusted
